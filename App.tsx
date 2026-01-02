@@ -183,7 +183,7 @@ export default function App() {
       <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-20">
           <div>
-            <h2 className="text-4xl font-serif text-ink mb-3">Selected Works</h2>
+            <h2 className="text-4xl font-serif text-ink mb-3">Projects</h2>
             <p className="text-stone-500 font-light text-lg">Tools for a better digital life.</p>
           </div>
         </div>
