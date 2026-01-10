@@ -211,7 +211,7 @@ export default function App() {
           </p>
           
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <Button href="mailto:mikolajpiech44@gmail.com" variant="secondary" external>
+            <Button href="mailto:hello@mikolajpiech.com" variant="secondary" external>
               Email Me <Mail className="ml-2 w-4 h-4" />
             </Button>
             <Button href="https://www.linkedin.com/in/mikolajpiech/" variant="outline" className="text-off-white border-stone-700 hover:border-off-white hover:bg-stone-800" external>
@@ -225,7 +225,7 @@ export default function App() {
           <div className="mt-32 pt-12 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
             <p className="mb-4 md:mb-0">© {new Date().getFullYear()} Mikołaj Piech. All rights reserved.</p>
             <div className="flex gap-8">
-              <a href="mailto:mikolajpiech44@gmail.com" className="hover:text-off-white transition-colors">mikolajpiech44@gmail.com</a>
+              <a href="mailto:hello@mikolajpiech.com" className="hover:text-off-white transition-colors">hello@mikolajpiech.com</a>
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
                  <XLogo className="w-4 h-4" />
                  <span className="hidden md:inline">X</span>
