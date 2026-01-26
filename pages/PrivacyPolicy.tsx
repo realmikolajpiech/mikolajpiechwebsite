@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
           <h1 className="text-4xl md:text-5xl font-serif text-ink mb-10 leading-tight">Privacy Policy</h1>
           
           <div className="prose prose-stone prose-lg max-w-none font-light">
-            <p className="text-stone-500 mb-8">Last updated: November 25, 2025</p>
+            <p className="text-stone-500 mb-8">Last updated: January 26, 2026</p>
 
             <p className="mb-6">
               Mikołaj Piech ("I", "me", or "my") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how I collect, use, store, and protect information when you use my website (<a href="https://mikolajpiech.com" className="text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink transition-all">https://mikolajpiech.com</a>) and any mobile applications I publish on Google Play or the Apple App Store (collectively "the Services").
@@ -49,6 +49,7 @@ export default function PrivacyPolicy() {
               <li>Email address and password (when you create an account)</li>
               <li>Display name or nickname</li>
               <li>Photos of homework/exercises you take within certain apps (stored securely on your device and in the cloud only for your personal use)</li>
+              <li>User-provided images in the Meant app (which may contain faces or other personal depictions) – these are stored exclusively locally on your device and never uploaded to my servers</li>
               <li>Billing information processed through RevenueCat and the Google Play / Apple App Store payment systems (I never see or store your full payment card details)</li>
             </ul>
 
@@ -68,6 +69,7 @@ export default function PrivacyPolicy() {
               <li>To process subscriptions and payments via RevenueCat and the app stores</li>
               <li>To send push notifications (only if you allow them)</li>
               <li>To store your homework photos securely so you can access them across your devices</li>
+              <li>In the Meant app: To enable user-requested AI image editing and generation by transmitting images to Google's Gemini API</li>
               <li>For analytics and crash reporting (to fix bugs and improve the apps)</li>
               <li>In the future, if I display ads via Google AdMob: to serve and measure personalized or non-personalized ads</li>
             </ul>
@@ -116,6 +118,11 @@ export default function PrivacyPolicy() {
                     <td className="py-2 pr-4"><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-ink">firebase.google.com</a></td>
                   </tr>
                   <tr>
+                    <td className="py-2 pr-4">Google LLC (Gemini API)</td>
+                    <td className="py-2 pr-4">AI image generation and editing in the Meant app</td>
+                    <td className="py-2 pr-4"><a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-ink">ai.google.dev/gemini-api/terms</a></td>
+                  </tr>
+                  <tr>
                     <td className="py-2 pr-4">Google AdMob (future)</td>
                     <td className="py-2 pr-4">Advertising (if implemented)</td>
                     <td className="py-2 pr-4"><a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer" className="underline hover:text-ink">support.google.com</a></td>
@@ -126,12 +133,33 @@ export default function PrivacyPolicy() {
 
             <p className="mb-6">Data is primarily stored in the United States and the European Union.</p>
 
-            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">5. Data Retention</h3>
+            {/* New dedicated section for Meant app image/face data – this makes it easy for Apple to find */}
+            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">5. Image Data and Face Data in the Meant App</h3>
+            <p className="mb-4">
+              In the Meant app, you may provide images (via camera or photo library) that contain human faces for AI-based editing and generation. These images constitute pixel data and may include sensitive face depictions.
+            </p>
+            <p className="mb-4">
+              <strong>Collection and Storage:</strong> Images are stored exclusively locally on your device in the app's private storage. I do not collect, upload, or store any images on my servers or in any database.
+            </p>
+            <p className="mb-4">
+              <strong>Use:</strong> Images are processed locally and sent to Google's Gemini API solely to perform the user-requested AI image generation or editing. The app performs no facial recognition, biometric extraction, identification, tracking, or profiling.
+            </p>
+            <p className="mb-4">
+              <strong>Disclosure and Sharing:</strong> Images are shared only with Google LLC (as the Gemini API provider) for temporary processing. The Meant app uses the paid tier of the Gemini API, where your inputs (including images) and outputs are <strong>not used to train or improve Google's models</strong>.
+            </p>
+            <p className="mb-4">
+              <strong>Retention:</strong> Images are retained only on your device until you delete them or uninstall the app. Google processes images transiently and retains them only as necessary for API service provision (typically briefly; no long-term storage for training).
+            </p>
             <p className="mb-6">
-              I keep your data only as long as your account exists or as needed to provide the Services. You can delete your account (and all associated data including homework photos) at any time from within the app settings.
+              For full details on Google's data handling, please see the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer" className="text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink transition-all">Gemini API Terms of Service</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink transition-all">Google Privacy Policy</a>.
             </p>
 
-            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">6. Your Rights & Choices</h3>
+            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">6. Data Retention</h3>
+            <p className="mb-6">
+              I keep your data only as long as your account exists or as needed to provide the Services. You can delete your account (and all associated data including homework photos) at any time from within the app settings. For images in the Meant app, retention is local to your device only.
+            </p>
+
+            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">7. Your Rights & Choices</h3>
             <ul className="list-disc pl-6 space-y-2 mb-6 text-stone-600">
               <li>Access, correct, or delete your personal data</li>
               <li>Withdraw consent (e.g., for push notifications or personalized ads)</li>
@@ -145,27 +173,27 @@ export default function PrivacyPolicy() {
               To exercise any right, contact me at <a href="mailto:contact@mikolajpiech.com" className="text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink transition-all">contact@mikolajpiech.com</a>.
             </p>
 
-            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">7. Children’s Privacy</h3>
+            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">8. Children’s Privacy</h3>
             <p className="mb-6">
               My apps are not directed to children under 13 (or 16 in the EEA). I do not knowingly collect personal information from children. If I learn that a child has provided personal information, I will delete it immediately.
             </p>
 
-            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">8. Security</h3>
+            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">9. Security</h3>
             <p className="mb-6">
               I use industry-standard technical and organizational measures (encryption, secure cloud providers, access controls) to protect your data.
             </p>
 
-            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">9. International Transfers</h3>
+            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">10. International Transfers</h3>
             <p className="mb-6">
               Your data may be transferred to — and stored in — the United States or other countries outside your residence. I use appropriate safeguards (EU Standard Contractual Clauses, etc.) when required.
             </p>
 
-            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">10. Changes to This Policy</h3>
+            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">11. Changes to This Policy</h3>
             <p className="mb-6">
               I may update this Privacy Policy from time to time. The new version will be posted on this page with an updated "Last updated" date. Significant changes will be notified inside the apps.
             </p>
 
-            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">11. Contact Me</h3>
+            <h3 className="text-2xl font-serif text-ink mt-10 mb-4">12. Contact Me</h3>
             <p className="mb-2">Mikołaj Piech</p>
             <p className="mb-2">Email: <a href="mailto:contact@mikolajpiech.com" className="text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink transition-all">contact@mikolajpiech.com</a></p>
             <p className="mb-6">Website: <a href="https://mikolajpiech.com" className="text-ink underline decoration-stone-300 underline-offset-4 hover:decoration-ink transition-all">https://mikolajpiech.com</a></p>
