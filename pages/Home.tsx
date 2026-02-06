@@ -110,7 +110,7 @@ export default function Home() {
               <h1 className="text-6xl md:text-8xl font-serif font-light leading-[0.95] text-ink mb-6 tracking-tight">
                 Builder.<br/>
                 <span className="font-serif-italic text-stone-400">Founder.</span><br/>
-                Minimalist.
+                Curious.
               </h1>
             </motion.div>
             
@@ -124,7 +124,7 @@ export default function Home() {
                 I'm <span className="text-ink font-medium">Mikołaj</span>, an app and web developer from Poland.
               </p>
               <p className="text-lg md:text-xl text-stone-600 leading-relaxed font-light">
-                I build tools that solve problems and make life easier - all while doing work I genuinely love. Currently pouring most of my energy into my biggest project yet: <a href="https://heyomni.app" target="_blank" rel="noopener noreferrer" className="text-ink hover:underline decoration-stone-300 underline-offset-4">Omni</a>.
+                I build tools that solve problems and make life easier - all while doing work I genuinely love. <br/><br/>Currently working on <a href="https://heyomni.app" target="_blank" rel="noopener noreferrer" className="text-ink hover:underline decoration-stone-300 underline-offset-4">Omni</a> — an app that changes how we use our computers.
               </p>
             </motion.div>
 
@@ -160,6 +160,88 @@ export default function Home() {
       </section>
 
       
+
+      <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="mb-16 max-w-xl">
+          <h2 className="text-4xl font-serif text-ink mb-3">Timeline</h2>
+          <p className="text-stone-500 font-light text-lg">Projects and milestones in chronological order.</p>
+        </div>
+
+        {(() => {
+          const byId = Object.fromEntries(projects.map(p => [p.id, p]));
+          const timelineIcons: Record<string, string> = {
+            omni: 'https://www.omniaios.com/assets/omni.png',
+          };
+          const timeline: Array<{ date: string; title: string; description: string; revenue?: string; projectId?: string }> = [
+            { date: 'February 2026', title: 'Solvee acquired', description: 'Solvee got acquired', projectId: 'solvee' },
+            { date: 'December 2025', title: 'Omni', description: 'Started working on Omni – local AI companion', projectId: 'omni' },
+            { date: 'December 2025', title: 'Curio', description: 'Started working on Curio – personalized AI learning', projectId: 'curio' },
+            { date: 'December 2025', title: 'Subby', description: 'Released Subscription Manager to track trials and expenses', revenue: 'All-time revenue: $384', projectId: 'subby' },
+            { date: 'March 2025', title: 'Solvee', description: 'Launched AI Homework Helper on iOS and Android', revenue: 'All-time revenue: $335', projectId: 'solvee' },
+          ];
+
+          return (
+            <div className="relative">
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-stone-200"></div>
+              <ul className="space-y-6 md:space-y-8">
+                {timeline.map((item, index) => {
+                  const isLeft = index % 2 === 0;
+                  return (
+                    <motion.li
+                      key={`${item.title}-${item.date}-${index}`}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <div className="grid md:grid-cols-12 items-center">
+                        <div className={`md:col-span-5 ${isLeft ? 'order-1 md:order-1 pr-6 text-right' : 'order-3 md:order-3 pl-6 text-left'}`}>
+                          <div className="inline-flex flex-col gap-2 bg-white border border-stone-100 rounded-2xl px-5 py-4 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
+                            <div className="flex items-center justify-between gap-4">
+                              <div className="flex items-center gap-3">
+                                {item.projectId && (timelineIcons[item.projectId] ?? byId[item.projectId]?.icon) ? (
+                                  <img
+                                    src={timelineIcons[item.projectId] ?? byId[item.projectId]?.icon}
+                                    alt={item.title}
+                                    className="w-8 h-8 rounded-[22%] object-cover bg-white ring-1 ring-black/5"
+                                  />
+                                ) : item.projectId ? (
+                                  <div className="w-8 h-8 rounded-[22%] bg-stone-200 flex items-center justify-center ring-1 ring-black/5">
+                                    <span className="text-xs font-semibold text-ink">
+                                      {byId[item.projectId]?.name?.[0] ?? item.title[0]}
+                                    </span>
+                                  </div>
+                                ) : null}
+                                <div className="text-ink text-lg font-serif">{item.title}</div>
+                              </div>
+                              <span className="text-[10px] px-3 py-1 rounded-full bg-stone-50 border border-stone-200 text-stone-600 tracking-wide">
+                                {item.date}
+                              </span>
+                            </div>
+                            <div className="text-stone-600 leading-relaxed font-light text-sm">{item.description}</div>
+                            {item.revenue && (
+                              <div className="mt-2 inline-flex items-center gap-2">
+                                <span className="text-[10px] px-3 py-1 rounded-full bg-stone-100 text-ink border border-stone-200">{item.revenue}</span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div className="md:col-span-2 order-2 md:order-2 flex items-center">
+                          <div className="relative w-full flex items-center justify-center">
+                            <div className="w-3 h-3 rounded-full bg-ink ring-4 ring-off-white shadow-sm relative z-10"></div>
+                            <div className={`absolute h-px bg-stone-300 ${isLeft ? 'left-0 right-1/2' : 'left-1/2 right-0'}`}></div>
+                          </div>
+                        </div>
+                        <div className={`md:col-span-5 ${isLeft ? 'order-3 md:order-3' : 'order-1 md:order-1'}`}></div>
+                      </div>
+                    </motion.li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })()}
+      </section>
 
       {/* Projects Grid */}
       <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
