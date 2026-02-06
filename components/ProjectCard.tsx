@@ -17,11 +17,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
         className="group relative flex flex-row min-h-[500px] w-full overflow-hidden rounded-[2rem] bg-white border border-stone-100 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500"
       >
+        {project.status && (
+          <div className="absolute top-5 left-5 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full border border-stone-100 z-20 shadow-sm">
+            <span className="text-[10px] uppercase font-bold tracking-widest text-stone-500">{project.status}</span>
+          </div>
+        )}
         {/* Left Side: Content */}
         <div className="flex flex-col justify-between w-[55%] p-6 md:p-8 relative bg-white z-10">
           <div>
@@ -89,8 +93,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className={`group relative flex flex-col ${isPrimary ? 'md:col-span-2 h-auto' : 'min-h-[450px]'} w-full overflow-hidden rounded-[2rem] bg-white border border-stone-100 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500`}
     >

@@ -19,13 +19,13 @@ const XLogo = ({ className }: { className?: string }) => (
 // Data Configuration
 const projects: Project[] = [
   {
-    id: 'omnios',
-    name: 'OmniOS',
-    tagline: 'The OS that thinks like you.',
-    description: 'A fully local, privacy-focused operating system where AI isn\'t just a feature—it\'s the core. Semantic understanding, proactive intelligence, and privacy by design. Join the future of personal computing.',
-    link: 'https://omniaios.com',
-    status: 'Coming Early 2026',
-    tags: ['AI Native', 'OS', 'Privacy', 'Open Source'],
+      id: 'omni',
+      name: 'Omni',
+      tagline: 'Your local AI companion.',
+      description: 'Control everything with natural language: find files by meaning, install apps, adjust settings, and organize your workspace. Omni runs entirely on your local hardware—private by design.',
+      link: 'https://heyomni.app',
+      status: 'Early Access',
+      tags: ['AI', 'Local', 'Privacy'],
     isPrimary: true,
     image: omniImage,
     linkText: 'Learn more and join waitlist'
@@ -44,9 +44,10 @@ const projects: Project[] = [
     id: 'solvee',
     name: 'Solvee',
     tagline: 'AI Homework Helper',
-    description: 'Helping over 25k+ students solve problems instantly. Scan, solve, and understand with detailed AI explanations. Available on iOS and Android.',
+    description: 'I sold the app. It helped over 25k+ students solve problems instantly with detailed AI explanations. Available on iOS and Android.',
     link: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
     tags: ['Mobile App', 'Education', 'AI'],
+    status: 'Sold',
     appStoreLink: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
     playStoreLink: 'https://play.google.com/store/apps/details?id=com.mikolajpiech.solvee',
     icon: 'https://play-lh.googleusercontent.com/pF3GMpXEu5E7BBxasZZWhxoR2om3Z5m3K-7u2zwgZ0w0-PXVLAeEya9rxbDRxDctG1s=w240-h480-rw',
@@ -123,7 +124,7 @@ export default function Home() {
                 I'm <span className="text-ink font-medium">Mikołaj</span>, an app and web developer from Poland.
               </p>
               <p className="text-lg md:text-xl text-stone-600 leading-relaxed font-light">
-                I build tools that solve problems and make life easier - all while doing work I genuinely love. Currently pouring most of my energy into my biggest project yet: <a href="https://omniaios.com" target="_blank" rel="noopener noreferrer" className="text-ink hover:underline decoration-stone-300 underline-offset-4">OmniOS</a>.
+                I build tools that solve problems and make life easier - all while doing work I genuinely love. Currently pouring most of my energy into my biggest project yet: <a href="https://heyomni.app" target="_blank" rel="noopener noreferrer" className="text-ink hover:underline decoration-stone-300 underline-offset-4">Omni</a>.
               </p>
             </motion.div>
 
@@ -144,7 +145,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="md:col-span-5 relative"
+            className="md:col-span-5 relative self-start"
           >
             <div className="aspect-[3/4] md:aspect-square relative overflow-hidden rounded-full md:rounded-[3rem] group">
               <img 
@@ -158,27 +159,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section className="py-32 bg-white border-t border-b border-stone-100">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-xs uppercase tracking-widest text-stone-400 mb-6 block">Philosophy</span>
-            <h2 className="text-4xl md:text-6xl font-serif text-ink mb-10 leading-tight">
-              "Simplicity is the <span className="font-serif-italic">ultimate</span> sophistication."
-            </h2>
-            <p className="text-stone-500 max-w-2xl mx-auto leading-relaxed text-lg font-light">
-              I believe in technology that feels human. No clutter, no dark patterns, no noise.
-              Just clean, privacy-focused software that respects your attention and your data. 
-              This is the foundation of OmniOS and everything I build.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* Projects Grid */}
       <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
