@@ -8,6 +8,7 @@ import omniImage from '../assets/omni.jpeg';
 import curioImage from '../assets/curio.png';
 import solveeImage from '../assets/solvee-listing.jpeg';
 import subbyImage from '../assets/subby-listing.jpeg';
+import platoicLogo from '../assets/platoic-logo.png';
 import { Link } from 'react-router-dom';
 
 const XLogo = ({ className }: { className?: string }) => (
@@ -31,8 +32,8 @@ const projects: Project[] = [
     linkText: 'Learn more and join waitlist'
   },
   {
-    id: 'curio',
-    name: 'Curio',
+    id: 'platoic',
+    name: 'Platoic',
     tagline: 'Master the art of knowing.',
     description: 'Master any topic with a personalized AI curriculum that curates the web\'s best resources into your perfect learning path. Constant AI guidance for your curiosity.',
     link: 'https://ailearningapp.vercel.app',
@@ -171,13 +172,14 @@ export default function Home() {
           const byId = Object.fromEntries(projects.map(p => [p.id, p]));
           const timelineIcons: Record<string, string> = {
             omni: 'https://www.omniaios.com/assets/omni.png',
+            platoic: platoicLogo,
           };
           const timeline: Array<{ date: string; title: string; description: string; revenue?: string; projectId?: string }> = [
             { date: 'February 2026', title: 'Solvee acquired', description: 'Solvee got acquired', projectId: 'solvee' },
             { date: 'December 2025', title: 'Omni', description: 'Started working on Omni – local AI companion', projectId: 'omni' },
-            { date: 'December 2025', title: 'Curio', description: 'Started working on Curio – personalized AI learning', projectId: 'curio' },
-            { date: 'December 2025', title: 'Subby', description: 'Released Subscription Manager to track trials and expenses', revenue: 'All-time revenue: $384', projectId: 'subby' },
-            { date: 'March 2025', title: 'Solvee', description: 'Launched AI Homework Helper on iOS and Android', revenue: 'All-time revenue: $335', projectId: 'solvee' },
+            { date: 'December 2025', title: 'Platoic', description: 'Started working on Platoic – personalized AI learning platform', projectId: 'platoic' },
+            { date: 'December 2025', title: 'Subby', description: 'Released a subscription manager app to track trials and subscriptions', revenue: 'All-time revenue: $454', projectId: 'subby' },
+            { date: 'March 2025', title: 'Solvee', description: 'Launched an AI homework helper app on iOS and Android', revenue: 'All-time revenue: $335', projectId: 'solvee' },
           ];
 
           return (
@@ -270,8 +272,8 @@ export default function Home() {
           >
             Let's build the <br/><span className="font-serif-italic text-stone-500">future</span>.
           </motion.h2>
-          <p className="text-stone-400 text-xl mb-12 max-w-xl mx-auto font-light leading-relaxed">
-            Always excited to connect with fellow founders, builders, and tech enthusiasts.
+          <p className="text-stone-400 text-xl mb-12 max-w-xxl mx-auto font-light leading-relaxed">
+            Always excited to work on new projects and meet other builders.
           </p>
           
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
