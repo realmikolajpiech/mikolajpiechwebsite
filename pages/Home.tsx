@@ -150,7 +150,7 @@ export default function Home() {
           >
             <div className="aspect-[3/4] md:aspect-square relative overflow-hidden rounded-full md:rounded-[3rem] group">
               <img 
-                src="https://pbs.twimg.com/profile_images/2007024280098205696/cEOCvzEr_400x400.jpg" 
+                src="/mikolaj-profile.jpg" 
                 alt="Mikołaj Piech"
                 className="w-full h-full object-cover group-hover:grayscale transition-all duration-1000 ease-in-out"
               />
