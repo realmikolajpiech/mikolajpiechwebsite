@@ -174,12 +174,12 @@ export default function Home() {
             omni: 'https://www.omniaios.com/assets/omni.png',
             platoic: platoicLogo,
           };
-          const timeline: Array<{ date: string; title: string; description: string; revenue?: string; projectId?: string }> = [
+          const timeline: Array<{ date: string; title: string; description: string; projectId?: string }> = [
             { date: 'February 2026', title: 'Solvee acquired', description: 'Solvee got acquired', projectId: 'solvee' },
             { date: 'December 2025', title: 'Omni', description: 'Started working on Omni – local AI companion', projectId: 'omni' },
             { date: 'December 2025', title: 'Platoic', description: 'Started working on Platoic – personalized AI learning platform', projectId: 'platoic' },
-            { date: 'December 2025', title: 'Subby', description: 'Released a subscription manager app to track trials and subscriptions', revenue: 'All-time revenue: $454', projectId: 'subby' },
-            { date: 'March 2025', title: 'Solvee', description: 'Launched an AI homework helper app on iOS and Android', revenue: 'All-time revenue: $335', projectId: 'solvee' },
+            { date: 'December 2025', title: 'Subby', description: 'Released a subscription manager app to track trials and subscriptions', projectId: 'subby' },
+            { date: 'March 2025', title: 'Solvee', description: 'Launched an AI homework helper app on iOS and Android', projectId: 'solvee' },
           ];
 
           return (
@@ -221,11 +221,6 @@ export default function Home() {
                               </span>
                             </div>
                             <div className="text-stone-600 leading-relaxed font-light text-sm text-left">{item.description}</div>
-                            {item.revenue && (
-                              <div className="mt-2 inline-flex items-center gap-2">
-                                <span className="text-[10px] px-3 py-1 rounded-full bg-stone-100 text-ink border border-stone-200">{item.revenue}</span>
-                              </div>
-                            )}
                           </div>
                         </div>
                         <div className="col-span-1 md:col-span-2 order-1 md:order-2 flex items-center justify-center">

@@ -148,13 +148,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       {/* Content Area */}
       <div className="flex flex-col justify-between flex-grow p-8 md:px-10 md:pt-10 md:pb-6 relative bg-white">
         <div>
-          <div className="flex justify-between items-start mb-3">
+          <div className={`flex ${isPrimary ? 'flex-col md:flex-row gap-4 md:gap-0' : 'justify-between'} items-start mb-3`}>
             <h3 className="text-3xl font-serif text-ink">{project.name}</h3>
             {project.linkText ? (
               <Button 
                 href={project.link} 
                 external 
-                className="!py-2 !px-5 !text-xs tracking-wide -mt-1"
+                className="!py-2 !px-5 !text-xs tracking-wide -mt-1 w-full md:w-auto text-center justify-center"
               >
                 {project.linkText}
               </Button>
