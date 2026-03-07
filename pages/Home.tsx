@@ -22,11 +22,11 @@ const projects: Project[] = [
   {
       id: 'omni',
       name: 'Omni',
-      tagline: 'Your local AI companion.',
-      description: 'Control everything with natural language: find files by meaning, install apps, adjust settings, and organize your workspace. Omni runs entirely on your local hardware—private by design.',
+      tagline: 'The AI that knows you and your computer.',
+      description: 'Find files by meaning, manage email & calendar, install apps, change settings — just ask.',
       link: 'https://heyomni.app',
       status: 'Early Access',
-      tags: ['AI', 'Local', 'Privacy'],
+      tags: ['AI', 'Productivity'],
     isPrimary: true,
     image: omniImage,
     linkText: 'Learn more and join waitlist'
@@ -98,7 +98,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+      <section className="relative pt-28 md:pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-12 gap-12 items-center">
           
           {/* Text Content */}
@@ -108,7 +108,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h1 className="text-6xl md:text-8xl font-serif font-light leading-[0.95] text-ink mb-6 tracking-tight">
+              <h1 className="text-5xl md:text-8xl font-serif font-light leading-[0.95] text-ink mb-6 tracking-tight">
                 Builder.<br/>
                 <span className="font-serif-italic text-stone-400">Founder.</span><br/>
                 Curious.
@@ -184,7 +184,7 @@ export default function Home() {
 
           return (
             <div className="relative">
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-stone-200"></div>
+              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-stone-200"></div>
               <ul className="space-y-6 md:space-y-8">
                 {timeline.map((item, index) => {
                   const isLeft = index % 2 === 0;
@@ -196,9 +196,9 @@ export default function Home() {
                       viewport={{ once: true, amount: 0.3 }}
                       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="grid md:grid-cols-12 items-center">
-                        <div className={`md:col-span-5 ${isLeft ? 'order-1 md:order-1 pr-6 text-right' : 'order-3 md:order-3 pl-6 text-left'}`}>
-                          <div className="inline-flex flex-col gap-2 bg-white border border-stone-100 rounded-2xl px-5 py-4 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)]">
+                      <div className="grid grid-cols-[3rem_1fr] md:grid-cols-12 items-center gap-4 md:gap-0">
+                        <div className={`col-span-1 md:col-span-5 order-2 ${isLeft ? 'md:order-1 md:pr-6 md:text-right' : 'md:order-3 md:pl-6 text-left'}`}>
+                          <div className="inline-flex flex-col gap-2 bg-white border border-stone-100 rounded-2xl px-5 py-4 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] w-full md:w-auto">
                             <div className="flex items-center justify-between gap-4">
                               <div className="flex items-center gap-3">
                                 {item.projectId && (timelineIcons[item.projectId] ?? byId[item.projectId]?.icon) ? (
@@ -216,11 +216,11 @@ export default function Home() {
                                 ) : null}
                                 <div className="text-ink text-lg font-serif">{item.title}</div>
                               </div>
-                              <span className="text-[10px] px-3 py-1 rounded-full bg-stone-50 border border-stone-200 text-stone-600 tracking-wide">
+                              <span className="text-[10px] px-3 py-1 rounded-full bg-stone-50 border border-stone-200 text-stone-600 tracking-wide whitespace-nowrap">
                                 {item.date}
                               </span>
                             </div>
-                            <div className="text-stone-600 leading-relaxed font-light text-sm">{item.description}</div>
+                            <div className="text-stone-600 leading-relaxed font-light text-sm text-left">{item.description}</div>
                             {item.revenue && (
                               <div className="mt-2 inline-flex items-center gap-2">
                                 <span className="text-[10px] px-3 py-1 rounded-full bg-stone-100 text-ink border border-stone-200">{item.revenue}</span>
@@ -228,13 +228,13 @@ export default function Home() {
                             )}
                           </div>
                         </div>
-                        <div className="md:col-span-2 order-2 md:order-2 flex items-center">
-                          <div className="relative w-full flex items-center justify-center">
-                            <div className="w-3 h-3 rounded-full bg-ink ring-4 ring-off-white shadow-sm relative z-10"></div>
-                            <div className={`absolute h-px bg-stone-300 ${isLeft ? 'left-0 right-1/2' : 'left-1/2 right-0'}`}></div>
+                        <div className="col-span-1 md:col-span-2 order-1 md:order-2 flex items-center justify-center">
+                          <div className="relative w-full flex items-center justify-center h-full">
+                            <div className="w-3 h-3 rounded-full bg-ink ring-4 ring-off-white shadow-sm relative z-10 shrink-0"></div>
+                            <div className={`hidden md:block absolute h-px bg-stone-300 ${isLeft ? 'left-0 right-1/2' : 'left-1/2 right-0'}`}></div>
                           </div>
                         </div>
-                        <div className={`md:col-span-5 ${isLeft ? 'order-3 md:order-3' : 'order-1 md:order-1'}`}></div>
+                        <div className={`hidden md:block md:col-span-5 ${isLeft ? 'md:order-3' : 'md:order-1'}`}></div>
                       </div>
                     </motion.li>
                   );
@@ -246,8 +246,8 @@ export default function Home() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-20">
+      <section className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="flex justify-between items-end mb-12 md:mb-20">
           <div>
             <h2 className="text-4xl font-serif text-ink mb-3">Projects</h2>
             <p className="text-stone-500 font-light text-lg">Tools for a better digital life.</p>
@@ -262,13 +262,13 @@ export default function Home() {
       </section>
 
       {/* Connect/Footer */}
-      <footer id="contact" className="bg-ink text-off-white py-32 px-6">
+      <footer id="contact" className="bg-ink text-off-white py-20 md:py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-8xl font-serif font-light mb-10 leading-[0.9]"
+            className="text-4xl md:text-8xl font-serif font-light mb-8 md:mb-10 leading-[0.9]"
           >
             Let's build the <br/><span className="font-serif-italic text-stone-500">future</span>.
           </motion.h2>
@@ -288,9 +288,9 @@ export default function Home() {
             </Button>
           </div>
 
-          <div className="mt-32 pt-12 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
+          <div className="mt-20 md:mt-32 pt-12 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
             <p className="mb-4 md:mb-0">© {new Date().getFullYear()} Mikołaj Piech. All rights reserved.</p>
-            <div className="flex gap-8 items-center">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center">
               <a href="mailto:hello@mikolajpiech.com" className="hover:text-off-white transition-colors">hello@mikolajpiech.com</a>
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
                  <XLogo className="w-4 h-4" />

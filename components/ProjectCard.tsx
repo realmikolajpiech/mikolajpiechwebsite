@@ -19,7 +19,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="group relative flex flex-row min-h-[500px] w-full overflow-hidden rounded-[2rem] bg-white border border-stone-100 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500"
+        className="group relative flex flex-col-reverse md:flex-row min-h-auto md:min-h-[500px] w-full overflow-hidden rounded-[2rem] bg-white border border-stone-100 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500"
       >
         {project.status && (
           <div className="absolute top-5 left-5 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full border border-stone-100 z-20 shadow-sm">
@@ -27,7 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </div>
         )}
         {/* Left Side: Content */}
-        <div className="flex flex-col justify-between w-[55%] p-6 md:p-8 relative bg-white z-10">
+        <div className="flex flex-col justify-between w-full md:w-[55%] p-6 md:p-8 relative bg-white z-10">
           <div>
             <div className="flex items-center gap-4 mb-6">
               {project.icon && (
@@ -75,7 +75,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
 
         {/* Right Side: Image */}
-        <div className="relative w-[45%] bg-[#F5F5F7] overflow-hidden">
+        <div className="relative w-full md:w-[45%] h-64 md:h-auto bg-[#F5F5F7] overflow-hidden">
            <div className="absolute inset-0 flex items-center justify-center py-8 px-4">
               <div className="relative h-full w-auto aspect-[9/19] rounded-[1.2rem] overflow-hidden shadow-md bg-white">
                 <img 
