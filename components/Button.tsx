@@ -25,6 +25,23 @@ export const Button: React.FC<ButtonProps> = ({ href, variant = 'primary', child
   );
 
   if (href) {
+    const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      // Handle smooth scrolling for internal links
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const element = document.getElementById(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      
+      // Call the original onClick if it exists
+      const { onClick } = props as React.AnchorHTMLAttributes<HTMLAnchorElement>;
+      if (onClick) {
+        onClick(e);
+      }
+    };
+
     return (
       <a 
         href={href} 
@@ -32,6 +49,7 @@ export const Button: React.FC<ButtonProps> = ({ href, variant = 'primary', child
         rel={external ? "noopener noreferrer" : undefined}
         className={`${baseStyles} ${variants[variant]} ${className}`}
         {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        onClick={handleAnchorClick}
       >
         {content}
       </a>

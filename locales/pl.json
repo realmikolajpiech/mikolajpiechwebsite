@@ -19,7 +19,7 @@
       "curious": "Curious."
     },
     "intro": "Jestem <1>Mikołaj</1>, buduję aplikacje i produkty w internecie.",
-    "description": "Buduję narzędzia, które rozwiązują realne problemy i ułatwiają życie.",
+    "description": "Tworzę narzędzia, które rozwiązują realne problemy i ułatwiają życie.",
     "current_work": "Obecnie pracuję nad <1>Omni</1> — aplikacją, która zmienia sposób, w jaki korzystamy z komputerów."
   },
   "timeline": {
@@ -49,7 +49,7 @@
       "solvee_launched": {
         "date": "Marzec 2025",
         "title": "Solvee",
-        "description": "Uruchomiłem Solvee — aplikację AI pomagającą w zadaniach domowych"
+        "description": "Wydałem Solvee — aplikację AI pomagającą w zadaniach domowych"
       }
     }
   },
