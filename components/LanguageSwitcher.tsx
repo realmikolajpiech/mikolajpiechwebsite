@@ -14,7 +14,7 @@ export const LanguageSwitcher = () => {
   return (
     <button
       onClick={toggleLanguage}
-      className="px-4 py-2 text-xs font-medium tracking-wide rounded-full border border-stone-200 text-ink hover:border-stone-400 backdrop-blur-sm transition-all duration-300 bg-white/50"
+      className="px-4 py-2 text-xs font-medium tracking-wide rounded-full border border-stone-200 dark:border-stone-700 text-ink dark:text-stone-50 hover:border-stone-400 dark:hover:border-stone-500 backdrop-blur-sm transition-all duration-300 bg-white/50 dark:bg-stone-900/50"
       aria-label="Switch language"
     >
       {isPolish ? 'EN' : 'PL'}

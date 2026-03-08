@@ -6,6 +6,7 @@ import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
 import { SchemaMarkup } from '../components/SchemaMarkup';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
+import { ThemeToggle } from '../components/ThemeToggle';
 import { Project } from '../types';
 import omniImage from '../assets/omni.jpeg';
 import curioImage from '../assets/curio.png';
@@ -25,7 +26,7 @@ const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => 
     href={href} 
     target="_blank" 
     rel="noopener noreferrer"
-    className="p-3 text-stone-400 hover:text-ink hover:bg-stone-100 rounded-full transition-all duration-300 flex items-center justify-center"
+    className="p-3 text-stone-400 hover:text-ink dark:hover:text-stone-50 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-all duration-300 flex items-center justify-center"
   >
     {icon}
   </a>
@@ -89,15 +90,16 @@ export default function Home() {
   ], [t]);
 
   return (
-    <div className="min-h-screen bg-off-white selection:bg-stone-200">
+    <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
       <SchemaMarkup projects={projects} />
       
       {/* Navigation / Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 transition-all duration-300">
-        <span className="font-serif italic text-xl tracking-tight text-ink">Mikołaj Piech</span>
+      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
+        <span className="font-serif italic text-xl tracking-tight text-ink dark:text-stone-50">Mikołaj Piech</span>
         <div className="flex gap-4 items-center">
+          <ThemeToggle />
           <LanguageSwitcher />
-          <Button href="#contact" variant="outline" className="!px-5 !py-2 !text-xs tracking-wide">
+          <Button href="#contact" variant="outline" className="!px-5 !py-2 !text-xs tracking-wide hidden sm:inline-flex">
             {t('common.get_in_touch')}
           </Button>
         </div>
@@ -114,7 +116,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h1 className="text-5xl md:text-8xl font-serif font-light leading-[0.95] text-ink mb-6 tracking-tight">
+              <h1 className="text-5xl md:text-8xl font-serif font-light leading-[0.95] text-ink dark:text-stone-50 mb-6 tracking-tight">
                 {t('hero.title.builder')}<br/>
                 <span className="font-serif-italic text-stone-400">{t('hero.title.founder')}</span><br/>
                 {t('hero.title.curious')}
@@ -127,15 +129,15 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-xl space-y-6"
             >
-              <p className="text-lg md:text-xl text-stone-600 leading-relaxed font-light">
-                <Trans i18nKey="hero.intro" components={{ 1: <span className="text-ink font-medium" /> }} />
+              <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
+                <Trans i18nKey="hero.intro" components={{ 1: <span className="text-ink dark:text-stone-50 font-medium" /> }} />
               </p>
-              <p className="text-lg md:text-xl text-stone-600 leading-relaxed font-light">
+              <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
                 {t('hero.description')} <br/><br/>
                 <Trans 
                   i18nKey="hero.current_work" 
                   components={{ 
-                    1: <a href="https://heyomni.app" target="_blank" rel="noopener noreferrer" className="text-ink hover:underline decoration-stone-300 underline-offset-4" /> 
+                    1: <a href="https://heyomni.app" target="_blank" rel="noopener noreferrer" className="text-ink dark:text-stone-50 hover:underline decoration-stone-300 underline-offset-4" /> 
                   }} 
                 />
               </p>
@@ -176,8 +178,8 @@ export default function Home() {
 
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="mb-16 max-w-xl">
-          <h2 className="text-4xl font-serif text-ink mb-3">{t('timeline.title')}</h2>
-          <p className="text-stone-500 font-light text-lg">{t('timeline.subtitle')}</p>
+          <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{t('timeline.title')}</h2>
+          <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{t('timeline.subtitle')}</p>
         </div>
 
         {(() => {
@@ -196,7 +198,7 @@ export default function Home() {
 
           return (
             <div className="relative">
-              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-stone-200"></div>
+              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-stone-200 dark:bg-stone-800"></div>
               <ul className="space-y-6 md:space-y-8">
                 {timeline.map((item, index) => {
                   const isLeft = index % 2 === 0;
@@ -210,7 +212,7 @@ export default function Home() {
                     >
                       <div className="grid grid-cols-[3rem_1fr] md:grid-cols-12 items-center gap-4 md:gap-0">
                         <div className={`col-span-1 md:col-span-5 order-2 ${isLeft ? 'md:order-1 md:pr-6 md:text-right' : 'md:order-3 md:pl-6 text-left'}`}>
-                          <div className="inline-flex flex-col gap-2 bg-white border border-stone-100 rounded-2xl px-5 py-4 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] w-full md:w-auto">
+                          <div className="inline-flex flex-col gap-2 bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 rounded-2xl px-5 py-4 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] w-full md:w-auto">
                             <div className="flex items-center justify-between gap-4">
                               <div className="flex items-center gap-3">
                                 {item.projectId && (timelineIcons[item.projectId] ?? byId[item.projectId]?.icon) ? (
@@ -220,8 +222,8 @@ export default function Home() {
                                     className="w-8 h-8 rounded-[22%] object-cover bg-white ring-1 ring-black/5"
                                   />
                                 ) : item.projectId ? (
-                                  <div className="w-8 h-8 rounded-[22%] bg-stone-200 flex items-center justify-center ring-1 ring-black/5">
-                                    <span className="text-xs font-semibold text-ink">
+                                  <div className="w-8 h-8 rounded-[22%] bg-stone-200 dark:bg-stone-800 flex items-center justify-center ring-1 ring-black/5">
+                                    <span className="text-xs font-semibold text-ink dark:text-stone-50">
                                       {byId[item.projectId]?.name?.[0] ?? item.title[0]}
                                     </span>
                                   </div>
@@ -231,25 +233,25 @@ export default function Home() {
                                     href={item.link} 
                                     target="_blank" 
                                     rel="noopener noreferrer" 
-                                    className="text-ink text-lg font-serif hover:underline decoration-stone-300 underline-offset-4"
+                                    className="text-ink dark:text-stone-50 text-lg font-serif hover:underline decoration-stone-300 underline-offset-4"
                                   >
                                     {item.title}
                                   </a>
                                 ) : (
-                                  <div className="text-ink text-lg font-serif">{item.title}</div>
+                                  <div className="text-ink dark:text-stone-50 text-lg font-serif">{item.title}</div>
                                 )}
                               </div>
-                              <span className="text-[10px] px-3 py-1 rounded-full bg-stone-50 border border-stone-200 text-stone-600 tracking-wide whitespace-nowrap">
+                              <span className="text-[10px] px-3 py-1 rounded-full bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 tracking-wide whitespace-nowrap">
                                 {item.date}
                               </span>
                             </div>
-                            <div className="text-stone-600 leading-relaxed font-light text-sm text-left">{item.description}</div>
+                            <div className="text-stone-600 dark:text-stone-400 leading-relaxed font-light text-sm text-left">{item.description}</div>
                           </div>
                         </div>
                         <div className="col-span-1 md:col-span-2 order-1 md:order-2 flex items-center justify-center">
                           <div className="relative w-full flex items-center justify-center h-full">
-                            <div className="w-3 h-3 rounded-full bg-ink ring-4 ring-off-white shadow-sm relative z-10 shrink-0"></div>
-                            <div className={`hidden md:block absolute h-px bg-stone-300 ${isLeft ? 'left-0 right-1/2' : 'left-1/2 right-0'}`}></div>
+                            <div className="w-3 h-3 rounded-full bg-ink dark:bg-stone-50 ring-4 ring-off-white dark:ring-stone-900 shadow-sm relative z-10 shrink-0"></div>
+                            <div className={`hidden md:block absolute h-px bg-stone-300 dark:bg-stone-700 ${isLeft ? 'left-0 right-1/2' : 'left-1/2 right-0'}`}></div>
                           </div>
                         </div>
                         <div className={`hidden md:block md:col-span-5 ${isLeft ? 'md:order-3' : 'md:order-1'}`}></div>
@@ -267,8 +269,8 @@ export default function Home() {
       <section className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-12 md:mb-20">
           <div>
-            <h2 className="text-4xl font-serif text-ink mb-3">{t('projects.title')}</h2>
-            <p className="text-stone-500 font-light text-lg">{t('projects.subtitle')}</p>
+            <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{t('projects.title')}</h2>
+            <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{t('projects.subtitle')}</p>
           </div>
         </div>
 

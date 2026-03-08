@@ -22,3 +22,5 @@ export interface SocialLink {
   url: string;
   icon: React.ReactNode;
 }
+
+export type Theme = 'light' | 'dark' | 'system';

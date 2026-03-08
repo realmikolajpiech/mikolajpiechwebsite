@@ -12,9 +12,9 @@ export const Button: React.FC<ButtonProps> = ({ href, variant = 'primary', child
   const baseStyles = "inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-300 ease-out rounded-full group";
   
   const variants = {
-    primary: "bg-ink text-off-white hover:bg-stone-800 hover:scale-[1.02]",
-    secondary: "bg-stone-100 text-ink hover:bg-stone-200",
-    outline: "border border-stone-200 text-ink hover:border-stone-400 backdrop-blur-sm"
+    primary: "bg-ink text-off-white hover:bg-stone-800 hover:scale-[1.02] dark:bg-stone-100 dark:text-ink dark:hover:bg-stone-200",
+    secondary: "bg-stone-100 text-ink hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-50 dark:hover:bg-stone-700",
+    outline: "border border-stone-200 text-ink hover:border-stone-400 backdrop-blur-sm dark:border-stone-700 dark:text-stone-50 dark:hover:border-stone-500"
   };
 
   const content = (
