@@ -178,7 +178,7 @@ export default function Home() {
           };
           const timeline: Array<{ date: string; title: string; description: string; projectId?: string }> = [
             { date: 'February 2026', title: 'Solvee acquired', description: 'Solvee got acquired', projectId: 'solvee' },
-            { date: 'December 2025', title: 'Omni', description: 'Started working on Omni – local AI companion', projectId: 'omni' },
+            { date: 'December 2025', title: 'Omni', description: 'Started working on Omni – the AI that knows you and your computer', projectId: 'omni' },
             { date: 'December 2025', title: 'Platoic', description: 'Started working on Platoic – personalized AI learning platform', projectId: 'platoic' },
             { date: 'December 2025', title: 'Subby', description: 'Released a subscription manager app to track trials and subscriptions', projectId: 'subby' },
             { date: 'March 2025', title: 'Solvee', description: 'Launched an AI homework helper app on iOS and Android', projectId: 'solvee' },
