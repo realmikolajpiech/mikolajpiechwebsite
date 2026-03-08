@@ -173,12 +173,12 @@ export default function Home() {
         {(() => {
           const byId = Object.fromEntries(projects.map(p => [p.id, p]));
           const timelineIcons: Record<string, string> = {
-            omni: 'https://www.omniaios.com/assets/omni.png',
+            omni: 'https://www.heyomni.app/assets/omni.png',
             platoic: platoicLogo,
           };
-          const timeline: Array<{ date: string; title: string; description: string; projectId?: string }> = [
-            { date: 'February 2026', title: 'Solvee acquired', description: 'Solvee got acquired', projectId: 'solvee' },
-            { date: 'December 2025', title: 'Omni', description: 'Started working on Omni – the AI that knows you and your computer', projectId: 'omni' },
+          const timeline: Array<{ date: string; title: string; description: string; projectId?: string; link?: string }> = [
+            { date: 'February 2026', title: 'Solvee acquired', description: 'Solvee got acquired $$$$', projectId: 'solvee' },
+            { date: 'December 2025', title: 'Omni', description: 'Started working on Omni – the AI that knows you and your computer', projectId: 'omni', link: 'https://heyomni.app' },
             { date: 'December 2025', title: 'Platoic', description: 'Started working on Platoic – personalized AI learning platform', projectId: 'platoic' },
             { date: 'December 2025', title: 'Subby', description: 'Released a subscription manager app to track trials and subscriptions', projectId: 'subby' },
             { date: 'March 2025', title: 'Solvee', description: 'Launched an AI homework helper app on iOS and Android', projectId: 'solvee' },
@@ -216,7 +216,18 @@ export default function Home() {
                                     </span>
                                   </div>
                                 ) : null}
-                                <div className="text-ink text-lg font-serif">{item.title}</div>
+                                {item.link ? (
+                                  <a 
+                                    href={item.link} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="text-ink text-lg font-serif hover:underline decoration-stone-300 underline-offset-4"
+                                  >
+                                    {item.title}
+                                  </a>
+                                ) : (
+                                  <div className="text-ink text-lg font-serif">{item.title}</div>
+                                )}
                               </div>
                               <span className="text-[10px] px-3 py-1 rounded-full bg-stone-50 border border-stone-200 text-stone-600 tracking-wide whitespace-nowrap">
                                 {item.date}
