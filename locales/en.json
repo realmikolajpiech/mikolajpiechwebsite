@@ -1,0 +1,87 @@
+{
+  "common": {
+    "get_in_touch": "Get in touch",
+    "email_me": "Email Me",
+    "linkedin": "LinkedIn",
+    "privacy_policy": "Privacy Policy",
+    "all_rights_reserved": "© {{year}} Mikołaj Piech. All rights reserved."
+  },
+  "not_found": {
+    "title": "Lost?",
+    "description": "The page you are looking for doesn't exist or has been moved. Let's get you back on track.",
+    "button": "Return Home",
+    "error_code": "Error 404"
+  },
+  "hero": {
+    "title": {
+      "builder": "Builder.",
+      "founder": "Founder.",
+      "curious": "Curious."
+    },
+    "intro": "I'm <1>Mikołaj</1>, building apps and products on the internet.",
+    "description": "I build tools that solve problems and make life easier - all while doing work I genuinely love.",
+    "current_work": "Currently working on <1>Omni</1> — an app that changes how we use our computers."
+  },
+  "timeline": {
+    "title": "Timeline",
+    "subtitle": "Projects and milestones in chronological order.",
+    "items": {
+      "solvee_acquired": {
+        "date": "February 2026",
+        "title": "Solvee acquired",
+        "description": "Solvee got acquired $$$$"
+      },
+      "omni_started": {
+        "date": "December 2025",
+        "title": "Omni",
+        "description": "Started working on Omni – the AI that knows you and your computer"
+      },
+      "platoic_started": {
+        "date": "December 2025",
+        "title": "Platoic",
+        "description": "Started working on Platoic – personalized AI learning platform"
+      },
+      "subby_released": {
+        "date": "December 2025",
+        "title": "Subby",
+        "description": "Released a subscription manager app to track trials and subscriptions"
+      },
+      "solvee_launched": {
+        "date": "March 2025",
+        "title": "Solvee",
+        "description": "Launched an AI homework helper app on iOS and Android"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Tools for a better digital life.",
+    "omni": {
+      "tagline": "The AI that knows you and your computer.",
+      "description": "Find files by meaning, manage email & calendar, install apps, change settings — just ask.",
+      "link_text": "Learn more and join waitlist",
+      "status": "Early Access"
+    },
+    "platoic": {
+      "tagline": "Master the art of knowing.",
+      "description": "Master any topic with a personalized AI curriculum that curates the web's best resources into your perfect learning path. Constant AI guidance for your curiosity.",
+      "status": "Launching Soon"
+    },
+    "solvee": {
+      "tagline": "AI Homework Helper",
+      "description": "I sold the app. It helped over 25k+ students solve problems instantly with detailed AI explanations. Available on iOS and Android.",
+      "status": "Sold"
+    },
+    "subby": {
+      "tagline": "Subscription Manager",
+      "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly."
+    }
+  },
+  "footer": {
+    "title": {
+      "part1": "Let's build the",
+      "part2": "future."
+    },
+    "description": "Always excited to work on new projects and meet other builders."
+  }
+}

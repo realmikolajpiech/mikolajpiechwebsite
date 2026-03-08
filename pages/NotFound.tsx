@@ -1,9 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../components/Button';
+import { LanguageSwitcher } from '../components/LanguageSwitcher';
 
 export default function NotFound() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-off-white selection:bg-stone-200 flex flex-col">
       
@@ -12,6 +16,9 @@ export default function NotFound() {
         <Link to="/" className="font-serif italic text-xl tracking-tight text-ink hover:opacity-80 transition-opacity">
           Mikołaj Piech
         </Link>
+        <div className="flex gap-4">
+          <LanguageSwitcher />
+        </div>
       </nav>
 
       {/* Content */}
@@ -25,15 +32,14 @@ export default function NotFound() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-xs uppercase tracking-widest text-stone-400 mb-6 block">Error 404</span>
+            <span className="text-xs uppercase tracking-widest text-stone-400 mb-6 block">{t('not_found.error_code')}</span>
             
             <h1 className="text-6xl md:text-9xl font-serif text-ink mb-8 leading-none">
-              Lost<span className="text-stone-300">?</span>
+              {t('not_found.title')}
             </h1>
             
             <p className="text-xl text-stone-500 font-light mb-12 leading-relaxed max-w-lg mx-auto">
-              The page you are looking for doesn't exist or has been moved. 
-              Let's get you back on track.
+              {t('not_found.description')}
             </p>
 
             <motion.div
@@ -42,7 +48,7 @@ export default function NotFound() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <Button href="/" variant="primary">
-                Return Home
+                {t('not_found.button')}
               </Button>
             </motion.div>
           </motion.div>
@@ -52,7 +58,7 @@ export default function NotFound() {
       {/* Simple Footer */}
       <footer className="py-8 px-6 text-center">
         <p className="text-sm text-stone-400 font-light">
-          © {new Date().getFullYear()} Mikołaj Piech
+          {t('common.all_rights_reserved', { year: new Date().getFullYear() })}
         </p>
       </footer>
     </div>

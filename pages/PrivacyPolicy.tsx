@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Mail, Linkedin, Github } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../components/Button';
+import { LanguageSwitcher } from '../components/LanguageSwitcher';
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -11,6 +13,8 @@ const XLogo = ({ className }: { className?: string }) => (
 );
 
 export default function PrivacyPolicy() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-off-white selection:bg-stone-200">
       
@@ -19,9 +23,10 @@ export default function PrivacyPolicy() {
         <Link to="/" className="font-serif italic text-xl tracking-tight text-ink hover:opacity-80 transition-opacity">
           Mikołaj Piech
         </Link>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
+          <LanguageSwitcher />
           <Button href="/#contact" variant="outline" className="!px-5 !py-2 !text-xs tracking-wide">
-            Get in touch
+            {t('common.get_in_touch')}
           </Button>
         </div>
       </nav>
@@ -59,7 +64,7 @@ export default function PrivacyPolicy() {
               <li>Approximate location (derived from IP address)</li>
               <li>Usage data and crash reports (via Expo and related tools)</li>
               <li>Push notification token (to send you notifications if you enable them)</li>
-              <li>In the future, if I add advertising: Advertising ID (IDFA on iOS, AAID on Android) – resettable by you</li>
+              <li>In the future, if I display ads: Advertising ID (IDFA on iOS, AAID on Android) – resettable by you</li>
             </ul>
 
             <h3 className="text-2xl font-serif text-ink mt-10 mb-4">2. How I Use Your Information</h3>
@@ -205,15 +210,15 @@ export default function PrivacyPolicy() {
       <footer id="contact" className="bg-ink text-off-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
-            <p className="mb-4 md:mb-0">© {new Date().getFullYear()} Mikołaj Piech. All rights reserved.</p>
+            <p className="mb-4 md:mb-0">{t('common.all_rights_reserved', { year: new Date().getFullYear() })}</p>
             <div className="flex gap-8 items-center">
               <a href="mailto:hello@mikolajpiech.com" className="hover:text-off-white transition-colors">hello@mikolajpiech.com</a>
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
                  <XLogo className="w-4 h-4" />
               </a>
-              <a href="https://www.linkedin.com/in/mikolajpiech/" className="hover:text-off-white transition-colors">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/mikolajpiech/" className="hover:text-off-white transition-colors">{t('common.linkedin')}</a>
               <a href="https://github.com/realmikolajpiech" className="hover:text-off-white transition-colors">GitHub</a>
-              <Link to="/privacy-policy" className="text-off-white transition-colors">Privacy Policy</Link>
+              <Link to="/privacy-policy" className="text-off-white transition-colors">{t('common.privacy_policy')}</Link>
             </div>
           </div>
         </div>

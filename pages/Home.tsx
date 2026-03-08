@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Github } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
 import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
 import { SchemaMarkup } from '../components/SchemaMarkup';
+import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import { Project } from '../types';
 import omniImage from '../assets/omni.jpeg';
 import curioImage from '../assets/curio.png';
@@ -18,61 +20,6 @@ const XLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Data Configuration
-const projects: Project[] = [
-  {
-      id: 'omni',
-      name: 'Omni',
-      tagline: 'The AI that knows you and your computer.',
-      description: 'Find files by meaning, manage email & calendar, install apps, change settings — just ask.',
-      link: 'https://heyomni.app',
-      status: 'Early Access',
-      tags: ['AI', 'Productivity'],
-    isPrimary: true,
-    image: omniImage,
-    linkText: 'Learn more and join waitlist'
-  },
-  {
-    id: 'platoic',
-    name: 'Platoic',
-    tagline: 'Master the art of knowing.',
-    description: 'Master any topic with a personalized AI curriculum that curates the web\'s best resources into your perfect learning path. Constant AI guidance for your curiosity.',
-    link: 'https://ailearningapp.vercel.app',
-    status: 'Launching Soon',
-    tags: ['EdTech', 'AI', 'Web Platform'],
-    image: curioImage
-  },
-  {
-    id: 'solvee',
-    name: 'Solvee',
-    tagline: 'AI Homework Helper',
-    description: 'I sold the app. It helped over 25k+ students solve problems instantly with detailed AI explanations. Available on iOS and Android.',
-    link: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
-    tags: ['Mobile App', 'Education', 'AI'],
-    status: 'Sold',
-    appStoreLink: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
-    playStoreLink: 'https://play.google.com/store/apps/details?id=com.mikolajpiech.solvee',
-    icon: 'https://play-lh.googleusercontent.com/pF3GMpXEu5E7BBxasZZWhxoR2om3Z5m3K-7u2zwgZ0w0-PXVLAeEya9rxbDRxDctG1s=w240-h480-rw',
-    // Using a vertical math/homework related image
-    image: solveeImage,
-    layout: 'split'
-  },
-  {
-    id: 'subby',
-    name: 'Subby',
-    tagline: 'Subscription Manager',
-    description: 'Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly.',
-    link: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
-    tags: ['FinTech', 'Utility', 'Mobile App'],
-    appStoreLink: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
-    playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.subby',
-    icon: 'https://play-lh.googleusercontent.com/prc2RCfFpOXnnFKvRE92ty0cWv1or2Kaxd4-PjxJadEFjVFDrvxPKCEZlWZliU5M4DJl2vlV-niOvPLadCM4=w240-h480-rw',
-    // Using a vertical clean interface/list image
-    image: subbyImage,
-    layout: 'split'
-  }
-];
-
 const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => (
   <a 
     href={href} 
@@ -85,6 +32,62 @@ const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => 
 );
 
 export default function Home() {
+  const { t } = useTranslation();
+
+  const projects: Project[] = useMemo(() => [
+    {
+      id: 'omni',
+      name: 'Omni',
+      tagline: t('projects.omni.tagline'),
+      description: t('projects.omni.description'),
+      link: 'https://heyomni.app',
+      status: t('projects.omni.status'),
+      tags: ['AI', 'Productivity'],
+      isPrimary: true,
+      image: omniImage,
+      linkText: t('projects.omni.link_text')
+    },
+    {
+      id: 'platoic',
+      name: 'Platoic',
+      tagline: t('projects.platoic.tagline'),
+      description: t('projects.platoic.description'),
+      link: 'https://ailearningapp.vercel.app',
+      status: t('projects.platoic.status'),
+      tags: ['EdTech', 'AI', 'Web Platform'],
+      image: curioImage
+    },
+    {
+      id: 'solvee',
+      name: 'Solvee',
+      tagline: t('projects.solvee.tagline'),
+      description: t('projects.solvee.description'),
+      link: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
+      tags: ['Mobile App', 'Education', 'AI'],
+      status: t('projects.solvee.status'),
+      appStoreLink: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
+      playStoreLink: 'https://play.google.com/store/apps/details?id=com.mikolajpiech.solvee',
+      icon: 'https://play-lh.googleusercontent.com/pF3GMpXEu5E7BBxasZZWhxoR2om3Z5m3K-7u2zwgZ0w0-PXVLAeEya9rxbDRxDctG1s=w240-h480-rw',
+      // Using a vertical math/homework related image
+      image: solveeImage,
+      layout: 'split'
+    },
+    {
+      id: 'subby',
+      name: 'Subby',
+      tagline: t('projects.subby.tagline'),
+      description: t('projects.subby.description'),
+      link: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
+      tags: ['FinTech', 'Utility', 'Mobile App'],
+      appStoreLink: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
+      playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.subby',
+      icon: 'https://play-lh.googleusercontent.com/prc2RCfFpOXnnFKvRE92ty0cWv1or2Kaxd4-PjxJadEFjVFDrvxPKCEZlWZliU5M4DJl2vlV-niOvPLadCM4=w240-h480-rw',
+      // Using a vertical clean interface/list image
+      image: subbyImage,
+      layout: 'split'
+    }
+  ], [t]);
+
   return (
     <div className="min-h-screen bg-off-white selection:bg-stone-200">
       <SchemaMarkup projects={projects} />
@@ -92,9 +95,10 @@ export default function Home() {
       {/* Navigation / Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 transition-all duration-300">
         <span className="font-serif italic text-xl tracking-tight text-ink">Mikołaj Piech</span>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
+          <LanguageSwitcher />
           <Button href="#contact" variant="outline" className="!px-5 !py-2 !text-xs tracking-wide">
-            Get in touch
+            {t('common.get_in_touch')}
           </Button>
         </div>
       </nav>
@@ -111,9 +115,9 @@ export default function Home() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               <h1 className="text-5xl md:text-8xl font-serif font-light leading-[0.95] text-ink mb-6 tracking-tight">
-                Builder.<br/>
-                <span className="font-serif-italic text-stone-400">Founder.</span><br/>
-                Curious.
+                {t('hero.title.builder')}<br/>
+                <span className="font-serif-italic text-stone-400">{t('hero.title.founder')}</span><br/>
+                {t('hero.title.curious')}
               </h1>
             </motion.div>
             
@@ -124,10 +128,16 @@ export default function Home() {
               className="max-w-xl space-y-6"
             >
               <p className="text-lg md:text-xl text-stone-600 leading-relaxed font-light">
-                I'm <span className="text-ink font-medium">Mikołaj</span>, an app and web developer from Poland.
+                <Trans i18nKey="hero.intro" components={{ 1: <span className="text-ink font-medium" /> }} />
               </p>
               <p className="text-lg md:text-xl text-stone-600 leading-relaxed font-light">
-                I build tools that solve problems and make life easier - all while doing work I genuinely love. <br/><br/>Currently working on <a href="https://heyomni.app" target="_blank" rel="noopener noreferrer" className="text-ink hover:underline decoration-stone-300 underline-offset-4">Omni</a> — an app that changes how we use our computers.
+                {t('hero.description')} <br/><br/>
+                <Trans 
+                  i18nKey="hero.current_work" 
+                  components={{ 
+                    1: <a href="https://heyomni.app" target="_blank" rel="noopener noreferrer" className="text-ink hover:underline decoration-stone-300 underline-offset-4" /> 
+                  }} 
+                />
               </p>
             </motion.div>
 
@@ -166,8 +176,8 @@ export default function Home() {
 
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="mb-16 max-w-xl">
-          <h2 className="text-4xl font-serif text-ink mb-3">Timeline</h2>
-          <p className="text-stone-500 font-light text-lg">Projects and milestones in chronological order.</p>
+          <h2 className="text-4xl font-serif text-ink mb-3">{t('timeline.title')}</h2>
+          <p className="text-stone-500 font-light text-lg">{t('timeline.subtitle')}</p>
         </div>
 
         {(() => {
@@ -177,11 +187,11 @@ export default function Home() {
             platoic: platoicLogo,
           };
           const timeline: Array<{ date: string; title: string; description: string; projectId?: string; link?: string }> = [
-            { date: 'February 2026', title: 'Solvee acquired', description: 'Solvee got acquired $$$$', projectId: 'solvee' },
-            { date: 'December 2025', title: 'Omni', description: 'Started working on Omni – the AI that knows you and your computer', projectId: 'omni', link: 'https://heyomni.app' },
-            { date: 'December 2025', title: 'Platoic', description: 'Started working on Platoic – personalized AI learning platform', projectId: 'platoic' },
-            { date: 'December 2025', title: 'Subby', description: 'Released a subscription manager app to track trials and subscriptions', projectId: 'subby' },
-            { date: 'March 2025', title: 'Solvee', description: 'Launched an AI homework helper app on iOS and Android', projectId: 'solvee' },
+            { date: t('timeline.items.solvee_acquired.date'), title: t('timeline.items.solvee_acquired.title'), description: t('timeline.items.solvee_acquired.description'), projectId: 'solvee' },
+            { date: t('timeline.items.omni_started.date'), title: t('timeline.items.omni_started.title'), description: t('timeline.items.omni_started.description'), projectId: 'omni', link: 'https://heyomni.app' },
+            { date: t('timeline.items.platoic_started.date'), title: t('timeline.items.platoic_started.title'), description: t('timeline.items.platoic_started.description'), projectId: 'platoic' },
+            { date: t('timeline.items.subby_released.date'), title: t('timeline.items.subby_released.title'), description: t('timeline.items.subby_released.description'), projectId: 'subby' },
+            { date: t('timeline.items.solvee_launched.date'), title: t('timeline.items.solvee_launched.title'), description: t('timeline.items.solvee_launched.description'), projectId: 'solvee' },
           ];
 
           return (
@@ -257,8 +267,8 @@ export default function Home() {
       <section className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-12 md:mb-20">
           <div>
-            <h2 className="text-4xl font-serif text-ink mb-3">Projects</h2>
-            <p className="text-stone-500 font-light text-lg">Tools for a better digital life.</p>
+            <h2 className="text-4xl font-serif text-ink mb-3">{t('projects.title')}</h2>
+            <p className="text-stone-500 font-light text-lg">{t('projects.subtitle')}</p>
           </div>
         </div>
 
@@ -278,18 +288,18 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-8xl font-serif font-light mb-8 md:mb-10 leading-[0.9]"
           >
-            Let's build the <br/><span className="font-serif-italic text-stone-500">future</span>.
+            {t('footer.title.part1')} <br/><span className="font-serif-italic text-stone-500">{t('footer.title.part2')}</span>
           </motion.h2>
           <p className="text-stone-400 text-xl mb-12 max-w-xxl mx-auto font-light leading-relaxed">
-            Always excited to work on new projects and meet other builders.
+            {t('footer.description')}
           </p>
           
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
             <Button href="mailto:hello@mikolajpiech.com" variant="secondary" external>
-              Email Me <Mail className="ml-2 w-4 h-4" />
+              {t('common.email_me')} <Mail className="ml-2 w-4 h-4" />
             </Button>
             <Button href="https://www.linkedin.com/in/mikolajpiech/" variant="outline" className="text-off-white border-stone-700 hover:border-off-white hover:bg-stone-800" external>
-              LinkedIn
+              {t('common.linkedin')}
             </Button>
             <Button href="https://www.x.com/mikolajpiech/" variant="outline" className="text-off-white border-stone-700 hover:border-off-white hover:bg-stone-800" external>
               <XLogo className="w-4 h-4" />
@@ -297,7 +307,7 @@ export default function Home() {
           </div>
 
           <div className="mt-20 md:mt-32 pt-12 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
-            <p className="mb-4 md:mb-0">© {new Date().getFullYear()} Mikołaj Piech. All rights reserved.</p>
+            <p className="mb-4 md:mb-0">{t('common.all_rights_reserved', { year: new Date().getFullYear() })}</p>
             <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center">
               <a href="mailto:hello@mikolajpiech.com" className="hover:text-off-white transition-colors">hello@mikolajpiech.com</a>
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
@@ -305,7 +315,7 @@ export default function Home() {
               </a>
               <a href="https://www.linkedin.com/in/mikolajpiech/" className="hover:text-off-white transition-colors">LinkedIn</a>
               <a href="https://github.com/realmikolajpiech" className="hover:text-off-white transition-colors">GitHub</a>
-              <Link to="/privacy-policy" className="hover:text-off-white transition-colors">Privacy Policy</Link>
+              <Link to="/privacy-policy" className="hover:text-off-white transition-colors">{t('common.privacy_policy')}</Link>
             </div>
           </div>
         </div>

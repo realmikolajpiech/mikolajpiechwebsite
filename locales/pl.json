@@ -1,0 +1,87 @@
+{
+  "common": {
+    "get_in_touch": "Skontaktuj się",
+    "email_me": "Napisz do mnie",
+    "linkedin": "LinkedIn",
+    "privacy_policy": "Polityka prywatności",
+    "all_rights_reserved": "© {{year}} Mikołaj Piech. Wszelkie prawa zastrzeżone."
+  },
+  "not_found": {
+    "title": "Zgubiłeś się?",
+    "description": "Strona, której szukasz, nie istnieje albo została przeniesiona.",
+    "button": "Wróć na stronę główną",
+    "error_code": "Błąd 404"
+  },
+  "hero": {
+    "title": {
+      "builder": "Builder.",
+      "founder": "Founder.",
+      "curious": "Curious."
+    },
+    "intro": "Jestem <1>Mikołaj</1>, buduję aplikacje i produkty w internecie.",
+    "description": "Buduję narzędzia, które rozwiązują realne problemy i ułatwiają życie.",
+    "current_work": "Obecnie pracuję nad <1>Omni</1> — aplikacją, która zmienia sposób, w jaki korzystamy z komputerów."
+  },
+  "timeline": {
+    "title": "Timeline",
+    "subtitle": "Projekty i ważne momenty w kolejności chronologicznej.",
+    "items": {
+      "solvee_acquired": {
+        "date": "Luty 2026",
+        "title": "Solvee",
+        "description": "Solvee zostało przejęte $$$$"
+      },
+      "omni_started": {
+        "date": "Grudzień 2025",
+        "title": "Omni",
+        "description": "Zacząłem pracę nad Omni — AI, które zna Ciebie i Twój komputer"
+      },
+      "platoic_started": {
+        "date": "Grudzień 2025",
+        "title": "Platoic",
+        "description": "Zacząłem budować Platoic — spersonalizowaną platformę nauki z AI"
+      },
+      "subby_released": {
+        "date": "Grudzień 2025",
+        "title": "Subby",
+        "description": "Wydałem Subby — aplikację do zarządzania subskrypcjami"
+      },
+      "solvee_launched": {
+        "date": "Marzec 2025",
+        "title": "Solvee",
+        "description": "Uruchomiłem Solvee — aplikację AI pomagającą w zadaniach domowych"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projekty",
+    "subtitle": "Narzędzia, które ułatwiają cyfrowe życie.",
+    "omni": {
+      "tagline": "AI, które zna Ciebie i Twój komputer.",
+      "description": "Znajduj pliki po znaczeniu, zarządzaj mailem i kalendarzem, instaluj aplikacje, zmieniaj ustawienia — po prostu zapytaj.",
+      "link_text": "Dowiedz się więcej i dołącz do waitlisty",
+      "status": "Early Access"
+    },
+    "platoic": {
+      "tagline": "Ucz się szybciej z pomocą AI.",
+      "description": "Spersonalizowany program nauki AI, który zbiera najlepsze materiały z internetu i układa je w Twoją ścieżkę nauki.",
+      "status": "Wkrótce"
+    },
+    "solvee": {
+      "tagline": "AI do zadań domowych",
+      "description": "Aplikację sprzedałem. Pomogła ponad 25 tys. uczniów rozwiązywać zadania dzięki szczegółowym wyjaśnieniom AI.",
+      "status": "Sprzedane"
+    },
+    "subby": {
+      "tagline": "Menedżer subskrypcji",
+      "description": "Śledź okresy próbne, kontroluj wydatki i nie płać za niepotrzebne subskrypcje."
+    }
+  },
+  "footer": {
+    "title": {
+      "part1": "Zbudujmy",
+      "part2": "przyszłość."
+    },
+    "description": "Zawsze chętnie pracuję nad nowymi projektami i poznaję innych builderów."
+  }
+}
