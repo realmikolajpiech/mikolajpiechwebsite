@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Linkedin, Mail, Github } from 'lucide-react';
 import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
+import { SchemaMarkup } from '../components/SchemaMarkup';
 import { Project } from '../types';
 import omniImage from '../assets/omni.jpeg';
 import curioImage from '../assets/curio.png';
@@ -86,6 +87,7 @@ const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => 
 export default function Home() {
   return (
     <div className="min-h-screen bg-off-white selection:bg-stone-200">
+      <SchemaMarkup projects={projects} />
       
       {/* Navigation / Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 transition-all duration-300">
