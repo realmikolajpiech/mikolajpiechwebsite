@@ -12,19 +12,21 @@ import omniImage from '../assets/omni.jpeg';
 import curioImage from '../assets/curio.png';
 import solveeImage from '../assets/solvee-listing.jpeg';
 import subbyImage from '../assets/subby-listing.jpeg';
+import solveeLogo from '../assets/solvee-logo.png';
+import subbyLogo from '../assets/subby-logo.png';
 import platoicLogo from '../assets/platoic-logo.png';
 import { Link } from 'react-router-dom';
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"/>
+    <path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z" />
   </svg>
 );
 
 const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => (
-  <a 
-    href={href} 
-    target="_blank" 
+  <a
+    href={href}
+    target="_blank"
     rel="noopener noreferrer"
     className="p-3 text-stone-400 hover:text-ink dark:hover:text-stone-50 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-all duration-300 flex items-center justify-center"
   >
@@ -68,7 +70,7 @@ export default function Home() {
       status: t('projects.solvee.status'),
       appStoreLink: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
       playStoreLink: 'https://play.google.com/store/apps/details?id=com.mikolajpiech.solvee',
-      icon: 'https://play-lh.googleusercontent.com/pF3GMpXEu5E7BBxasZZWhxoR2om3Z5m3K-7u2zwgZ0w0-PXVLAeEya9rxbDRxDctG1s=w240-h480-rw',
+      icon: solveeLogo,
       // Using a vertical math/homework related image
       image: solveeImage,
       layout: 'split'
@@ -82,7 +84,7 @@ export default function Home() {
       tags: ['FinTech', 'Utility', 'Mobile App'],
       appStoreLink: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
       playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.subby',
-      icon: 'https://play-lh.googleusercontent.com/prc2RCfFpOXnnFKvRE92ty0cWv1or2Kaxd4-PjxJadEFjVFDrvxPKCEZlWZliU5M4DJl2vlV-niOvPLadCM4=w240-h480-rw',
+      icon: subbyLogo,
       // Using a vertical clean interface/list image
       image: subbyImage,
       layout: 'split'
@@ -92,7 +94,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
       <SchemaMarkup projects={projects} />
-      
+
       {/* Navigation / Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
         <span className="font-serif italic text-xl tracking-tight text-ink dark:text-stone-50">Mikołaj Piech</span>
@@ -108,7 +110,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative pt-28 md:pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-12 gap-12 items-center">
-          
+
           {/* Text Content */}
           <div className="md:col-span-7 space-y-10">
             <motion.div
@@ -117,29 +119,26 @@ export default function Home() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               <h1 className="text-5xl md:text-8xl font-serif font-light leading-[0.95] text-ink dark:text-stone-50 mb-6 tracking-tight">
-                {t('hero.title.builder')}<br/>
-                <span className="font-serif-italic text-stone-400">{t('hero.title.founder')}</span><br/>
-                {t('hero.title.curious')}
+                I build apps<br />
+                <span className="font-serif-italic text-stone-400">and ship them.</span>
               </h1>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-xl space-y-6"
+              className="max-w-xl space-y-5"
             >
               <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
-                <Trans i18nKey="hero.intro" components={{ 1: <span className="text-ink dark:text-stone-50 font-medium" /> }} />
+                I'm <span className="text-ink dark:text-stone-50 font-medium">Mikołaj.</span> I take ideas from zero to something people actually use.
               </p>
-              <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
-                {t('hero.description')} <br/><br/>
-                <Trans 
-                  i18nKey="hero.current_work" 
-                  components={{ 
-                    1: <a href="https://heyomni.app" target="_blank" rel="noopener noreferrer" className="text-ink dark:text-stone-50 hover:underline decoration-stone-300 underline-offset-4" /> 
-                  }} 
-                />
+              <p className="text-base md:text-lg text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+                Shipped apps on iOS, Android, and web.{' '}
+                <span className="inline-flex items-center gap-1.5 text-ink dark:text-stone-50 font-medium">
+                  Solvee hit 25k+ downloads
+                </span>{' '}
+                before I sold it. Always building something new.
               </p>
             </motion.div>
 
@@ -156,15 +155,15 @@ export default function Home() {
           </div>
 
           {/* Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="md:col-span-5 relative self-start"
           >
             <div className="aspect-[3/4] md:aspect-square relative overflow-hidden rounded-full md:rounded-[3rem] group">
-              <img 
-                src="/mikolaj-profile.jpg" 
+              <img
+                src="/mikolaj-profile.jpg"
                 alt="Mikołaj Piech"
                 className="w-full h-full object-cover group-hover:grayscale transition-all duration-1000 ease-in-out"
               />
@@ -174,7 +173,7 @@ export default function Home() {
         </div>
       </section>
 
-      
+
 
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="mb-16 max-w-xl">
@@ -229,10 +228,10 @@ export default function Home() {
                                   </div>
                                 ) : null}
                                 {item.link ? (
-                                  <a 
-                                    href={item.link} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
+                                  <a
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="text-ink dark:text-stone-50 text-lg font-serif hover:underline decoration-stone-300 underline-offset-4"
                                   >
                                     {item.title}
@@ -284,18 +283,18 @@ export default function Home() {
       {/* Connect/Footer */}
       <footer id="contact" className="bg-ink text-off-white py-20 md:py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-8xl font-serif font-light mb-8 md:mb-10 leading-[0.9]"
           >
-            {t('footer.title.part1')} <br/><span className="font-serif-italic text-stone-500">{t('footer.title.part2')}</span>
+            {t('footer.title.part1')} <br /><span className="font-serif-italic text-stone-500">{t('footer.title.part2')}</span>
           </motion.h2>
           <p className="text-stone-400 text-xl mb-12 max-w-xxl mx-auto font-light leading-relaxed">
             {t('footer.description')}
           </p>
-          
+
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
             <Button href="mailto:hello@mikolajpiech.com" variant="secondary" external>
               {t('common.email_me')} <Mail className="ml-2 w-4 h-4" />
@@ -313,7 +312,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center">
               <a href="mailto:hello@mikolajpiech.com" className="hover:text-off-white transition-colors">hello@mikolajpiech.com</a>
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
-                 <XLogo className="w-4 h-4" />
+                <XLogo className="w-4 h-4" />
               </a>
               <a href="https://www.linkedin.com/in/mikolajpiech/" className="hover:text-off-white transition-colors">LinkedIn</a>
               <a href="https://github.com/realmikolajpiech" className="hover:text-off-white transition-colors">GitHub</a>

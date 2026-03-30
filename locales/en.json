@@ -13,14 +13,8 @@
     "error_code": "Error 404"
   },
   "hero": {
-    "title": {
-      "builder": "Builder.",
-      "founder": "Founder.",
-      "curious": "Curious."
-    },
-    "intro": "I'm <1>Mikołaj</1>, building apps and products on the internet.",
-    "description": "I build tools that solve problems and make life easier - all while doing work I genuinely love.",
-    "current_work": "Currently working on <1>Omni</1> — an app that changes how we use our computers."
+    "headline": "I build apps and ship them.",
+    "description": "I'm Mikołaj. I take ideas from zero to something people actually use. Shipped apps on iOS, Android, and web. Solvee got 25k+ downloads before I sold it. Always building something new."
   },
   "timeline": {
     "title": "Timeline",

@@ -13,14 +13,8 @@
     "error_code": "Błąd 404"
   },
   "hero": {
-    "title": {
-      "builder": "Builder.",
-      "founder": "Founder.",
-      "curious": "Curious."
-    },
-    "intro": "Jestem <1>Mikołaj</1>, buduję aplikacje i produkty w internecie.",
-    "description": "Tworzę narzędzia, które rozwiązują realne problemy i ułatwiają życie.",
-    "current_work": "Obecnie pracuję nad <1>Omni</1> — aplikacją, która zmienia sposób, w jaki korzystamy z komputerów."
+    "headline": "Buduję aplikacje i je wypuszczam.",
+    "description": "Jestem Mikołaj. Zamieniam pomysły w produkty, za które ludzie płacą — solo. Wydałem aplikacje na iOS, Android i web. Solvee miał 25k+ pobrań, zanim go sprzedałem. Zawsze buduję."
   },
   "timeline": {
     "title": "Timeline",
