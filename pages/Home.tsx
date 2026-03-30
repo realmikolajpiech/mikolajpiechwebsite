@@ -14,6 +14,7 @@ import solveeImage from '../assets/solvee-listing.jpeg';
 import subbyImage from '../assets/subby-listing.jpeg';
 import solveeLogo from '../assets/solvee-logo.png';
 import subbyLogo from '../assets/subby-logo.png';
+import omniVideo from '../assets/omni-teaser.mp4';
 import platoicLogo from '../assets/platoic-logo.png';
 import { Link } from 'react-router-dom';
 
@@ -46,11 +47,11 @@ export default function Home() {
       link: 'https://heyomni.app',
       status: t('projects.omni.status'),
       tags: ['AI', 'Productivity'],
-      isPrimary: true,
+      video: omniVideo,
       image: omniImage,
       linkText: t('projects.omni.link_text')
     },
-    {
+    /* {
       id: 'platoic',
       name: 'Platoic',
       tagline: t('projects.platoic.tagline'),
@@ -59,7 +60,7 @@ export default function Home() {
       status: t('projects.platoic.status'),
       tags: ['EdTech', 'AI', 'Web Platform'],
       image: curioImage
-    },
+    }, */
     {
       id: 'solvee',
       name: 'Solvee',
@@ -185,12 +186,12 @@ export default function Home() {
           const byId = Object.fromEntries(projects.map(p => [p.id, p]));
           const timelineIcons: Record<string, string> = {
             omni: 'https://www.heyomni.app/assets/omni.png',
-            platoic: platoicLogo,
+            // platoic: platoicLogo,
           };
           const timeline: Array<{ date: string; title: string; description: string; projectId?: string; link?: string }> = [
             { date: t('timeline.items.solvee_acquired.date'), title: t('timeline.items.solvee_acquired.title'), description: t('timeline.items.solvee_acquired.description'), projectId: 'solvee' },
             { date: t('timeline.items.omni_started.date'), title: t('timeline.items.omni_started.title'), description: t('timeline.items.omni_started.description'), projectId: 'omni', link: 'https://heyomni.app' },
-            { date: t('timeline.items.platoic_started.date'), title: t('timeline.items.platoic_started.title'), description: t('timeline.items.platoic_started.description'), projectId: 'platoic' },
+            // { date: t('timeline.items.platoic_started.date'), title: t('timeline.items.platoic_started.title'), description: t('timeline.items.platoic_started.description'), projectId: 'platoic' },
             { date: t('timeline.items.subby_released.date'), title: t('timeline.items.subby_released.title'), description: t('timeline.items.subby_released.description'), projectId: 'subby' },
             { date: t('timeline.items.solvee_launched.date'), title: t('timeline.items.solvee_launched.title'), description: t('timeline.items.solvee_launched.description'), projectId: 'solvee' },
           ];

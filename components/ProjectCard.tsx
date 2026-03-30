@@ -78,11 +78,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         <div className="relative w-full md:w-[45%] h-64 md:h-auto bg-[#F5F5F7] dark:bg-stone-950/50 overflow-hidden">
            <div className="absolute inset-0 flex items-center justify-center py-8 px-4">
               <div className="relative h-full w-auto aspect-[9/19] rounded-[1.2rem] overflow-hidden shadow-md bg-white dark:bg-stone-900">
-                <img 
-                  src={project.image} 
-                  alt={`${project.name} screenshot`} 
-                  className="w-full h-full object-cover"
-                />
+                {project.video ? (
+                  <video 
+                    src={project.video} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img 
+                    src={project.image} 
+                    alt={`${project.name} screenshot`} 
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
            </div>
         </div>
@@ -114,17 +125,37 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
              
              {/* Vertical Screenshot Frame - Positioned nicely to the right */}
              <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 h-[85%] w-auto aspect-[9/19] bg-white dark:bg-stone-900 rounded-[1.5rem] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] border-[4px] border-white dark:border-stone-900 overflow-hidden transform rotate-[-3deg] group-hover:rotate-0 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
-                <img 
-                  src={project.image} 
-                  alt={`${project.name} screenshot`} 
-                  className="w-full h-full object-cover"
-                />
+                {project.video ? (
+                  <video 
+                    src={project.video} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img 
+                    src={project.image} 
+                    alt={`${project.name} screenshot`} 
+                    className="w-full h-full object-cover"
+                  />
+                )}
              </div>
           </div>
         ) : (
           /* Standard Layout */
           <>
-            {project.image ? (
+            {project.video ? (
+              <video 
+                src={project.video} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
+              />
+            ) : project.image ? (
               <img 
                 src={project.image} 
                 alt={project.name} 

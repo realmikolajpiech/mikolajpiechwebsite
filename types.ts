@@ -7,6 +7,7 @@ export interface Project {
   description: string;
   link: string;
   image?: string;
+  video?: string;
   icon?: string;
   tags: string[];
   status?: string;
