@@ -1,22 +1,19 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Mail, Github, Copy, Check } from 'lucide-react';
-import { useTranslation, Trans } from 'react-i18next';
+import { Linkedin, Github, Copy, Check } from 'lucide-react';
 import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
 import { SchemaMarkup } from '../components/SchemaMarkup';
-import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { Project } from '../types';
 import omniImage from '../assets/omni.jpeg';
-import curioImage from '../assets/curio.png';
 import solveeImage from '../assets/solvee-listing.jpeg';
 import subbyImage from '../assets/subby-listing.jpeg';
 import solveeLogo from '../assets/solvee-logo.png';
 import subbyLogo from '../assets/subby-logo.png';
 import omniVideo from '../assets/omni-teaser.mp4';
-import platoicLogo from '../assets/platoic-logo.png';
 import { Link } from 'react-router-dom';
+import site from '../content/site.json';
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -36,8 +33,8 @@ const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => 
 );
 
 export default function Home() {
-  const { t } = useTranslation();
   const [copied, setCopied] = React.useState(false);
+  const year = new Date().getFullYear();
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('hello@mikolajpiech.com');
@@ -49,77 +46,61 @@ export default function Home() {
     {
       id: 'omni',
       name: 'Omni',
-      tagline: t('projects.omni.tagline'),
-      description: t('projects.omni.description'),
+      tagline: site.projects.omni.tagline,
+      description: site.projects.omni.description,
       link: 'https://heyomni.app',
-      status: t('projects.omni.status'),
+      status: site.projects.omni.status,
       tags: ['AI', 'Productivity'],
       video: omniVideo,
       image: omniImage,
-      linkText: t('projects.omni.link_text')
+      linkText: site.projects.omni.link_text
     },
-    /* {
-      id: 'platoic',
-      name: 'Platoic',
-      tagline: t('projects.platoic.tagline'),
-      description: t('projects.platoic.description'),
-      link: 'https://ailearningapp.vercel.app',
-      status: t('projects.platoic.status'),
-      tags: ['EdTech', 'AI', 'Web Platform'],
-      image: curioImage
-    }, */
     {
       id: 'solvee',
       name: 'Solvee',
-      tagline: t('projects.solvee.tagline'),
-      description: t('projects.solvee.description'),
+      tagline: site.projects.solvee.tagline,
+      description: site.projects.solvee.description,
       link: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
       tags: ['Mobile App', 'Education', 'AI'],
-      status: t('projects.solvee.status'),
+      status: site.projects.solvee.status,
       appStoreLink: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
       playStoreLink: 'https://play.google.com/store/apps/details?id=com.mikolajpiech.solvee',
       icon: solveeLogo,
-      // Using a vertical math/homework related image
       image: solveeImage,
       layout: 'split'
     },
     {
       id: 'subby',
       name: 'Subby',
-      tagline: t('projects.subby.tagline'),
-      description: t('projects.subby.description'),
+      tagline: site.projects.subby.tagline,
+      description: site.projects.subby.description,
       link: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
       tags: ['FinTech', 'Utility', 'Mobile App'],
       appStoreLink: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
       playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.subby',
       icon: subbyLogo,
-      // Using a vertical clean interface/list image
       image: subbyImage,
       layout: 'split'
     }
-  ], [t]);
+  ], []);
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
       <SchemaMarkup projects={projects} />
 
-      {/* Navigation / Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
         <span className="font-serif italic text-xl tracking-tight text-ink dark:text-stone-50">Mikołaj Piech</span>
         <div className="flex gap-4 items-center">
           <ThemeToggle />
-          <LanguageSwitcher />
           <Button href="#contact" variant="outline" className="!px-5 !py-2 !text-xs tracking-wide hidden sm:inline-flex">
-            {t('common.get_in_touch')}
+            {site.common.get_in_touch}
           </Button>
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section className="relative pt-28 md:pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-12 gap-12 items-center">
 
-          {/* Text Content */}
           <div className="md:col-span-7 space-y-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -127,8 +108,8 @@ export default function Home() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               <h1 className="text-5xl md:text-8xl font-serif font-light leading-[0.95] text-ink dark:text-stone-50 mb-6 tracking-tight">
-                I build apps<br />
-                <span className="font-serif-italic text-stone-400">and ship them.</span>
+                {site.hero.headline_line1}<br />
+                <span className="font-serif-italic text-stone-400">{site.hero.headline_line2}</span>
               </h1>
             </motion.div>
 
@@ -162,7 +143,6 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -181,26 +161,23 @@ export default function Home() {
         </div>
       </section>
 
-
-
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="mb-16 max-w-xl">
-          <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{t('timeline.title')}</h2>
-          <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{t('timeline.subtitle')}</p>
+          <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{site.timeline.title}</h2>
+          <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{site.timeline.subtitle}</p>
         </div>
 
         {(() => {
           const byId = Object.fromEntries(projects.map(p => [p.id, p]));
           const timelineIcons: Record<string, string> = {
             omni: 'https://www.heyomni.app/assets/omni.png',
-            // platoic: platoicLogo,
           };
+          const items = site.timeline.items;
           const timeline: Array<{ date: string; title: string; description: string; projectId?: string; link?: string }> = [
-            { date: t('timeline.items.solvee_acquired.date'), title: t('timeline.items.solvee_acquired.title'), description: t('timeline.items.solvee_acquired.description'), projectId: 'solvee' },
-            { date: t('timeline.items.omni_started.date'), title: t('timeline.items.omni_started.title'), description: t('timeline.items.omni_started.description'), projectId: 'omni', link: 'https://heyomni.app' },
-            // { date: t('timeline.items.platoic_started.date'), title: t('timeline.items.platoic_started.title'), description: t('timeline.items.platoic_started.description'), projectId: 'platoic' },
-            { date: t('timeline.items.subby_released.date'), title: t('timeline.items.subby_released.title'), description: t('timeline.items.subby_released.description'), projectId: 'subby' },
-            { date: t('timeline.items.solvee_launched.date'), title: t('timeline.items.solvee_launched.title'), description: t('timeline.items.solvee_launched.description'), projectId: 'solvee' },
+            { date: items.solvee_acquired.date, title: items.solvee_acquired.title, description: items.solvee_acquired.description, projectId: 'solvee' },
+            { date: items.omni_started.date, title: items.omni_started.title, description: items.omni_started.description, projectId: 'omni', link: 'https://heyomni.app' },
+            { date: items.subby_released.date, title: items.subby_released.title, description: items.subby_released.description, projectId: 'subby' },
+            { date: items.solvee_launched.date, title: items.solvee_launched.title, description: items.solvee_launched.description, projectId: 'solvee' },
           ];
 
           return (
@@ -272,12 +249,11 @@ export default function Home() {
         })()}
       </section>
 
-      {/* Projects Grid */}
       <section className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-12 md:mb-20">
           <div>
-            <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{t('projects.title')}</h2>
-            <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{t('projects.subtitle')}</p>
+            <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{site.projects.title}</h2>
+            <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{site.projects.subtitle}</p>
           </div>
         </div>
 
@@ -288,7 +264,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Connect/Footer */}
       <footer id="contact" className="bg-ink text-off-white py-20 md:py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
@@ -297,27 +272,27 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-8xl font-serif font-light mb-8 md:mb-10 leading-[0.9]"
           >
-            {t('footer.title.part1')} <br /><span className="font-serif-italic text-stone-500">{t('footer.title.part2')}</span>
+            {site.footer.title.part1} <br /><span className="font-serif-italic text-stone-500">{site.footer.title.part2}</span>
           </motion.h2>
           <p className="text-stone-400 text-xl mb-12 max-w-xxl mx-auto font-light leading-relaxed">
-            {t('footer.description')}
+            {site.footer.description}
           </p>
 
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <Button 
+            <Button
               onClick={handleCopyEmail}
-              variant="secondary" 
+              variant="secondary"
               className="relative overflow-hidden min-w-[200px]"
             >
               <span className={`flex items-center gap-2 transition-all duration-300 ${copied ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
                 hello@mikolajpiech.com <Copy className="w-4 h-4" />
               </span>
               <span className={`absolute inset-0 flex items-center justify-center gap-2 transition-all duration-300 ${copied ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                {t('common.copied')} <Check className="w-4 h-4 text-green-500" />
+                {site.common.copied} <Check className="w-4 h-4 text-green-500" />
               </span>
             </Button>
             <Button href="https://www.linkedin.com/in/mikolajpiech/" variant="outline" className="text-off-white border-stone-700 hover:border-off-white hover:bg-stone-800" external>
-              {t('common.linkedin')}
+              {site.common.linkedin}
             </Button>
             <Button href="https://www.x.com/mikolajpiech/" variant="outline" className="text-off-white border-stone-700 hover:border-off-white hover:bg-stone-800" external>
               <XLogo className="w-4 h-4" />
@@ -325,7 +300,7 @@ export default function Home() {
           </div>
 
           <div className="mt-20 md:mt-32 pt-12 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
-            <p className="mb-4 md:mb-0">{t('common.all_rights_reserved', { year: new Date().getFullYear() })}</p>
+            <p className="mb-4 md:mb-0">{site.common.all_rights_reserved.replace('{{year}}', String(year))}</p>
             <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center">
               <a href="mailto:hello@mikolajpiech.com" className="hover:text-off-white transition-colors">hello@mikolajpiech.com</a>
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
@@ -333,7 +308,7 @@ export default function Home() {
               </a>
               <a href="https://www.linkedin.com/in/mikolajpiech/" className="hover:text-off-white transition-colors">LinkedIn</a>
               <a href="https://github.com/realmikolajpiech" className="hover:text-off-white transition-colors">GitHub</a>
-              <Link to="/privacy-policy" className="hover:text-off-white transition-colors">{t('common.privacy_policy')}</Link>
+              <Link to="/privacy-policy" className="hover:text-off-white transition-colors">{site.common.privacy_policy}</Link>
             </div>
           </div>
         </div>

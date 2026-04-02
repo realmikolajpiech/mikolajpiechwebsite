@@ -1,0 +1,197 @@
+{
+  "common": {
+    "get_in_touch": "Get in touch",
+    "email_me": "Email Me",
+    "copied": "Copied!",
+    "linkedin": "LinkedIn",
+    "privacy_policy": "Privacy Policy",
+    "all_rights_reserved": "© {{year}} Mikołaj Piech. All rights reserved."
+  },
+  "not_found": {
+    "title": "Lost?",
+    "description": "The page you are looking for doesn't exist or has been moved. Let's get you back on track.",
+    "button": "Return Home",
+    "error_code": "Error 404"
+  },
+  "hero": {
+    "headline_line1": "I build apps",
+    "headline_line2": "and ship them."
+  },
+  "timeline": {
+    "title": "Timeline",
+    "subtitle": "Projects and milestones in chronological order.",
+    "items": {
+      "solvee_acquired": {
+        "date": "February 2026",
+        "title": "Solvee acquired",
+        "description": "Solvee got acquired"
+      },
+      "omni_started": {
+        "date": "December 2025",
+        "title": "Omni",
+        "description": "Started working on Omni – the AI that knows you and your computer"
+      },
+      "platoic_started": {
+        "date": "December 2025",
+        "title": "Platoic",
+        "description": "Started working on Platoic – personalized AI learning platform"
+      },
+      "subby_released": {
+        "date": "December 2025",
+        "title": "Subby",
+        "description": "Released a subscription manager app to track trials and subscriptions"
+      },
+      "solvee_launched": {
+        "date": "March 2025",
+        "title": "Solvee",
+        "description": "Launched an AI homework helper app on iOS and Android"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Tools for a better digital life.",
+    "omni": {
+      "tagline": "The AI that knows you and your computer.",
+      "description": "Find files by meaning, manage email & calendar, install apps, change settings — just ask.",
+      "link_text": "Learn more and join waitlist",
+      "status": "Early Access"
+    },
+    "platoic": {
+      "tagline": "Master the art of knowing.",
+      "description": "Master any topic with a personalized AI curriculum that curates the web's best resources into your perfect learning path. Constant AI guidance for your curiosity.",
+      "status": "Launching Soon"
+    },
+    "solvee": {
+      "tagline": "AI Homework Helper",
+      "description": "I sold the app. It helped over 25k+ students solve problems instantly with detailed AI explanations. Available on iOS and Android.",
+      "status": "Sold"
+    },
+    "subby": {
+      "tagline": "Subscription Manager",
+      "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly."
+    }
+  },
+  "footer": {
+    "title": {
+      "part1": "Let's build the",
+      "part2": "future."
+    },
+    "description": "Always excited to work on new projects and meet other builders."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: January 26, 2026",
+    "intro_before_link": "Mikołaj Piech (\"I\", \"me\", or \"my\") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how I collect, use, store, and protect information when you use my website (",
+    "intro_after_link": ") and any mobile applications I publish on Google Play or the Apple App Store (collectively \"the Services\").",
+    "s1_title": "1. Information I Collect",
+    "s1a_title": "A. Information You Provide Directly",
+    "s1a_items": [
+      "Email address and password (when you create an account)",
+      "Display name or nickname",
+      "Photos of homework/exercises you take within certain apps (stored securely on your device and in the cloud only for your personal use)",
+      "User-provided images in the Meant app (which may contain faces or other personal depictions) – these are stored exclusively locally on your device and never uploaded to my servers",
+      "Billing information processed through RevenueCat and the Google Play / Apple App Store payment systems (I never see or store your full payment card details)"
+    ],
+    "s1b_title": "B. Automatically Collected Information",
+    "s1b_items": [
+      "Device information (device model, operating system version, unique device identifiers)",
+      "Approximate location (derived from IP address)",
+      "Usage data and crash reports (via Expo and related tools)",
+      "Push notification token (to send you notifications if you enable them)",
+      "In the future, if I display ads: Advertising ID (IDFA on iOS, AAID on Android) – resettable by you"
+    ],
+    "s2_title": "2. How I Use Your Information",
+    "s2_items": [
+      "To create and manage your account",
+      "To provide and improve the Services",
+      "To process subscriptions and payments via RevenueCat and the app stores",
+      "To send push notifications (only if you allow them)",
+      "To store your homework photos securely so you can access them across your devices",
+      "In the Meant app: To enable user-requested AI image editing and generation by transmitting images to Google's Gemini API",
+      "For analytics and crash reporting (to fix bugs and improve the apps)",
+      "In the future, if I display ads via Google AdMob: to serve and measure personalized or non-personalized ads"
+    ],
+    "s3_title": "3. Legal Basis (EEA/UK users – GDPR)",
+    "s3_items": [
+      "<strong>Contract:</strong> to provide the account, subscription, and core app features",
+      "<strong>Consent:</strong> push notifications, future personalized advertising",
+      "<strong>Legitimate interests:</strong> analytics, crash reporting, fraud prevention"
+    ],
+    "s4_title": "4. Sharing of Information",
+    "s4_p1": "I do not sell your personal data.",
+    "s4_p2": "Your data may be shared with the following trusted partners:",
+    "table_partner": "Partner",
+    "table_purpose": "Purpose",
+    "table_privacy": "Privacy Policy",
+    "partners": [
+      {
+        "partner": "RevenueCat",
+        "purpose": "Subscription billing",
+        "linkLabel": "revenuecat.com/privacy",
+        "linkHref": "https://revenuecat.com/privacy"
+      },
+      {
+        "partner": "Apple App Store / Google Play",
+        "purpose": "Payment processing & app distribution",
+        "linkLabel": "apple.com / google.com",
+        "linkHrefApple": "https://apple.com/legal/privacy",
+        "linkHrefGoogle": "https://policies.google.com/privacy"
+      },
+      {
+        "partner": "Expo / EAS",
+        "purpose": "App building, updates, analytics",
+        "linkLabel": "expo.dev/privacy",
+        "linkHref": "https://expo.dev/privacy"
+      },
+      {
+        "partner": "Firebase / Google Cloud",
+        "purpose": "Crash reporting, cloud storage for homework photos",
+        "linkLabel": "firebase.google.com",
+        "linkHref": "https://firebase.google.com/support/privacy"
+      },
+      {
+        "partner": "Google LLC (Gemini API)",
+        "purpose": "AI image generation and editing in the Meant app",
+        "linkLabel": "ai.google.dev/gemini-api/terms",
+        "linkHref": "https://ai.google.dev/gemini-api/terms"
+      },
+      {
+        "partner": "Google AdMob (future)",
+        "purpose": "Advertising (if implemented)",
+        "linkLabel": "support.google.com",
+        "linkHref": "https://support.google.com/admob/answer/6128543"
+      }
+    ],
+    "s4_p3": "Data is primarily stored in the United States and the European Union.",
+    "s5_title": "5. Image Data and Face Data in the Meant App",
+    "s5_p1": "In the Meant app, you may provide images (via camera or photo library) that contain human faces for AI-based editing and generation. These images constitute pixel data and may include sensitive face depictions.",
+    "s5_p2": "<strong>Collection and Storage:</strong> Images are stored exclusively locally on your device in the app's private storage. I do not collect, upload, or store any images on my servers or in any database.",
+    "s5_p3": "<strong>Use:</strong> Images are processed locally and sent to Google's Gemini API solely to perform the user-requested AI image generation or editing. The app performs no facial recognition, biometric extraction, identification, tracking, or profiling.",
+    "s5_p4": "<strong>Disclosure and Sharing:</strong> Images are shared only with Google LLC (as the Gemini API provider) for temporary processing. The Meant app uses the paid tier of the Gemini API, where your inputs (including images) and outputs are <strong>not used to train or improve Google's models</strong>.",
+    "s5_p5": "<strong>Retention:</strong> Images are retained only on your device until you delete them or uninstall the app. Google processes images transiently and retains them only as necessary for API service provision (typically briefly; no long-term storage for training).",
+    "s6_title": "6. Data Retention",
+    "s6_p1": "I keep your data only as long as your account exists or as needed to provide the Services. You can delete your account (and all associated data including homework photos) at any time from within the app settings. For images in the Meant app, retention is local to your device only.",
+    "s7_title": "7. Your Rights & Choices",
+    "s7_items": [
+      "Access, correct, or delete your personal data",
+      "Withdraw consent (e.g., for push notifications or personalized ads)",
+      "Opt out of future personalized advertising (via device settings)",
+      "Request export of your data",
+      "Lodge a complaint with your local data protection authority"
+    ],
+    "s7_p1": "California residents: You have additional rights under CCPA/CPRA. I do not sell or share your personal information for cross-context behavioral advertising.",
+    "s8_title": "8. Children's Privacy",
+    "s8_p1": "My apps are not directed to children under 13 (or 16 in the EEA). I do not knowingly collect personal information from children. If I learn that a child has provided personal information, I will delete it immediately.",
+    "s9_title": "9. Security",
+    "s9_p1": "I use industry-standard technical and organizational measures (encryption, secure cloud providers, access controls) to protect your data.",
+    "s10_title": "10. International Transfers",
+    "s10_p1": "Your data may be transferred to — and stored in — the United States or other countries outside your residence. I use appropriate safeguards (EU Standard Contractual Clauses, etc.) when required.",
+    "s11_title": "11. Changes to This Policy",
+    "s11_p1": "I may update this Privacy Policy from time to time. The new version will be posted on this page with an updated \"Last updated\" date. Significant changes will be notified inside the apps.",
+    "s12_title": "12. Contact Me",
+    "s12_name": "Mikołaj Piech",
+    "s12_email_label": "Email:",
+    "s12_site_label": "Website:"
+  }
+}
