@@ -18,7 +18,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ projects }) => {
       "https://www.linkedin.com/in/mikolajpiech/",
       "https://github.com/realmikolajpiech"
     ],
-    "description": "Founder and developer from Poland. Creator of mobile apps, web platforms, and desktop software including Omni, Platoic, Solvee, and Subby."
+    "description": "Founder and developer from Poland who builds and ships consumer software. Creator of Omni (AI that knows you and your computer), Platoic (personalized AI learning), Subby (subscription management), and Solvee (AI homework helper, acquired)."
   };
 
   const projectSchemas = projects.map((project, index) => {
