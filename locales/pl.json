@@ -2,6 +2,7 @@
   "common": {
     "get_in_touch": "Skontaktuj się",
     "email_me": "Napisz do mnie",
+    "copied": "Skopiowano!",
     "linkedin": "LinkedIn",
     "privacy_policy": "Polityka prywatności",
     "all_rights_reserved": "© {{year}} Mikołaj Piech. Wszelkie prawa zastrzeżone."

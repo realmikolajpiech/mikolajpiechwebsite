@@ -2,6 +2,7 @@
   "common": {
     "get_in_touch": "Get in touch",
     "email_me": "Email Me",
+    "copied": "Copied!",
     "linkedin": "LinkedIn",
     "privacy_policy": "Privacy Policy",
     "all_rights_reserved": "© {{year}} Mikołaj Piech. All rights reserved."

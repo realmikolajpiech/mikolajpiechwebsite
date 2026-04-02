@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Mail, Github } from 'lucide-react';
+import { Linkedin, Mail, Github, Copy, Check } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
 import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
@@ -37,6 +37,13 @@ const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => 
 
 export default function Home() {
   const { t } = useTranslation();
+  const [copied, setCopied] = React.useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('hello@mikolajpiech.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const projects: Project[] = useMemo(() => [
     {
@@ -297,8 +304,17 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <Button href="mailto:hello@mikolajpiech.com" variant="secondary" external>
-              {t('common.email_me')} <Mail className="ml-2 w-4 h-4" />
+            <Button 
+              onClick={handleCopyEmail}
+              variant="secondary" 
+              className="relative overflow-hidden min-w-[200px]"
+            >
+              <span className={`flex items-center gap-2 transition-all duration-300 ${copied ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
+                hello@mikolajpiech.com <Copy className="w-4 h-4" />
+              </span>
+              <span className={`absolute inset-0 flex items-center justify-center gap-2 transition-all duration-300 ${copied ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                {t('common.copied')} <Check className="w-4 h-4 text-green-500" />
+              </span>
             </Button>
             <Button href="https://www.linkedin.com/in/mikolajpiech/" variant="outline" className="text-off-white border-stone-700 hover:border-off-white hover:bg-stone-800" external>
               {t('common.linkedin')}
