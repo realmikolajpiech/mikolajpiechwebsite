@@ -153,13 +153,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 loop 
                 muted 
                 playsInline 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
               />
             ) : project.image ? (
-              <img 
-                src={project.image} 
-                alt={project.name} 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
+              <img
+                src={project.image}
+                alt={project.name}
+                className="w-full h-full object-cover transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-stone-50 to-stone-100 dark:from-stone-900 dark:to-stone-800">

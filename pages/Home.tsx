@@ -9,8 +9,10 @@ import { Project } from '../types';
 import omniImage from '../assets/omni.jpeg';
 import solveeImage from '../assets/solvee-listing.jpeg';
 import subbyImage from '../assets/subby-listing.jpeg';
+import dosoImage from '../assets/doso-listing.png';
 import solveeLogo from '../assets/solvee-logo.png';
 import subbyLogo from '../assets/subby-logo.png';
+import dosoLogo from '../assets/doso-logo.png';
 import omniVideo from '../assets/omni-teaser.mp4';
 import { Link } from 'react-router-dom';
 import site from '../content/site.json';
@@ -44,16 +46,31 @@ export default function Home() {
 
   const projects: Project[] = useMemo(() => [
     {
-      id: 'omni',
-      name: 'Omni',
-      tagline: site.projects.omni.tagline,
-      description: site.projects.omni.description,
-      link: 'https://heyomni.app',
-      status: site.projects.omni.status,
-      tags: ['AI', 'Productivity'],
-      video: omniVideo,
-      image: omniImage,
-      linkText: site.projects.omni.link_text
+      id: 'doso',
+      name: 'Doso',
+      tagline: site.projects.doso.tagline,
+      description: site.projects.doso.description,
+      link: 'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859',
+      tags: ['Health', 'Mobile App', 'AI'],
+      appStoreLink: 'https://apps.apple.com/app/id6743476460',
+      // playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.doso',
+      icon: dosoLogo,
+      image: dosoImage,
+      layout: 'split'
+    },
+
+    {
+      id: 'subby',
+      name: 'Subby',
+      tagline: site.projects.subby.tagline,
+      description: site.projects.subby.description,
+      link: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
+      tags: ['FinTech', 'Utility', 'Mobile App'],
+      appStoreLink: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
+      playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.subby',
+      icon: subbyLogo,
+      image: subbyImage,
+      layout: 'split'
     },
     {
       id: 'solvee',
@@ -70,17 +87,16 @@ export default function Home() {
       layout: 'split'
     },
     {
-      id: 'subby',
-      name: 'Subby',
-      tagline: site.projects.subby.tagline,
-      description: site.projects.subby.description,
-      link: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
-      tags: ['FinTech', 'Utility', 'Mobile App'],
-      appStoreLink: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
-      playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.subby',
-      icon: subbyLogo,
-      image: subbyImage,
-      layout: 'split'
+      id: 'omni',
+      name: 'Omni',
+      tagline: site.projects.omni.tagline,
+      description: site.projects.omni.description,
+      link: 'https://heyomni.app',
+      status: site.projects.omni.status,
+      tags: ['AI', 'Productivity'],
+      video: omniVideo,
+      image: omniImage,
+      linkText: site.projects.omni.link_text
     }
   ], []);
 
@@ -174,6 +190,7 @@ export default function Home() {
           };
           const items = site.timeline.items;
           const timeline: Array<{ date: string; title: string; description: string; projectId?: string; link?: string }> = [
+            { date: items.doso_released.date, title: items.doso_released.title, description: items.doso_released.description, projectId: 'doso', link: 'https://apps.apple.com/app/id6743476460' },
             { date: items.solvee_acquired.date, title: items.solvee_acquired.title, description: items.solvee_acquired.description, projectId: 'solvee' },
             { date: items.omni_started.date, title: items.omni_started.title, description: items.omni_started.description, projectId: 'omni', link: 'https://heyomni.app' },
             { date: items.subby_released.date, title: items.subby_released.title, description: items.subby_released.description, projectId: 'subby' },

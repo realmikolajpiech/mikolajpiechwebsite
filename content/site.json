@@ -45,6 +45,11 @@
         "date": "March 2025",
         "title": "Solvee",
         "description": "Launched an AI homework helper app on iOS and Android"
+      },
+      "doso_released": {
+        "date": "April 2026",
+        "title": "Doso",
+        "description": "Launched a personal health app for managing medications, lab results, and symptoms with AI-powered insights"
       }
     }
   },
@@ -70,6 +75,10 @@
     "subby": {
       "tagline": "Subscription Manager",
       "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly."
+    },
+    "doso": {
+      "tagline": "Your health, effortlessly tracked.",
+      "description": "Personal health app for managing medications, tracking lab results, and logging symptoms — with AI that knows your full health history."
     }
   },
   "footer": {
