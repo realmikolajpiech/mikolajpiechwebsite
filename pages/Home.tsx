@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { Linkedin, Github, Copy, Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Linkedin, Github, Copy, Check, Mail } from 'lucide-react';
 import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
 import { SchemaMarkup } from '../components/SchemaMarkup';
@@ -16,6 +16,8 @@ import dosoLogo from '../assets/doso-logo.png';
 import omniVideo from '../assets/omni-teaser.mp4';
 import { Link } from 'react-router-dom';
 import site from '../content/site.json';
+
+const CONTACT_EMAIL = 'hello@mikolajpiech.com';
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -36,13 +38,31 @@ const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => 
 
 export default function Home() {
   const [copied, setCopied] = React.useState(false);
+  const [heroEmailOnClipboard, setHeroEmailOnClipboard] = React.useState(false);
+  const heroCopyTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const year = new Date().getFullYear();
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('hello@mikolajpiech.com');
+    void navigator.clipboard.writeText(CONTACT_EMAIL);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const handleHeroCopyEmail = () => {
+    void navigator.clipboard.writeText(CONTACT_EMAIL);
+    if (heroCopyTimeoutRef.current) clearTimeout(heroCopyTimeoutRef.current);
+    setHeroEmailOnClipboard(true);
+    heroCopyTimeoutRef.current = setTimeout(() => {
+      setHeroEmailOnClipboard(false);
+      heroCopyTimeoutRef.current = null;
+    }, 2800);
+  };
+
+  React.useEffect(() => {
+    return () => {
+      if (heroCopyTimeoutRef.current) clearTimeout(heroCopyTimeoutRef.current);
+    };
+  }, []);
 
   const projects: Project[] = useMemo(() => [
     {
@@ -151,11 +171,50 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="flex gap-4 pt-4 items-center"
+              className="pt-4 space-y-3"
             >
-              <SocialIcon href="https://x.com/mikolajpiech" icon={<XLogo className="w-5 h-5" />} />
-              <SocialIcon href="https://www.linkedin.com/in/mikolajpiech/" icon={<Linkedin size={20} />} />
-              <SocialIcon href="https://github.com/realmikolajpiech" icon={<Github size={20} />} />
+              <div className="flex flex-wrap gap-2 items-center">
+                <SocialIcon href="https://x.com/mikolajpiech" icon={<XLogo className="w-5 h-5" />} />
+                <SocialIcon href="https://www.linkedin.com/in/mikolajpiech/" icon={<Linkedin size={20} />} />
+                <SocialIcon href="https://github.com/realmikolajpiech" icon={<Github size={20} />} />
+                <button
+                  type="button"
+                  onClick={handleHeroCopyEmail}
+                  aria-label={site.common.copy_email}
+                  className="p-3 text-stone-400 hover:text-ink dark:hover:text-stone-50 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-all duration-300 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-stone-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-off-white dark:focus-visible:ring-offset-stone-900"
+                >
+                  <Mail size={20} strokeWidth={1.75} />
+                </button>
+              </div>
+              <AnimatePresence>
+                {heroEmailOnClipboard && (
+                  <motion.p
+                    key="hero-email-copied"
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    role="status"
+                    aria-live="polite"
+                    className="text-sm text-stone-600 dark:text-stone-400 font-light tracking-wide pl-1 flex items-baseline gap-2 flex-wrap"
+                  >
+                    <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden />
+                    <span>
+                      {(() => {
+                        const sentence = site.common.email_on_clipboard.replace('{{email}}', CONTACT_EMAIL);
+                        const [before, after] = sentence.split(CONTACT_EMAIL);
+                        return (
+                          <>
+                            {before}
+                            <span className="font-medium text-ink dark:text-stone-200">{CONTACT_EMAIL}</span>
+                            {after}
+                          </>
+                        );
+                      })()}
+                    </span>
+                  </motion.p>
+                )}
+              </AnimatePresence>
             </motion.div>
           </div>
 
@@ -302,7 +361,7 @@ export default function Home() {
               className="relative overflow-hidden min-w-[200px]"
             >
               <span className={`flex items-center gap-2 transition-all duration-300 ${copied ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
-                hello@mikolajpiech.com <Copy className="w-4 h-4" />
+                {CONTACT_EMAIL} <Copy className="w-4 h-4" />
               </span>
               <span className={`absolute inset-0 flex items-center justify-center gap-2 transition-all duration-300 ${copied ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 {site.common.copied} <Check className="w-4 h-4 text-green-500" />
@@ -319,7 +378,7 @@ export default function Home() {
           <div className="mt-20 md:mt-32 pt-12 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
             <p className="mb-4 md:mb-0">{site.common.all_rights_reserved.replace('{{year}}', String(year))}</p>
             <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center">
-              <a href="mailto:hello@mikolajpiech.com" className="hover:text-off-white transition-colors">hello@mikolajpiech.com</a>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-off-white transition-colors">{CONTACT_EMAIL}</a>
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
                 <XLogo className="w-4 h-4" />
               </a>

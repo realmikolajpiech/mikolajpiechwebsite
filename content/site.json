@@ -3,6 +3,8 @@
     "get_in_touch": "Get in touch",
     "email_me": "Email Me",
     "copied": "Copied!",
+    "email_on_clipboard": "{{email}} copied",
+    "copy_email": "Copy email address",
     "linkedin": "LinkedIn",
     "privacy_policy": "Privacy Policy",
     "all_rights_reserved": "© {{year}} Mikołaj Piech. All rights reserved."
