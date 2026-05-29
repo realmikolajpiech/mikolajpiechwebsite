@@ -18,23 +18,28 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ projects }) => {
       "https://www.linkedin.com/in/mikolajpiech/",
       "https://github.com/realmikolajpiech"
     ],
-    "description": "Founder and developer from Poland who builds and ships consumer software. Creator of Omni (AI that knows you and your computer), Platoic (personalized AI learning), Subby (subscription management), and Solvee (AI homework helper, acquired)."
+    "description": "Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), and Solvee (AI homework helper, acquired)."
   };
 
   const projectSchemas = projects.map((project, index) => {
     const isMobileApp = project.tags.some(tag => tag.toLowerCase().includes('mobile') || tag.toLowerCase().includes('ios') || tag.toLowerCase().includes('android'));
+    const applicationType = project.operatingSystem === 'Web'
+      ? 'SoftwareApplication'
+      : isMobileApp
+        ? 'MobileApplication'
+        : 'SoftwareApplication';
     
     return {
       "@type": "ListItem",
       "position": index + 1,
       "item": {
-        "@type": isMobileApp ? "MobileApplication" : "SoftwareApplication",
+        "@type": applicationType,
         "name": project.name,
         "description": project.description,
         "applicationCategory": project.tags[0] || "Utility",
-        "operatingSystem": isMobileApp ? "iOS, Android" : "Web, macOS",
-        "url": project.link,
-        "image": project.image,
+        "operatingSystem": project.operatingSystem ?? (isMobileApp ? "iOS, Android" : "Web, macOS"),
+        ...(project.link ? { url: project.link } : {}),
+        ...(project.image ? { image: project.image } : {}),
         "offers": {
           "@type": "Offer",
           "price": "0",

@@ -48,6 +48,11 @@
         "title": "Solvee",
         "description": "Launched an AI homework helper app on iOS and Android"
       },
+      "trailo_started": {
+        "date": "May 2026",
+        "title": "Trailo",
+        "description": "Started working on Trailo – AI travel planning for web and mobile"
+      },
       "doso_released": {
         "date": "April 2026",
         "title": "Doso",
@@ -81,6 +86,11 @@
     "doso": {
       "tagline": "Your health, effortlessly tracked.",
       "description": "Personal health app for managing medications, tracking lab results, and logging symptoms — with AI that knows your full health history."
+    },
+    "trailo": {
+      "tagline": "Plan less. Travel more.",
+      "description": "End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries. Web today; iOS and Android coming soon.",
+      "link_text": "Visit website"
     }
   },
   "footer": {

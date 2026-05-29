@@ -9,6 +9,22 @@ interface ProjectCardProps {
   index: number;
 }
 
+const StatusBadge = ({ status }: { status: string }) => {
+  const isSold = status.toLowerCase() === 'sold';
+
+  return (
+    <span
+      className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider shrink-0 ${
+        isSold
+          ? 'bg-ink text-off-white dark:bg-stone-100 dark:text-ink shadow-sm'
+          : 'bg-stone-100 text-stone-600 dark:bg-stone-700 dark:text-stone-200 border border-stone-200 dark:border-stone-600'
+      }`}
+    >
+      {status}
+    </span>
+  );
+};
+
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const isPrimary = project.isPrimary;
   const isSplit = project.layout === 'split';
@@ -21,11 +37,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         transition={{ duration: 0.6, delay: index * 0.1 }}
         className="group relative flex flex-col-reverse md:flex-row min-h-auto md:min-h-[500px] w-full overflow-hidden rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500"
       >
-        {project.status && (
-          <div className="absolute top-5 left-5 px-3 py-1 bg-white/90 dark:bg-stone-800/90 backdrop-blur-md rounded-full border border-stone-100 dark:border-stone-700 z-20 shadow-sm">
-            <span className="text-[10px] uppercase font-bold tracking-widest text-stone-500 dark:text-stone-300">{project.status}</span>
-          </div>
-        )}
         {/* Left Side: Content */}
         <div className="flex flex-col justify-between w-full md:w-[55%] p-6 md:p-8 relative bg-white dark:bg-transparent z-10">
           <div>
@@ -39,8 +50,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               )}
             </div>
 
-            <div className="flex justify-between items-start mb-2">
+            <div className="flex flex-wrap items-center gap-3 mb-2">
               <h3 className="text-2xl font-serif text-ink dark:text-stone-50">{project.name}</h3>
+              {project.status && <StatusBadge status={project.status} />}
             </div>
             
             <p className="text-base font-medium text-stone-800 dark:text-stone-200 mb-3 font-serif italic">{project.tagline}</p>
@@ -55,9 +67,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
           </div>
 
-          {/* Store Links */}
-          {(project.appStoreLink || project.playStoreLink) && (
-            <div className="flex gap-3 mt-6 pt-4 border-t border-stone-100 dark:border-stone-700/50">
+          {(project.appStoreLink || project.playStoreLink || (project.link && project.linkText)) && (
+            <div className="flex flex-wrap gap-3 mt-6 pt-4 border-t border-stone-100 dark:border-stone-700/50">
               {project.appStoreLink && (
                 <a href={project.appStoreLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[10px] font-semibold tracking-wide text-stone-600 dark:text-stone-400 hover:text-ink dark:hover:text-stone-50 transition-colors group/link">
                   <Apple size={14} className="mb-0.5" /> 
@@ -70,6 +81,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   <span>Play Store</span>
                 </a>
               )}
+              {project.link && project.linkText && (
+                <Button href={project.link} external className="!py-2 !px-4 !text-[10px] tracking-wide">
+                  {project.linkText}
+                </Button>
+              )}
             </div>
           )}
         </div>
@@ -77,7 +93,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         {/* Right Side: Image */}
         <div className="relative w-full md:w-[45%] h-64 md:h-auto bg-[#F5F5F7] dark:bg-stone-950/50 overflow-hidden">
            <div className="absolute inset-0 flex items-center justify-center py-8 px-4">
-              <div className="relative h-full w-auto aspect-[9/19] rounded-[1.2rem] overflow-hidden shadow-md bg-white dark:bg-stone-900">
+              <div className={`relative rounded-[1.2rem] overflow-hidden shadow-md bg-white dark:bg-stone-900 ${
+                project.imageFit === 'contain' ? 'w-full max-w-sm aspect-[16/10]' : 'h-full w-auto aspect-[9/19]'
+              }`}>
                 {project.video ? (
                   <video 
                     src={project.video} 
@@ -90,8 +108,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 ) : (
                   <img 
                     src={project.image} 
-                    alt={`${project.name} screenshot`} 
-                    className="w-full h-full object-cover"
+                    alt={`${project.name} preview`} 
+                    className={`w-full h-full ${project.imageFit === 'contain' ? 'object-contain p-4' : 'object-cover'}`}
                   />
                 )}
               </div>
@@ -170,8 +188,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         )}
         
         {project.status && (
-          <div className="absolute top-5 left-5 px-3 py-1 bg-white/90 dark:bg-stone-800/90 backdrop-blur-md rounded-full border border-stone-100 dark:border-stone-700 z-20 shadow-sm">
-            <span className="text-[10px] uppercase font-bold tracking-widest text-stone-500 dark:text-stone-300">{project.status}</span>
+          <div className="absolute top-5 right-5 z-20">
+            <StatusBadge status={project.status} />
           </div>
         )}
       </div>
@@ -180,7 +198,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       <div className="flex flex-col justify-between flex-grow p-8 md:px-10 md:pt-10 md:pb-6 relative bg-white dark:bg-transparent">
         <div>
           <div className={`flex ${isPrimary ? 'flex-col md:flex-row justify-between gap-4 md:gap-6' : 'justify-between'} items-start md:items-center mb-3`}>
-            <h3 className="text-3xl font-serif text-ink dark:text-stone-50">{project.name}</h3>
+            <div className="flex flex-wrap items-center gap-3">
+              <h3 className="text-3xl font-serif text-ink dark:text-stone-50">{project.name}</h3>
+              {project.status && !project.icon && <StatusBadge status={project.status} />}
+            </div>
             {project.linkText ? (
               <Button 
                 href={project.link} 

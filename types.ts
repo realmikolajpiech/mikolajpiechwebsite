@@ -5,7 +5,7 @@ export interface Project {
   name: string;
   tagline: string;
   description: string;
-  link: string;
+  link?: string;
   image?: string;
   video?: string;
   icon?: string;
@@ -16,6 +16,8 @@ export interface Project {
   playStoreLink?: string;
   linkText?: string;
   layout?: 'standard' | 'split';
+  imageFit?: 'cover' | 'contain';
+  operatingSystem?: string;
 }
 
 export interface SocialLink {

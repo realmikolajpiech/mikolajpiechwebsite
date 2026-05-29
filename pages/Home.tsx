@@ -13,10 +13,13 @@ import dosoImage from '../assets/doso-listing.png';
 import solveeLogo from '../assets/solvee-logo.png';
 import subbyLogo from '../assets/subby-logo.png';
 import dosoLogo from '../assets/doso-logo.png';
+import trailoIcon from '../assets/trailo-icon.png';
+import trailoListing from '../assets/trailo-listing.png';
 import omniVideo from '../assets/omni-teaser.mp4';
 import { Link } from 'react-router-dom';
 import site from '../content/site.json';
 
+const SHOW_OMNI = false; // temporarily hidden
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
 
 const XLogo = ({ className }: { className?: string }) => (
@@ -66,19 +69,19 @@ export default function Home() {
 
   const projects: Project[] = useMemo(() => [
     {
-      id: 'doso',
-      name: 'Doso',
-      tagline: site.projects.doso.tagline,
-      description: site.projects.doso.description,
-      link: 'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859',
-      tags: ['Health', 'Mobile App', 'AI'],
-      appStoreLink: 'https://apps.apple.com/app/id6743476460',
-      // playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.doso',
-      icon: dosoLogo,
-      image: dosoImage,
-      layout: 'split'
+      id: 'trailo',
+      name: 'Trailo',
+      tagline: site.projects.trailo.tagline,
+      description: site.projects.trailo.description,
+      link: 'https://trailoapp.com',
+      tags: ['Travel', 'Web', 'Mobile App', 'AI'],
+      operatingSystem: 'Web',
+      icon: trailoIcon,
+      image: trailoListing,
+      linkText: site.projects.trailo.link_text,
+      layout: 'split',
+      imageFit: 'contain'
     },
-
     {
       id: 'subby',
       name: 'Subby',
@@ -93,15 +96,25 @@ export default function Home() {
       layout: 'split'
     },
     {
+      id: 'doso',
+      name: 'Doso',
+      tagline: site.projects.doso.tagline,
+      description: site.projects.doso.description,
+      link: 'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859',
+      tags: ['Health', 'Mobile App', 'AI'],
+      appStoreLink: 'https://apps.apple.com/app/id6743476460',
+      // playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.doso',
+      icon: dosoLogo,
+      image: dosoImage,
+      layout: 'split'
+    },
+    {
       id: 'solvee',
       name: 'Solvee',
       tagline: site.projects.solvee.tagline,
       description: site.projects.solvee.description,
-      link: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
       tags: ['Mobile App', 'Education', 'AI'],
       status: site.projects.solvee.status,
-      appStoreLink: 'https://apps.apple.com/pl/app/solvee-ai-homework-helper/id6754188493',
-      playStoreLink: 'https://play.google.com/store/apps/details?id=com.mikolajpiech.solvee',
       icon: solveeLogo,
       image: solveeImage,
       layout: 'split'
@@ -118,7 +131,7 @@ export default function Home() {
       image: omniImage,
       linkText: site.projects.omni.link_text
     }
-  ], []);
+  ].filter((project) => SHOW_OMNI || project.id !== 'omni'), []);
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
@@ -246,12 +259,14 @@ export default function Home() {
           const byId = Object.fromEntries(projects.map(p => [p.id, p]));
           const timelineIcons: Record<string, string> = {
             omni: 'https://www.heyomni.app/assets/omni.png',
+            trailo: 'https://trailoapp.com/trailo-icon.png',
           };
           const items = site.timeline.items;
           const timeline: Array<{ date: string; title: string; description: string; projectId?: string; link?: string }> = [
+            { date: items.trailo_started.date, title: items.trailo_started.title, description: items.trailo_started.description, projectId: 'trailo', link: 'https://trailoapp.com' },
             { date: items.doso_released.date, title: items.doso_released.title, description: items.doso_released.description, projectId: 'doso', link: 'https://apps.apple.com/app/id6743476460' },
             { date: items.solvee_acquired.date, title: items.solvee_acquired.title, description: items.solvee_acquired.description, projectId: 'solvee' },
-            { date: items.omni_started.date, title: items.omni_started.title, description: items.omni_started.description, projectId: 'omni', link: 'https://heyomni.app' },
+            ...(SHOW_OMNI ? [{ date: items.omni_started.date, title: items.omni_started.title, description: items.omni_started.description, projectId: 'omni', link: 'https://heyomni.app' }] : []),
             { date: items.subby_released.date, title: items.subby_released.title, description: items.subby_released.description, projectId: 'subby' },
             { date: items.solvee_launched.date, title: items.solvee_launched.title, description: items.solvee_launched.description, projectId: 'solvee' },
           ];
