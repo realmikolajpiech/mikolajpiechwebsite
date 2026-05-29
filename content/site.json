@@ -19,6 +19,10 @@
     "headline_line1": "I build apps",
     "headline_line2": "and ship them."
   },
+  "seo": {
+    "meta_description": "Mikołaj Piech — founder and developer from Poland. I build and ship consumer apps: Trailo, Subby, Doso, and Solvee (acquired).",
+    "person_description": "Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), Doso (personal health), and Solvee (AI homework helper, acquired)."
+  },
   "timeline": {
     "title": "Timeline",
     "subtitle": "Projects and milestones in chronological order.",
@@ -102,9 +106,9 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "last_updated": "Last updated: April 7, 2026",
+    "last_updated": "Last updated: May 29, 2026",
     "intro_before_link": "Mikołaj Piech (\"I\", \"me\", or \"my\") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how I collect, use, store, and protect information when you use my website (",
-    "intro_after_link": ") and any mobile applications I publish on Google Play or the Apple App Store (collectively \"the Services\"), including Subby, Meant, Doso, and Sitting Time.",
+    "intro_after_link": ") and any mobile applications I publish on Google Play or the Apple App Store, and web applications I operate (collectively \"the Services\"), including Trailo, Subby, Meant, Doso, and Sitting Time.",
     "s1_title": "1. Information I Collect",
     "s1a_title": "A. Information You Provide Directly",
     "s1a_items": [

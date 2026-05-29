@@ -1,5 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
+import site from '../content/site.json';
 
 interface SchemaMarkupProps {
   projects: Project[];
@@ -18,7 +19,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ projects }) => {
       "https://www.linkedin.com/in/mikolajpiech/",
       "https://github.com/realmikolajpiech"
     ],
-    "description": "Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), and Solvee (AI homework helper, acquired)."
+    "description": site.seo.person_description
   };
 
   const projectSchemas = projects.map((project, index) => {
