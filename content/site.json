@@ -55,7 +55,7 @@
       "trailo_started": {
         "date": "May 2026",
         "title": "Trailo",
-        "description": "Started working on Trailo – AI travel planning for web and mobile"
+        "description": "Building Trailo — AI travel planning for web and mobile. Currently in development."
       },
       "doso_released": {
         "date": "April 2026",
@@ -109,8 +109,9 @@
     },
     "trailo": {
       "tagline": "Plan less. Travel more.",
-      "description": "End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries. Web today; iOS and Android coming soon.",
-      "link_text": "Visit website"
+      "description": "Currently in development. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries for web and mobile.",
+      "link_text": "Visit website",
+      "status": "In Development"
     }
   },
   "footer": {

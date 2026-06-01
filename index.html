@@ -9,6 +9,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" href="/mikolaj-profile.jpg" type="image/jpeg">
+    <style>
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      html {
+        background-color: #fdfcf8;
+        color: #121212;
+      }
+
+      html.dark {
+        background-color: #1c1917;
+        color: #fafaf9;
+      }
+
+      #root {
+        opacity: 0;
+      }
+
+      html.app-ready #root {
+        opacity: 1;
+        transition: opacity 0.12s ease;
+      }
+    </style>
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('theme');
+          var isDark =
+            theme === 'dark' ||
+            ((theme === 'system' || !theme) &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.add(isDark ? 'dark' : 'light');
+        } catch (error) {}
+      })();
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -89,7 +127,7 @@
     </script>
 </head>
   <body>
-    <div id="root">
+    <noscript>
       <header>
         <nav>
           <span>Mikołaj Piech</span>
@@ -176,7 +214,6 @@
             <p>I sold the app. It helped over 25k+ students solve problems instantly with detailed AI explanations. Available on iOS and Android.</p>
             <p>Tags: Mobile App, Education, AI</p>
           </article>
-
         </section>
       </main>
 
@@ -192,7 +229,9 @@
         <p>© 2026 Mikołaj Piech. All rights reserved.</p>
         <a href="/privacy-policy">Privacy Policy</a>
       </footer>
-    </div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    </noscript>
+
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

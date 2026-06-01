@@ -10,7 +10,10 @@ interface ProjectShowcaseProps {
 
 const StatusBadge = ({ status, className = '' }: { status: string; className?: string }) => {
   const isSold = status.toLowerCase() === 'sold';
-  const isSoon = status.toLowerCase().includes('soon') || status.toLowerCase().includes('early');
+  const isSoon =
+    status.toLowerCase().includes('soon') ||
+    status.toLowerCase().includes('early') ||
+    status.toLowerCase().includes('development');
 
   return (
     <span
