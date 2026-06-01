@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: 'Manrope', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
   }
 }
 
@@ -24,4 +27,8 @@
 .dark ::selection {
   background: #44403c; /* stone-700 */
   color: #fafaf9; /* stone-50 */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

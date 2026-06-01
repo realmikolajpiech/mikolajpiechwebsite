@@ -64,6 +64,22 @@
       }
     }
   },
+  "portfolio": {
+    "title": "Work",
+    "headline": "Apps I've built",
+    "headline_accent": "and shipped.",
+    "subtitle": "Real products on the App Store, Google Play, and the web. From idea to launch — design, development, and growth.",
+    "stats": {
+      "apps": "5+ apps shipped",
+      "downloads": "25k+ downloads",
+      "platforms": "iOS · Android · Web",
+      "acquired": "1 acquisition"
+    },
+    "cta_title": "Have an app idea?",
+    "cta_description": "I work with founders and businesses to turn concepts into products people actually use. Let's talk about yours.",
+    "view_all": "View full portfolio",
+    "back_home": "Back to home"
+  },
   "projects": {
     "title": "Projects",
     "subtitle": "Tools for a better digital life.",
@@ -76,7 +92,7 @@
     "platoic": {
       "tagline": "Master the art of knowing.",
       "description": "Master any topic with a personalized AI curriculum that curates the web's best resources into your perfect learning path. Constant AI guidance for your curiosity.",
-      "status": "Launching Soon"
+      "status": "In Development"
     },
     "solvee": {
       "tagline": "AI Homework Helper",

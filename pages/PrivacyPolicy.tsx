@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Button } from '../components/Button';
-import { ThemeToggle } from '../components/ThemeToggle';
+import { SiteNav } from '../components/SiteNav';
 import site from '../content/site.json';
 
 const XLogo = ({ className }: { className?: string }) => (
@@ -30,17 +29,7 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
-        <Link to="/" className="font-serif italic text-xl tracking-tight text-ink dark:text-stone-50 hover:opacity-80 transition-opacity">
-          Mikołaj Piech
-        </Link>
-        <div className="flex gap-4 items-center">
-          <ThemeToggle />
-          <Button href="/#contact" variant="outline" className="!px-5 !py-2 !text-xs tracking-wide hidden sm:inline-flex">
-            {site.common.get_in_touch}
-          </Button>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section className="pt-40 pb-20 px-6 md:px-12 max-w-4xl mx-auto">
         <motion.div

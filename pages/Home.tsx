@@ -1,25 +1,13 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, Github, Copy, Check, Mail } from 'lucide-react';
+import { Linkedin, Github, Copy, Check, Mail, ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
 import { SchemaMarkup } from '../components/SchemaMarkup';
-import { ThemeToggle } from '../components/ThemeToggle';
-import { Project } from '../types';
-import omniImage from '../assets/omni.jpeg';
-import solveeImage from '../assets/solvee-listing.jpeg';
-import subbyImage from '../assets/subby-listing.jpeg';
-import dosoImage from '../assets/doso-listing.png';
-import solveeLogo from '../assets/solvee-logo.png';
-import subbyLogo from '../assets/subby-logo.png';
-import dosoLogo from '../assets/doso-logo.png';
-import trailoIcon from '../assets/trailo-icon.png';
-import trailoListing from '../assets/trailo-listing.png';
-import omniVideo from '../assets/omni-teaser.mp4';
+import { SiteNav } from '../components/SiteNav';
+import { getProjects, SHOW_OMNI } from '../data/projects';
 import { Link } from 'react-router-dom';
 import site from '../content/site.json';
-
-const SHOW_OMNI = false; // temporarily hidden
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
 
 const XLogo = ({ className }: { className?: string }) => (
@@ -67,85 +55,13 @@ export default function Home() {
     };
   }, []);
 
-  const projects: Project[] = useMemo(() => [
-    {
-      id: 'trailo',
-      name: 'Trailo',
-      tagline: site.projects.trailo.tagline,
-      description: site.projects.trailo.description,
-      link: 'https://trailoapp.com',
-      tags: ['Travel', 'Web', 'Mobile App', 'AI'],
-      operatingSystem: 'Web',
-      icon: trailoIcon,
-      image: trailoListing,
-      linkText: site.projects.trailo.link_text,
-      layout: 'split',
-      imageFit: 'contain'
-    },
-    {
-      id: 'subby',
-      name: 'Subby',
-      tagline: site.projects.subby.tagline,
-      description: site.projects.subby.description,
-      link: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
-      tags: ['FinTech', 'Utility', 'Mobile App'],
-      appStoreLink: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
-      playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.subby',
-      icon: subbyLogo,
-      image: subbyImage,
-      layout: 'split'
-    },
-    {
-      id: 'doso',
-      name: 'Doso',
-      tagline: site.projects.doso.tagline,
-      description: site.projects.doso.description,
-      link: 'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859',
-      tags: ['Health', 'Mobile App', 'AI'],
-      appStoreLink: 'https://apps.apple.com/app/id6743476460',
-      // playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.doso',
-      icon: dosoLogo,
-      image: dosoImage,
-      layout: 'split'
-    },
-    {
-      id: 'solvee',
-      name: 'Solvee',
-      tagline: site.projects.solvee.tagline,
-      description: site.projects.solvee.description,
-      tags: ['Mobile App', 'Education', 'AI'],
-      status: site.projects.solvee.status,
-      icon: solveeLogo,
-      image: solveeImage,
-      layout: 'split'
-    },
-    {
-      id: 'omni',
-      name: 'Omni',
-      tagline: site.projects.omni.tagline,
-      description: site.projects.omni.description,
-      link: 'https://heyomni.app',
-      status: site.projects.omni.status,
-      tags: ['AI', 'Productivity'],
-      video: omniVideo,
-      image: omniImage,
-      linkText: site.projects.omni.link_text
-    }
-  ].filter((project) => SHOW_OMNI || project.id !== 'omni'), []);
+  const projects = getProjects();
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
       <SchemaMarkup projects={projects} />
 
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
-        <span className="font-serif italic text-xl tracking-tight text-ink dark:text-stone-50">Mikołaj Piech</span>
-        <div className="flex gap-4 items-center">
-          <ThemeToggle />
-          <Button href="#contact" variant="outline" className="!px-5 !py-2 !text-xs tracking-wide hidden sm:inline-flex">
-            {site.common.get_in_touch}
-          </Button>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section className="relative pt-28 md:pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-12 gap-12 items-center">
@@ -264,9 +180,11 @@ export default function Home() {
           const items = site.timeline.items;
           const timeline: Array<{ date: string; title: string; description: string; projectId?: string; link?: string }> = [
             { date: items.trailo_started.date, title: items.trailo_started.title, description: items.trailo_started.description, projectId: 'trailo', link: 'https://trailoapp.com' },
-            { date: items.doso_released.date, title: items.doso_released.title, description: items.doso_released.description, projectId: 'doso', link: 'https://apps.apple.com/app/id6743476460' },
+            { date: items.doso_released.date, title: items.doso_released.title, description: items.doso_released.description, projectId: 'doso', link: 'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859' },
             { date: items.solvee_acquired.date, title: items.solvee_acquired.title, description: items.solvee_acquired.description, projectId: 'solvee' },
             ...(SHOW_OMNI ? [{ date: items.omni_started.date, title: items.omni_started.title, description: items.omni_started.description, projectId: 'omni', link: 'https://heyomni.app' }] : []),
+            // Platoic timeline: uncomment and set SHOW_PLATOIC = true in data/projects.ts
+            // { date: items.platoic_started.date, title: items.platoic_started.title, description: items.platoic_started.description, projectId: 'platoic' },
             { date: items.subby_released.date, title: items.subby_released.title, description: items.subby_released.description, projectId: 'subby' },
             { date: items.solvee_launched.date, title: items.solvee_launched.title, description: items.solvee_launched.description, projectId: 'solvee' },
           ];
@@ -341,14 +259,21 @@ export default function Home() {
       </section>
 
       <section className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-12 md:mb-20">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-12 md:mb-20">
           <div>
             <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{site.projects.title}</h2>
             <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{site.projects.subtitle}</p>
           </div>
+          <Link
+            to="/portfolio"
+            className="inline-flex items-center gap-2 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-ink dark:hover:text-stone-50 transition-colors group"
+          >
+            {site.portfolio.view_all}
+            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 md:gap-12">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
