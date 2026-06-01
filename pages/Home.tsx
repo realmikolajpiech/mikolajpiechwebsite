@@ -165,6 +165,28 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-12 md:mb-20">
+          <div>
+            <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{site.projects.title}</h2>
+            <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{site.projects.subtitle}</p>
+          </div>
+          <Link
+            to="/portfolio"
+            className="inline-flex items-center gap-2 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-ink dark:hover:text-stone-50 transition-colors group"
+          >
+            {site.portfolio.view_all}
+            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 md:gap-12">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
+          ))}
+        </div>
+      </section>
+
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="mb-16 max-w-xl">
           <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{site.timeline.title}</h2>
@@ -256,28 +278,6 @@ export default function Home() {
             </div>
           );
         })()}
-      </section>
-
-      <section className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-12 md:mb-20">
-          <div>
-            <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{site.projects.title}</h2>
-            <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{site.projects.subtitle}</p>
-          </div>
-          <Link
-            to="/portfolio"
-            className="inline-flex items-center gap-2 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-ink dark:hover:text-stone-50 transition-colors group"
-          >
-            {site.portfolio.view_all}
-            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 md:gap-12">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
       </section>
 
       <footer id="contact" className="bg-ink text-off-white py-20 md:py-32 px-6">

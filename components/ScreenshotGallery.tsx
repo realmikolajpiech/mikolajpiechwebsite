@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
@@ -24,6 +24,7 @@ const lightboxImageStyles: Record<NonNullable<ProjectScreenshot['variant']>, str
 const hoverSpring = { type: 'spring' as const, stiffness: 260, damping: 22, mass: 0.85 };
 const lightboxSlideTransition = { type: 'tween' as const, duration: 0.34, ease: [0.16, 1, 0.3, 1] };
 const MOBILE_QUERY = '(max-width: 767px)';
+const DESKTOP_BLEED_QUERY = '(min-width: 1024px)';
 
 const lightboxSlideVariants = {
   enter: (direction: number) => ({
@@ -83,6 +84,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
   const [isMobile, setIsMobile] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [slideDirection, setSlideDirection] = useState(1);
+  const [edgeBleed, setEdgeBleed] = useState<number | null>(null);
 
   const updateScrollState = useCallback(() => {
     const el = scrollRef.current;
@@ -104,6 +106,34 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
     mediaQuery.addEventListener('change', updateMobile);
     return () => mediaQuery.removeEventListener('change', updateMobile);
   }, []);
+
+  useLayoutEffect(() => {
+    const mediaQuery = window.matchMedia(DESKTOP_BLEED_QUERY);
+
+    const updateEdgeBleed = () => {
+      const wrapper = wrapperRef.current;
+      if (!wrapper || !mediaQuery.matches) {
+        setEdgeBleed(null);
+        return;
+      }
+
+      const rightEdge = wrapper.getBoundingClientRect().right;
+      setEdgeBleed(Math.max(0, document.documentElement.clientWidth - rightEdge));
+    };
+
+    updateEdgeBleed();
+    mediaQuery.addEventListener('change', updateEdgeBleed);
+    window.addEventListener('resize', updateEdgeBleed, { passive: true });
+
+    const resizeObserver = new ResizeObserver(updateEdgeBleed);
+    if (wrapperRef.current) resizeObserver.observe(wrapperRef.current);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateEdgeBleed);
+      window.removeEventListener('resize', updateEdgeBleed);
+      resizeObserver.disconnect();
+    };
+  }, [screenshots.length]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -191,7 +221,17 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
   return (
     <>
       <div ref={wrapperRef} className="relative w-full overflow-visible">
-        <div className="relative w-[calc(100%+1.25rem)] -mr-5 sm:w-[calc(100%+1.5rem)] sm:-mr-6 md:w-[calc(100%+3rem)] md:-mr-12 lg:w-[calc(100%+3rem+(100vw-min(100vw,80rem))/2)] lg:-mr-[calc(3rem+(100vw-min(100vw,80rem))/2)]">
+        <div
+          className="relative w-[calc(100%+1.25rem)] -mr-5 sm:w-[calc(100%+1.5rem)] sm:-mr-6 md:w-[calc(100%+3rem)] md:-mr-12 lg:w-full lg:mr-0"
+          style={
+            edgeBleed !== null
+              ? {
+                  width: `calc(100% + ${edgeBleed}px)`,
+                  marginRight: `-${edgeBleed}px`,
+                }
+              : undefined
+          }
+        >
           {showControls && !isMobile && canScrollLeft && (
             <button
               type="button"
