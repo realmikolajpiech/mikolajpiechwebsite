@@ -24,7 +24,11 @@ const lightboxImageStyles: Record<NonNullable<ProjectScreenshot['variant']>, str
 const hoverSpring = { type: 'spring' as const, stiffness: 260, damping: 22, mass: 0.85 };
 const lightboxSlideTransition = { type: 'tween' as const, duration: 0.34, ease: [0.16, 1, 0.3, 1] };
 const MOBILE_QUERY = '(max-width: 767px)';
-const DESKTOP_BLEED_QUERY = '(min-width: 1024px)';
+
+function getViewportTrackWidth(element: HTMLElement) {
+  const left = element.getBoundingClientRect().left;
+  return Math.max(0, document.documentElement.clientWidth - left);
+}
 
 const lightboxSlideVariants = {
   enter: (direction: number) => ({
@@ -84,15 +88,14 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
   const [isMobile, setIsMobile] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [slideDirection, setSlideDirection] = useState(1);
-  const [edgeBleed, setEdgeBleed] = useState<number | null>(null);
+  const [trackWidth, setTrackWidth] = useState<number | null>(null);
 
   const updateScrollState = useCallback(() => {
     const el = scrollRef.current;
-    const wrapper = wrapperRef.current;
-    if (!el || !wrapper) return;
+    if (!el) return;
 
     const maxScroll = el.scrollWidth - el.clientWidth;
-    const hasOverflow = el.scrollWidth > wrapper.clientWidth + 4;
+    const hasOverflow = maxScroll > 4;
 
     setCanScrollLeft(hasOverflow && el.scrollLeft > 4);
     setCanScrollRight(hasOverflow && el.scrollLeft < maxScroll - 4);
@@ -108,30 +111,29 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
   }, []);
 
   useLayoutEffect(() => {
-    const mediaQuery = window.matchMedia(DESKTOP_BLEED_QUERY);
+    const scroll = scrollRef.current;
+    if (!scroll) return;
 
-    const updateEdgeBleed = () => {
-      const wrapper = wrapperRef.current;
-      if (!wrapper || !mediaQuery.matches) {
-        setEdgeBleed(null);
-        return;
-      }
-
-      const rightEdge = wrapper.getBoundingClientRect().right;
-      setEdgeBleed(Math.max(0, document.documentElement.clientWidth - rightEdge));
+    const applyTrackWidth = () => {
+      const width = getViewportTrackWidth(scroll);
+      scroll.style.width = `${width}px`;
+      setTrackWidth(width);
+      requestAnimationFrame(updateScrollState);
     };
 
-    updateEdgeBleed();
-    mediaQuery.addEventListener('change', updateEdgeBleed);
-    window.addEventListener('resize', updateEdgeBleed, { passive: true });
+    applyTrackWidth();
+    window.addEventListener('resize', applyTrackWidth, { passive: true });
+    window.addEventListener('scroll', applyTrackWidth, { passive: true });
 
-    const resizeObserver = new ResizeObserver(updateEdgeBleed);
+    const resizeObserver = new ResizeObserver(applyTrackWidth);
+    resizeObserver.observe(scroll);
     if (wrapperRef.current) resizeObserver.observe(wrapperRef.current);
 
     return () => {
-      mediaQuery.removeEventListener('change', updateEdgeBleed);
-      window.removeEventListener('resize', updateEdgeBleed);
+      window.removeEventListener('resize', applyTrackWidth);
+      window.removeEventListener('scroll', applyTrackWidth);
       resizeObserver.disconnect();
+      scroll.style.width = '';
     };
   }, [screenshots.length]);
 
@@ -221,46 +223,44 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
   return (
     <>
       <div ref={wrapperRef} className="relative w-full overflow-visible">
-        <div
-          className="relative w-[calc(100%+1.25rem)] -mr-5 sm:w-[calc(100%+1.5rem)] sm:-mr-6 md:w-[calc(100%+3rem)] md:-mr-12 lg:w-full lg:mr-0"
-          style={
-            edgeBleed !== null
-              ? {
-                  width: `calc(100% + ${edgeBleed}px)`,
-                  marginRight: `-${edgeBleed}px`,
-                }
-              : undefined
-          }
-        >
-          {showControls && !isMobile && canScrollLeft && (
-            <button
-              type="button"
-              onClick={() => scroll('left')}
-              aria-label="Scroll screenshots left"
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
-            >
-              <ChevronLeft size={18} />
-            </button>
-          )}
-
-          {showControls && !isMobile && canScrollRight && (
-            <button
-              type="button"
-              onClick={() => scroll('right')}
-              aria-label="Scroll screenshots right"
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
-            >
-              <ChevronRight size={18} />
-            </button>
-          )}
-
-          <div
-            ref={scrollRef}
-            className={`flex flex-nowrap items-center gap-3 sm:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-1 scrollbar-hide [clip-path:inset(-3rem_-1rem_-3rem_-3rem)] ${
-              isMobile ? 'py-4 -my-2 pl-5' : 'py-8 sm:py-10 -my-6 sm:-my-8 pl-5 sm:pl-6'
-            }`}
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        {showControls && !isMobile && canScrollLeft && (
+          <button
+            type="button"
+            onClick={() => scroll('left')}
+            aria-label="Scroll screenshots left"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
           >
+            <ChevronLeft size={18} />
+          </button>
+        )}
+
+        {showControls && !isMobile && canScrollRight && (
+          <button
+            type="button"
+            onClick={() => scroll('right')}
+            aria-label="Scroll screenshots right"
+            className="absolute top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
+            style={
+              trackWidth !== null
+                ? { left: Math.max(0, trackWidth - 44) }
+                : { right: '0.5rem' }
+            }
+          >
+            <ChevronRight size={18} />
+          </button>
+        )}
+
+        <div
+          ref={scrollRef}
+          className={`flex flex-nowrap items-center gap-3 sm:gap-4 overflow-x-auto overflow-y-visible scroll-smooth snap-x snap-proximity pb-1 scrollbar-hide ${
+            isMobile ? 'py-4 -my-2' : 'py-8 sm:py-10 -my-6 sm:-my-8'
+          }`}
+          style={{
+            width: trackWidth !== null ? `${trackWidth}px` : undefined,
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          }}
+        >
             {screenshots.map((shot, index) => {
               const variant = shot.variant ?? 'phone';
               const iconShot = isIconShot(shot);
@@ -284,13 +284,9 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
               };
 
               return (
-                <motion.figure
+                <figure
                   key={`${shot.src}-${index}`}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.45, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                  className="shrink-0 snap-center overflow-visible px-1 sm:px-1.5"
+                  className="shrink-0 snap-start overflow-visible px-1 sm:px-1.5"
                 >
                   {isMobile ? (
                     <motion.button
@@ -306,10 +302,9 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
                       <ScreenshotFrame shot={shot} variant={variant} iconShot={iconShot} />
                     </motion.div>
                   )}
-                </motion.figure>
+                </figure>
               );
             })}
-          </div>
         </div>
       </div>
 

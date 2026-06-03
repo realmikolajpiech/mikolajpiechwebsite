@@ -104,9 +104,9 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full min-w-0 max-w-full overflow-visible"
+      className="w-full max-w-full overflow-visible"
     >
-      <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-start min-w-0 overflow-visible">
+      <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-start overflow-visible">
         <div className="lg:col-span-5 space-y-4 sm:space-y-6 min-w-0">
           <header className="space-y-3 sm:space-y-4">
             <div className="space-y-2.5">
@@ -160,7 +160,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
           <ProjectLinks project={project} />
         </div>
 
-        <div className="lg:col-span-7 min-w-0 overflow-visible">
+        <div className="lg:col-span-7 overflow-visible">
           <ScreenshotGallery screenshots={screenshots} projectName={project.name} />
         </div>
       </div>

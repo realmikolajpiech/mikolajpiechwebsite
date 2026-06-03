@@ -2,7 +2,10 @@ import { Project } from '../types';
 import site from '../content/site.json';
 import omniImage from '../assets/omni.jpeg';
 import omniVideo from '../assets/omni-teaser.mp4';
-import solveeImage from '../assets/solvee-listing.jpeg';
+import solvee1 from '../assets/solvee-sc/solvee1.webp';
+import solvee2 from '../assets/solvee-sc/solvee2.webp';
+import solvee3 from '../assets/solvee-sc/solvee3.webp';
+import solvee4 from '../assets/solvee-sc/solvee4.webp';
 import solveeLogo from '../assets/solvee-logo.png';
 import subby1 from '../assets/subby-sc/subby1.png';
 import subby2 from '../assets/subby-sc/subby2.png';
@@ -99,10 +102,13 @@ const allProjects: Project[] = [
     scope: 'Built & sold · 25k+ downloads',
     status: site.projects.solvee.status,
     icon: solveeLogo,
-    image: solveeImage,
+    image: solvee1,
     layout: 'split',
     screenshots: [
-      { src: solveeImage, alt: 'Solvee AI homework solver', variant: 'phone' },
+      { src: solvee1, alt: 'Solvee camera scan for math exercises', variant: 'phone' },
+      { src: solvee2, alt: 'Solvee step-by-step math solution', variant: 'phone' },
+      { src: solvee3, alt: 'Solvee AI tools home screen', variant: 'phone' },
+      { src: solvee4, alt: 'Solvee app screenshot', variant: 'phone' },
     ],
   },
   // {

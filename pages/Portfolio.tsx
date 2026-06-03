@@ -49,7 +49,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
+    <div className="min-h-screen overflow-x-visible bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
       <SiteNav />
 
       <header className="relative pt-24 sm:pt-28 md:pt-36 pb-14 sm:pb-20 md:pb-28 px-5 sm:px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
@@ -99,7 +99,7 @@ export default function Portfolio() {
         )}
       </header>
 
-      <div id="portfolio-projects" className="border-t border-stone-200/60 dark:border-stone-800/60">
+      <div id="portfolio-projects" className="border-t border-stone-200/60 dark:border-stone-800/60 overflow-visible">
         <PortfolioMobileNav
           projects={projects}
           activeId={activeId}
@@ -118,7 +118,7 @@ export default function Portfolio() {
               </div>
             </aside>
 
-            <main className="min-w-0 overflow-visible py-8 sm:py-12 md:py-16 pb-20 sm:pb-24 md:pb-32">
+            <main className="overflow-visible py-8 sm:py-12 md:py-16 pb-20 sm:pb-24 md:pb-32">
               <div>
                 {projects.map((project, index) => (
                   <React.Fragment key={project.id}>
@@ -130,7 +130,7 @@ export default function Portfolio() {
                     )}
                     <section
                       id={project.id}
-                      className="scroll-mt-[7.75rem] pt-14 lg:pt-0 lg:scroll-mt-32"
+                      className="scroll-mt-[7.75rem] pt-14 lg:pt-0 lg:scroll-mt-32 overflow-visible"
                     >
                       <ProjectShowcase project={project} />
                     </section>
