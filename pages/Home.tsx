@@ -201,7 +201,7 @@ export default function Home() {
           };
           const items = site.timeline.items;
           const timeline: Array<{ date: string; title: string; description: string; projectId?: string; link?: string }> = [
-            { date: items.trailo_started.date, title: items.trailo_started.title, description: items.trailo_started.description, projectId: 'trailo', link: 'https://trailoapp.com' },
+            { date: items.trailo_started.date, title: items.trailo_started.title, description: items.trailo_started.description, projectId: 'trailo' },
             { date: items.doso_released.date, title: items.doso_released.title, description: items.doso_released.description, projectId: 'doso', link: 'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859' },
             { date: items.solvee_acquired.date, title: items.solvee_acquired.title, description: items.solvee_acquired.description, projectId: 'solvee' },
             ...(SHOW_OMNI ? [{ date: items.omni_started.date, title: items.omni_started.title, description: items.omni_started.description, projectId: 'omni', link: 'https://heyomni.app' }] : []),

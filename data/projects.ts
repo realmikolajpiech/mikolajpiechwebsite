@@ -30,7 +30,6 @@ const allProjects: Project[] = [
     name: 'Trailo',
     tagline: site.projects.trailo.tagline,
     description: site.projects.trailo.description,
-    link: 'https://trailoapp.com',
     tags: ['Travel', 'Web', 'Mobile App', 'AI'],
     platform: 'Web · iOS & Android soon',
     category: 'AI Travel',
@@ -39,7 +38,6 @@ const allProjects: Project[] = [
     status: site.projects.trailo.status,
     icon: trailoIcon,
     image: trailoMobile1,
-    linkText: site.projects.trailo.link_text,
     layout: 'split',
     screenshots: [
       { src: trailoMobile1, alt: 'Trailo mobile trip plan with map and itinerary', variant: 'phone' },
