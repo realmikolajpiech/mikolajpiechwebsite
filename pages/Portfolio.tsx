@@ -49,7 +49,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="min-h-screen overflow-x-visible bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
+    <div className="min-h-screen overflow-x-clip bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
       <SiteNav />
 
       <header className="relative pt-24 sm:pt-28 md:pt-36 pb-14 sm:pb-20 md:pb-28 px-5 sm:px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">

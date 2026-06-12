@@ -160,7 +160,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
           <ProjectLinks project={project} />
         </div>
 
-        <div className="lg:col-span-7 overflow-visible">
+        <div className="lg:col-span-7 min-w-0 overflow-visible">
           <ScreenshotGallery screenshots={screenshots} projectName={project.name} />
         </div>
       </div>

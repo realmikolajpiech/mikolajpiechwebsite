@@ -25,7 +25,7 @@ const hoverSpring = { type: 'spring' as const, stiffness: 260, damping: 22, mass
 const lightboxSlideTransition = { type: 'tween' as const, duration: 0.34, ease: [0.16, 1, 0.3, 1] };
 const MOBILE_QUERY = '(max-width: 767px)';
 
-function getViewportTrackWidth(element: HTMLElement) {
+function getDesktopTrackWidth(element: HTMLElement) {
   const left = element.getBoundingClientRect().left;
   return Math.max(0, document.documentElement.clientWidth - left);
 }
@@ -115,7 +115,14 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
     if (!scroll) return;
 
     const applyTrackWidth = () => {
-      const width = getViewportTrackWidth(scroll);
+      if (isMobile) {
+        scroll.style.width = '';
+        setTrackWidth(null);
+        requestAnimationFrame(updateScrollState);
+        return;
+      }
+
+      const width = getDesktopTrackWidth(scroll);
       scroll.style.width = `${width}px`;
       setTrackWidth(width);
       requestAnimationFrame(updateScrollState);
@@ -135,7 +142,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
       resizeObserver.disconnect();
       scroll.style.width = '';
     };
-  }, [screenshots.length]);
+  }, [screenshots.length, isMobile, updateScrollState]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -222,7 +229,12 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
 
   return (
     <>
-      <div ref={wrapperRef} className="relative w-full overflow-visible">
+      <div
+        ref={wrapperRef}
+        className={`relative min-w-0 overflow-visible ${
+          isMobile ? 'w-[100vw] max-w-[100vw] ml-[calc(50%-50vw)]' : ''
+        }`}
+      >
         {showControls && !isMobile && canScrollLeft && (
           <button
             type="button"
@@ -253,12 +265,10 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
         <div
           ref={scrollRef}
           className={`flex flex-nowrap items-center gap-3 sm:gap-4 overflow-x-auto overflow-y-visible scroll-smooth snap-x snap-proximity pb-1 scrollbar-hide ${
-            isMobile
-              ? 'py-4 -my-2'
-              : 'py-8 sm:py-10 -my-6 sm:-my-8 pl-8 sm:pl-9 md:pl-10 -ml-8 sm:-ml-9 md:-ml-10 pr-8 sm:pr-9 md:pr-10 -mr-8 sm:-mr-9 md:-mr-10'
+            isMobile ? 'py-4 -my-2 w-full' : 'py-8 sm:py-10 -my-6 sm:-my-8'
           }`}
           style={{
-            width: trackWidth !== null ? `${trackWidth}px` : undefined,
+            width: !isMobile && trackWidth !== null ? `${trackWidth}px` : undefined,
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
           }}
@@ -266,12 +276,19 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
             {screenshots.map((shot, index) => {
               const variant = shot.variant ?? 'phone';
               const iconShot = isIconShot(shot);
+              const isFirst = index === 0;
+              const isLast = index === screenshots.length - 1;
+              const transformOrigin = isFirst
+                ? 'left center'
+                : isLast
+                  ? 'right center'
+                  : 'center center';
               const frameProps = {
                 className: `relative overflow-hidden bg-[#F5F5F7] dark:bg-stone-950/60 border border-stone-200/80 dark:border-stone-700/50 ${
                   isMobile ? 'cursor-pointer touch-manipulation active:scale-[0.98] p-0 text-left' : 'cursor-default'
                 } ${frameStyles[variant]}`,
                 style: {
-                  transformOrigin: 'center center',
+                  transformOrigin,
                   boxShadow: '0 8px 30px -12px rgba(0,0,0,0.12)',
                 } as const,
                 whileHover: isMobile
@@ -288,7 +305,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
               return (
                 <figure
                   key={`${shot.src}-${index}`}
-                  className="shrink-0 snap-start overflow-visible px-1 sm:px-1.5"
+                  className={`shrink-0 snap-start overflow-visible px-1 sm:px-1.5 ${isFirst ? 'pl-2 sm:pl-2.5' : ''} ${isLast ? 'pr-2 sm:pr-2.5' : ''}`}
                 >
                   {isMobile ? (
                     <motion.button
