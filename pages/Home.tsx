@@ -153,11 +153,11 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="md:col-span-5 relative self-start"
           >
-            <div className="aspect-[3/4] md:aspect-square relative overflow-hidden rounded-full md:rounded-[3rem] group">
+            <div className="aspect-[3/4] md:aspect-square relative overflow-hidden rounded-full md:rounded-[3rem]">
               <img
                 src="/mikolaj-profile.jpg"
                 alt="Mikołaj Piech"
-                className="w-full h-full object-cover group-hover:grayscale transition-all duration-1000 ease-in-out"
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-full md:rounded-[3rem]"></div>
             </div>
