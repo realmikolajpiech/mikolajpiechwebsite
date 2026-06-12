@@ -253,7 +253,9 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
         <div
           ref={scrollRef}
           className={`flex flex-nowrap items-center gap-3 sm:gap-4 overflow-x-auto overflow-y-visible scroll-smooth snap-x snap-proximity pb-1 scrollbar-hide ${
-            isMobile ? 'py-4 -my-2' : 'py-8 sm:py-10 -my-6 sm:-my-8'
+            isMobile
+              ? 'py-4 -my-2'
+              : 'py-8 sm:py-10 -my-6 sm:-my-8 pl-8 sm:pl-9 md:pl-10 -ml-8 sm:-ml-9 md:-ml-10 pr-8 sm:pr-9 md:pr-10 -mr-8 sm:-mr-9 md:-mr-10'
           }`}
           style={{
             width: trackWidth !== null ? `${trackWidth}px` : undefined,
