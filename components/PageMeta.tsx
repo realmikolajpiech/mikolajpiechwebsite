@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
-import { SITE_NAME, SITE_URL } from '../utils/seo';
+import { DEFAULT_OG_IMAGE_HEIGHT, DEFAULT_OG_IMAGE_WIDTH, SITE_NAME, SITE_URL } from '../utils/seo';
 
 export interface PageMetaProps {
   title: string;
   description: string;
+  socialDescription?: string;
   path?: string;
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   noindex?: boolean;
 }
 
@@ -36,13 +39,17 @@ function removeMeta(attr: 'name' | 'property', key: string) {
 export function PageMeta({
   title,
   description,
+  socialDescription,
   path = '/',
   image,
+  imageWidth = DEFAULT_OG_IMAGE_WIDTH,
+  imageHeight = DEFAULT_OG_IMAGE_HEIGHT,
   noindex = false,
 }: PageMetaProps) {
   useEffect(() => {
     const url = `${SITE_URL}${path}`;
-    const ogImage = image ?? `${SITE_URL}/mikolaj-profile.jpg`;
+    const ogImage = image ?? `${SITE_URL}/og-image.jpg`;
+    const socialText = socialDescription ?? description;
 
     document.title = title;
 
@@ -52,13 +59,15 @@ export function PageMeta({
     upsertMeta('property', 'og:type', 'website');
     upsertMeta('property', 'og:site_name', SITE_NAME);
     upsertMeta('property', 'og:title', title);
-    upsertMeta('property', 'og:description', description);
+    upsertMeta('property', 'og:description', socialText);
     upsertMeta('property', 'og:url', url);
     upsertMeta('property', 'og:image', ogImage);
+    upsertMeta('property', 'og:image:width', String(imageWidth));
+    upsertMeta('property', 'og:image:height', String(imageHeight));
 
     upsertMeta('name', 'twitter:card', 'summary_large_image');
     upsertMeta('name', 'twitter:title', title);
-    upsertMeta('name', 'twitter:description', description);
+    upsertMeta('name', 'twitter:description', socialText);
     upsertMeta('name', 'twitter:image', ogImage);
 
     if (noindex) {
@@ -66,7 +75,7 @@ export function PageMeta({
     } else {
       removeMeta('name', 'robots');
     }
-  }, [title, description, path, image, noindex]);
+  }, [title, description, socialDescription, path, image, imageWidth, imageHeight, noindex]);
 
   return null;
 }
