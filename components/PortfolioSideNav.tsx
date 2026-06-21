@@ -39,6 +39,7 @@ export const PortfolioSideNav: React.FC<PortfolioSideNavProps> = ({
                   <img
                     src={project.icon}
                     alt=""
+                    aria-hidden="true"
                     className={`w-6 h-6 rounded-[20%] object-cover shrink-0 transition-opacity duration-200 ${
                       isActive ? 'opacity-100' : 'opacity-50 group-hover:opacity-80'
                     }`}

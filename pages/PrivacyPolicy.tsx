@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { SiteNav } from '../components/SiteNav';
+import { PageMeta } from '../components/PageMeta';
 import site from '../content/site.json';
+import { getPageMeta } from '../utils/seo';
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -29,8 +31,10 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
+      <PageMeta {...getPageMeta('privacy')} />
       <SiteNav />
 
+      <main>
       <section className="pt-40 pb-20 px-6 md:px-12 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,9 +59,9 @@ export default function PrivacyPolicy() {
               {p.intro_after_link}
             </p>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s1_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s1_title}</h2>
 
-            <h4 className="text-xl font-medium text-ink dark:text-stone-50 mt-6 mb-3">{p.s1a_title}</h4>
+            <h3 className="text-xl font-medium text-ink dark:text-stone-50 mt-6 mb-3">{p.s1a_title}</h3>
             <ul className="list-disc pl-6 space-y-2 mb-6 text-stone-600 dark:text-stone-300">
               {p.s1a_items.map((item, i) => (
                 <li key={i} className="text-stone-600 dark:text-stone-300">
@@ -66,28 +70,28 @@ export default function PrivacyPolicy() {
               ))}
             </ul>
 
-            <h4 className="text-xl font-medium text-ink dark:text-stone-50 mt-6 mb-3">{p.s1b_title}</h4>
+            <h3 className="text-xl font-medium text-ink dark:text-stone-50 mt-6 mb-3">{p.s1b_title}</h3>
             <ul className="list-disc pl-6 space-y-2 mb-6 text-stone-600 dark:text-stone-300">
               {p.s1b_items.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
             </ul>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s2_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s2_title}</h2>
             <ul className="list-disc pl-6 space-y-2 mb-6 text-stone-600 dark:text-stone-300">
               {p.s2_items.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
             </ul>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s3_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s3_title}</h2>
             <ul className="list-disc pl-6 space-y-2 mb-6 text-stone-600 dark:text-stone-300">
               {p.s3_items.map((item, i) => (
                 <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
               ))}
             </ul>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s4_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s4_title}</h2>
             <p className="mb-4">{p.s4_p1}</p>
             <p className="mb-4">{p.s4_p2}</p>
 
@@ -145,7 +149,7 @@ export default function PrivacyPolicy() {
 
             <p className="mb-6">{p.s4_p3}</p>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s5_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s5_title}</h2>
             <p className="mb-4">{p.s5_p1}</p>
             <p className="mb-4" dangerouslySetInnerHTML={{ __html: p.s5_p2 }} />
             <p className="mb-4" dangerouslySetInnerHTML={{ __html: p.s5_p3 }} />
@@ -173,10 +177,10 @@ export default function PrivacyPolicy() {
               .
             </p>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s6_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s6_title}</h2>
             <p className="mb-6">{p.s6_p1}</p>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s7_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s7_title}</h2>
             <ul className="list-disc pl-6 space-y-2 mb-6 text-stone-600 dark:text-stone-300">
               {p.s7_items.map((item, i) => (
                 <li key={i}>{item}</li>
@@ -192,19 +196,19 @@ export default function PrivacyPolicy() {
               .
             </p>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s8_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s8_title}</h2>
             <p className="mb-6">{p.s8_p1}</p>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s9_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s9_title}</h2>
             <p className="mb-6">{p.s9_p1}</p>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s10_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s10_title}</h2>
             <p className="mb-6">{p.s10_p1}</p>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s11_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s11_title}</h2>
             <p className="mb-6">{p.s11_p1}</p>
 
-            <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s12_title}</h3>
+            <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s12_title}</h2>
             <p className="mb-2">{p.s12_name}</p>
             <p className="mb-2">
               {p.s12_email_label}{' '}
@@ -238,6 +242,7 @@ export default function PrivacyPolicy() {
           </div>
         </div>
       </footer>
+      </main>
     </div>
   );
 }

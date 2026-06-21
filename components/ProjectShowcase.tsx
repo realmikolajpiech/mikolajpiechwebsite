@@ -116,6 +116,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
                     <img
                       src={project.icon}
                       alt=""
+                      aria-hidden="true"
                       className="w-11 h-11 sm:w-14 sm:h-14 md:w-[3.75rem] md:h-[3.75rem] rounded-[22%] object-cover bg-white dark:bg-stone-800 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.2)] ring-1 ring-black/[0.06] dark:ring-white/10"
                     />
                   </div>

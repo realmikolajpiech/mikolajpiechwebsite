@@ -52,6 +52,7 @@ export const PortfolioMobileNav: React.FC<PortfolioMobileNavProps> = ({
                   <img
                     src={project.icon}
                     alt=""
+                    aria-hidden="true"
                     className="w-5 h-5 rounded-[20%] object-cover shrink-0"
                   />
                 )}

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowDown, Copy, Check } from 'lucide-react';
 import { SiteNav } from '../components/SiteNav';
+import { PageMeta } from '../components/PageMeta';
 import { PortfolioSideNav } from '../components/PortfolioSideNav';
 import { PortfolioMobileNav } from '../components/PortfolioMobileNav';
 import { ProjectShowcase } from '../components/ProjectShowcase';
@@ -11,6 +12,7 @@ import { useScrollSpy } from '../hooks/useScrollSpy';
 import { useScrollOffset } from '../hooks/useScrollOffset';
 import { scrollToPortfolioSection } from '../utils/portfolioScroll';
 import { getProjects } from '../data/projects';
+import { getPageMeta } from '../utils/seo';
 import site from '../content/site.json';
 
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
@@ -50,8 +52,10 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen overflow-x-clip bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
+      <PageMeta {...getPageMeta('portfolio')} />
       <SiteNav />
 
+      <main>
       <header className="relative pt-24 sm:pt-28 md:pt-36 pb-14 sm:pb-20 md:pb-28 px-5 sm:px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(120,113,108,0.08),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(120,113,108,0.15),transparent)]" />
 
@@ -118,7 +122,7 @@ export default function Portfolio() {
               </div>
             </aside>
 
-            <main className="overflow-visible py-8 sm:py-12 md:py-16 pb-20 sm:pb-24 md:pb-32">
+            <div className="overflow-visible py-8 sm:py-12 md:py-16 pb-20 sm:pb-24 md:pb-32">
               <div>
                 {projects.map((project, index) => (
                   <React.Fragment key={project.id}>
@@ -137,7 +141,7 @@ export default function Portfolio() {
                   </React.Fragment>
                 ))}
               </div>
-            </main>
+            </div>
           </div>
         </div>
       </div>
@@ -184,6 +188,7 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+      </main>
     </div>
   );
 }

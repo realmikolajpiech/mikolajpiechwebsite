@@ -20,8 +20,29 @@
     "headline_line2": "and ship them."
   },
   "seo": {
+    "site_name": "Mikołaj Piech",
+    "site_url": "https://mikolajpiech.com",
+    "default_image": "/mikolaj-profile.jpg",
     "meta_description": "Mikołaj Piech — founder and developer from Poland. I build and ship consumer apps: Trailo, Subby, Doso, and Solvee (acquired).",
-    "person_description": "Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), Doso (personal health), and Solvee (AI homework helper, acquired)."
+    "person_description": "Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), Doso (personal health), and Solvee (AI homework helper, acquired).",
+    "pages": {
+      "home": {
+        "title": "Mikołaj Piech — Founder & Developer",
+        "description": "Mikołaj Piech — founder and developer from Poland. I build and ship consumer apps: Trailo, Subby, Doso, and Solvee (acquired)."
+      },
+      "portfolio": {
+        "title": "Portfolio — Apps by Mikołaj Piech",
+        "description": "Real products on the App Store, Google Play, and the web — Trailo, Subby, Doso, Solvee, and more. From idea to launch."
+      },
+      "privacy": {
+        "title": "Privacy Policy — Mikołaj Piech",
+        "description": "How Mikołaj Piech collects, uses, stores, and protects personal data across this website and published mobile and web apps."
+      },
+      "not_found": {
+        "title": "Page Not Found — Mikołaj Piech",
+        "description": "The page you are looking for doesn't exist or has been moved."
+      }
+    }
   },
   "timeline": {
     "title": "Timeline",

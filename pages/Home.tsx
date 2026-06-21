@@ -3,10 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Github, Copy, Check, Mail, ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
-import { SchemaMarkup } from '../components/SchemaMarkup';
+import { PageMeta } from '../components/PageMeta';
 import { SiteNav } from '../components/SiteNav';
 import { getProjects, SHOW_OMNI } from '../data/projects';
 import { Link } from 'react-router-dom';
+import { getPageMeta } from '../utils/seo';
 import site from '../content/site.json';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
 
@@ -56,13 +57,14 @@ export default function Home() {
   }, []);
 
   const projects = getProjects();
+  const pageMeta = getPageMeta('home');
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
-      <SchemaMarkup projects={projects} />
-
+      <PageMeta {...pageMeta} />
       <SiteNav />
 
+      <main>
       <section className="relative pt-28 md:pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-12 gap-12 items-center">
 
@@ -329,6 +331,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      </main>
     </div>
   );
 }
