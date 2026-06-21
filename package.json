@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "og:generate": "node scripts/generate-og-image.mjs",
-    "prebuild": "npm run og:generate",
+    "llm:generate": "node scripts/generate-llm-assets.mjs",
+    "prebuild": "npm run og:generate && npm run llm:generate",
     "build": "vite build",
     "preview": "vite preview"
   },

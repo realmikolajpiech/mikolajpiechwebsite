@@ -1,0 +1,103 @@
+# Mikołaj Piech — Full Site Summary
+
+This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI agents and answer engines.
+
+## About
+
+Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), Doso (personal health), and Solvee (AI homework helper, acquired).
+
+I build apps and ship them.
+
+Shipped apps on iOS, Android, and web. Solvee reached 25k+ downloads before acquisition. Always building new products.
+
+## Stats
+
+- 5+ apps shipped
+- 25k+ downloads
+- iOS · Android · Web
+- 1 app sold
+
+## Projects
+
+### Trailo (In Development)
+
+Tagline: Plan less. Travel more.
+Description: Currently in development. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries for web and mobile.
+Platform: Web · iOS & Android soon
+Category: AI Travel
+Scope: Full product · in development
+
+### Subby
+
+Tagline: Subscription Manager
+Description: Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly.
+Platform: iOS · Android
+Category: Finance & Utility
+Scope: Full product · design to deploy
+App Store: https://apps.apple.com/us/app/subby-subscription-manager/id6755717606
+Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.subby
+
+### Doso
+
+Tagline: Your health, effortlessly tracked.
+Description: Personal health app for managing medications, tracking lab results, and logging symptoms — with AI that knows your full health history.
+Platform: iOS
+Category: Health & Wellness
+Scope: Full product · design to launch
+App Store: https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859
+
+### Solvee (Sold)
+
+Tagline: AI Homework Helper
+Description: I sold the app. It helped over 25k+ students solve problems instantly with detailed AI explanations. Available on iOS and Android.
+Platform: iOS · Android
+Category: Education · AI
+Scope: Built & sold · 25k+ downloads
+
+## Timeline
+
+- May 2026 — Trailo: Building Trailo — AI travel planning for web and mobile. Currently in development.
+- April 2026 — Doso: Launched a personal health app for managing medications, lab results, and symptoms with AI-powered insights
+- February 2026 — Solvee acquired: Solvee got acquired
+- December 2025 — Subby: Released a subscription manager app to track trials and subscriptions
+- March 2025 — Solvee: Launched an AI homework helper app on iOS and Android
+
+## Frequently Asked Questions
+
+Q: Who is Mikołaj Piech?
+A: Mikołaj Piech is a founder and developer from Poland who builds and ships consumer software on iOS, Android, and the web — from idea to launch, including design, development, and growth.
+
+Q: What apps has Mikołaj Piech built?
+A: Mikołaj Piech has built Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, acquired after 25k+ downloads). All are consumer apps shipped to real users on the App Store, Google Play, or web.
+
+Q: Who created Subby?
+A: Subby, a subscription manager app for iOS and Android, was created by Mikołaj Piech. It helps users track trials and subscriptions to avoid unwanted charges.
+
+Q: Who created Solvee?
+A: Solvee, an AI homework helper app for iOS and Android, was created by Mikołaj Piech. It reached 25k+ downloads before being acquired in February 2026.
+
+Q: Who created Doso?
+A: Doso, a personal health app for iOS, was created by Mikołaj Piech. It helps users manage medications, lab results, and symptoms with AI-powered insights.
+
+Q: Who is building Trailo?
+A: Trailo, an AI travel planning product for web and mobile, is being built by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries.
+
+Q: How can I contact Mikołaj Piech?
+A: Email hello@mikolajpiech.com, or find him on LinkedIn (linkedin.com/in/mikolajpiech), X (@mikolajpiech), or GitHub (github.com/realmikolajpiech).
+
+## Contact
+
+Email: hello@mikolajpiech.com
+Website: https://mikolajpiech.com
+LinkedIn: https://www.linkedin.com/in/mikolajpiech/
+X: https://x.com/mikolajpiech
+GitHub: https://github.com/realmikolajpiech
+
+## Pages
+
+Home: https://mikolajpiech.com/
+Portfolio: https://mikolajpiech.com/portfolio
+Portfolio (crawlable HTML): https://mikolajpiech.com/crawl/portfolio.html
+Privacy Policy: https://mikolajpiech.com/privacy-policy
+LLM summary (this file): https://mikolajpiech.com/llms-full.txt
+Structured data: https://mikolajpiech.com/schema.json

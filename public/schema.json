@@ -1,0 +1,176 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mikolajpiech.com/#website",
+      "url": "https://mikolajpiech.com",
+      "name": "Mikołaj Piech",
+      "description": "Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), Doso (personal health), and Solvee (AI homework helper, acquired).",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://mikolajpiech.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mikolajpiech.com/#person",
+      "name": "Mikołaj Piech",
+      "jobTitle": "Founder & Developer",
+      "url": "https://mikolajpiech.com",
+      "image": "https://mikolajpiech.com/mikolaj-profile.jpg",
+      "email": "hello@mikolajpiech.com",
+      "sameAs": [
+        "https://x.com/mikolajpiech",
+        "https://www.linkedin.com/in/mikolajpiech/",
+        "https://github.com/realmikolajpiech"
+      ],
+      "description": "Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), Doso (personal health), and Solvee (AI homework helper, acquired).",
+      "knowsAbout": [
+        "Mobile app development",
+        "iOS development",
+        "Android development",
+        "Web development",
+        "React",
+        "TypeScript",
+        "AI applications",
+        "Consumer software",
+        "Product design",
+        "App Store launches",
+        "Travel technology",
+        "Health technology",
+        "FinTech",
+        "EdTech"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://mikolajpiech.com/#projects",
+      "name": "Apps by Mikołaj Piech",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Trailo",
+            "description": "Currently in development. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries for web and mobile.",
+            "applicationCategory": "AI Travel",
+            "operatingSystem": "Web",
+            "author": {
+              "@id": "https://mikolajpiech.com/#person"
+            },
+            "creativeWorkStatus": "In Development"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "MobileApplication",
+            "name": "Subby",
+            "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly.",
+            "applicationCategory": "Finance & Utility",
+            "operatingSystem": "iOS, Android",
+            "author": {
+              "@id": "https://mikolajpiech.com/#person"
+            },
+            "url": "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "MobileApplication",
+            "name": "Doso",
+            "description": "Personal health app for managing medications, tracking lab results, and logging symptoms — with AI that knows your full health history.",
+            "applicationCategory": "Health & Wellness",
+            "operatingSystem": "iOS",
+            "author": {
+              "@id": "https://mikolajpiech.com/#person"
+            },
+            "url": "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "MobileApplication",
+            "name": "Solvee",
+            "description": "I sold the app. It helped over 25k+ students solve problems instantly with detailed AI explanations. Available on iOS and Android.",
+            "applicationCategory": "Education · AI",
+            "operatingSystem": "iOS, Android",
+            "author": {
+              "@id": "https://mikolajpiech.com/#person"
+            },
+            "creativeWorkStatus": "Sold"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mikolajpiech.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Mikołaj Piech?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mikołaj Piech is a founder and developer from Poland who builds and ships consumer software on iOS, Android, and the web — from idea to launch, including design, development, and growth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What apps has Mikołaj Piech built?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mikołaj Piech has built Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, acquired after 25k+ downloads). All are consumer apps shipped to real users on the App Store, Google Play, or web."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who created Subby?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Subby, a subscription manager app for iOS and Android, was created by Mikołaj Piech. It helps users track trials and subscriptions to avoid unwanted charges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who created Solvee?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Solvee, an AI homework helper app for iOS and Android, was created by Mikołaj Piech. It reached 25k+ downloads before being acquired in February 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who created Doso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Doso, a personal health app for iOS, was created by Mikołaj Piech. It helps users manage medications, lab results, and symptoms with AI-powered insights."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is building Trailo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trailo, an AI travel planning product for web and mobile, is being built by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I contact Mikołaj Piech?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Email hello@mikolajpiech.com, or find him on LinkedIn (linkedin.com/in/mikolajpiech), X (@mikolajpiech), or GitHub (github.com/realmikolajpiech)."
+          }
+        }
+      ]
+    }
+  ]
+}

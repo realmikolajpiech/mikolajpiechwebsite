@@ -1,0 +1,101 @@
+{
+  "contact": {
+    "email": "hello@mikolajpiech.com"
+  },
+  "profiles": {
+    "x": "https://x.com/mikolajpiech",
+    "linkedin": "https://www.linkedin.com/in/mikolajpiech/",
+    "github": "https://github.com/realmikolajpiech"
+  },
+  "knows_about": [
+    "Mobile app development",
+    "iOS development",
+    "Android development",
+    "Web development",
+    "React",
+    "TypeScript",
+    "AI applications",
+    "Consumer software",
+    "Product design",
+    "App Store launches",
+    "Travel technology",
+    "Health technology",
+    "FinTech",
+    "EdTech"
+  ],
+  "visible_projects": ["trailo", "subby", "doso", "solvee"],
+  "project_meta": {
+    "trailo": {
+      "platform": "Web · iOS & Android soon",
+      "category": "AI Travel",
+      "scope": "Full product · in development",
+      "operatingSystem": "Web",
+      "applicationType": "SoftwareApplication",
+      "tags": ["Travel", "Web", "Mobile App", "AI"]
+    },
+    "subby": {
+      "platform": "iOS · Android",
+      "category": "Finance & Utility",
+      "scope": "Full product · design to deploy",
+      "operatingSystem": "iOS, Android",
+      "applicationType": "MobileApplication",
+      "tags": ["FinTech", "Utility", "Mobile App"],
+      "appStoreLink": "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606",
+      "playStoreLink": "https://play.google.com/store/apps/details?id=com.justgoodapps.subby"
+    },
+    "doso": {
+      "platform": "iOS",
+      "category": "Health & Wellness",
+      "scope": "Full product · design to launch",
+      "operatingSystem": "iOS",
+      "applicationType": "MobileApplication",
+      "tags": ["Health", "Mobile App", "AI"],
+      "appStoreLink": "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859"
+    },
+    "solvee": {
+      "platform": "iOS · Android",
+      "category": "Education · AI",
+      "scope": "Built & sold · 25k+ downloads",
+      "operatingSystem": "iOS, Android",
+      "applicationType": "MobileApplication",
+      "tags": ["Mobile App", "Education", "AI"]
+    }
+  },
+  "timeline_order": [
+    "trailo_started",
+    "doso_released",
+    "solvee_acquired",
+    "subby_released",
+    "solvee_launched"
+  ],
+  "faqs": [
+    {
+      "question": "Who is Mikołaj Piech?",
+      "answer": "Mikołaj Piech is a founder and developer from Poland who builds and ships consumer software on iOS, Android, and the web — from idea to launch, including design, development, and growth."
+    },
+    {
+      "question": "What apps has Mikołaj Piech built?",
+      "answer": "Mikołaj Piech has built Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, acquired after 25k+ downloads). All are consumer apps shipped to real users on the App Store, Google Play, or web."
+    },
+    {
+      "question": "Who created Subby?",
+      "answer": "Subby, a subscription manager app for iOS and Android, was created by Mikołaj Piech. It helps users track trials and subscriptions to avoid unwanted charges."
+    },
+    {
+      "question": "Who created Solvee?",
+      "answer": "Solvee, an AI homework helper app for iOS and Android, was created by Mikołaj Piech. It reached 25k+ downloads before being acquired in February 2026."
+    },
+    {
+      "question": "Who created Doso?",
+      "answer": "Doso, a personal health app for iOS, was created by Mikołaj Piech. It helps users manage medications, lab results, and symptoms with AI-powered insights."
+    },
+    {
+      "question": "Who is building Trailo?",
+      "answer": "Trailo, an AI travel planning product for web and mobile, is being built by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries."
+    },
+    {
+      "question": "How can I contact Mikołaj Piech?",
+      "answer": "Email hello@mikolajpiech.com, or find him on LinkedIn (linkedin.com/in/mikolajpiech), X (@mikolajpiech), or GitHub (github.com/realmikolajpiech)."
+    }
+  ]
+}

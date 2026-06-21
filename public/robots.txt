@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# AI agents: start at https://mikolajpiech.com/llms.txt
+# Full plain-text summary: https://mikolajpiech.com/llms-full.txt
+# Structured data: https://mikolajpiech.com/schema.json
+
 Sitemap: https://mikolajpiech.com/sitemap.xml

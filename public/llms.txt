@@ -1,0 +1,21 @@
+# Mikołaj Piech
+
+> Founder & developer who builds and ships consumer apps on iOS, Android, and web.
+
+Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), Doso (personal health), and Solvee (AI homework helper, acquired).
+
+## Docs
+- [Full site summary (https://mikolajpiech.com/llms-full.txt)](https://mikolajpiech.com/llms-full.txt): Plain-text bio, projects, timeline, FAQs — best source for AI agents
+- [Structured data (https://mikolajpiech.com/schema.json)](https://mikolajpiech.com/schema.json): JSON-LD with Person, WebSite, projects, and FAQs
+
+## Pages
+- [Home](https://mikolajpiech.com/): About, projects overview, timeline, contact
+- [Portfolio (interactive)](https://mikolajpiech.com/portfolio): Detailed shipped apps in the main site
+- [Portfolio (plain HTML for agents)](https://mikolajpiech.com/crawl/portfolio.html): Crawlable project details without JavaScript
+- [Privacy Policy](https://mikolajpiech.com/privacy-policy): Data handling for this website and published apps
+
+## Contact
+- Email: hello@mikolajpiech.com
+- LinkedIn: https://www.linkedin.com/in/mikolajpiech/
+- X: https://x.com/mikolajpiech
+- GitHub: https://github.com/realmikolajpiech
