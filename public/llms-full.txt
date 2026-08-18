@@ -19,10 +19,10 @@ Shipped apps on iOS, Android, and web. Solvee reached 25k+ downloads before acqu
 
 ## Projects
 
-### Trailo (Live)
+### Trailo
 
 Tagline: Plan less. Travel more.
-Description: Live on web, iOS, and Android. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries.
+Description: End-to-end AI travel planning — find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.
 Platform: Web · iOS · Android
 Category: AI Travel
 Scope: Full product · design to launch

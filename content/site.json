@@ -133,9 +133,8 @@
     },
     "trailo": {
       "tagline": "Plan less. Travel more.",
-      "description": "Live on web, iOS, and Android. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries.",
-      "link_text": "Visit website",
-      "status": "Live"
+      "description": "End-to-end AI travel planning — find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
+      "link_text": "Visit website"
     }
   },
   "footer": {

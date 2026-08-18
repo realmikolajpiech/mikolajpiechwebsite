@@ -54,7 +54,7 @@
           "item": {
             "@type": "SoftwareApplication",
             "name": "Trailo",
-            "description": "Live on web, iOS, and Android. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries.",
+            "description": "End-to-end AI travel planning — find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
             "applicationCategory": "AI Travel",
             "operatingSystem": "Web, iOS, Android",
             "author": {
@@ -64,8 +64,7 @@
             "sameAs": [
               "https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924",
               "https://play.google.com/store/apps/details?id=com.justgoodapps.trailo"
-            ],
-            "creativeWorkStatus": "Live"
+            ]
           }
         },
         {

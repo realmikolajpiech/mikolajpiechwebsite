@@ -38,7 +38,6 @@ const allProjects: Project[] = [
     category: 'AI Travel',
     scope: 'Full product · design to launch',
     operatingSystem: 'Web, iOS, Android',
-    status: site.projects.trailo.status,
     link: 'https://trailoapp.com',
     linkText: site.projects.trailo.link_text,
     appStoreLink: 'https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924',
