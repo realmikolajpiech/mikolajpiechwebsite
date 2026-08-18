@@ -54,13 +54,18 @@
           "item": {
             "@type": "SoftwareApplication",
             "name": "Trailo",
-            "description": "Currently in development. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries for web and mobile.",
+            "description": "Live on web, iOS, and Android. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries.",
             "applicationCategory": "AI Travel",
-            "operatingSystem": "Web",
+            "operatingSystem": "Web, iOS, Android",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "creativeWorkStatus": "In Development"
+            "url": "https://trailoapp.com",
+            "sameAs": [
+              "https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924",
+              "https://play.google.com/store/apps/details?id=com.justgoodapps.trailo"
+            ],
+            "creativeWorkStatus": "Live"
           }
         },
         {
@@ -75,7 +80,11 @@
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "url": "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606"
+            "url": "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606",
+            "sameAs": [
+              "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606",
+              "https://play.google.com/store/apps/details?id=com.justgoodapps.subby"
+            ]
           }
         },
         {
@@ -90,7 +99,10 @@
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "url": "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859"
+            "url": "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859",
+            "sameAs": [
+              "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859"
+            ]
           }
         },
         {
@@ -156,10 +168,10 @@
         },
         {
           "@type": "Question",
-          "name": "Who is building Trailo?",
+          "name": "Who created Trailo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Trailo, an AI travel planning product for web and mobile, is being built by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries."
+            "text": "Trailo, an AI travel planning product for web, iOS, and Android, was created by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries."
           }
         },
         {

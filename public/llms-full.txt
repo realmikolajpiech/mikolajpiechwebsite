@@ -19,13 +19,16 @@ Shipped apps on iOS, Android, and web. Solvee reached 25k+ downloads before acqu
 
 ## Projects
 
-### Trailo (In Development)
+### Trailo (Live)
 
 Tagline: Plan less. Travel more.
-Description: Currently in development. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries for web and mobile.
-Platform: Web · iOS & Android soon
+Description: Live on web, iOS, and Android. End-to-end AI travel planning — flights, hotels, tickets, and hour-by-hour itineraries.
+Platform: Web · iOS · Android
 Category: AI Travel
-Scope: Full product · in development
+Scope: Full product · design to launch
+Website: https://trailoapp.com
+App Store: https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924
+Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.trailo
 
 ### Subby
 
@@ -56,7 +59,7 @@ Scope: Built & sold · 25k+ downloads
 
 ## Timeline
 
-- May 2026 — Trailo: Building Trailo — AI travel planning for web and mobile. Currently in development.
+- May 2026 — Trailo: Started working on Trailo — AI travel planning for web and mobile.
 - April 2026 — Doso: Launched a personal health app for managing medications, lab results, and symptoms with AI-powered insights
 - February 2026 — Solvee acquired: Solvee got acquired
 - December 2025 — Subby: Released a subscription manager app to track trials and subscriptions
@@ -79,8 +82,8 @@ A: Solvee, an AI homework helper app for iOS and Android, was created by Mikoła
 Q: Who created Doso?
 A: Doso, a personal health app for iOS, was created by Mikołaj Piech. It helps users manage medications, lab results, and symptoms with AI-powered insights.
 
-Q: Who is building Trailo?
-A: Trailo, an AI travel planning product for web and mobile, is being built by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries.
+Q: Who created Trailo?
+A: Trailo, an AI travel planning product for web, iOS, and Android, was created by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries.
 
 Q: How can I contact Mikołaj Piech?
 A: Email hello@mikolajpiech.com, or find him on LinkedIn (linkedin.com/in/mikolajpiech), X (@mikolajpiech), or GitHub (github.com/realmikolajpiech).

@@ -57,7 +57,9 @@ function buildJsonLd(projects) {
       author: { '@id': personId },
     };
 
-    if (project.appStoreLink) item.url = project.appStoreLink;
+    if (project.link || project.appStoreLink) item.url = project.link || project.appStoreLink;
+    const sameAs = [project.appStoreLink, project.playStoreLink].filter(Boolean);
+    if (sameAs.length) item.sameAs = sameAs;
     if (project.status) item.creativeWorkStatus = project.status;
 
     return {
@@ -171,6 +173,7 @@ function buildLlmsFullTxt(projects, timeline) {
     lines.push(`Platform: ${project.platform}`);
     lines.push(`Category: ${project.category}`);
     lines.push(`Scope: ${project.scope}`);
+    if (project.link) lines.push(`Website: ${project.link}`);
     if (project.appStoreLink) lines.push(`App Store: ${project.appStoreLink}`);
     if (project.playStoreLink) lines.push(`Google Play: ${project.playStoreLink}`);
     lines.push('');
@@ -215,6 +218,9 @@ function buildPortfolioHtml(projects) {
   const projectArticles = projects
     .map((project) => {
       const links = [
+        project.link
+          ? `<a href="${project.link}" rel="noopener noreferrer">Website</a>`
+          : '',
         project.appStoreLink
           ? `<a href="${project.appStoreLink}" rel="noopener noreferrer">App Store</a>`
           : '',

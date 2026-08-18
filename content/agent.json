@@ -26,12 +26,15 @@
   "visible_projects": ["trailo", "subby", "doso", "solvee"],
   "project_meta": {
     "trailo": {
-      "platform": "Web · iOS & Android soon",
+      "platform": "Web · iOS · Android",
       "category": "AI Travel",
-      "scope": "Full product · in development",
-      "operatingSystem": "Web",
+      "scope": "Full product · design to launch",
+      "operatingSystem": "Web, iOS, Android",
       "applicationType": "SoftwareApplication",
-      "tags": ["Travel", "Web", "Mobile App", "AI"]
+      "tags": ["Travel", "Web", "Mobile App", "AI"],
+      "link": "https://trailoapp.com",
+      "appStoreLink": "https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924",
+      "playStoreLink": "https://play.google.com/store/apps/details?id=com.justgoodapps.trailo"
     },
     "subby": {
       "platform": "iOS · Android",
@@ -90,8 +93,8 @@
       "answer": "Doso, a personal health app for iOS, was created by Mikołaj Piech. It helps users manage medications, lab results, and symptoms with AI-powered insights."
     },
     {
-      "question": "Who is building Trailo?",
-      "answer": "Trailo, an AI travel planning product for web and mobile, is being built by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries."
+      "question": "Who created Trailo?",
+      "answer": "Trailo, an AI travel planning product for web, iOS, and Android, was created by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries."
     },
     {
       "question": "How can I contact Mikołaj Piech?",
