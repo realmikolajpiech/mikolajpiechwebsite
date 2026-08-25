@@ -6,6 +6,7 @@ import { ProjectCard } from '../components/ProjectCard';
 import { PageMeta } from '../components/PageMeta';
 import { SiteNav } from '../components/SiteNav';
 import { ContactForm } from '../components/ContactForm';
+import { CopyEmail } from '../components/CopyEmail';
 import { getProjects } from '../data/projects';
 import { Link } from 'react-router-dom';
 import { getPageMeta } from '../utils/seo';
@@ -255,7 +256,7 @@ export default function Home() {
           <div className="mt-20 md:mt-28 pt-10 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
             <p className="mb-4 md:mb-0">{site.common.all_rights_reserved.replace('{{year}}', String(year))}</p>
             <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center">
-              <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-off-white transition-colors">{CONTACT_EMAIL}</a>
+              <CopyEmail email={CONTACT_EMAIL} className="hover:text-off-white transition-colors" />
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
                 <XLogo className="w-4 h-4" />
               </a>

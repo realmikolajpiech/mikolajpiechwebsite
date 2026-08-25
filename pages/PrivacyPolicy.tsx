@@ -5,6 +5,7 @@ import { SiteNav } from '../components/SiteNav';
 import { PageMeta } from '../components/PageMeta';
 import site from '../content/site.json';
 import { getPageMeta } from '../utils/seo';
+import { CopyEmail } from '../components/CopyEmail';
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -190,9 +191,7 @@ export default function PrivacyPolicy() {
               {p.s7_p1}
               <br />
               To exercise any right, contact me at{' '}
-              <a href="mailto:contact@mikolajpiech.com" className={linkClass}>
-                contact@mikolajpiech.com
-              </a>
+              <CopyEmail email="contact@mikolajpiech.com" className={linkClass} />
               .
             </p>
 
@@ -212,9 +211,7 @@ export default function PrivacyPolicy() {
             <p className="mb-2">{p.s12_name}</p>
             <p className="mb-2">
               {p.s12_email_label}{' '}
-              <a href="mailto:contact@mikolajpiech.com" className={linkClass}>
-                contact@mikolajpiech.com
-              </a>
+              <CopyEmail email="contact@mikolajpiech.com" className={linkClass} />
             </p>
             <p className="mb-6">
               {p.s12_site_label}{' '}
@@ -231,7 +228,7 @@ export default function PrivacyPolicy() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
             <p className="mb-4 md:mb-0">{site.common.all_rights_reserved.replace('{{year}}', String(year))}</p>
             <div className="flex gap-8 items-center">
-              <a href="mailto:hello@mikolajpiech.com" className="hover:text-off-white transition-colors">hello@mikolajpiech.com</a>
+              <CopyEmail email="hello@mikolajpiech.com" className="hover:text-off-white transition-colors" />
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
                  <XLogo className="w-4 h-4" />
               </a>

@@ -269,7 +269,7 @@ ${projectArticles}
 
     <footer>
       <p>${escapeHtml(site.portfolio.cta_description)}</p>
-      <p>Contact: <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></p>
+      <p>Contact: ${CONTACT_EMAIL}</p>
       <p><a href="${SITE_URL}/">Back to home</a></p>
     </footer>
   </body>

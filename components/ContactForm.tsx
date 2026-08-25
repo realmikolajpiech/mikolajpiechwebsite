@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle2, LoaderCircle } from 'lucide-react';
+import { CopyEmail } from './CopyEmail';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
@@ -142,9 +143,10 @@ export function ContactForm() {
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs leading-relaxed text-stone-500">
           Prefer email?{' '}
-          <a href="mailto:hello@mikolajpiech.com" className="text-stone-300 underline decoration-stone-700 underline-offset-4 transition hover:text-white">
-            hello@mikolajpiech.com
-          </a>
+          <CopyEmail
+            email="hello@mikolajpiech.com"
+            className="text-stone-300 underline decoration-stone-700 underline-offset-4 transition hover:text-white"
+          />
         </p>
         <button
           type="submit"
