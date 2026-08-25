@@ -10,7 +10,7 @@ import { CopyEmail } from '../components/CopyEmail';
 import { getProjects } from '../data/projects';
 import { Link } from 'react-router-dom';
 import { getPageMeta } from '../utils/seo';
-import site from '../content/site.json';
+import { useLanguage } from '../context/LanguageContext';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
 const FEATURED_PROJECT_IDS = new Set(['kiddumi', 'safelabs', 'trailo', 'solvee']);
 const CAPABILITY_ICONS = [PanelsTopLeft, Smartphone, Monitor];
@@ -33,11 +33,12 @@ const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => 
 );
 
 export default function Home() {
+  const { language, site } = useLanguage();
   const year = new Date().getFullYear();
 
-  const projects = getProjects();
+  const projects = getProjects(language);
   const featuredProjects = projects.filter((project) => FEATURED_PROJECT_IDS.has(project.id));
-  const pageMeta = getPageMeta('home');
+  const pageMeta = getPageMeta('home', site);
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
@@ -229,7 +230,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="lg:sticky lg:top-28"
             >
-              <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone-500">Start a project</p>
+              <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone-500">{site.ui.start_project}</p>
               <h2 className="text-5xl md:text-7xl font-serif font-light mb-7 leading-[0.9]">
                 {site.footer.title.part1} <br /><span className="font-serif-italic text-stone-500">{site.footer.title.part2}</span>
               </h2>
@@ -237,7 +238,7 @@ export default function Home() {
                 {site.footer.description}
               </p>
               <div className="mt-8 flex items-center gap-5 text-sm text-stone-500">
-                <a href="/portfolio" className="transition-colors hover:text-off-white">View portfolio</a>
+                <a href="/portfolio" className="transition-colors hover:text-off-white">{site.ui.view_portfolio}</a>
                 <span aria-hidden>·</span>
                 <a href="https://www.linkedin.com/in/mikolajpiech/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-off-white">LinkedIn</a>
               </div>

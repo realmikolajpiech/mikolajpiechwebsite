@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle2, LoaderCircle } from 'lucide-react';
 import { CopyEmail } from './CopyEmail';
+import { useLanguage } from '../context/LanguageContext';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
@@ -13,6 +14,7 @@ const initialForm = {
 };
 
 export function ContactForm() {
+  const { site } = useLanguage();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState<FormStatus>('idle');
   const [feedback, setFeedback] = useState('');
@@ -40,15 +42,15 @@ export function ContactForm() {
       const result = await response.json().catch(() => null) as { message?: string } | null;
 
       if (!response.ok || !result) {
-        throw new Error(result?.message || 'Something went wrong. Please try again.');
+        throw new Error(site.ui.form_error);
       }
 
       setForm(initialForm);
       setStatus('success');
-      setFeedback('Message sent. I’ll get back to you soon.');
+      setFeedback(site.ui.sent);
     } catch (error) {
       setStatus('error');
-      setFeedback(error instanceof Error ? error.message : 'Something went wrong. Please try again.');
+      setFeedback(error instanceof Error ? error.message : site.ui.form_error);
     }
   };
 
@@ -63,7 +65,7 @@ export function ContactForm() {
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="contact-name" className={labelClass}>Name</label>
+          <label htmlFor="contact-name" className={labelClass}>{site.ui.name}</label>
           <input
             id="contact-name"
             name="name"
@@ -73,13 +75,13 @@ export function ContactForm() {
             maxLength={120}
             value={form.name}
             onChange={updateField}
-            placeholder="Your name"
+            placeholder={site.ui.name_placeholder}
             className={fieldClass}
           />
         </div>
 
         <div>
-          <label htmlFor="contact-email" className={labelClass}>Email</label>
+          <label htmlFor="contact-email" className={labelClass}>{site.ui.email}</label>
           <input
             id="contact-email"
             name="email"
@@ -90,14 +92,14 @@ export function ContactForm() {
             maxLength={254}
             value={form.email}
             onChange={updateField}
-            placeholder="you@company.com"
+            placeholder={site.ui.email_placeholder}
             className={fieldClass}
           />
         </div>
       </div>
 
       <div className="mt-5">
-        <label htmlFor="contact-company" className={labelClass}>Company <span className="normal-case tracking-normal text-stone-600">(optional)</span></label>
+        <label htmlFor="contact-company" className={labelClass}>{site.ui.company} <span className="normal-case tracking-normal text-stone-600">({site.ui.optional})</span></label>
         <input
           id="contact-company"
           name="company"
@@ -106,13 +108,13 @@ export function ContactForm() {
           maxLength={160}
           value={form.company}
           onChange={updateField}
-          placeholder="Company or product name"
+          placeholder={site.ui.company_placeholder}
           className={fieldClass}
         />
       </div>
 
       <div className="mt-5">
-        <label htmlFor="contact-message" className={labelClass}>What are you building?</label>
+        <label htmlFor="contact-message" className={labelClass}>{site.ui.message_label}</label>
         <textarea
           id="contact-message"
           name="message"
@@ -122,7 +124,7 @@ export function ContactForm() {
           rows={5}
           value={form.message}
           onChange={updateField}
-          placeholder="Tell me a little about the idea, scope, and where you are right now."
+          placeholder={site.ui.message_placeholder}
           className={`${fieldClass} min-h-[9rem] resize-y`}
         />
       </div>
@@ -142,7 +144,7 @@ export function ContactForm() {
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs leading-relaxed text-stone-500">
-          Prefer email?{' '}
+          {site.ui.prefer_email}{' '}
           <CopyEmail
             email="hello@mikolajpiech.com"
             className="text-stone-300 underline decoration-stone-700 underline-offset-4 transition hover:text-white"
@@ -156,11 +158,11 @@ export function ContactForm() {
           {status === 'sending' ? (
             <>
               <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
-              Sending…
+              {site.ui.sending}
             </>
           ) : (
             <>
-              Send message
+              {site.ui.send_message}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </>
           )}

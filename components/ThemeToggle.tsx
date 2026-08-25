@@ -2,9 +2,11 @@ import React from 'react';
 import { Moon, Sun, Monitor } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const { site } = useLanguage();
 
   const toggleTheme = () => {
     if (theme === 'light') setTheme('dark');
@@ -16,7 +18,7 @@ export function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
-      aria-label="Toggle theme"
+      aria-label={site.ui.toggle_theme}
     >
       <motion.div
         initial={false}

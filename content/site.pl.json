@@ -1,0 +1,281 @@
+{
+  "common": {
+    "get_in_touch": "Rozpocznij projekt",
+    "email_me": "Napisz do mnie",
+    "copied": "Skopiowano!",
+    "email_on_clipboard": "Skopiowano {{email}}",
+    "copy_email": "Kopiuj adres e-mail",
+    "linkedin": "LinkedIn",
+    "privacy_policy": "Polityka prywatności",
+    "all_rights_reserved": "© {{year}} Mikołaj Piech. Wszelkie prawa zastrzeżone."
+  },
+  "ui": {
+    "start_project": "Rozpocznij projekt",
+    "view_portfolio": "Zobacz portfolio",
+    "home": "Strona główna",
+    "explore_projects": "Zobacz projekty",
+    "name": "Imię i nazwisko",
+    "name_placeholder": "Twoje imię i nazwisko",
+    "email": "E-mail",
+    "email_placeholder": "ty@firma.pl",
+    "company": "Firma",
+    "optional": "opcjonalnie",
+    "company_placeholder": "Nazwa firmy lub produktu",
+    "message_label": "Co tworzysz?",
+    "message_placeholder": "Opowiedz krótko o pomyśle, zakresie i etapie, na którym obecnie jesteś.",
+    "prefer_email": "Wolisz e-mail?",
+    "send_message": "Wyślij wiadomość",
+    "sending": "Wysyłanie…",
+    "sent": "Wiadomość wysłana. Wkrótce się odezwę.",
+    "form_error": "Coś poszło nie tak. Spróbuj ponownie.",
+    "copy": "Kopiuj",
+    "copied": "Skopiowano!",
+    "switch_language": "Przełącz na angielski",
+    "toggle_theme": "Zmień motyw",
+    "project_navigation": "Nawigacja po projektach",
+    "platform": "Platforma",
+    "category": "Kategoria",
+    "scope": "Zakres",
+    "visit": "Odwiedź",
+    "website_preview": "podgląd strony",
+    "preview": "podgląd",
+    "icon": "ikona",
+    "screenshot": "zrzut ekranu",
+    "scroll_left": "Przewiń zrzuty w lewo",
+    "scroll_right": "Przewiń zrzuty w prawo",
+    "view_fullscreen": "Otwórz {{name}} na pełnym ekranie",
+    "screenshot_viewer": "Galeria zrzutów: {{name}}",
+    "close_viewer": "Zamknij galerię",
+    "previous_screenshot": "Poprzedni zrzut",
+    "next_screenshot": "Następny zrzut",
+    "google_details_before": "Pełne informacje o przetwarzaniu danych przez Google znajdziesz w",
+    "google_terms": "Warunkach korzystania z Gemini API",
+    "and": "oraz",
+    "google_privacy": "Polityce prywatności Google",
+    "exercise_rights": "Aby skorzystać z któregokolwiek prawa, skontaktuj się ze mną:"
+  },
+  "not_found": {
+    "title": "Zgubiłeś się?",
+    "description": "Strona, której szukasz, nie istnieje lub została przeniesiona. Wróćmy na właściwą drogę.",
+    "button": "Wróć na stronę główną",
+    "error_code": "Błąd 404"
+  },
+  "hero": {
+    "headline_line1": "Projektuję i tworzę",
+    "headline_line2": "produkty cyfrowe.",
+    "intro": "Jestem Mikołaj – founderem i developerem, który zamienia pomysły w dopracowane produkty używane przez prawdziwych ludzi.",
+    "description": "Aplikacje webowe, mobilne i strony internetowe – od projektu produktu i developmentu po wdrożenie.",
+    "primary_cta": "Zobacz wybrane projekty",
+    "secondary_cta": "Rozpocznij projekt"
+  },
+  "seo": {
+    "site_name": "Mikołaj Piech",
+    "site_url": "https://mikolajpiech.com",
+    "default_image": "/og-image.jpg",
+    "default_image_width": 1200,
+    "default_image_height": 630,
+    "meta_description": "Mikołaj Piech – founder i developer z Polski. Projektuję i tworzę aplikacje webowe, mobilne, strony internetowe i produkty cyfrowe od pomysłu po wdrożenie.",
+    "person_description": "Founder i developer z Polski, który projektuje, tworzy i wdraża aplikacje webowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Twórca Kiddumi, Safe Labs, Trailo, Subby, Doso i Solvee.",
+    "pages": {
+      "home": {
+        "title": "Mikołaj Piech – Founder i Developer",
+        "description": "Mikołaj Piech – founder i developer z Polski. Projektuję i tworzę aplikacje webowe, mobilne, strony internetowe i produkty cyfrowe od pomysłu po wdrożenie.",
+        "social_description": "Founder i developer tworzący aplikacje webowe, mobilne, strony internetowe i produkty cyfrowe od pomysłu po wdrożenie."
+      },
+      "portfolio": {
+        "title": "Portfolio – projekty Mikołaja Piecha",
+        "description": "Wybrane aplikacje webowe, mobilne, strony internetowe i produkty cyfrowe zaprojektowane, stworzone i wdrożone przez Mikołaja Piecha."
+      },
+      "privacy": {
+        "title": "Polityka prywatności – Mikołaj Piech",
+        "description": "Informacje o tym, jak Mikołaj Piech gromadzi, wykorzystuje, przechowuje i chroni dane osobowe na tej stronie oraz w opublikowanych aplikacjach."
+      },
+      "not_found": {
+        "title": "Nie znaleziono strony – Mikołaj Piech",
+        "description": "Strona, której szukasz, nie istnieje lub została przeniesiona."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "headline": "Produkty, które stworzyłem",
+    "headline_accent": "i wdrożyłem.",
+    "subtitle": "Aplikacje webowe, mobilne i strony internetowe – prowadzone od pomysłu do wdrożenia przez projektowanie produktu, development i kolejne iteracje.",
+    "stats": {
+      "apps": "6+ wdrożonych produktów",
+      "downloads": "30 tys.+ pobrań",
+      "platforms": "iOS · Android · Web",
+      "acquired": "1 sprzedany produkt"
+    },
+    "cta_title": "Tworzysz coś nowego?",
+    "cta_description": "Pomagam founderom i firmom zamieniać pomysły w dopracowane aplikacje webowe, mobilne i strony internetowe. Porozmawiajmy o tym, co tworzysz.",
+    "cta_button": "Opowiedz mi o projekcie",
+    "view_all": "Zobacz pełne portfolio",
+    "back_home": "Wróć na stronę główną"
+  },
+  "projects": {
+    "title": "Wybrane projekty",
+    "subtitle": "Produkty, które zaprojektowałem, stworzyłem i wdrożyłem na webie, iOS i Androidzie.",
+    "kiddumi": {
+      "tagline": "Ich twarz. Ich świat. Ich historia.",
+      "description": "Platforma spersonalizowanych książek dla dzieci, która zmienia dziecko w głównego bohatera pięknie napisanej i zilustrowanej historii dopasowanej do jego wyglądu, zainteresowań, rodziny i prawdziwych wspomnień.",
+      "link_text": "Odwiedź stronę"
+    },
+    "safelabs": {
+      "tagline": "Edukacja o cyberbezpieczeństwie, która dotyczy prawdziwego życia.",
+      "description": "Interaktywna strona edukacyjna o cyberbezpieczeństwie dla nastolatków, zawierająca praktyczne wskazówki, zapisy na warsztaty, narzędzia do haseł i materiały do pobrania.",
+      "link_text": "Odwiedź stronę"
+    },
+    "omni": {
+      "tagline": "AI, które zna Ciebie i Twój komputer.",
+      "description": "Wyszukuj pliki po znaczeniu, zarządzaj pocztą i kalendarzem, instaluj aplikacje i zmieniaj ustawienia – wystarczy zapytać.",
+      "link_text": "Dowiedz się więcej i dołącz do listy",
+      "status": "Wczesny dostęp"
+    },
+    "platoic": {
+      "tagline": "Opanuj sztukę wiedzy.",
+      "description": "Poznawaj dowolny temat dzięki spersonalizowanemu programowi AI, który łączy najlepsze zasoby z internetu w idealną ścieżkę nauki.",
+      "status": "W trakcie tworzenia"
+    },
+    "solvee": {
+      "tagline": "Pomoc w zadaniach domowych z AI",
+      "description": "Sprzedałem tę aplikację. Pomogła ponad 25 tys. uczniów natychmiast rozwiązywać zadania dzięki szczegółowym wyjaśnieniom AI. Dostępna na iOS i Androidzie.",
+      "status": "Sprzedany"
+    },
+    "subby": {
+      "tagline": "Menedżer subskrypcji",
+      "description": "Nie płać więcej za niechciane subskrypcje. Śledź okresy próbne, kontroluj wydatki i oszczędzaj bez wysiłku."
+    },
+    "doso": {
+      "tagline": "Twoje zdrowie pod kontrolą – bez wysiłku.",
+      "description": "Osobista aplikacja zdrowotna do zarządzania lekami, śledzenia wyników badań i zapisywania objawów – z AI znającym pełną historię Twojego zdrowia."
+    },
+    "trailo": {
+      "tagline": "Mniej planowania. Więcej podróżowania.",
+      "description": "Kompleksowe planowanie podróży z AI – znajdź loty, hotele i bilety, a następnie ułóż z nich spersonalizowany plan godzina po godzinie.",
+      "link_text": "Odwiedź stronę"
+    }
+  },
+  "proof": {
+    "title": "Stworzone, wdrożone i używane.",
+    "description": "Nie zatrzymuję się na makietach ani kodzie. Prowadzę produkty od wczesnego pomysłu aż do ludzi, którzy naprawdę z nich korzystają.",
+    "items": [
+      { "value": "6+", "label": "wdrożonych produktów" },
+      { "value": "30 tys.+", "label": "pobrań" },
+      { "value": "1", "label": "sprzedany produkt" }
+    ]
+  },
+  "capabilities": {
+    "eyebrow": "Co tworzę",
+    "title": "Jeden twórca, cały proces.",
+    "description": "Łączę myślenie produktowe, projektowanie interfejsów, development, wdrożenie i kolejne iteracje po premierze.",
+    "items": [
+      {
+        "title": "Aplikacje webowe",
+        "description": "Produkty SaaS, narzędzia AI, dashboardy, marketplace’y i rozwiązania tworzone na zamówienie."
+      },
+      {
+        "title": "Aplikacje mobilne",
+        "description": "Dopracowane produkty na iOS i Androida – od pierwszego ekranu po App Store i Google Play."
+      },
+      {
+        "title": "Strony internetowe",
+        "description": "Strony produktowe, landing page’e i witryny firmowe zaprojektowane tak, by świetnie wyglądały i konwertowały."
+      }
+    ]
+  },
+  "footer": {
+    "title": {
+      "part1": "Tworzysz coś",
+      "part2": "nowego?"
+    },
+    "description": "Pomagam founderom i zespołom zamieniać pomysły w dopracowane aplikacje webowe, mobilne i strony internetowe – od pierwszej koncepcji po wdrożenie."
+  },
+  "privacy": {
+    "title": "Polityka prywatności",
+    "last_updated": "Ostatnia aktualizacja: 25 sierpnia 2026 r.",
+    "intro_before_link": "Mikołaj Piech („ja”, „mnie” lub „mój”) szanuje Twoją prywatność i zobowiązuje się chronić Twoje dane osobowe. Niniejsza Polityka prywatności wyjaśnia, jak gromadzę, wykorzystuję, przechowuję i chronię informacje podczas korzystania z mojej strony (",
+    "intro_after_link": ") oraz aplikacji mobilnych publikowanych przeze mnie w Google Play lub Apple App Store i obsługiwanych przeze mnie aplikacji webowych (łącznie „Usługi”), w tym Trailo, Subby, Meant, Doso i Sitting Time.",
+    "s1_title": "1. Informacje, które gromadzę",
+    "s1a_title": "A. Informacje przekazywane bezpośrednio",
+    "s1a_items": [
+      "Imię i nazwisko, adres e-mail, nazwa firmy (opcjonalnie) oraz treść wiadomości przesłanej przez formularz kontaktowy",
+      "Adres e-mail i hasło (podczas zakładania konta)",
+      "Nazwa wyświetlana lub pseudonim",
+      "Zdjęcia prac domowych lub ćwiczeń wykonywane w wybranych aplikacjach (przechowywane bezpiecznie na urządzeniu i w chmurze wyłącznie do Twojego użytku)",
+      "Obrazy udostępnione przez użytkownika w aplikacji Meant (mogące zawierać twarze lub inne wizerunki osób) – są przechowywane wyłącznie lokalnie na urządzeniu i nigdy nie są przesyłane na moje serwery",
+      "Informacje rozliczeniowe przetwarzane przez RevenueCat oraz systemy płatności Google Play i Apple App Store (nie widzę ani nie przechowuję pełnych danych karty płatniczej)"
+    ],
+    "s1b_title": "B. Informacje gromadzone automatycznie",
+    "s1b_items": [
+      "Informacje o urządzeniu (model, wersja systemu operacyjnego, unikalne identyfikatory)",
+      "Przybliżona lokalizacja (ustalana na podstawie adresu IP)",
+      "Dane o użytkowaniu i raporty awarii (za pośrednictwem Expo i powiązanych narzędzi)",
+      "Token powiadomień push (do wysyłania powiadomień, jeśli je włączysz)",
+      "W przyszłości, jeśli wyświetlę reklamy: identyfikator reklamowy (IDFA w iOS, AAID w Androidzie), który możesz zresetować"
+    ],
+    "s2_title": "2. Jak wykorzystuję informacje",
+    "s2_items": [
+      "Aby odpowiadać na zapytania przesłane przez formularz kontaktowy",
+      "Aby tworzyć konta i nimi zarządzać",
+      "Aby świadczyć i ulepszać Usługi",
+      "Aby obsługiwać subskrypcje i płatności za pośrednictwem RevenueCat i sklepów z aplikacjami",
+      "Aby wysyłać powiadomienia push (wyłącznie za Twoją zgodą)",
+      "Aby bezpiecznie przechowywać zdjęcia prac domowych i zapewnić do nich dostęp na różnych urządzeniach",
+      "W aplikacji Meant: aby umożliwiać zleconą przez użytkownika edycję i generowanie obrazów AI poprzez przekazywanie ich do Gemini API firmy Google",
+      "Do analityki i raportowania awarii, aby naprawiać błędy i ulepszać aplikacje",
+      "W przyszłości, jeśli wdrożę Google AdMob: do wyświetlania i mierzenia reklam spersonalizowanych lub niespersonalizowanych"
+    ],
+    "s3_title": "3. Podstawa prawna (użytkownicy z EOG i Wielkiej Brytanii – RODO)",
+    "s3_items": [
+      "<strong>Umowa:</strong> świadczenie usług konta, subskrypcji i podstawowych funkcji aplikacji",
+      "<strong>Zgoda:</strong> powiadomienia push i ewentualna przyszła reklama spersonalizowana",
+      "<strong>Uzasadniony interes:</strong> analityka, raportowanie awarii i zapobieganie oszustwom"
+    ],
+    "s4_title": "4. Udostępnianie informacji",
+    "s4_p1": "Nie sprzedaję Twoich danych osobowych.",
+    "s4_p2": "Twoje dane mogą być udostępniane następującym zaufanym partnerom:",
+    "table_partner": "Partner",
+    "table_purpose": "Cel",
+    "table_privacy": "Polityka prywatności",
+    "partners": [
+      { "partner": "Resend", "purpose": "Dostarczanie wiadomości z formularza kontaktowego", "linkLabel": "resend.com/legal/privacy-policy", "linkHref": "https://resend.com/legal/privacy-policy" },
+      { "partner": "RevenueCat", "purpose": "Obsługa płatności subskrypcyjnych", "linkLabel": "revenuecat.com/privacy", "linkHref": "https://revenuecat.com/privacy" },
+      { "partner": "Apple App Store / Google Play", "purpose": "Przetwarzanie płatności i dystrybucja aplikacji", "linkLabel": "apple.com / google.com", "linkHrefApple": "https://apple.com/legal/privacy", "linkHrefGoogle": "https://policies.google.com/privacy" },
+      { "partner": "Expo / EAS", "purpose": "Budowanie aplikacji, aktualizacje i analityka", "linkLabel": "expo.dev/privacy", "linkHref": "https://expo.dev/privacy" },
+      { "partner": "Firebase / Google Cloud", "purpose": "Raportowanie awarii i przechowywanie zdjęć prac domowych w chmurze", "linkLabel": "firebase.google.com", "linkHref": "https://firebase.google.com/support/privacy" },
+      { "partner": "Google LLC (Gemini API)", "purpose": "Generowanie i edycja obrazów AI w aplikacji Meant", "linkLabel": "ai.google.dev/gemini-api/terms", "linkHref": "https://ai.google.dev/gemini-api/terms" },
+      { "partner": "Google AdMob (w przyszłości)", "purpose": "Reklama (jeśli zostanie wdrożona)", "linkLabel": "support.google.com", "linkHref": "https://support.google.com/admob/answer/6128543" }
+    ],
+    "s4_p3": "Dane są przechowywane głównie w Stanach Zjednoczonych i Unii Europejskiej.",
+    "s5_title": "5. Dane obrazów i dane twarzy w aplikacji Meant",
+    "s5_p1": "W aplikacji Meant możesz udostępniać obrazy (z aparatu lub biblioteki zdjęć) zawierające ludzkie twarze w celu edycji i generowania z wykorzystaniem AI. Obrazy te stanowią dane pikselowe i mogą zawierać wrażliwe wizerunki twarzy.",
+    "s5_p2": "<strong>Gromadzenie i przechowywanie:</strong> obrazy są przechowywane wyłącznie lokalnie w prywatnej pamięci aplikacji na Twoim urządzeniu. Nie gromadzę, nie przesyłam ani nie przechowuję ich na swoich serwerach lub w bazach danych.",
+    "s5_p3": "<strong>Wykorzystanie:</strong> obrazy są przetwarzane lokalnie i przesyłane do Gemini API firmy Google wyłącznie w celu wykonania zleconego przez użytkownika generowania lub edycji. Aplikacja nie prowadzi rozpoznawania twarzy, ekstrakcji danych biometrycznych, identyfikacji, śledzenia ani profilowania.",
+    "s5_p4": "<strong>Ujawnianie i udostępnianie:</strong> obrazy są przekazywane wyłącznie firmie Google LLC jako dostawcy Gemini API w celu tymczasowego przetworzenia. Meant korzysta z płatnej wersji Gemini API, w której dane wejściowe, obrazy i wyniki <strong>nie są wykorzystywane do trenowania ani ulepszania modeli Google</strong>.",
+    "s5_p5": "<strong>Okres przechowywania:</strong> obrazy pozostają wyłącznie na Twoim urządzeniu do chwili ich usunięcia lub odinstalowania aplikacji. Google przetwarza je przejściowo i przechowuje tylko tak długo, jak jest to konieczne do świadczenia usługi API.",
+    "s6_title": "6. Okres przechowywania danych",
+    "s6_p1": "Przechowuję dane tylko tak długo, jak istnieje Twoje konto lub jest to potrzebne do świadczenia Usług. Konto wraz ze wszystkimi powiązanymi danymi, w tym zdjęciami prac domowych, możesz usunąć w ustawieniach aplikacji. Obrazy w aplikacji Meant są przechowywane wyłącznie lokalnie na urządzeniu.",
+    "s7_title": "7. Twoje prawa i wybory",
+    "s7_items": [
+      "Dostęp do danych osobowych, ich poprawienie lub usunięcie",
+      "Wycofanie zgody, np. na powiadomienia push lub spersonalizowane reklamy",
+      "Rezygnacja z przyszłych reklam spersonalizowanych w ustawieniach urządzenia",
+      "Żądanie eksportu danych",
+      "Złożenie skargi do właściwego organu ochrony danych"
+    ],
+    "s7_p1": "Mieszkańcom Kalifornii przysługują dodatkowe prawa wynikające z CCPA/CPRA. Nie sprzedaję ani nie udostępniam danych osobowych na potrzeby reklamy behawioralnej między kontekstami.",
+    "s8_title": "8. Prywatność dzieci",
+    "s8_p1": "Moje aplikacje nie są kierowane do dzieci poniżej 13. roku życia (lub 16. roku życia w EOG). Nie gromadzę świadomie danych osobowych dzieci. Jeśli dowiem się, że dziecko przekazało dane osobowe, natychmiast je usunę.",
+    "s9_title": "9. Bezpieczeństwo",
+    "s9_p1": "Stosuję standardowe środki techniczne i organizacyjne, w tym szyfrowanie, bezpiecznych dostawców chmurowych oraz kontrolę dostępu, aby chronić Twoje dane.",
+    "s10_title": "10. Przekazywanie danych za granicę",
+    "s10_p1": "Twoje dane mogą być przekazywane i przechowywane w Stanach Zjednoczonych lub innych państwach poza krajem zamieszkania. W wymaganych przypadkach stosuję odpowiednie zabezpieczenia, takie jak standardowe klauzule umowne UE.",
+    "s11_title": "11. Zmiany niniejszej polityki",
+    "s11_p1": "Mogę okresowo aktualizować niniejszą Politykę prywatności. Nowa wersja zostanie opublikowana na tej stronie wraz z datą aktualizacji. O istotnych zmianach poinformuję wewnątrz aplikacji.",
+    "s12_title": "12. Kontakt",
+    "s12_name": "Mikołaj Piech",
+    "s12_email_label": "E-mail:",
+    "s12_site_label": "Strona:"
+  }
+}

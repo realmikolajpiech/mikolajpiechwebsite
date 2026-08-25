@@ -1,5 +1,6 @@
-import { Project } from '../types';
-import site from '../content/site.json';
+import { Language, Project } from '../types';
+import siteEn from '../content/site.json';
+import sitePl from '../content/site.pl.json';
 import omniImage from '../assets/omni.jpeg';
 import omniVideo from '../assets/omni-teaser.mp4';
 import solvee1 from '../assets/solvee-sc/solvee1.webp';
@@ -32,16 +33,21 @@ import safeLabsHome from '../assets/safelabs/safelabs-home.jpg';
 export const SHOW_OMNI = false;
 export const SHOW_PLATOIC = false;
 
-const allProjects: Project[] = [
+function buildAllProjects(language: Language): Project[] {
+  const isPl = language === 'pl';
+  const site = (isPl ? sitePl : siteEn) as typeof siteEn;
+  const tr = (english: string, polish: string) => isPl ? polish : english;
+
+  return [
   {
     id: 'kiddumi',
     name: 'Kiddumi',
     tagline: site.projects.kiddumi.tagline,
     description: site.projects.kiddumi.description,
-    tags: ['Kids', 'Personalization', 'Web', 'AI'],
+    tags: isPl ? ['Dzieci', 'Personalizacja', 'Web', 'AI'] : ['Kids', 'Personalization', 'Web', 'AI'],
     platform: 'Web',
-    category: 'Personalized Publishing',
-    scope: 'Full product · design to launch',
+    category: tr('Personalized Publishing', 'Spersonalizowane publikacje'),
+    scope: tr('Full product · design to launch', 'Pełny produkt · od projektu do wdrożenia'),
     operatingSystem: 'Web',
     link: 'https://childrenbooks-ten.vercel.app/',
     linkText: site.projects.kiddumi.link_text,
@@ -49,9 +55,9 @@ const allProjects: Project[] = [
     imageFit: 'contain',
     layout: 'web',
     screenshots: [
-      { src: kiddumiHero, alt: 'A family reading a personalized Kiddumi storybook', variant: 'desktop' },
-      { src: kiddumiFamily, alt: 'Kiddumi family profile with a child, sibling, and pet', variant: 'wide' },
-      { src: kiddumiKeepsake, alt: 'Personalized Kiddumi hardcover book mockup', variant: 'wide' },
+      { src: kiddumiHero, alt: tr('A family reading a personalized Kiddumi storybook', 'Rodzina czytająca spersonalizowaną książkę Kiddumi'), variant: 'desktop' },
+      { src: kiddumiFamily, alt: tr('Kiddumi family profile with a child, sibling, and pet', 'Profil rodziny Kiddumi z dzieckiem, rodzeństwem i zwierzęciem'), variant: 'wide' },
+      { src: kiddumiKeepsake, alt: tr('Personalized Kiddumi hardcover book mockup', 'Wizualizacja spersonalizowanej książki Kiddumi w twardej oprawie'), variant: 'wide' },
     ],
   },
   {
@@ -59,10 +65,10 @@ const allProjects: Project[] = [
     name: 'Safe Labs',
     tagline: site.projects.safelabs.tagline,
     description: site.projects.safelabs.description,
-    tags: ['Website', 'Education', 'Cybersecurity'],
+    tags: isPl ? ['Strona', 'Edukacja', 'Cyberbezpieczeństwo'] : ['Website', 'Education', 'Cybersecurity'],
     platform: 'Web',
-    category: 'Education & Cybersecurity',
-    scope: 'Website · design and development',
+    category: tr('Education & Cybersecurity', 'Edukacja i cyberbezpieczeństwo'),
+    scope: tr('Website · design and development', 'Strona · projekt i development'),
     operatingSystem: 'Web',
     link: 'https://safelabs.pl/',
     linkText: site.projects.safelabs.link_text,
@@ -71,7 +77,7 @@ const allProjects: Project[] = [
     imageFit: 'contain',
     layout: 'web',
     screenshots: [
-      { src: safeLabsHome, alt: 'Safe Labs cybersecurity education website', variant: 'desktop' },
+      { src: safeLabsHome, alt: tr('Safe Labs cybersecurity education website', 'Strona edukacyjna Safe Labs o cyberbezpieczeństwie'), variant: 'desktop' },
     ],
   },
   {
@@ -79,10 +85,10 @@ const allProjects: Project[] = [
     name: 'Trailo',
     tagline: site.projects.trailo.tagline,
     description: site.projects.trailo.description,
-    tags: ['Travel', 'Web', 'Mobile App', 'AI'],
+    tags: isPl ? ['Podróże', 'Web', 'Aplikacja mobilna', 'AI'] : ['Travel', 'Web', 'Mobile App', 'AI'],
     platform: 'Web · iOS · Android',
-    category: 'AI Travel',
-    scope: 'Full product · design to launch',
+    category: tr('AI Travel', 'Podróże z AI'),
+    scope: tr('Full product · design to launch', 'Pełny produkt · od projektu do wdrożenia'),
     operatingSystem: 'Web, iOS, Android',
     link: 'https://trailoapp.com',
     linkText: site.projects.trailo.link_text,
@@ -92,10 +98,10 @@ const allProjects: Project[] = [
     image: trailoMobile1,
     layout: 'split',
     screenshots: [
-      { src: trailoMobile1, alt: 'Trailo mobile trip plan with map and itinerary', variant: 'phone' },
-      { src: trailoMobile2, alt: 'Trailo mobile trip overview with flights', variant: 'phone' },
-      { src: trailoMobile3, alt: 'Trailo mobile attraction tickets', variant: 'phone' },
-      { src: trailoMobile4, alt: 'Trailo mobile trip budget', variant: 'phone' },
+      { src: trailoMobile1, alt: tr('Trailo mobile trip plan with map and itinerary', 'Mobilny plan podróży Trailo z mapą i harmonogramem'), variant: 'phone' },
+      { src: trailoMobile2, alt: tr('Trailo mobile trip overview with flights', 'Podsumowanie podróży i lotów w Trailo'), variant: 'phone' },
+      { src: trailoMobile3, alt: tr('Trailo mobile attraction tickets', 'Bilety do atrakcji w aplikacji Trailo'), variant: 'phone' },
+      { src: trailoMobile4, alt: tr('Trailo mobile trip budget', 'Budżet podróży w aplikacji Trailo'), variant: 'phone' },
     ],
   },
   {
@@ -103,20 +109,20 @@ const allProjects: Project[] = [
     name: 'Subby',
     tagline: site.projects.subby.tagline,
     description: site.projects.subby.description,
-    outcome: 'Helps people track subscriptions and trials before they turn into unwanted charges.',
-    tags: ['FinTech', 'Utility', 'Mobile App'],
+    outcome: tr('Helps people track subscriptions and trials before they turn into unwanted charges.', 'Pomaga kontrolować subskrypcje i okresy próbne, zanim zmienią się w niechciane opłaty.'),
+    tags: isPl ? ['FinTech', 'Narzędzie', 'Aplikacja mobilna'] : ['FinTech', 'Utility', 'Mobile App'],
     platform: 'iOS · Android',
-    category: 'Finance & Utility',
-    scope: 'Full product · design to deploy',
+    category: tr('Finance & Utility', 'Finanse i narzędzia'),
+    scope: tr('Full product · design to deploy', 'Pełny produkt · od projektu do wdrożenia'),
     appStoreLink: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
     playStoreLink: 'https://play.google.com/store/apps/details?id=com.justgoodapps.subby',
     icon: subbyLogo,
     image: subby1,
     layout: 'split',
     screenshots: [
-      { src: subby1, alt: 'Subby overview dashboard', variant: 'phone' },
-      { src: subby2, alt: 'Subby subscriptions list', variant: 'phone' },
-      { src: subby3, alt: 'Subby spending analytics', variant: 'phone' },
+      { src: subby1, alt: tr('Subby overview dashboard', 'Panel główny aplikacji Subby'), variant: 'phone' },
+      { src: subby2, alt: tr('Subby subscriptions list', 'Lista subskrypcji w aplikacji Subby'), variant: 'phone' },
+      { src: subby3, alt: tr('Subby spending analytics', 'Analiza wydatków w aplikacji Subby'), variant: 'phone' },
     ],
   },
   {
@@ -124,20 +130,20 @@ const allProjects: Project[] = [
     name: 'Doso',
     tagline: site.projects.doso.tagline,
     description: site.projects.doso.description,
-    tags: ['Health', 'Mobile App', 'AI'],
+    tags: isPl ? ['Zdrowie', 'Aplikacja mobilna', 'AI'] : ['Health', 'Mobile App', 'AI'],
     platform: 'iOS',
-    category: 'Health & Wellness',
-    scope: 'Full product · design to launch',
+    category: tr('Health & Wellness', 'Zdrowie i wellbeing'),
+    scope: tr('Full product · design to launch', 'Pełny produkt · od projektu do wdrożenia'),
     appStoreLink: 'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859',
     icon: dosoLogo,
     image: doso1,
     layout: 'split',
     screenshots: [
-      { src: doso1, alt: 'Doso home dashboard', variant: 'phone' },
-      { src: doso2, alt: 'Doso lab results analysis', variant: 'phone' },
-      { src: doso3, alt: 'Doso medication interaction warning', variant: 'phone' },
-      { src: doso4, alt: 'Doso voice medication input', variant: 'phone' },
-      { src: doso5, alt: 'Doso profile management', variant: 'phone' },
+      { src: doso1, alt: tr('Doso home dashboard', 'Panel główny aplikacji Doso'), variant: 'phone' },
+      { src: doso2, alt: tr('Doso lab results analysis', 'Analiza wyników badań w aplikacji Doso'), variant: 'phone' },
+      { src: doso3, alt: tr('Doso medication interaction warning', 'Ostrzeżenie o interakcji leków w aplikacji Doso'), variant: 'phone' },
+      { src: doso4, alt: tr('Doso voice medication input', 'Głosowe dodawanie leków w aplikacji Doso'), variant: 'phone' },
+      { src: doso5, alt: tr('Doso profile management', 'Zarządzanie profilem w aplikacji Doso'), variant: 'phone' },
     ],
   },
   {
@@ -145,19 +151,19 @@ const allProjects: Project[] = [
     name: 'Solvee',
     tagline: site.projects.solvee.tagline,
     description: site.projects.solvee.description,
-    tags: ['Mobile App', 'Education', 'AI'],
+    tags: isPl ? ['Aplikacja mobilna', 'Edukacja', 'AI'] : ['Mobile App', 'Education', 'AI'],
     platform: 'iOS · Android',
-    category: 'Education · AI',
-    scope: 'Built & sold · 25k+ downloads',
+    category: tr('Education · AI', 'Edukacja · AI'),
+    scope: tr('Built & sold · 25k+ downloads', 'Stworzony i sprzedany · 25 tys.+ pobrań'),
     status: site.projects.solvee.status,
     icon: solveeLogo,
     image: solvee1,
     layout: 'split',
     screenshots: [
-      { src: solvee1, alt: 'Solvee camera scan for math exercises', variant: 'phone' },
-      { src: solvee2, alt: 'Solvee step-by-step math solution', variant: 'phone' },
-      { src: solvee3, alt: 'Solvee AI tools home screen', variant: 'phone' },
-      { src: solvee4, alt: 'Solvee app screenshot', variant: 'phone' },
+      { src: solvee1, alt: tr('Solvee camera scan for math exercises', 'Skanowanie zadania matematycznego aparatem w Solvee'), variant: 'phone' },
+      { src: solvee2, alt: tr('Solvee step-by-step math solution', 'Rozwiązanie zadania krok po kroku w Solvee'), variant: 'phone' },
+      { src: solvee3, alt: tr('Solvee AI tools home screen', 'Ekran główny narzędzi AI w Solvee'), variant: 'phone' },
+      { src: solvee4, alt: tr('Solvee app screenshot', 'Zrzut ekranu aplikacji Solvee'), variant: 'phone' },
     ],
   },
   // {
@@ -181,34 +187,35 @@ const allProjects: Project[] = [
     name: 'Omni',
     tagline: site.projects.omni.tagline,
     description: site.projects.omni.description,
-    outcome: 'Desktop AI assistant that understands your files, email, and workflow.',
+    outcome: tr('Desktop AI assistant that understands your files, email, and workflow.', 'Asystent AI na komputer, który rozumie Twoje pliki, pocztę i sposób pracy.'),
     link: 'https://heyomni.app',
-    tags: ['AI', 'Productivity', 'Desktop'],
+    tags: isPl ? ['AI', 'Produktywność', 'Desktop'] : ['AI', 'Productivity', 'Desktop'],
     platform: 'macOS · Windows',
-    category: 'AI Productivity',
-    scope: 'Full product · early access',
+    category: tr('AI Productivity', 'Produktywność z AI'),
+    scope: tr('Full product · early access', 'Pełny produkt · wczesny dostęp'),
     status: site.projects.omni.status,
     video: omniVideo,
     image: omniImage,
     linkText: site.projects.omni.link_text,
     screenshots: [
-      { src: omniImage, alt: 'Omni AI assistant interface', variant: 'desktop', caption: 'AI that knows your computer' },
+      { src: omniImage, alt: tr('Omni AI assistant interface', 'Interfejs asystenta AI Omni'), variant: 'desktop', caption: tr('AI that knows your computer', 'AI, które zna Twój komputer') },
     ],
   },
-];
+  ];
+}
 
-export function getProjects(): Project[] {
-  return allProjects.filter(
+export function getProjects(language: Language = 'en'): Project[] {
+  return buildAllProjects(language).filter(
     (project) =>
       (SHOW_OMNI || project.id !== 'omni') &&
       (SHOW_PLATOIC || project.id !== 'platoic'),
   );
 }
 
-export function getPortfolioProjects(): Project[] {
-  return getProjects();
+export function getPortfolioProjects(language: Language = 'en'): Project[] {
+  return getProjects(language);
 }
 
-export function getProjectById(id: string): Project | undefined {
-  return getProjects().find((project) => project.id === id);
+export function getProjectById(id: string, language: Language = 'en'): Project | undefined {
+  return getProjects(language).find((project) => project.id === id);
 }

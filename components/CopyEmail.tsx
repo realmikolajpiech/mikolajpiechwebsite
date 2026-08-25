@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Check, Copy } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 type CopyEmailProps = {
   email: string;
@@ -7,6 +8,7 @@ type CopyEmailProps = {
 };
 
 export function CopyEmail({ email, className = '' }: CopyEmailProps) {
+  const { site } = useLanguage();
   const [copied, setCopied] = useState(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -38,7 +40,7 @@ export function CopyEmail({ email, className = '' }: CopyEmailProps) {
       type="button"
       onClick={copyEmail}
       className={`group inline-flex items-center gap-2 ${className}`}
-      aria-label={copied ? `${email} copied` : `Copy ${email}`}
+      aria-label={copied ? site.common.email_on_clipboard.replace('{{email}}', email) : `${site.ui.copy} ${email}`}
     >
       <span>{email}</span>
       <span className="inline-flex h-4 min-w-4 items-center justify-center" aria-hidden="true">
@@ -48,7 +50,7 @@ export function CopyEmail({ email, className = '' }: CopyEmailProps) {
           <Copy className="h-3.5 w-3.5 opacity-55 transition-opacity group-hover:opacity-100" />
         )}
       </span>
-      <span className="sr-only" aria-live="polite">{copied ? 'Copied!' : ''}</span>
+      <span className="sr-only" aria-live="polite">{copied ? site.ui.copied : ''}</span>
     </button>
   );
 }

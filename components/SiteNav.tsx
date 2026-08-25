@@ -3,7 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 import { Button } from './Button';
 import { ThemeToggle } from './ThemeToggle';
-import site from '../content/site.json';
+import { LanguageToggle } from './LanguageToggle';
+import { useLanguage } from '../context/LanguageContext';
 
 interface SiteNavProps {
   showPortfolioLink?: boolean;
@@ -11,6 +12,7 @@ interface SiteNavProps {
 
 export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) => {
   const { pathname } = useLocation();
+  const { site } = useLanguage();
   const isPortfolio = pathname === '/portfolio';
 
   return (
@@ -43,6 +45,7 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) =>
           <Mail size={16} strokeWidth={1.75} className="sm:hidden" />
           <span className="hidden sm:inline">{site.common.get_in_touch}</span>
         </Button>
+        <LanguageToggle />
         <ThemeToggle />
       </div>
     </nav>

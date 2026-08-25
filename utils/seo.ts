@@ -21,8 +21,8 @@ type PageConfig = {
   social_description?: string;
 };
 
-export function getPageMeta(page: PageKey) {
-  const config = site.seo.pages[page] as PageConfig;
+export function getPageMeta(page: PageKey, content: typeof site = site) {
+  const config = content.seo.pages[page] as PageConfig;
   return {
     title: config.title,
     description: config.description,

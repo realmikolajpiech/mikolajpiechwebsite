@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { ProjectScreenshot } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ScreenshotGalleryProps {
   screenshots: ProjectScreenshot[];
@@ -81,6 +82,7 @@ function ScreenshotFrame({
 }
 
 export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshots, projectName }) => {
+  const { site } = useLanguage();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -239,7 +241,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
           <button
             type="button"
             onClick={() => scroll('left')}
-            aria-label="Scroll screenshots left"
+            aria-label={site.ui.scroll_left}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
           >
             <ChevronLeft size={18} />
@@ -250,7 +252,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
           <button
             type="button"
             onClick={() => scroll('right')}
-            aria-label="Scroll screenshots right"
+            aria-label={site.ui.scroll_right}
             className="absolute top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
             style={
               trackWidth !== null
@@ -311,7 +313,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
                     <motion.button
                       type="button"
                       onClick={() => openLightbox(index)}
-                      aria-label={`View ${shot.alt} fullscreen`}
+                      aria-label={site.ui.view_fullscreen.replace('{{name}}', shot.alt)}
                       {...frameProps}
                     >
                       <ScreenshotFrame shot={shot} variant={variant} iconShot={iconShot} />
@@ -335,7 +337,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
                 key="screenshot-lightbox"
                 role="dialog"
                 aria-modal="true"
-                aria-label={`${projectName} screenshot viewer`}
+                aria-label={site.ui.screenshot_viewer.replace('{{name}}', projectName)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -346,7 +348,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
                 <button
                   type="button"
                   onClick={() => setActiveIndex(null)}
-                  aria-label="Close screenshot viewer"
+                  aria-label={site.ui.close_viewer}
                   className="absolute top-[max(1rem,env(safe-area-inset-top))] right-4 z-10 w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center backdrop-blur-sm"
                 >
                   <X size={20} />
@@ -359,7 +361,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
                       event.stopPropagation();
                       stepLightbox('prev');
                     }}
-                    aria-label="Previous screenshot"
+                    aria-label={site.ui.previous_screenshot}
                     className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center backdrop-blur-sm"
                   >
                     <ChevronLeft size={20} />
@@ -373,7 +375,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
                       event.stopPropagation();
                       stepLightbox('next');
                     }}
-                    aria-label="Next screenshot"
+                    aria-label={site.ui.next_screenshot}
                     className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 border border-white/15 text-white flex items-center justify-center backdrop-blur-sm"
                   >
                     <ChevronRight size={20} />

@@ -3,17 +3,21 @@ import { motion } from 'framer-motion';
 import { Apple, Play, ArrowUpRight, LucideIcon } from 'lucide-react';
 import { Project } from '../types';
 import { ScreenshotGallery } from './ScreenshotGallery';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ProjectShowcaseProps {
   project: Project;
 }
 
 const StatusBadge = ({ status, className = '' }: { status: string; className?: string }) => {
-  const isSold = status.toLowerCase() === 'sold';
+  const normalizedStatus = status.toLowerCase();
+  const isSold = normalizedStatus === 'sold' || normalizedStatus.includes('sprzed');
   const isSoon =
-    status.toLowerCase().includes('soon') ||
-    status.toLowerCase().includes('early') ||
-    status.toLowerCase().includes('development');
+    normalizedStatus.includes('soon') ||
+    normalizedStatus.includes('early') ||
+    normalizedStatus.includes('development') ||
+    normalizedStatus.includes('dostęp') ||
+    normalizedStatus.includes('tworzenia');
 
   return (
     <span
@@ -30,12 +34,6 @@ const StatusBadge = ({ status, className = '' }: { status: string; className?: s
   );
 };
 
-const META_ITEMS = [
-  { key: 'platform', label: 'Platform' },
-  { key: 'category', label: 'Category' },
-  { key: 'scope', label: 'Scope' },
-] as const;
-
 type ProjectLink = {
   href: string;
   label: string;
@@ -43,14 +41,14 @@ type ProjectLink = {
   primary?: boolean;
 };
 
-function buildProjectLinks(project: Project): ProjectLink[] {
+function buildProjectLinks(project: Project, visitLabel: string): ProjectLink[] {
   const links: ProjectLink[] = [];
   const storeUrls = new Set([project.appStoreLink, project.playStoreLink].filter(Boolean));
 
   if (project.link && project.linkText) {
     links.push({ href: project.link, label: project.linkText, icon: ArrowUpRight, primary: true });
   } else if (project.link && !storeUrls.has(project.link)) {
-    links.push({ href: project.link, label: `Visit ${project.name}`, icon: ArrowUpRight, primary: true });
+    links.push({ href: project.link, label: `${visitLabel} ${project.name}`, icon: ArrowUpRight, primary: true });
   }
 
   if (project.appStoreLink) {
@@ -64,7 +62,8 @@ function buildProjectLinks(project: Project): ProjectLink[] {
 }
 
 const ProjectLinks = ({ project }: { project: Project }) => {
-  const links = useMemo(() => buildProjectLinks(project), [project]);
+  const { site } = useLanguage();
+  const links = useMemo(() => buildProjectLinks(project, site.ui.visit), [project, site.ui.visit]);
 
   if (links.length === 0) return null;
 
@@ -94,7 +93,13 @@ const ProjectLinks = ({ project }: { project: Project }) => {
 };
 
 export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => {
-  const screenshots = project.screenshots ?? (project.image ? [{ src: project.image, alt: `${project.name} preview`, variant: 'phone' as const }] : []);
+  const { site } = useLanguage();
+  const metaItems = [
+    { key: 'platform', label: site.ui.platform },
+    { key: 'category', label: site.ui.category },
+    { key: 'scope', label: site.ui.scope },
+  ] as const;
+  const screenshots = project.screenshots ?? (project.image ? [{ src: project.image, alt: `${project.name} ${site.ui.preview}`, variant: 'phone' as const }] : []);
   const useSiteDescription = ['trailo', 'doso', 'solvee' /* , 'platoic' */].includes(project.id);
   const summary = useSiteDescription ? project.description : (project.outcome ?? project.description);
 
@@ -152,7 +157,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
 
           <div className="space-y-5 lg:border-l lg:border-stone-200/70 dark:lg:border-stone-700/60 lg:pl-8">
             <dl className="rounded-xl border border-stone-200/70 dark:border-stone-700/60 bg-stone-50/40 dark:bg-stone-800/25 overflow-hidden sm:grid sm:grid-cols-3 sm:divide-x sm:divide-stone-200/70 dark:sm:divide-stone-700/60">
-              {META_ITEMS.map((item, i) => (
+              {metaItems.map((item, i) => (
                 <div
                   key={item.key}
                   className={`flex items-start justify-between gap-3 px-4 py-2.5 sm:flex-col sm:items-start sm:justify-start sm:gap-0 sm:px-4 sm:py-4 ${
@@ -218,7 +223,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
           </header>
 
           <dl className="rounded-xl border border-stone-200/70 dark:border-stone-700/60 bg-stone-50/40 dark:bg-stone-800/25 overflow-hidden sm:grid sm:grid-cols-3 sm:divide-x sm:divide-stone-200/70 dark:sm:divide-stone-700/60">
-            {META_ITEMS.map((item, i) => (
+            {metaItems.map((item, i) => (
               <div
                 key={item.key}
                 className={`flex items-start justify-between gap-3 px-4 py-2.5 sm:flex-col sm:items-start sm:justify-start sm:gap-0 sm:px-5 sm:py-4 md:py-5 ${

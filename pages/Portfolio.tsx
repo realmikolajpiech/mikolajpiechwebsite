@@ -13,14 +13,15 @@ import { useScrollOffset } from '../hooks/useScrollOffset';
 import { scrollToPortfolioSection } from '../utils/portfolioScroll';
 import { getProjects } from '../data/projects';
 import { getPageMeta } from '../utils/seo';
-import site from '../content/site.json';
+import { useLanguage } from '../context/LanguageContext';
 
 function scrollToSection(id: string) {
   scrollToPortfolioSection(id);
 }
 
 export default function Portfolio() {
-  const projects = useMemo(() => getProjects(), []);
+  const { language, site } = useLanguage();
+  const projects = useMemo(() => getProjects(language), [language]);
   const projectIds = useMemo(() => projects.map((p) => p.id), [projects]);
   const scrollOffset = useScrollOffset();
   const activeId = useScrollSpy(projectIds, scrollOffset);
@@ -43,7 +44,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen overflow-x-clip bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
-      <PageMeta {...getPageMeta('portfolio')} />
+      <PageMeta {...getPageMeta('portfolio', site)} />
       <SiteNav />
 
       <main>
@@ -89,7 +90,7 @@ export default function Portfolio() {
             className="mt-12 inline-flex items-center gap-2 text-xs text-stone-400 dark:text-stone-500 hover:text-ink dark:hover:text-stone-300 transition-colors"
           >
             <ArrowDown size={14} />
-            Explore projects
+            {site.ui.explore_projects}
           </button>
         )}
       </header>
@@ -147,7 +148,7 @@ export default function Portfolio() {
           >
             <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
               <div className="text-left lg:sticky lg:top-28">
-                <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone-500">Start a project</p>
+                <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone-500">{site.ui.start_project}</p>
                 <h2 className="text-4xl md:text-6xl font-serif font-light mb-6 leading-[0.95]">
                   {site.portfolio.cta_title}
                 </h2>
@@ -162,7 +163,7 @@ export default function Portfolio() {
           <div className="mt-16 pt-10 border-t border-stone-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-stone-500">
             <p>{site.common.all_rights_reserved.replace('{{year}}', String(year))}</p>
             <div className="flex gap-6">
-              <Link to="/" className="hover:text-off-white transition-colors">Home</Link>
+              <Link to="/" className="hover:text-off-white transition-colors">{site.ui.home}</Link>
               <Link to="/privacy-policy" className="hover:text-off-white transition-colors">{site.common.privacy_policy}</Link>
             </div>
           </div>

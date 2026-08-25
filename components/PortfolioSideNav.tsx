@@ -1,5 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 interface PortfolioSideNavProps {
   projects: Project[];
@@ -12,13 +13,14 @@ export const PortfolioSideNav: React.FC<PortfolioSideNavProps> = ({
   activeId,
   onNavigate,
 }) => {
+  const { site } = useLanguage();
   const handleClick = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     onNavigate(id);
   };
 
   return (
-    <nav aria-label="Project navigation">
+    <nav aria-label={site.ui.project_navigation} data-project-navigation>
       <ul className="relative flex flex-col border-l border-stone-200 dark:border-stone-800">
         {projects.map((project) => {
           const isActive = activeId === project.id;

@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { SiteNav } from '../components/SiteNav';
 import { PageMeta } from '../components/PageMeta';
-import site from '../content/site.json';
 import { getPageMeta } from '../utils/seo';
 import { CopyEmail } from '../components/CopyEmail';
+import { useLanguage } from '../context/LanguageContext';
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -26,13 +26,14 @@ const linkClass =
   'text-ink dark:text-stone-50 underline decoration-stone-300 dark:decoration-stone-600 underline-offset-4 hover:decoration-ink dark:hover:decoration-stone-50 transition-all';
 
 export default function PrivacyPolicy() {
+  const { site } = useLanguage();
   const p = site.privacy;
   const partners = p.partners as PartnerRow[];
   const year = new Date().getFullYear();
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
-      <PageMeta {...getPageMeta('privacy')} />
+      <PageMeta {...getPageMeta('privacy', site)} />
       <SiteNav />
 
       <main>
@@ -157,23 +158,23 @@ export default function PrivacyPolicy() {
             <p className="mb-4" dangerouslySetInnerHTML={{ __html: p.s5_p4 }} />
             <p className="mb-4" dangerouslySetInnerHTML={{ __html: p.s5_p5 }} />
             <p className="mb-6">
-              For full details on Google&apos;s data handling, please see the{' '}
+              {site.ui.google_details_before}{' '}
               <a
                 href="https://ai.google.dev/gemini-api/terms"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={linkClass}
               >
-                Gemini API Terms of Service
+                {site.ui.google_terms}
               </a>
-              {' '}and{' '}
+              {' '}{site.ui.and}{' '}
               <a
                 href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={linkClass}
               >
-                Google Privacy Policy
+                {site.ui.google_privacy}
               </a>
               .
             </p>
@@ -190,7 +191,7 @@ export default function PrivacyPolicy() {
             <p className="mb-6">
               {p.s7_p1}
               <br />
-              To exercise any right, contact me at{' '}
+              {site.ui.exercise_rights}{' '}
               <CopyEmail email="contact@mikolajpiech.com" className={linkClass} />
               .
             </p>

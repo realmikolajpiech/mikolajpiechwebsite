@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { DEFAULT_OG_IMAGE_HEIGHT, DEFAULT_OG_IMAGE_WIDTH, SITE_NAME, SITE_URL } from '../utils/seo';
+import { useLanguage } from '../context/LanguageContext';
 
 export interface PageMetaProps {
   title: string;
@@ -46,6 +47,8 @@ export function PageMeta({
   imageHeight = DEFAULT_OG_IMAGE_HEIGHT,
   noindex = false,
 }: PageMetaProps) {
+  const { language } = useLanguage();
+
   useEffect(() => {
     const url = `${SITE_URL}${path}`;
     const ogImage = image ?? `${SITE_URL}/og-image.jpg`;
@@ -64,6 +67,7 @@ export function PageMeta({
     upsertMeta('property', 'og:image', ogImage);
     upsertMeta('property', 'og:image:width', String(imageWidth));
     upsertMeta('property', 'og:image:height', String(imageHeight));
+    upsertMeta('property', 'og:locale', language === 'pl' ? 'pl_PL' : 'en_US');
 
     upsertMeta('name', 'twitter:card', 'summary_large_image');
     upsertMeta('name', 'twitter:title', title);
@@ -75,7 +79,7 @@ export function PageMeta({
     } else {
       removeMeta('name', 'robots');
     }
-  }, [title, description, socialDescription, path, image, imageWidth, imageHeight, noindex]);
+  }, [title, description, socialDescription, path, image, imageWidth, imageHeight, noindex, language]);
 
   return null;
 }

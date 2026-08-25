@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Project } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 interface PortfolioMobileNavProps {
   projects: Project[];
@@ -12,6 +13,7 @@ export const PortfolioMobileNav: React.FC<PortfolioMobileNavProps> = ({
   activeId,
   onNavigate,
 }) => {
+  const { site } = useLanguage();
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -29,7 +31,8 @@ export const PortfolioMobileNav: React.FC<PortfolioMobileNavProps> = ({
 
   return (
     <nav
-      aria-label="Project navigation"
+      aria-label={site.ui.project_navigation}
+      data-project-navigation
       className="lg:hidden sticky top-16 sm:top-[4.75rem] z-40 bg-off-white/95 dark:bg-stone-900/95 backdrop-blur-md border-b border-stone-200/60 dark:border-stone-800/60 shadow-[0_1px_0_rgba(0,0,0,0.03)] dark:shadow-[0_1px_0_rgba(255,255,255,0.04)] px-5 sm:px-6 pt-2.5 pb-3"
     >
       <ul ref={listRef} className="flex gap-2 overflow-x-auto scrollbar-hide snap-x snap-mandatory max-w-7xl mx-auto">

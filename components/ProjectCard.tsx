@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Project } from '../types';
 import { ArrowUpRight, Apple, Play } from 'lucide-react';
 import { Button } from './Button';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ProjectCardProps {
   project: Project;
@@ -10,7 +11,8 @@ interface ProjectCardProps {
 }
 
 const StatusBadge = ({ status }: { status: string }) => {
-  const isSold = status.toLowerCase() === 'sold';
+  const normalizedStatus = status.toLowerCase();
+  const isSold = normalizedStatus === 'sold' || normalizedStatus.includes('sprzed');
 
   return (
     <span
@@ -26,6 +28,7 @@ const StatusBadge = ({ status }: { status: string }) => {
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const { site } = useLanguage();
   const isPrimary = project.isPrimary;
   const isSplit = project.layout === 'split';
   const isWeb = project.layout === 'web';
@@ -42,7 +45,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {project.image ? (
             <img
               src={project.image}
-              alt={`${project.name} website preview`}
+              alt={`${project.name} ${site.ui.website_preview}`}
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
             />
           ) : (
@@ -127,7 +130,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 ) : (
                   <img 
                     src={project.image} 
-                    alt={`${project.name} preview`} 
+                    alt={`${project.name} ${site.ui.preview}`}
                     className={`w-full h-full ${project.imageFit === 'contain' ? 'object-contain p-3 sm:p-4' : 'object-cover'}`}
                   />
                 )}
@@ -142,7 +145,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               {project.icon && (
                 <img 
                   src={project.icon} 
-                  alt={`${project.name} icon`} 
+                  alt={`${project.name} ${site.ui.icon}`}
                   className="w-12 h-12 sm:w-14 sm:h-14 rounded-[22%] shadow-md object-cover bg-white dark:bg-stone-800 shrink-0"
                 />
               )}
@@ -206,7 +209,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
              <div className="relative z-10 shrink-0 group-hover:scale-105 transition-transform duration-500 ease-out">
                 <img 
                   src={project.icon} 
-                  alt={`${project.name} icon`} 
+                  alt={`${project.name} ${site.ui.icon}`}
                   className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-[22%] shadow-2xl object-cover bg-white dark:bg-stone-900"
                 />
              </div>
@@ -224,7 +227,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 ) : (
                   <img 
                     src={project.image} 
-                    alt={`${project.name} screenshot`} 
+                    alt={`${project.name} ${site.ui.screenshot}`}
                     className="w-full h-full object-cover"
                   />
                 )}
