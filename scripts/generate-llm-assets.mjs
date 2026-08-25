@@ -37,10 +37,6 @@ function getProjects() {
   });
 }
 
-function getTimeline() {
-  return agent.timeline_order.map((key) => site.timeline.items[key]);
-}
-
 function buildJsonLd(projects) {
   const personId = `${SITE_URL}/#person`;
   const websiteId = `${SITE_URL}/#website`;
@@ -118,17 +114,17 @@ function buildJsonLd(projects) {
 function buildLlmsTxt() {
   return `# ${SITE_NAME}
 
-> Founder & developer who builds and ships consumer apps on iOS, Android, and web.
+> Founder & developer who designs and builds web apps, mobile apps, websites, and digital products.
 
 ${site.seo.person_description}
 
 ## Docs
-- [Full site summary (${SITE_URL}/llms-full.txt)](${SITE_URL}/llms-full.txt): Plain-text bio, projects, timeline, FAQs — best source for AI agents
+- [Full site summary (${SITE_URL}/llms-full.txt)](${SITE_URL}/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs — best source for AI agents
 - [Structured data (${SITE_URL}/schema.json)](${SITE_URL}/schema.json): JSON-LD with Person, WebSite, projects, and FAQs
 
 ## Pages
-- [Home](${SITE_URL}/): About, projects overview, timeline, contact
-- [Portfolio (interactive)](${SITE_URL}/portfolio): Detailed shipped apps in the main site
+- [Home](${SITE_URL}/): About, proof, selected work, services, and contact
+- [Portfolio (interactive)](${SITE_URL}/portfolio): Detailed shipped products in the main site
 - [Portfolio (plain HTML for agents)](${SITE_URL}/crawl/portfolio.html): Crawlable project details without JavaScript
 - [Privacy Policy](${SITE_URL}/privacy-policy): Data handling for this website and published apps
 
@@ -140,7 +136,7 @@ ${site.seo.person_description}
 `;
 }
 
-function buildLlmsFullTxt(projects, timeline) {
+function buildLlmsFullTxt(projects) {
   const lines = [
     `# ${SITE_NAME} — Full Site Summary`,
     '',
@@ -152,7 +148,7 @@ function buildLlmsFullTxt(projects, timeline) {
     '',
     `${site.hero.headline_line1} ${site.hero.headline_line2}`,
     '',
-    'Shipped apps on iOS, Android, and web. Solvee reached 25k+ downloads before acquisition. Always building new products.',
+    site.hero.description,
     '',
     '## Stats',
     '',
@@ -160,6 +156,10 @@ function buildLlmsFullTxt(projects, timeline) {
     `- ${site.portfolio.stats.downloads}`,
     `- ${site.portfolio.stats.platforms}`,
     `- ${site.portfolio.stats.acquired}`,
+    '',
+    '## Services',
+    '',
+    ...site.capabilities.items.map((item) => `- ${item.title}: ${item.description}`),
     '',
     '## Projects',
     '',
@@ -179,13 +179,6 @@ function buildLlmsFullTxt(projects, timeline) {
     lines.push('');
   }
 
-  lines.push('## Timeline');
-  lines.push('');
-  for (const item of timeline) {
-    lines.push(`- ${item.date} — ${item.title}: ${item.description}`);
-  }
-
-  lines.push('');
   lines.push('## Frequently Asked Questions');
   lines.push('');
   for (const faq of agent.faqs) {
@@ -301,13 +294,12 @@ function patchIndexHtml(jsonLd) {
 }
 
 const projects = getProjects();
-const timeline = getTimeline();
 const jsonLd = buildJsonLd(projects);
 
 mkdirSync(join(publicDir, 'crawl'), { recursive: true });
 
 writeFileSync(join(publicDir, 'llms.txt'), buildLlmsTxt());
-writeFileSync(join(publicDir, 'llms-full.txt'), buildLlmsFullTxt(projects, timeline));
+writeFileSync(join(publicDir, 'llms-full.txt'), buildLlmsFullTxt(projects));
 writeFileSync(join(publicDir, 'schema.json'), `${JSON.stringify(jsonLd, null, 2)}\n`);
 writeFileSync(join(publicDir, 'crawl', 'portfolio.html'), buildPortfolioHtml(projects));
 patchIndexHtml(jsonLd);

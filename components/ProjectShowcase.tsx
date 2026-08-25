@@ -98,6 +98,83 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
   const useSiteDescription = ['trailo', 'doso', 'solvee' /* , 'platoic' */].includes(project.id);
   const summary = useSiteDescription ? project.description : (project.outcome ?? project.description);
 
+  if (project.layout === 'web') {
+    const heroShot = screenshots[0];
+
+    return (
+      <motion.article
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full max-w-full overflow-hidden rounded-2xl sm:rounded-[2rem] border border-stone-200/70 dark:border-stone-800 bg-white/60 dark:bg-stone-800/20"
+      >
+        {heroShot && (
+          <div className="relative w-full aspect-[16/10] sm:aspect-[16/8] lg:aspect-[16/7] bg-[#F5F5F7] dark:bg-stone-950/60 overflow-hidden">
+            <img
+              src={heroShot.src}
+              alt={heroShot.alt}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 ring-1 ring-inset ring-black/[0.04] dark:ring-white/[0.04] pointer-events-none" />
+          </div>
+        )}
+
+        <div className="grid lg:grid-cols-[minmax(0,1.25fr)_minmax(22rem,0.75fr)] gap-7 lg:gap-12 p-5 sm:p-8 md:p-10">
+          <header className="min-w-0">
+            <div className="flex items-center gap-3 mb-4 min-w-0">
+              {project.icon && (
+                <img
+                  src={project.icon}
+                  alt=""
+                  aria-hidden="true"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-[22%] object-cover bg-white dark:bg-stone-800 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.2)] ring-1 ring-black/[0.06] dark:ring-white/10 shrink-0"
+                />
+              )}
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h2 className="text-2xl sm:text-3xl font-serif font-light text-ink dark:text-stone-50 tracking-tight leading-none">
+                    {project.name}
+                  </h2>
+                  {project.status && <StatusBadge status={project.status} />}
+                </div>
+                <p className="mt-1 text-sm sm:text-base font-serif italic text-stone-500 dark:text-stone-400 leading-snug">
+                  {project.tagline}
+                </p>
+              </div>
+            </div>
+            {summary && (
+              <p className="text-sm sm:text-base text-stone-600 dark:text-stone-300 font-light leading-relaxed max-w-2xl">
+                {summary}
+              </p>
+            )}
+          </header>
+
+          <div className="space-y-5 lg:border-l lg:border-stone-200/70 dark:lg:border-stone-700/60 lg:pl-8">
+            <dl className="rounded-xl border border-stone-200/70 dark:border-stone-700/60 bg-stone-50/40 dark:bg-stone-800/25 overflow-hidden sm:grid sm:grid-cols-3 sm:divide-x sm:divide-stone-200/70 dark:sm:divide-stone-700/60">
+              {META_ITEMS.map((item, i) => (
+                <div
+                  key={item.key}
+                  className={`flex items-start justify-between gap-3 px-4 py-2.5 sm:flex-col sm:items-start sm:justify-start sm:gap-0 sm:px-4 sm:py-4 ${
+                    i > 0 ? 'border-t border-stone-200/70 dark:border-stone-700/60 sm:border-t-0' : ''
+                  }`}
+                >
+                  <dt className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500 shrink-0 sm:mb-1.5">
+                    {item.label}
+                  </dt>
+                  <dd className="text-[13px] sm:text-sm font-medium text-ink dark:text-stone-100 leading-snug text-right sm:text-left break-words min-w-0">
+                    {project[item.key]}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <ProjectLinks project={project} />
+          </div>
+        </div>
+      </motion.article>
+    );
+  }
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}

@@ -1,6 +1,6 @@
 {
   "common": {
-    "get_in_touch": "Get in touch",
+    "get_in_touch": "Start a project",
     "email_me": "Email Me",
     "copied": "Copied!",
     "email_on_clipboard": "{{email}} copied",
@@ -16,8 +16,12 @@
     "error_code": "Error 404"
   },
   "hero": {
-    "headline_line1": "I build apps",
-    "headline_line2": "and ship them."
+    "headline_line1": "I design and build",
+    "headline_line2": "digital products.",
+    "intro": "I'm Mikołaj — a founder and developer who turns ideas into polished products people actually use.",
+    "description": "Web apps, mobile apps, and websites — from product design and development to launch.",
+    "primary_cta": "View selected work",
+    "secondary_cta": "Start a project"
   },
   "seo": {
     "site_name": "Mikołaj Piech",
@@ -25,17 +29,17 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Mikołaj Piech — founder and developer from Poland. I build and ship consumer apps: Trailo, Subby, Doso, and Solvee (acquired).",
-    "person_description": "Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), Doso (personal health), and Solvee (AI homework helper, acquired).",
+    "meta_description": "Mikołaj Piech — founder and developer from Poland. I design and build web apps, mobile apps, websites, and consumer products from idea to launch.",
+    "person_description": "Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Kiddumi, Safe Labs, Trailo, Subby, Doso, and Solvee.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech — Founder & Developer",
-        "description": "Mikołaj Piech — founder and developer from Poland. I build and ship consumer apps: Trailo, Subby, Doso, and Solvee (acquired).",
-        "social_description": "Founder & developer from Poland. I build and ship apps — Trailo, Subby, Doso, and Solvee."
+        "description": "Mikołaj Piech — founder and developer from Poland. I design and build web apps, mobile apps, websites, and consumer products from idea to launch.",
+        "social_description": "Founder & developer building web apps, mobile apps, websites, and digital products from idea to launch."
       },
       "portfolio": {
         "title": "Portfolio — Apps by Mikołaj Piech",
-        "description": "Real products on the App Store, Google Play, and the web — Trailo, Subby, Doso, Solvee, and more. From idea to launch."
+        "description": "Selected web apps, mobile apps, websites, and digital products designed, built, and shipped by Mikołaj Piech."
       },
       "privacy": {
         "title": "Privacy Policy — Mikołaj Piech",
@@ -47,66 +51,36 @@
       }
     }
   },
-  "timeline": {
-    "title": "Timeline",
-    "subtitle": "Projects and milestones in chronological order.",
-    "items": {
-      "solvee_acquired": {
-        "date": "February 2026",
-        "title": "Solvee acquired",
-        "description": "Solvee got acquired"
-      },
-      "omni_started": {
-        "date": "December 2025",
-        "title": "Omni",
-        "description": "Started working on Omni – the AI that knows you and your computer"
-      },
-      "platoic_started": {
-        "date": "December 2025",
-        "title": "Platoic",
-        "description": "Started working on Platoic – personalized AI learning platform"
-      },
-      "subby_released": {
-        "date": "December 2025",
-        "title": "Subby",
-        "description": "Released a subscription manager app to track trials and subscriptions"
-      },
-      "solvee_launched": {
-        "date": "March 2025",
-        "title": "Solvee",
-        "description": "Launched an AI homework helper app on iOS and Android"
-      },
-      "trailo_started": {
-        "date": "May 2026",
-        "title": "Trailo",
-        "description": "Started working on Trailo — AI travel planning for web and mobile."
-      },
-      "doso_released": {
-        "date": "April 2026",
-        "title": "Doso",
-        "description": "Launched a personal health app for managing medications, lab results, and symptoms with AI-powered insights"
-      }
-    }
-  },
   "portfolio": {
     "title": "Portfolio",
-    "headline": "Apps I've built",
+    "headline": "Products I've built",
     "headline_accent": "and shipped.",
-    "subtitle": "Real products on the App Store, Google Play, and the web. From idea to launch — design, development, and growth.",
+    "subtitle": "Web apps, mobile apps, and websites — taken from idea to launch through product design, development, and iteration.",
     "stats": {
-      "apps": "5+ apps shipped",
-      "downloads": "25k+ downloads",
+      "apps": "6+ products shipped",
+      "downloads": "30k+ downloads",
       "platforms": "iOS · Android · Web",
-      "acquired": "1 app sold"
+      "acquired": "1 product sold"
     },
-    "cta_title": "Have an app idea?",
-    "cta_description": "I work with founders and businesses to turn concepts into products people actually use. Let's talk about yours.",
+    "cta_title": "Building something new?",
+    "cta_description": "I help founders and businesses turn ideas into polished web apps, mobile apps, and websites. Let's talk about what you're building.",
+    "cta_button": "Tell me about your project",
     "view_all": "View full portfolio",
     "back_home": "Back to home"
   },
   "projects": {
-    "title": "Projects",
-    "subtitle": "Tools for a better digital life.",
+    "title": "Selected work",
+    "subtitle": "Products I've designed, built, and launched across web, iOS, and Android.",
+    "kiddumi": {
+      "tagline": "Their face. Their world. Their story.",
+      "description": "A personalized children's book platform that turns a child into the main character of a beautifully written, illustrated story shaped around their look, favorite things, family, and real-life moments.",
+      "link_text": "Visit website"
+    },
+    "safelabs": {
+      "tagline": "Cybersecurity education that feels real.",
+      "description": "An interactive cybersecurity education website for teenagers, with practical threat guidance, workshop registration, password tools, and downloadable resources.",
+      "link_text": "Visit website"
+    },
     "omni": {
       "tagline": "The AI that knows you and your computer.",
       "description": "Find files by meaning, manage email & calendar, install apps, change settings — just ask.",
@@ -137,21 +111,50 @@
       "link_text": "Visit website"
     }
   },
+  "proof": {
+    "title": "Built, shipped, and used.",
+    "description": "I don't stop at mockups or code. I take products from an early idea to real people using them.",
+    "items": [
+      { "value": "6+", "label": "products shipped" },
+      { "value": "30k+", "label": "downloads" },
+      { "value": "1", "label": "product sold" }
+    ]
+  },
+  "capabilities": {
+    "eyebrow": "What I build",
+    "title": "One builder, end to end.",
+    "description": "I work across product thinking, interface design, development, deployment, and the iterations that follow launch.",
+    "items": [
+      {
+        "title": "Web apps",
+        "description": "SaaS products, AI tools, dashboards, marketplaces, and custom platforms."
+      },
+      {
+        "title": "Mobile apps",
+        "description": "Polished iOS and Android products, from the first screen to App Store and Google Play."
+      },
+      {
+        "title": "Websites",
+        "description": "Product sites, landing pages, and company websites built to look sharp and convert."
+      }
+    ]
+  },
   "footer": {
     "title": {
-      "part1": "Let's build the",
-      "part2": "future."
+      "part1": "Building something",
+      "part2": "new?"
     },
-    "description": "Always excited to work on new projects and meet other builders."
+    "description": "I help founders and teams turn ideas into polished web apps, mobile apps, and websites — from first concept to launch."
   },
   "privacy": {
     "title": "Privacy Policy",
-    "last_updated": "Last updated: May 29, 2026",
+    "last_updated": "Last updated: August 25, 2026",
     "intro_before_link": "Mikołaj Piech (\"I\", \"me\", or \"my\") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how I collect, use, store, and protect information when you use my website (",
     "intro_after_link": ") and any mobile applications I publish on Google Play or the Apple App Store, and web applications I operate (collectively \"the Services\"), including Trailo, Subby, Meant, Doso, and Sitting Time.",
     "s1_title": "1. Information I Collect",
     "s1a_title": "A. Information You Provide Directly",
     "s1a_items": [
+      "Name, email address, company name (optional), and message when you use the website contact form",
       "Email address and password (when you create an account)",
       "Display name or nickname",
       "Photos of homework/exercises you take within certain apps (stored securely on your device and in the cloud only for your personal use)",
@@ -168,6 +171,7 @@
     ],
     "s2_title": "2. How I Use Your Information",
     "s2_items": [
+      "To respond to enquiries submitted through the website contact form",
       "To create and manage your account",
       "To provide and improve the Services",
       "To process subscriptions and payments via RevenueCat and the app stores",
@@ -190,6 +194,12 @@
     "table_purpose": "Purpose",
     "table_privacy": "Privacy Policy",
     "partners": [
+      {
+        "partner": "Resend",
+        "purpose": "Contact form email delivery",
+        "linkLabel": "resend.com/legal/privacy-policy",
+        "linkHref": "https://resend.com/legal/privacy-policy"
+      },
       {
         "partner": "RevenueCat",
         "purpose": "Subscription billing",

@@ -22,12 +22,58 @@ import trailoMobile1 from '../assets/trailo-mobile-sc/trailo-mobile-1.png';
 import trailoMobile2 from '../assets/trailo-mobile-sc/trailo-mobile-2.png';
 import trailoMobile3 from '../assets/trailo-mobile-sc/trailo-mobile-3.png';
 import trailoMobile4 from '../assets/trailo-mobile-sc/trailo-mobile-4.png';
+import kiddumiHero from '../assets/kiddumi/hero-family-book.jpg';
+import kiddumiFamily from '../assets/kiddumi/family-profile-collage.webp';
+import kiddumiKeepsake from '../assets/kiddumi/hardcover-keepsake-mockup.webp';
+import safeLabsLogo from '../assets/safelabs/safelabs-logo.png';
+import safeLabsHome from '../assets/safelabs/safelabs-home.jpg';
 // import platoicLogo from '../assets/platoic-logo.png';
 
 export const SHOW_OMNI = false;
 export const SHOW_PLATOIC = false;
 
 const allProjects: Project[] = [
+  {
+    id: 'kiddumi',
+    name: 'Kiddumi',
+    tagline: site.projects.kiddumi.tagline,
+    description: site.projects.kiddumi.description,
+    tags: ['Kids', 'Personalization', 'Web', 'AI'],
+    platform: 'Web',
+    category: 'Personalized Publishing',
+    scope: 'Full product · design to launch',
+    operatingSystem: 'Web',
+    link: 'https://childrenbooks-ten.vercel.app/',
+    linkText: site.projects.kiddumi.link_text,
+    image: kiddumiHero,
+    imageFit: 'contain',
+    layout: 'web',
+    screenshots: [
+      { src: kiddumiHero, alt: 'A family reading a personalized Kiddumi storybook', variant: 'desktop' },
+      { src: kiddumiFamily, alt: 'Kiddumi family profile with a child, sibling, and pet', variant: 'wide' },
+      { src: kiddumiKeepsake, alt: 'Personalized Kiddumi hardcover book mockup', variant: 'wide' },
+    ],
+  },
+  {
+    id: 'safelabs',
+    name: 'Safe Labs',
+    tagline: site.projects.safelabs.tagline,
+    description: site.projects.safelabs.description,
+    tags: ['Website', 'Education', 'Cybersecurity'],
+    platform: 'Web',
+    category: 'Education & Cybersecurity',
+    scope: 'Website · design and development',
+    operatingSystem: 'Web',
+    link: 'https://safelabs.pl/',
+    linkText: site.projects.safelabs.link_text,
+    icon: safeLabsLogo,
+    image: safeLabsHome,
+    imageFit: 'contain',
+    layout: 'web',
+    screenshots: [
+      { src: safeLabsHome, alt: 'Safe Labs cybersecurity education website', variant: 'desktop' },
+    ],
+  },
   {
     id: 'trailo',
     name: 'Trailo',

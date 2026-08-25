@@ -28,21 +28,91 @@ const StatusBadge = ({ status }: { status: string }) => {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const isPrimary = project.isPrimary;
   const isSplit = project.layout === 'split';
+  const isWeb = project.layout === 'web';
 
-      if (isSplit) {
+  if (isWeb) {
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="group relative flex flex-col md:flex-row w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500 md:min-h-[500px]"
+        className={`group relative flex flex-col ${isPrimary ? 'md:col-span-2' : ''} w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-all duration-500`}
+      >
+        <div className="relative w-full aspect-[16/10] md:aspect-[16/7] bg-[#F5F5F7] dark:bg-stone-950/50 overflow-hidden">
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={`${project.name} website preview`}
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="font-serif text-4xl text-stone-300 dark:text-stone-600 italic">{project.name}</span>
+            </div>
+          )}
+          <div className="absolute inset-0 ring-1 ring-inset ring-black/[0.04] dark:ring-white/[0.04] pointer-events-none" />
+        </div>
+
+        <div className="flex flex-col p-5 sm:p-7 md:p-8 bg-white dark:bg-transparent">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 sm:gap-8 mb-5">
+            <div className="flex items-start gap-3 sm:gap-4 min-w-0">
+              {project.icon && (
+                <img
+                  src={project.icon}
+                  alt=""
+                  aria-hidden="true"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-[22%] shadow-md object-cover bg-white dark:bg-stone-800 shrink-0"
+                />
+              )}
+              <div className="min-w-0 pt-0.5">
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <h3 className="text-2xl sm:text-3xl font-serif text-ink dark:text-stone-50">{project.name}</h3>
+                  {project.status && <StatusBadge status={project.status} />}
+                </div>
+                <p className="text-sm sm:text-base font-serif italic text-stone-700 dark:text-stone-300 leading-snug">
+                  {project.tagline}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 sm:justify-end sm:max-w-[48%] shrink-0">
+              {project.tags.map((tag) => (
+                <span key={tag} className="px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400 border border-stone-200 dark:border-stone-700 rounded-full bg-stone-50/50 dark:bg-stone-800/50">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-sm sm:text-base text-stone-500 dark:text-stone-400 leading-relaxed max-w-3xl mb-6">
+            {project.description}
+          </p>
+
+          {project.link && project.linkText && (
+            <div className="pt-5 border-t border-stone-100 dark:border-stone-700/50">
+              <Button href={project.link} external className="!py-2.5 !px-5 !text-xs tracking-wide w-full sm:w-auto lg:self-start">
+                {project.linkText}
+              </Button>
+            </div>
+          )}
+        </div>
+      </motion.div>
+    );
+  }
+
+  if (isSplit) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+        className={`group relative flex flex-col md:flex-row w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500 md:min-h-[500px] ${isPrimary ? 'md:col-span-2' : ''}`}
       >
         {/* Image */}
-        <div className="relative w-full md:w-[45%] md:order-2 aspect-[16/10] sm:aspect-[5/4] md:aspect-auto md:min-h-[500px] bg-[#F5F5F7] dark:bg-stone-950/50 overflow-hidden shrink-0">
+        <div className={`relative w-full ${isPrimary ? 'md:w-[58%]' : 'md:w-[45%]'} md:order-2 aspect-[16/10] sm:aspect-[5/4] md:aspect-auto md:min-h-[500px] bg-[#F5F5F7] dark:bg-stone-950/50 overflow-hidden shrink-0`}>
            <div className="absolute inset-0 flex items-center justify-center p-5 sm:p-8">
               <div className={`relative overflow-hidden shadow-md bg-white dark:bg-stone-900 ${
                 project.imageFit === 'contain'
-                  ? 'w-full max-w-[min(100%,22rem)] aspect-[16/10] rounded-xl sm:rounded-[1.2rem]'
+                  ? `w-full ${isPrimary ? 'max-w-[min(100%,40rem)]' : 'max-w-[min(100%,22rem)]'} aspect-[16/10] rounded-xl sm:rounded-[1.2rem]`
                   : 'h-[min(100%,20rem)] sm:h-[min(100%,24rem)] w-auto aspect-[9/19] rounded-[1.25rem] sm:rounded-[1.2rem]'
               }`}>
                 {project.video ? (
@@ -66,7 +136,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col justify-between w-full md:w-[55%] md:order-1 p-5 sm:p-6 md:p-8 relative bg-white dark:bg-transparent z-10">
+        <div className={`flex flex-col justify-between w-full ${isPrimary ? 'md:w-[42%]' : 'md:w-[55%]'} md:order-1 p-5 sm:p-6 md:p-8 lg:p-10 relative bg-white dark:bg-transparent z-10`}>
           <div>
             <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
               {project.icon && (

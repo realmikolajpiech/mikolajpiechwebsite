@@ -1,21 +1,19 @@
 import React, { useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowDown, Copy, Check } from 'lucide-react';
+import { ArrowLeft, ArrowDown } from 'lucide-react';
 import { SiteNav } from '../components/SiteNav';
 import { PageMeta } from '../components/PageMeta';
 import { PortfolioSideNav } from '../components/PortfolioSideNav';
 import { PortfolioMobileNav } from '../components/PortfolioMobileNav';
 import { ProjectShowcase } from '../components/ProjectShowcase';
-import { Button } from '../components/Button';
+import { ContactForm } from '../components/ContactForm';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 import { useScrollOffset } from '../hooks/useScrollOffset';
 import { scrollToPortfolioSection } from '../utils/portfolioScroll';
 import { getProjects } from '../data/projects';
 import { getPageMeta } from '../utils/seo';
 import site from '../content/site.json';
-
-const CONTACT_EMAIL = 'hello@mikolajpiech.com';
 
 function scrollToSection(id: string) {
   scrollToPortfolioSection(id);
@@ -26,7 +24,6 @@ export default function Portfolio() {
   const projectIds = useMemo(() => projects.map((p) => p.id), [projects]);
   const scrollOffset = useScrollOffset();
   const activeId = useScrollSpy(projectIds, scrollOffset);
-  const [copied, setCopied] = React.useState(false);
   const year = new Date().getFullYear();
 
   const handleNavigate = useCallback((id: string) => {
@@ -36,12 +33,6 @@ export default function Portfolio() {
   const scrollToProjects = useCallback(() => {
     if (projectIds[0]) scrollToSection(projectIds[0]);
   }, [projectIds]);
-
-  const handleCopyEmail = () => {
-    void navigator.clipboard.writeText(CONTACT_EMAIL);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   const stats = [
     site.portfolio.stats.apps,
@@ -146,36 +137,25 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <section className="bg-ink text-off-white py-20 md:py-28 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <section id="contact" className="scroll-mt-20 bg-ink text-off-white py-20 md:py-28 px-6">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="text-3xl md:text-5xl font-serif font-light mb-6 leading-tight">
-              {site.portfolio.cta_title}
-            </h2>
-            <p className="text-stone-400 text-lg mb-10 font-light leading-relaxed">
-              {site.portfolio.cta_description}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                onClick={handleCopyEmail}
-                variant="secondary"
-                className="relative overflow-hidden min-w-[220px]"
-              >
-                <span className={`flex items-center gap-2 transition-all duration-300 ${copied ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
-                  {CONTACT_EMAIL} <Copy className="w-4 h-4" />
-                </span>
-                <span className={`absolute inset-0 flex items-center justify-center gap-2 transition-all duration-300 ${copied ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                  {site.common.copied} <Check className="w-4 h-4 text-green-500" />
-                </span>
-              </Button>
-              <Button href="https://www.linkedin.com/in/mikolajpiech/" variant="outline" className="text-off-white border-stone-700 hover:border-off-white hover:bg-stone-800" external>
-                {site.common.linkedin}
-              </Button>
+            <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+              <div className="text-left lg:sticky lg:top-28">
+                <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone-500">Start a project</p>
+                <h2 className="text-4xl md:text-6xl font-serif font-light mb-6 leading-[0.95]">
+                  {site.portfolio.cta_title}
+                </h2>
+                <p className="text-stone-400 text-lg font-light leading-relaxed">
+                  {site.portfolio.cta_description}
+                </p>
+              </div>
+              <ContactForm />
             </div>
           </motion.div>
 

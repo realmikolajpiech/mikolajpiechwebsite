@@ -25,7 +25,7 @@ export interface Project {
   appStoreLink?: string;
   playStoreLink?: string;
   linkText?: string;
-  layout?: 'standard' | 'split';
+  layout?: 'standard' | 'split' | 'web';
   imageFit?: 'cover' | 'contain';
   operatingSystem?: string;
   screenshots?: ProjectScreenshot[];

@@ -43,12 +43,12 @@ const layoutSvg = Buffer.from(`<svg width="${WIDTH}" height="${HEIGHT}" xmlns="h
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#glow)"/>
 
   <text x="72" y="132" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-style="italic" fill="#fafaf9">Mikołaj Piech</text>
-  <text x="72" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="300" fill="#fafaf9">I build apps</text>
-  <text x="72" y="342" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="300" font-style="italic" fill="#a8a29e">and ship them.</text>
+  <text x="72" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="300" fill="#fafaf9">I design &amp; build</text>
+  <text x="72" y="342" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="300" font-style="italic" fill="#a8a29e">digital products.</text>
   <text x="72" y="412" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="300" fill="#78716c">Founder &amp; Developer</text>
 
   <rect x="72" y="456" width="292" height="64" rx="32" fill="#fafaf9"/>
-  <text x="218" y="497" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#121212" text-anchor="middle">Get in touch →</text>
+  <text x="218" y="497" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#121212" text-anchor="middle">Start a project →</text>
 
   <circle cx="${PROFILE_X + PROFILE_CENTER}" cy="${PROFILE_Y + PROFILE_CENTER}" r="${PROFILE_CENTER + 18}" fill="none" stroke="#292524" stroke-width="2"/>
   <circle cx="${PROFILE_X + PROFILE_CENTER}" cy="${PROFILE_Y + PROFILE_CENTER}" r="${PROFILE_CENTER + 10}" fill="none" stroke="#44403c" stroke-width="2"/>

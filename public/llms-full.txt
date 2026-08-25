@@ -4,20 +4,44 @@ This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI 
 
 ## About
 
-Founder and developer from Poland who builds and ships consumer software. Creator of Trailo (AI travel planning), Subby (subscription management), Doso (personal health), and Solvee (AI homework helper, acquired).
+Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Kiddumi, Safe Labs, Trailo, Subby, Doso, and Solvee.
 
-I build apps and ship them.
+I design and build digital products.
 
-Shipped apps on iOS, Android, and web. Solvee reached 25k+ downloads before acquisition. Always building new products.
+Web apps, mobile apps, and websites — from product design and development to launch.
 
 ## Stats
 
-- 5+ apps shipped
-- 25k+ downloads
+- 6+ products shipped
+- 30k+ downloads
 - iOS · Android · Web
-- 1 app sold
+- 1 product sold
+
+## Services
+
+- Web apps: SaaS products, AI tools, dashboards, marketplaces, and custom platforms.
+- Mobile apps: Polished iOS and Android products, from the first screen to App Store and Google Play.
+- Websites: Product sites, landing pages, and company websites built to look sharp and convert.
 
 ## Projects
+
+### Kiddumi
+
+Tagline: Their face. Their world. Their story.
+Description: A personalized children's book platform that turns a child into the main character of a beautifully written, illustrated story shaped around their look, favorite things, family, and real-life moments.
+Platform: Web
+Category: Personalized Publishing
+Scope: Full product · design to launch
+Website: https://childrenbooks-ten.vercel.app/
+
+### Safe Labs
+
+Tagline: Cybersecurity education that feels real.
+Description: An interactive cybersecurity education website for teenagers, with practical threat guidance, workshop registration, password tools, and downloadable resources.
+Platform: Web
+Category: Education & Cybersecurity
+Scope: Website · design and development
+Website: https://safelabs.pl/
 
 ### Trailo
 
@@ -57,21 +81,19 @@ Platform: iOS · Android
 Category: Education · AI
 Scope: Built & sold · 25k+ downloads
 
-## Timeline
-
-- May 2026 — Trailo: Started working on Trailo — AI travel planning for web and mobile.
-- April 2026 — Doso: Launched a personal health app for managing medications, lab results, and symptoms with AI-powered insights
-- February 2026 — Solvee acquired: Solvee got acquired
-- December 2025 — Subby: Released a subscription manager app to track trials and subscriptions
-- March 2025 — Solvee: Launched an AI homework helper app on iOS and Android
-
 ## Frequently Asked Questions
 
 Q: Who is Mikołaj Piech?
-A: Mikołaj Piech is a founder and developer from Poland who builds and ships consumer software on iOS, Android, and the web — from idea to launch, including design, development, and growth.
+A: Mikołaj Piech is a founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software — from idea and product design through development and launch.
 
 Q: What apps has Mikołaj Piech built?
-A: Mikołaj Piech has built Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, acquired after 25k+ downloads). All are consumer apps shipped to real users on the App Store, Google Play, or web.
+A: Mikołaj Piech has built Kiddumi (personalized children's books), Safe Labs (cybersecurity education website), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play.
+
+Q: Who created Kiddumi?
+A: Kiddumi, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story.
+
+Q: Who built the Safe Labs website?
+A: The Safe Labs cybersecurity education website was designed and developed by Mikołaj Piech. It presents practical online safety education, workshops, password tools, and project resources.
 
 Q: Who created Subby?
 A: Subby, a subscription manager app for iOS and Android, was created by Mikołaj Piech. It helps users track trials and subscriptions to avoid unwanted charges.
@@ -84,6 +106,9 @@ A: Doso, a personal health app for iOS, was created by Mikołaj Piech. It helps 
 
 Q: Who created Trailo?
 A: Trailo, an AI travel planning product for web, iOS, and Android, was created by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries.
+
+Q: Does Mikołaj Piech build products for clients?
+A: Yes. Mikołaj Piech works with founders and businesses to design and develop web apps, mobile apps, product websites, landing pages, and other digital products from idea to launch.
 
 Q: How can I contact Mikołaj Piech?
 A: Email hello@mikolajpiech.com, or find him on LinkedIn (linkedin.com/in/mikolajpiech), X (@mikolajpiech), or GitHub (github.com/realmikolajpiech).

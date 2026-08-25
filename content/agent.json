@@ -12,6 +12,8 @@
     "iOS development",
     "Android development",
     "Web development",
+    "Web application development",
+    "Website design and development",
     "React",
     "TypeScript",
     "AI applications",
@@ -21,10 +23,30 @@
     "Travel technology",
     "Health technology",
     "FinTech",
-    "EdTech"
+    "EdTech",
+    "Personalized publishing"
   ],
-  "visible_projects": ["trailo", "subby", "doso", "solvee"],
+  "visible_projects": ["kiddumi", "safelabs", "trailo", "subby", "doso", "solvee"],
   "project_meta": {
+    "kiddumi": {
+      "platform": "Web",
+      "category": "Personalized Publishing",
+      "scope": "Full product · design to launch",
+      "operatingSystem": "Web",
+      "applicationType": "WebApplication",
+      "tags": ["Kids", "Personalization", "Web", "AI"],
+      "link": "https://childrenbooks-ten.vercel.app/"
+    },
+    "safelabs": {
+      "nameDisplay": "Safe Labs",
+      "platform": "Web",
+      "category": "Education & Cybersecurity",
+      "scope": "Website · design and development",
+      "operatingSystem": "Web",
+      "applicationType": "WebApplication",
+      "tags": ["Website", "Education", "Cybersecurity"],
+      "link": "https://safelabs.pl/"
+    },
     "trailo": {
       "platform": "Web · iOS · Android",
       "category": "AI Travel",
@@ -64,21 +86,22 @@
       "tags": ["Mobile App", "Education", "AI"]
     }
   },
-  "timeline_order": [
-    "trailo_started",
-    "doso_released",
-    "solvee_acquired",
-    "subby_released",
-    "solvee_launched"
-  ],
   "faqs": [
     {
       "question": "Who is Mikołaj Piech?",
-      "answer": "Mikołaj Piech is a founder and developer from Poland who builds and ships consumer software on iOS, Android, and the web — from idea to launch, including design, development, and growth."
+      "answer": "Mikołaj Piech is a founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software — from idea and product design through development and launch."
     },
     {
       "question": "What apps has Mikołaj Piech built?",
-      "answer": "Mikołaj Piech has built Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, acquired after 25k+ downloads). All are consumer apps shipped to real users on the App Store, Google Play, or web."
+      "answer": "Mikołaj Piech has built Kiddumi (personalized children's books), Safe Labs (cybersecurity education website), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play."
+    },
+    {
+      "question": "Who created Kiddumi?",
+      "answer": "Kiddumi, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story."
+    },
+    {
+      "question": "Who built the Safe Labs website?",
+      "answer": "The Safe Labs cybersecurity education website was designed and developed by Mikołaj Piech. It presents practical online safety education, workshops, password tools, and project resources."
     },
     {
       "question": "Who created Subby?",
@@ -95,6 +118,10 @@
     {
       "question": "Who created Trailo?",
       "answer": "Trailo, an AI travel planning product for web, iOS, and Android, was created by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries."
+    },
+    {
+      "question": "Does Mikołaj Piech build products for clients?",
+      "answer": "Yes. Mikołaj Piech works with founders and businesses to design and develop web apps, mobile apps, product websites, landing pages, and other digital products from idea to launch."
     },
     {
       "question": "How can I contact Mikołaj Piech?",

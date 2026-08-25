@@ -1,15 +1,18 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, Github, Copy, Check, Mail, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Linkedin, Github, Mail, ArrowRight, PanelsTopLeft, Smartphone, Monitor } from 'lucide-react';
 import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
 import { PageMeta } from '../components/PageMeta';
 import { SiteNav } from '../components/SiteNav';
-import { getProjects, SHOW_OMNI } from '../data/projects';
+import { ContactForm } from '../components/ContactForm';
+import { getProjects } from '../data/projects';
 import { Link } from 'react-router-dom';
 import { getPageMeta } from '../utils/seo';
 import site from '../content/site.json';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
+const FEATURED_PROJECT_IDS = new Set(['kiddumi', 'safelabs', 'trailo', 'solvee']);
+const CAPABILITY_ICONS = [PanelsTopLeft, Smartphone, Monitor];
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -29,34 +32,10 @@ const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => 
 );
 
 export default function Home() {
-  const [copied, setCopied] = React.useState(false);
-  const [heroEmailOnClipboard, setHeroEmailOnClipboard] = React.useState(false);
-  const heroCopyTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const year = new Date().getFullYear();
 
-  const handleCopyEmail = () => {
-    void navigator.clipboard.writeText(CONTACT_EMAIL);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleHeroCopyEmail = () => {
-    void navigator.clipboard.writeText(CONTACT_EMAIL);
-    if (heroCopyTimeoutRef.current) clearTimeout(heroCopyTimeoutRef.current);
-    setHeroEmailOnClipboard(true);
-    heroCopyTimeoutRef.current = setTimeout(() => {
-      setHeroEmailOnClipboard(false);
-      heroCopyTimeoutRef.current = null;
-    }, 2800);
-  };
-
-  React.useEffect(() => {
-    return () => {
-      if (heroCopyTimeoutRef.current) clearTimeout(heroCopyTimeoutRef.current);
-    };
-  }, []);
-
   const projects = getProjects();
+  const featuredProjects = projects.filter((project) => FEATURED_PROJECT_IDS.has(project.id));
   const pageMeta = getPageMeta('home');
 
   return (
@@ -68,7 +47,7 @@ export default function Home() {
       <section className="relative pt-28 md:pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-12 gap-12 items-center">
 
-          <div className="md:col-span-7 space-y-10">
+          <div className="md:col-span-7 space-y-8 md:space-y-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -84,17 +63,13 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-xl space-y-5"
+              className="max-w-2xl space-y-4"
             >
               <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
-                I'm <span className="text-ink dark:text-stone-50 font-medium">Mikołaj.</span> I take ideas from zero to something people actually use.
+                {site.hero.intro}
               </p>
-              <p className="text-base md:text-lg text-stone-500 dark:text-stone-400 leading-relaxed font-light">
-                Shipped apps on iOS, Android, and web.{' '}
-                <span className="inline-flex items-center gap-1.5 text-ink dark:text-stone-50 font-medium">
-                  Solvee hit 25k+ downloads
-                </span>{' '}
-                before I sold it. Always building something new.
+              <p className="text-base md:text-lg text-ink dark:text-stone-200 leading-relaxed font-medium">
+                {site.hero.description}
               </p>
             </motion.div>
 
@@ -102,50 +77,23 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="pt-4 space-y-3"
+              className="pt-2 space-y-5"
             >
-              <div className="flex flex-wrap gap-2 items-center">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button href="#work" className="w-full sm:w-auto">
+                  {site.hero.primary_cta}
+                  <ArrowRight size={15} className="ml-2" />
+                </Button>
+                <Button href="#contact" variant="outline" className="w-full sm:w-auto">
+                  <Mail size={15} className="mr-2" />
+                  {site.hero.secondary_cta}
+                </Button>
+              </div>
+              <div className="flex flex-wrap gap-1 items-center">
                 <SocialIcon href="https://x.com/mikolajpiech" icon={<XLogo className="w-5 h-5" />} />
                 <SocialIcon href="https://www.linkedin.com/in/mikolajpiech/" icon={<Linkedin size={20} />} />
                 <SocialIcon href="https://github.com/realmikolajpiech" icon={<Github size={20} />} />
-                <button
-                  type="button"
-                  onClick={handleHeroCopyEmail}
-                  aria-label={site.common.copy_email}
-                  className="p-3 text-stone-400 hover:text-ink dark:hover:text-stone-50 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-all duration-300 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-stone-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-off-white dark:focus-visible:ring-offset-stone-900"
-                >
-                  <Mail size={20} strokeWidth={1.75} />
-                </button>
               </div>
-              <AnimatePresence>
-                {heroEmailOnClipboard && (
-                  <motion.p
-                    key="hero-email-copied"
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -4 }}
-                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                    role="status"
-                    aria-live="polite"
-                    className="text-sm text-stone-600 dark:text-stone-400 font-light tracking-wide pl-1 flex items-baseline gap-2 flex-wrap"
-                  >
-                    <span className="mt-1.5 inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" aria-hidden />
-                    <span>
-                      {(() => {
-                        const sentence = site.common.email_on_clipboard.replace('{{email}}', CONTACT_EMAIL);
-                        const [before, after] = sentence.split(CONTACT_EMAIL);
-                        return (
-                          <>
-                            {before}
-                            <span className="font-medium text-ink dark:text-stone-200">{CONTACT_EMAIL}</span>
-                            {after}
-                          </>
-                        );
-                      })()}
-                    </span>
-                  </motion.p>
-                )}
-              </AnimatePresence>
             </motion.div>
           </div>
 
@@ -167,7 +115,38 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto">
+      <section className="px-6 md:px-12 max-w-7xl mx-auto" aria-labelledby="proof-title">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          className="border-y border-stone-200/80 dark:border-stone-800 grid lg:grid-cols-[1.15fr_2fr] gap-10 lg:gap-16 py-10 md:py-14"
+        >
+          <div className="max-w-md">
+            <h2 id="proof-title" className="text-3xl md:text-4xl font-serif text-ink dark:text-stone-50 mb-3">
+              {site.proof.title}
+            </h2>
+            <p className="text-stone-500 dark:text-stone-400 font-light leading-relaxed">
+              {site.proof.description}
+            </p>
+          </div>
+          <dl className="grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-8">
+            {site.proof.items.map((item) => (
+              <div key={item.label} className="flex flex-col">
+                <dt className="order-2 text-xs sm:text-sm text-stone-500 dark:text-stone-400 leading-snug max-w-[9rem]">
+                  {item.label}
+                </dt>
+                <dd className="order-1 text-3xl sm:text-4xl font-serif text-ink dark:text-stone-50 mb-1">
+                  {item.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </motion.div>
+      </section>
+
+      <section id="work" className="scroll-mt-24 py-20 md:py-28 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-12 md:mb-20">
           <div>
             <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{site.projects.title}</h2>
@@ -183,141 +162,97 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 md:gap-12">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
       </section>
 
-      <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="mb-16 max-w-xl">
-          <h2 className="text-4xl font-serif text-ink dark:text-stone-50 mb-3">{site.timeline.title}</h2>
-          <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{site.timeline.subtitle}</p>
-        </div>
+      <section id="services" className="scroll-mt-24 border-y border-stone-200/70 dark:border-stone-800 bg-stone-100/45 dark:bg-stone-950/25 py-20 md:py-28 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_1.7fr] gap-12 lg:gap-20 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+              className="max-w-lg"
+            >
+              <p className="text-xs uppercase tracking-[0.18em] text-stone-400 dark:text-stone-500 mb-4">
+                {site.capabilities.eyebrow}
+              </p>
+              <h2 className="text-4xl md:text-6xl font-serif text-ink dark:text-stone-50 leading-[0.95] mb-6">
+                {site.capabilities.title}
+              </h2>
+              <p className="text-base md:text-lg text-stone-500 dark:text-stone-400 font-light leading-relaxed">
+                {site.capabilities.description}
+              </p>
+            </motion.div>
 
-        {(() => {
-          const byId = Object.fromEntries(projects.map(p => [p.id, p]));
-          const timelineIcons: Record<string, string> = {
-            omni: 'https://www.heyomni.app/assets/omni.png',
-            trailo: 'https://trailoapp.com/trailo-icon.png',
-          };
-          const items = site.timeline.items;
-          const timeline: Array<{ date: string; title: string; description: string; projectId?: string; link?: string }> = [
-            { date: items.trailo_started.date, title: items.trailo_started.title, description: items.trailo_started.description, projectId: 'trailo' },
-            { date: items.doso_released.date, title: items.doso_released.title, description: items.doso_released.description, projectId: 'doso', link: 'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859' },
-            { date: items.solvee_acquired.date, title: items.solvee_acquired.title, description: items.solvee_acquired.description, projectId: 'solvee' },
-            ...(SHOW_OMNI ? [{ date: items.omni_started.date, title: items.omni_started.title, description: items.omni_started.description, projectId: 'omni', link: 'https://heyomni.app' }] : []),
-            // Platoic timeline: uncomment and set SHOW_PLATOIC = true in data/projects.ts
-            // { date: items.platoic_started.date, title: items.platoic_started.title, description: items.platoic_started.description, projectId: 'platoic' },
-            { date: items.subby_released.date, title: items.subby_released.title, description: items.subby_released.description, projectId: 'subby' },
-            { date: items.solvee_launched.date, title: items.solvee_launched.title, description: items.solvee_launched.description, projectId: 'solvee' },
-          ];
-
-          return (
-            <div className="relative">
-              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-stone-200 dark:bg-stone-800"></div>
-              <ul className="space-y-6 md:space-y-8">
-                {timeline.map((item, index) => {
-                  const isLeft = index % 2 === 0;
-                  return (
-                    <motion.li
-                      key={`${item.title}-${item.date}-${index}`}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.3 }}
-                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      <div className="grid grid-cols-[3rem_1fr] md:grid-cols-12 items-center gap-4 md:gap-0">
-                        <div className={`col-span-1 md:col-span-5 order-2 ${isLeft ? 'md:order-1 md:pr-6 md:text-right' : 'md:order-3 md:pl-6 text-left'}`}>
-                          <div className="inline-flex flex-col gap-2 bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 rounded-2xl px-5 py-4 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] w-full md:w-auto">
-                            <div className="flex items-center justify-between gap-4">
-                              <div className="flex items-center gap-3">
-                                {item.projectId && (timelineIcons[item.projectId] ?? byId[item.projectId]?.icon) ? (
-                                  <img
-                                    src={timelineIcons[item.projectId] ?? byId[item.projectId]?.icon}
-                                    alt={item.title}
-                                    className="w-8 h-8 rounded-[22%] object-cover bg-white ring-1 ring-black/5"
-                                  />
-                                ) : item.projectId ? (
-                                  <div className="w-8 h-8 rounded-[22%] bg-stone-200 dark:bg-stone-800 flex items-center justify-center ring-1 ring-black/5">
-                                    <span className="text-xs font-semibold text-ink dark:text-stone-50">
-                                      {byId[item.projectId]?.name?.[0] ?? item.title[0]}
-                                    </span>
-                                  </div>
-                                ) : null}
-                                {item.link ? (
-                                  <a
-                                    href={item.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-ink dark:text-stone-50 text-lg font-serif hover:underline decoration-stone-300 underline-offset-4"
-                                  >
-                                    {item.title}
-                                  </a>
-                                ) : (
-                                  <div className="text-ink dark:text-stone-50 text-lg font-serif">{item.title}</div>
-                                )}
-                              </div>
-                              <span className="text-[10px] px-3 py-1 rounded-full bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 tracking-wide whitespace-nowrap">
-                                {item.date}
-                              </span>
-                            </div>
-                            <div className="text-stone-600 dark:text-stone-400 leading-relaxed font-light text-sm text-left">{item.description}</div>
-                          </div>
-                        </div>
-                        <div className="col-span-1 md:col-span-2 order-1 md:order-2 flex items-center justify-center">
-                          <div className="relative w-full flex items-center justify-center h-full">
-                            <div className="w-3 h-3 rounded-full bg-ink dark:bg-stone-50 ring-4 ring-off-white dark:ring-stone-900 shadow-sm relative z-10 shrink-0"></div>
-                            <div className={`hidden md:block absolute h-px bg-stone-300 dark:bg-stone-700 ${isLeft ? 'left-0 right-1/2' : 'left-1/2 right-0'}`}></div>
-                          </div>
-                        </div>
-                        <div className={`hidden md:block md:col-span-5 ${isLeft ? 'md:order-3' : 'md:order-1'}`}></div>
-                      </div>
-                    </motion.li>
-                  );
-                })}
-              </ul>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {site.capabilities.items.map((item, index) => {
+                const Icon = CAPABILITY_ICONS[index];
+                return (
+                  <motion.article
+                    key={item.title}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.35 }}
+                    transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                    className="rounded-2xl bg-white/80 dark:bg-stone-900/70 border border-stone-200/80 dark:border-stone-800 p-6 md:p-7 min-h-[15rem] flex flex-col"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-600 dark:text-stone-300 mb-auto">
+                      <Icon size={19} strokeWidth={1.6} />
+                    </div>
+                    <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </motion.article>
+                );
+              })}
             </div>
-          );
-        })()}
+          </div>
+        </div>
       </section>
 
-      <footer id="contact" className="bg-ink text-off-white py-20 md:py-32 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-8xl font-serif font-light mb-8 md:mb-10 leading-[0.9]"
-          >
-            {site.footer.title.part1} <br /><span className="font-serif-italic text-stone-500">{site.footer.title.part2}</span>
-          </motion.h2>
-          <p className="text-stone-400 text-xl mb-12 max-w-xxl mx-auto font-light leading-relaxed">
-            {site.footer.description}
-          </p>
-
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <Button
-              onClick={handleCopyEmail}
-              variant="secondary"
-              className="relative overflow-hidden min-w-[200px]"
+      <footer id="contact" className="scroll-mt-20 bg-ink text-off-white py-20 md:py-28 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.8 }}
+              className="lg:sticky lg:top-28"
             >
-              <span className={`flex items-center gap-2 transition-all duration-300 ${copied ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
-                {CONTACT_EMAIL} <Copy className="w-4 h-4" />
-              </span>
-              <span className={`absolute inset-0 flex items-center justify-center gap-2 transition-all duration-300 ${copied ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                {site.common.copied} <Check className="w-4 h-4 text-green-500" />
-              </span>
-            </Button>
-            <Button href="https://www.linkedin.com/in/mikolajpiech/" variant="outline" className="text-off-white border-stone-700 hover:border-off-white hover:bg-stone-800" external>
-              {site.common.linkedin}
-            </Button>
-            <Button href="https://www.x.com/mikolajpiech/" variant="outline" className="text-off-white border-stone-700 hover:border-off-white hover:bg-stone-800" external>
-              <XLogo className="w-4 h-4" />
-            </Button>
+              <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone-500">Start a project</p>
+              <h2 className="text-5xl md:text-7xl font-serif font-light mb-7 leading-[0.9]">
+                {site.footer.title.part1} <br /><span className="font-serif-italic text-stone-500">{site.footer.title.part2}</span>
+              </h2>
+              <p className="text-stone-400 text-lg max-w-lg font-light leading-relaxed">
+                {site.footer.description}
+              </p>
+              <div className="mt-8 flex items-center gap-5 text-sm text-stone-500">
+                <a href="/portfolio" className="transition-colors hover:text-off-white">View portfolio</a>
+                <span aria-hidden>·</span>
+                <a href="https://www.linkedin.com/in/mikolajpiech/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-off-white">LinkedIn</a>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.08 }}
+            >
+              <ContactForm />
+            </motion.div>
           </div>
 
-          <div className="mt-20 md:mt-32 pt-12 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
+          <div className="mt-20 md:mt-28 pt-10 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
             <p className="mb-4 md:mb-0">{site.common.all_rights_reserved.replace('{{year}}', String(year))}</p>
             <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center">
               <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-off-white transition-colors">{CONTACT_EMAIL}</a>
