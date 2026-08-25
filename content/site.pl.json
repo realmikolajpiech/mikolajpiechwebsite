@@ -63,8 +63,8 @@
   "hero": {
     "headline_line1": "Projektuję i tworzę",
     "headline_line2": "produkty cyfrowe.",
-    "intro": "Nazywam się Mikołaj. Jako founder i developer zamieniam pomysły w dopracowane produkty, z których ludzie naprawdę korzystają.",
-    "description": "Projektuję i wdrażam aplikacje webowe, mobilne oraz strony internetowe – od strategii produktu i interfejsu po development i premierę.",
+    "intro": "Cześć, jestem Mikołaj – founder i developer. Zamieniam pomysły w dopracowane produkty cyfrowe.",
+    "description": "Projektuję i buduję aplikacje webowe, mobilne oraz strony internetowe – od pierwszej koncepcji po gotowy produkt.",
     "primary_cta": "Zobacz wybrane projekty",
     "secondary_cta": "Rozpocznij projekt"
   },
@@ -158,7 +158,7 @@
   },
   "proof": {
     "title": "Od pomysłu do użytkowników.",
-    "description": "Nie kończę na makietach ani samym kodzie. Doprowadzam produkty do premiery – i do ludzi, którzy naprawdę z nich korzystają.",
+    "description": "Nie kończę na makietach ani samym kodzie. Projektuję, buduję i wdrażam produkty, z których ludzie naprawdę korzystają.",
     "items": [
       { "value": "6+", "label": "wdrożonych produktów" },
       { "value": "30k+", "label": "pobrań" },
@@ -168,7 +168,7 @@
   "capabilities": {
     "eyebrow": "Co tworzę",
     "title": "Jeden twórca, cały proces.",
-    "description": "Łączę strategię produktu, projektowanie interfejsu, development i wdrożenie, a po premierze rozwijam produkt na podstawie realnego użycia.",
+    "description": "Łączę strategię produktu, projektowanie interfejsu, development i wdrożenie, a później rozwijam produkt na podstawie realnego użycia.",
     "items": [
       {
         "title": "Aplikacje webowe",
