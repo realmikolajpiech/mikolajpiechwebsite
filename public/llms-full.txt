@@ -4,7 +4,7 @@ This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI 
 
 ## About
 
-Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Just Mine, Safe Labs, Trailo, Subby, Doso, and Solvee.
+Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Just Mine, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.
 
 I design and build digital products.
 
