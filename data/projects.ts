@@ -23,9 +23,10 @@ import trailoMobile1 from '../assets/trailo-mobile-sc/trailo-mobile-1.png';
 import trailoMobile2 from '../assets/trailo-mobile-sc/trailo-mobile-2.png';
 import trailoMobile3 from '../assets/trailo-mobile-sc/trailo-mobile-3.png';
 import trailoMobile4 from '../assets/trailo-mobile-sc/trailo-mobile-4.png';
-import kiddumiHero from '../assets/kiddumi/hero-family-book.jpg';
-import kiddumiFamily from '../assets/kiddumi/family-profile-collage.webp';
-import kiddumiKeepsake from '../assets/kiddumi/hardcover-keepsake-mockup.webp';
+import justMineHero from '../assets/justmine/hero-family-book.jpg';
+import justMineFamily from '../assets/justmine/family-profile-collage.webp';
+import justMineKeepsake from '../assets/justmine/hardcover-keepsake-mockup.webp';
+import justMineLogo from '../assets/justmine/justmine-logo.png';
 import safeLabsLogo from '../assets/safelabs/safelabs-logo.png';
 import safeLabsHome from '../assets/safelabs/safelabs-home.jpg';
 // import platoicLogo from '../assets/platoic-logo.png';
@@ -40,24 +41,25 @@ function buildAllProjects(language: Language): Project[] {
 
   return [
   {
-    id: 'kiddumi',
-    name: 'Kiddumi',
-    tagline: site.projects.kiddumi.tagline,
-    description: site.projects.kiddumi.description,
-    tags: isPl ? ['Dzieci', 'Personalizacja', 'Web', 'AI'] : ['Kids', 'Personalization', 'Web', 'AI'],
+    id: 'justmine',
+    name: 'Just Mine',
+    tagline: site.projects.justmine.tagline,
+    description: site.projects.justmine.description,
+    tags: isPl ? ['Dzieci', 'Personalizacja', 'Internet', 'AI'] : ['Kids', 'Personalization', 'Web', 'AI'],
     platform: 'Web',
     category: tr('Personalized Publishing', 'Książki personalizowane'),
     scope: tr('Full product · design to launch', 'Kompleksowa realizacja · od projektu po wdrożenie'),
     operatingSystem: 'Web',
-    link: 'https://childrenbooks-ten.vercel.app/',
-    linkText: site.projects.kiddumi.link_text,
-    image: kiddumiHero,
+    link: 'https://getjustmine.com',
+    linkText: site.projects.justmine.link_text,
+    icon: justMineLogo,
+    image: justMineHero,
     imageFit: 'contain',
     layout: 'web',
     screenshots: [
-      { src: kiddumiHero, alt: tr('A family reading a personalized Kiddumi storybook', 'Rodzina czytająca spersonalizowaną książkę Kiddumi'), variant: 'desktop' },
-      { src: kiddumiFamily, alt: tr('Kiddumi family profile with a child, sibling, and pet', 'Profil rodziny Kiddumi z dzieckiem, rodzeństwem i zwierzęciem'), variant: 'wide' },
-      { src: kiddumiKeepsake, alt: tr('Personalized Kiddumi hardcover book mockup', 'Wizualizacja spersonalizowanej książki Kiddumi w twardej oprawie'), variant: 'wide' },
+      { src: justMineHero, alt: tr('A family reading a personalized Just Mine storybook', 'Rodzina czytająca spersonalizowaną książkę Just Mine'), variant: 'desktop' },
+      { src: justMineFamily, alt: tr('Just Mine family profile with a child, sibling, and pet', 'Profil rodziny Just Mine z dzieckiem, rodzeństwem i zwierzęciem'), variant: 'wide' },
+      { src: justMineKeepsake, alt: tr('Personalized Just Mine hardcover book mockup', 'Wizualizacja spersonalizowanej książki Just Mine w twardej oprawie'), variant: 'wide' },
     ],
   },
   {
@@ -85,7 +87,7 @@ function buildAllProjects(language: Language): Project[] {
     name: 'Trailo',
     tagline: site.projects.trailo.tagline,
     description: site.projects.trailo.description,
-    tags: isPl ? ['Podróże', 'Web', 'Aplikacja mobilna', 'AI'] : ['Travel', 'Web', 'Mobile App', 'AI'],
+    tags: isPl ? ['Podróże', 'Internet', 'Aplikacja mobilna', 'AI'] : ['Travel', 'Web', 'Mobile App', 'AI'],
     platform: 'Web · iOS · Android',
     category: tr('AI Travel', 'Podróże z AI'),
     scope: tr('Full product · design to launch', 'Kompleksowa realizacja · od projektu po wdrożenie'),

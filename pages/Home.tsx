@@ -13,7 +13,7 @@ import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
-const FEATURED_PROJECT_IDS = new Set(['kiddumi', 'safelabs', 'trailo', 'solvee']);
+const FEATURED_PROJECT_IDS = new Set(['justmine', 'safelabs', 'trailo', 'solvee']);
 const CAPABILITY_ICONS = [PanelsTopLeft, Smartphone, Monitor];
 
 const XLogo = ({ className }: { className?: string }) => (
@@ -183,9 +183,6 @@ export default function Home() {
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-lg"
             >
-              <p className="text-xs uppercase tracking-[0.18em] text-stone-400 dark:text-stone-500 mb-4">
-                {site.capabilities.eyebrow}
-              </p>
               <h2 className="text-4xl md:text-6xl font-serif text-ink dark:text-stone-50 leading-[0.95] mb-6">
                 {site.capabilities.title}
               </h2>
@@ -233,7 +230,6 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="lg:sticky lg:top-28"
             >
-              <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone-500">{site.ui.start_project}</p>
               <h2 className="text-5xl md:text-7xl font-serif font-light mb-7 leading-[0.9]">
                 {site.footer.title.part1} <br /><span className="font-serif-italic text-stone-500">{site.footer.title.part2}</span>
               </h2>

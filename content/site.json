@@ -75,7 +75,7 @@
     "default_image_width": 1200,
     "default_image_height": 630,
     "meta_description": "Mikołaj Piech — founder and developer from Poland. I design and build web apps, mobile apps, websites, and consumer products from idea to launch.",
-    "person_description": "Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Kiddumi, Safe Labs, Trailo, Subby, Doso, and Solvee.",
+    "person_description": "Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Just Mine, Safe Labs, Trailo, Subby, Doso, and Solvee.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech — Founder & Developer",
@@ -116,7 +116,7 @@
   "projects": {
     "title": "Selected work",
     "subtitle": "Products I've designed, built, and launched across web, iOS, and Android.",
-    "kiddumi": {
+    "justmine": {
       "tagline": "Their face. Their world. Their story.",
       "description": "A personalized children's book platform that turns a child into the main character of a beautifully written, illustrated story shaped around their look, favorite things, family, and real-life moments.",
       "link_text": "Visit website"

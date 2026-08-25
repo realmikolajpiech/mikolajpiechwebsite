@@ -26,16 +26,17 @@
     "EdTech",
     "Personalized publishing"
   ],
-  "visible_projects": ["kiddumi", "safelabs", "trailo", "subby", "doso", "solvee"],
+  "visible_projects": ["justmine", "safelabs", "trailo", "subby", "doso", "solvee"],
   "project_meta": {
-    "kiddumi": {
+    "justmine": {
+      "nameDisplay": "Just Mine",
       "platform": "Web",
       "category": "Personalized Publishing",
       "scope": "Full product · design to launch",
       "operatingSystem": "Web",
       "applicationType": "WebApplication",
       "tags": ["Kids", "Personalization", "Web", "AI"],
-      "link": "https://childrenbooks-ten.vercel.app/"
+      "link": "https://getjustmine.com"
     },
     "safelabs": {
       "nameDisplay": "Safe Labs",
@@ -93,11 +94,11 @@
     },
     {
       "question": "What apps has Mikołaj Piech built?",
-      "answer": "Mikołaj Piech has built Kiddumi (personalized children's books), Safe Labs (cybersecurity education website), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play."
+      "answer": "Mikołaj Piech has built Just Mine (personalized children's books), Safe Labs (cybersecurity education website), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play."
     },
     {
-      "question": "Who created Kiddumi?",
-      "answer": "Kiddumi, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story."
+      "question": "Who created Just Mine?",
+      "answer": "Just Mine, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story."
     },
     {
       "question": "Who built the Safe Labs website?",

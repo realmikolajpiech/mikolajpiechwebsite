@@ -151,7 +151,6 @@ export default function Portfolio() {
           >
             <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
               <div className="text-left lg:sticky lg:top-28">
-                <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone-500">{site.ui.start_project}</p>
                 <h2 className="text-4xl md:text-6xl font-serif font-light mb-6 leading-[0.95]">
                   {site.portfolio.cta_title}
                 </h2>

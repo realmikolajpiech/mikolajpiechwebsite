@@ -48,13 +48,13 @@ function replaceNamedMeta(html, attribute, key, value) {
 }
 
 function projectEntries(site, language) {
-  const names = ['kiddumi', 'safelabs', 'trailo', 'subby', 'doso', 'solvee'];
+  const names = ['justmine', 'safelabs', 'trailo', 'subby', 'doso', 'solvee'];
   return names.map((id, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     item: {
       '@type': 'SoftwareApplication',
-      name: id === 'safelabs' ? 'Safe Labs' : id.charAt(0).toUpperCase() + id.slice(1),
+      name: id === 'justmine' ? 'Just Mine' : id === 'safelabs' ? 'Safe Labs' : id.charAt(0).toUpperCase() + id.slice(1),
       description: site.projects[id].description,
       url: `${SITE_URL}${routePairs.portfolio[language]}#${id}`,
     },
@@ -116,7 +116,7 @@ function noscriptContent(page, language, site) {
   const home = routePairs.home[language];
   const portfolio = routePairs.portfolio[language];
   const privacy = routePairs.privacy[language];
-  const projects = ['kiddumi', 'safelabs', 'trailo', 'subby', 'doso', 'solvee'];
+  const projects = ['justmine', 'safelabs', 'trailo', 'subby', 'doso', 'solvee'];
   const nav = `<nav><a href="${home}">${language === 'pl' ? 'Strona główna' : 'Home'}</a> · <a href="${portfolio}">Portfolio</a> · <a href="${privacy}">${site.common.privacy_policy}</a></nav>`;
   let body = `<h1>${escapeHtml(site.seo.pages[page].title)}</h1><p>${escapeHtml(site.seo.pages[page].description)}</p>`;
 
@@ -124,7 +124,7 @@ function noscriptContent(page, language, site) {
     body += `<h2>${escapeHtml(site.hero.headline_line1)} ${escapeHtml(site.hero.headline_line2)}</h2><p>${escapeHtml(site.hero.intro)}</p><p>${escapeHtml(site.hero.description)}</p>`;
   }
   if (page === 'home' || page === 'portfolio') {
-    body += `<section><h2>${escapeHtml(site.projects.title)}</h2>${projects.map((id) => `<article><h3>${id === 'safelabs' ? 'Safe Labs' : id.charAt(0).toUpperCase() + id.slice(1)}</h3><p>${escapeHtml(site.projects[id].tagline)}</p><p>${escapeHtml(site.projects[id].description)}</p></article>`).join('')}</section>`;
+    body += `<section><h2>${escapeHtml(site.projects.title)}</h2>${projects.map((id) => `<article><h3>${id === 'justmine' ? 'Just Mine' : id === 'safelabs' ? 'Safe Labs' : id.charAt(0).toUpperCase() + id.slice(1)}</h3><p>${escapeHtml(site.projects[id].tagline)}</p><p>${escapeHtml(site.projects[id].description)}</p></article>`).join('')}</section>`;
   }
   body += `<footer><p>hello@mikolajpiech.com</p>${nav}</footer>`;
   return `<noscript><main>${nav}${body}</main></noscript>`;

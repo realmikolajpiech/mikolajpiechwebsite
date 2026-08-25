@@ -62,9 +62,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               {project.icon && (
                 <img
                   src={project.icon}
-                  alt=""
-                  aria-hidden="true"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-[22%] shadow-md object-cover bg-white dark:bg-stone-800 shrink-0"
+                  alt={`${project.name} ${site.ui.icon}`}
+                  className="w-28 h-12 sm:w-36 sm:h-14 rounded-lg shadow-md object-contain p-1 bg-white shrink-0"
                 />
               )}
               <div className="min-w-0 pt-0.5">

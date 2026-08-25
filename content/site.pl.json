@@ -63,8 +63,8 @@
   "hero": {
     "headline_line1": "Projektuję i tworzę",
     "headline_line2": "produkty cyfrowe.",
-    "intro": "Cześć, jestem Mikołaj – founder i developer. Zamieniam pomysły w dopracowane produkty cyfrowe.",
-    "description": "Projektuję i buduję aplikacje webowe, mobilne oraz strony internetowe – od pierwszej koncepcji po gotowy produkt.",
+    "intro": "Cześć, jestem Mikołaj - zamieniam pomysły w dopracowane produkty cyfrowe.",
+    "description": "Projektuję i buduję aplikacje internetowe, mobilne oraz strony internetowe – od pierwszej koncepcji po gotowy produkt.",
     "primary_cta": "Zobacz wybrane projekty",
     "secondary_cta": "Rozpocznij projekt"
   },
@@ -74,17 +74,17 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Mikołaj Piech – founder i developer z Polski. Projektuję i tworzę aplikacje webowe, mobilne, strony internetowe i produkty cyfrowe od pomysłu po wdrożenie.",
-    "person_description": "Founder i developer z Polski, który projektuje, tworzy i wdraża aplikacje webowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Twórca Kiddumi, Safe Labs, Trailo, Subby, Doso i Solvee.",
+    "meta_description": "Mikołaj Piech – founder i developer z Polski. Projektuję i tworzę aplikacje internetowe, mobilne, strony internetowe i produkty cyfrowe od pomysłu po wdrożenie.",
+    "person_description": "Founder i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Twórca Just Mine, Safe Labs, Trailo, Subby, Doso i Solvee.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech – Founder i Developer",
-        "description": "Mikołaj Piech – founder i developer z Polski. Projektuję i tworzę aplikacje webowe, mobilne, strony internetowe i produkty cyfrowe od pomysłu po wdrożenie.",
-        "social_description": "Founder i developer tworzący aplikacje webowe, mobilne, strony internetowe i produkty cyfrowe od pomysłu po wdrożenie."
+        "description": "Mikołaj Piech – founder i developer z Polski. Projektuję i tworzę aplikacje internetowe, mobilne, strony internetowe i produkty cyfrowe od pomysłu po wdrożenie.",
+        "social_description": "Founder i developer tworzący aplikacje internetowe, mobilne, strony internetowe i produkty cyfrowe od pomysłu po wdrożenie."
       },
       "portfolio": {
         "title": "Portfolio – projekty Mikołaja Piecha",
-        "description": "Wybrane aplikacje webowe, mobilne, strony internetowe i produkty cyfrowe zaprojektowane, stworzone i wdrożone przez Mikołaja Piecha."
+        "description": "Wybrane aplikacje internetowe, mobilne, strony internetowe i produkty cyfrowe zaprojektowane, stworzone i wdrożone przez Mikołaja Piecha."
       },
       "privacy": {
         "title": "Polityka prywatności – Mikołaj Piech",
@@ -100,23 +100,23 @@
     "title": "Portfolio",
     "headline": "Produkty, które stworzyłem",
     "headline_accent": "i wdrożyłem.",
-    "subtitle": "Aplikacje webowe, mobilne i strony internetowe – od pomysłu i projektu, przez development, aż po wdrożenie i dalszy rozwój.",
+    "subtitle": "Aplikacje internetowe, mobilne i strony internetowe – od pomysłu i projektu, przez development, aż po wdrożenie i dalszy rozwój.",
     "stats": {
       "apps": "6+ wdrożonych produktów",
       "downloads": "30k+ pobrań",
       "platforms": "iOS · Android · Web",
-      "acquired": "1 sprzedany produkt"
+      "acquired": "1 sprzedana aplikacja"
     },
     "cta_title": "Masz pomysł na coś nowego?",
-    "cta_description": "Pomagam founderom, zespołom i firmom zamieniać pomysły w dopracowane aplikacje webowe, mobilne oraz strony internetowe. Porozmawiajmy o Twoim projekcie.",
+    "cta_description": "Pomagam founderom, zespołom i firmom zamieniać pomysły w dopracowane aplikacje internetowe, mobilne oraz strony internetowe. Porozmawiajmy o Twoim projekcie.",
     "cta_button": "Opowiedz mi o projekcie",
     "view_all": "Zobacz pełne portfolio",
     "back_home": "Wróć na stronę główną"
   },
   "projects": {
     "title": "Wybrane projekty",
-    "subtitle": "Wybrane produkty, które zaprojektowałem, stworzyłem i wprowadziłem na rynek – w wersji webowej, na iOS i Androidzie.",
-    "kiddumi": {
+    "subtitle": "Wybrane produkty, które zaprojektowałem, stworzyłem i wprowadziłem na rynek – w wersji internetowej, na iOS i Androidzie.",
+    "justmine": {
       "tagline": "Ich twarz. Ich świat. Ich historia.",
       "description": "Platforma do tworzenia spersonalizowanych książek dla dzieci. Dziecko staje się głównym bohaterem pięknie napisanej i zilustrowanej historii dopasowanej do jego wyglądu, zainteresowań, rodziny i wspomnień.",
       "link_text": "Odwiedź stronę"
@@ -162,7 +162,7 @@
     "items": [
       { "value": "6+", "label": "wdrożonych produktów" },
       { "value": "30k+", "label": "pobrań" },
-      { "value": "1", "label": "sprzedany produkt" }
+      { "value": "1", "label": "sprzedana aplikacja" }
     ]
   },
   "capabilities": {
@@ -171,7 +171,7 @@
     "description": "Łączę strategię produktu, projektowanie interfejsu, development i wdrożenie, a później rozwijam produkt na podstawie realnego użycia.",
     "items": [
       {
-        "title": "Aplikacje webowe",
+        "title": "Aplikacje internetowe",
         "description": "Produkty SaaS, narzędzia AI, panele, platformy sprzedażowe i rozwiązania tworzone na zamówienie."
       },
       {
@@ -189,13 +189,13 @@
       "part1": "Tworzysz coś",
       "part2": "nowego?"
     },
-    "description": "Pomagam founderom, zespołom i firmom zamieniać pomysły w dopracowane aplikacje webowe, mobilne oraz strony internetowe – od pierwszej koncepcji po wdrożenie."
+    "description": "Pomagam founderom, zespołom i firmom zamieniać pomysły w dopracowane aplikacje internetowe, mobilne oraz strony internetowe – od pierwszej koncepcji po wdrożenie."
   },
   "privacy": {
     "title": "Polityka prywatności",
     "last_updated": "Ostatnia aktualizacja: 25 sierpnia 2026 r.",
     "intro_before_link": "Nazywam się Mikołaj Piech i szanuję Twoją prywatność. Niniejsza polityka prywatności wyjaśnia, jakie informacje gromadzę oraz w jaki sposób je wykorzystuję, przechowuję i chronię, gdy korzystasz z mojej strony (",
-    "intro_after_link": "), aplikacji mobilnych publikowanych przeze mnie w Google Play i Apple App Store oraz aplikacji webowych, które prowadzę (łącznie „Usługi”), w tym Trailo, Subby, Meant, Doso i Sitting Time.",
+    "intro_after_link": "), aplikacji mobilnych publikowanych przeze mnie w Google Play i Apple App Store oraz aplikacji internetowych, które prowadzę (łącznie „Usługi”), w tym Trailo, Subby, Meant, Doso i Sitting Time.",
     "s1_title": "1. Informacje, które gromadzę",
     "s1a_title": "A. Informacje przekazywane bezpośrednio",
     "s1a_items": [
