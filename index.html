@@ -68,6 +68,26 @@
         } catch (error) {}
       })();
     </script>
+    <script>
+      (function () {
+        if (window.location.pathname !== '/') return;
+
+        try {
+          var savedLanguage = localStorage.getItem('site-language');
+          var browserLanguage = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+          var preferredLanguage =
+            savedLanguage === 'pl' || savedLanguage === 'en'
+              ? savedLanguage
+              : browserLanguage.toLowerCase().startsWith('pl')
+                ? 'pl'
+                : 'en';
+
+          if (preferredLanguage === 'pl') {
+            window.location.replace('/pl' + window.location.search + window.location.hash);
+          }
+        } catch (error) {}
+      })();
+    </script>
     <!-- GENERATED:JSON-LD:START -->
     <script type="application/ld+json">
 {
