@@ -102,7 +102,7 @@
     "headline_accent": "and shipped.",
     "subtitle": "Web apps, mobile apps, and websites — taken from idea to launch through product design, development, and iteration.",
     "stats": {
-      "apps": "6+ products shipped",
+      "apps": "7+ products shipped",
       "downloads": "30k+ downloads",
       "platforms": "iOS · Android · Web",
       "acquired": "1 product sold"
@@ -124,6 +124,11 @@
     "safelabs": {
       "tagline": "Cybersecurity workshops",
       "description": "A website for cybersecurity workshops I co-organized for 12–14-year-old primary school students. The sessions covered phishing and cyberbullying, protecting passwords and privacy, and verifying information online.",
+      "link_text": "Visit website"
+    },
+    "dragon": {
+      "tagline": "A digital home for a local sports club.",
+      "description": "A complete website for UKS Dragon Mokrzyska, bringing club news, training schedules, tournaments, enrollment, and contact information together in one clear, easy-to-manage place.",
       "link_text": "Visit website"
     },
     "omni": {
@@ -154,6 +159,11 @@
       "tagline": "Plan less. Travel more.",
       "description": "End-to-end AI travel planning — find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
       "link_text": "Visit website"
+    },
+    "twojasiec": {
+      "tagline": "Local news, close to you.",
+      "description": "A mobile app that brings news, alerts, and events from a selected area into one organized place. Users can personalize their local feed by topic, save stories, and add events to their calendar without browsing multiple websites and scattered community groups.",
+      "status": "In development"
     }
   },
   "proof": {

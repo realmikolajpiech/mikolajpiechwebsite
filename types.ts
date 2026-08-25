@@ -5,6 +5,7 @@ export interface ProjectScreenshot {
   alt: string;
   caption?: string;
   variant?: 'phone' | 'desktop' | 'wide';
+  fit?: 'cover' | 'contain';
 }
 
 export interface Project {

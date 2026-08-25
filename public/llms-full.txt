@@ -12,7 +12,7 @@ Web apps, mobile apps, and websites — from product design and development to l
 
 ## Stats
 
-- 6+ products shipped
+- 7+ products shipped
 - 30k+ downloads
 - iOS · Android · Web
 - 1 product sold
@@ -29,19 +29,28 @@ Web apps, mobile apps, and websites — from product design and development to l
 
 Tagline: Personalized books for children.
 Description: A personalized children's book platform that turns a child into the main character of a beautifully written, illustrated story shaped around their look, favorite things, family, and real-life moments.
-Platform: Web
+Platform: Web app
 Category: Personalized Publishing
-Scope: Full product · design to launch
+Scope: Design to launch
 Website: https://getjustmine.com
 
 ### Safe Labs
 
 Tagline: Cybersecurity workshops
 Description: A website for cybersecurity workshops I co-organized for 12–14-year-old primary school students. The sessions covered phishing and cyberbullying, protecting passwords and privacy, and verifying information online.
-Platform: Web
-Category: Education & Cybersecurity
-Scope: Website · design and development
+Platform: Website
+Category: Cybersecurity
+Scope: Design & development
 Website: https://safelabs.pl/
+
+### UKS Dragon Mokrzyska
+
+Tagline: A digital home for a local sports club.
+Description: A complete website for UKS Dragon Mokrzyska, bringing club news, training schedules, tournaments, enrollment, and contact information together in one clear, easy-to-manage place.
+Platform: Website
+Category: Sports & Community
+Scope: Design & development
+Website: https://uksdragonmokrzyska.vercel.app/
 
 ### Trailo
 

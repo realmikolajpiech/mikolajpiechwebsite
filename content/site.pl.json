@@ -102,7 +102,7 @@
     "headline_accent": "i wdrożyłem.",
     "subtitle": "Aplikacje internetowe, mobilne i strony internetowe – od pomysłu i projektu, przez development, aż po wdrożenie i dalszy rozwój.",
     "stats": {
-      "apps": "6+ wdrożonych produktów",
+      "apps": "7+ wdrożonych produktów",
       "downloads": "30k+ pobrań",
       "platforms": "iOS · Android · Web",
       "acquired": "1 sprzedana aplikacja"
@@ -124,6 +124,11 @@
     "safelabs": {
       "tagline": "Warsztaty z cyberbezpieczeństwa",
       "description": "Strona warsztatów z cyberbezpieczeństwa współorganizowanych przeze mnie dla uczniów klas 7–8 szkół podstawowych. Zajęcia dotyczyły rozpoznawania phishingu i cyberprzemocy, ochrony haseł oraz prywatności, a także weryfikowania informacji w sieci.",
+      "link_text": "Odwiedź stronę"
+    },
+    "dragon": {
+      "tagline": "Cyfrowe centrum lokalnego klubu sportowego.",
+      "description": "Kompletna strona internetowa dla UKS Dragon Mokrzyska, która łączy aktualności klubu, harmonogram zajęć, turnieje, zapisy i informacje kontaktowe w jednym przejrzystym, łatwym w zarządzaniu miejscu.",
       "link_text": "Odwiedź stronę"
     },
     "omni": {
@@ -154,6 +159,11 @@
       "tagline": "Mniej planowania. Więcej podróżowania.",
       "description": "Zaplanuj całą podróż z pomocą AI: znajdź loty, hotele i bilety, a następnie ułóż z nich spersonalizowany plan dzień po dniu i godzina po godzinie.",
       "link_text": "Odwiedź stronę"
+    },
+    "twojasiec": {
+      "tagline": "Wiadomości blisko Ciebie.",
+      "description": "Aplikacja mobilna, która porządkuje wiadomości, alerty i wydarzenia z wybranej okolicy. Pozwala dopasować lokalny feed do interesujących tematów, zapisywać materiały oraz dodawać wydarzenia do kalendarza — bez przeglądania wielu stron i przypadkowych grup.",
+      "status": "W budowie"
     }
   },
   "proof": {

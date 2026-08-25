@@ -11,7 +11,7 @@ import { ContactForm } from '../components/ContactForm';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 import { useScrollOffset } from '../hooks/useScrollOffset';
 import { scrollToPortfolioSection } from '../utils/portfolioScroll';
-import { getProjects } from '../data/projects';
+import { getPortfolioProjects } from '../data/projects';
 import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
@@ -22,7 +22,7 @@ function scrollToSection(id: string) {
 
 export default function Portfolio() {
   const { language, site } = useLanguage();
-  const projects = useMemo(() => getProjects(language), [language]);
+  const projects = useMemo(() => getPortfolioProjects(language), [language]);
   const projectIds = useMemo(() => projects.map((p) => p.id), [projects]);
   const scrollOffset = useScrollOffset();
   const activeId = useScrollSpy(projectIds, scrollOffset);

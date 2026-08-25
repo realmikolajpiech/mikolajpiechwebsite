@@ -5,6 +5,8 @@ import { pathToFileURL } from 'node:url';
 const ROOT = resolve(import.meta.dirname, '..');
 const DIST = resolve(ROOT, 'dist');
 const SITE_URL = 'https://mikolajpiech.com';
+const HOME_PROJECT_IDS = ['justmine', 'safelabs', 'trailo', 'solvee'];
+const PORTFOLIO_PROJECT_IDS = ['justmine', 'safelabs', 'dragon', 'trailo', 'subby', 'doso', 'solvee'];
 
 const [template, siteEnRaw, sitePlRaw] = await Promise.all([
   readFile(resolve(DIST, 'index.html'), 'utf8'),
@@ -47,14 +49,20 @@ function replaceNamedMeta(html, attribute, key, value) {
   return pattern.test(html) ? html.replace(pattern, tag) : html.replace('</head>', `    ${tag}\n  </head>`);
 }
 
-function projectEntries(site, language) {
-  const names = ['justmine', 'safelabs', 'trailo', 'subby', 'doso', 'solvee'];
-  return names.map((id, index) => ({
+function projectName(id) {
+  if (id === 'justmine') return 'Just Mine';
+  if (id === 'safelabs') return 'Safe Labs';
+  if (id === 'dragon') return 'UKS Dragon Mokrzyska';
+  return id.charAt(0).toUpperCase() + id.slice(1);
+}
+
+function projectEntries(site, language, ids) {
+  return ids.map((id, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     item: {
-      '@type': 'SoftwareApplication',
-      name: id === 'justmine' ? 'Just Mine' : id === 'safelabs' ? 'Safe Labs' : id.charAt(0).toUpperCase() + id.slice(1),
+      '@type': id === 'safelabs' || id === 'dragon' ? 'WebSite' : 'SoftwareApplication',
+      name: projectName(id),
       description: site.projects[id].description,
       url: `${SITE_URL}${routePairs.portfolio[language]}#${id}`,
     },
@@ -101,11 +109,12 @@ function structuredData(page, language, site, canonical) {
   }
 
   if (page === 'home' || page === 'portfolio') {
+    const projectIds = page === 'home' ? HOME_PROJECT_IDS : PORTFOLIO_PROJECT_IDS;
     graph.push({
       '@type': 'ItemList',
       '@id': `${canonical}#projects`,
       name: language === 'pl' ? 'Projekty Mikołaja Piecha' : 'Projects by Mikołaj Piech',
-      itemListElement: projectEntries(site, language),
+      itemListElement: projectEntries(site, language, projectIds),
     });
   }
 
@@ -116,7 +125,7 @@ function noscriptContent(page, language, site) {
   const home = routePairs.home[language];
   const portfolio = routePairs.portfolio[language];
   const privacy = routePairs.privacy[language];
-  const projects = ['justmine', 'safelabs', 'trailo', 'subby', 'doso', 'solvee'];
+  const projects = page === 'home' ? HOME_PROJECT_IDS : PORTFOLIO_PROJECT_IDS;
   const nav = `<nav><a href="${home}">${language === 'pl' ? 'Strona główna' : 'Home'}</a> · <a href="${portfolio}">Portfolio</a> · <a href="${privacy}">${site.common.privacy_policy}</a></nav>`;
   let body = `<h1>${escapeHtml(site.seo.pages[page].title)}</h1><p>${escapeHtml(site.seo.pages[page].description)}</p>`;
 
@@ -124,7 +133,7 @@ function noscriptContent(page, language, site) {
     body += `<h2>${escapeHtml(site.hero.headline_line1)} ${escapeHtml(site.hero.headline_line2)}</h2><p>${escapeHtml(site.hero.intro)}</p>${site.hero.description ? `<p>${escapeHtml(site.hero.description)}</p>` : ''}`;
   }
   if (page === 'home' || page === 'portfolio') {
-    body += `<section><h2>${escapeHtml(site.projects.title)}</h2>${projects.map((id) => `<article><h3>${id === 'justmine' ? 'Just Mine' : id === 'safelabs' ? 'Safe Labs' : id.charAt(0).toUpperCase() + id.slice(1)}</h3><p>${escapeHtml(site.projects[id].tagline)}</p><p>${escapeHtml(site.projects[id].description)}</p></article>`).join('')}</section>`;
+    body += `<section><h2>${escapeHtml(site.projects.title)}</h2>${projects.map((id) => `<article><h3>${projectName(id)}</h3><p>${escapeHtml(site.projects[id].tagline)}</p><p>${escapeHtml(site.projects[id].description)}</p></article>`).join('')}</section>`;
   }
   body += `<footer><p>hello@mikolajpiech.com</p>${nav}</footer>`;
   return `<noscript><main>${nav}${body}</main></noscript>`;

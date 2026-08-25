@@ -23,16 +23,30 @@ import trailoMobile1 from '../assets/trailo-mobile-sc/trailo-mobile-1.png';
 import trailoMobile2 from '../assets/trailo-mobile-sc/trailo-mobile-2.png';
 import trailoMobile3 from '../assets/trailo-mobile-sc/trailo-mobile-3.png';
 import trailoMobile4 from '../assets/trailo-mobile-sc/trailo-mobile-4.png';
-import justMineHero from '../assets/justmine/hero-family-book.jpg';
-import justMineFamily from '../assets/justmine/family-profile-collage.webp';
-import justMineKeepsake from '../assets/justmine/hardcover-keepsake-mockup.webp';
+import twojaSiecLogo from '../assets/twojasiec/twojasiec-logo.jpeg';
+import twojaSiecFeed from '../assets/twojasiec/twojasiec-feed.jpeg';
+import twojaSiecEventDetails from '../assets/twojasiec/twojasiec-event-details.jpeg';
+import twojaSiecEvents from '../assets/twojasiec/twojasiec-events.jpeg';
+import twojaSiecAlerts from '../assets/twojasiec/twojasiec-alerts.jpeg';
+import justMineHome from '../assets/justmine/justmine-home.jpg';
+import justMineExamples from '../assets/justmine/justmine-examples.jpg';
+import justMineHowItWorks from '../assets/justmine/justmine-how-it-works.jpg';
+import justMineStep4 from '../assets/justmine/justmine-create-step-4.jpg';
+import justMinePricing from '../assets/justmine/justmine-pricing.jpg';
 import justMineLogo from '../assets/justmine/justmine-logo.png';
 import safeLabsLogo from '../assets/safelabs/safelabs-logo.png';
 import safeLabsHome from '../assets/safelabs/safelabs-home.jpg';
+import safeLabsPasswordCheck from '../assets/safelabs/safelabs-password-check.jpg';
+import safeLabsEbook from '../assets/safelabs/safelabs-ebook.jpg';
+import dragonLogo from '../assets/dragon/dragon-logo.png';
+import dragonHome from '../assets/dragon/dragon-home.jpg';
+import dragonClasses from '../assets/dragon/dragon-classes.jpg';
+import dragonSignup from '../assets/dragon/dragon-signup.jpg';
 // import platoicLogo from '../assets/platoic-logo.png';
 
 export const SHOW_OMNI = false;
 export const SHOW_PLATOIC = false;
+const PORTFOLIO_ONLY_PROJECT_IDS = new Set(['dragon']);
 
 function buildAllProjects(language: Language): Project[] {
   const isPl = language === 'pl';
@@ -46,21 +60,23 @@ function buildAllProjects(language: Language): Project[] {
     tagline: site.projects.justmine.tagline,
     description: site.projects.justmine.description,
     tags: isPl ? ['Dzieci', 'Personalizacja', 'Internet', 'AI'] : ['Kids', 'Personalization', 'Web', 'AI'],
-    platform: 'Web',
+    platform: tr('Web app', 'Aplikacja internetowa'),
     category: tr('Personalized Publishing', 'Książki personalizowane'),
-    scope: tr('Full product · design to launch', 'Kompleksowa realizacja · od projektu po wdrożenie'),
+    scope: tr('Design to launch', 'Od projektu po wdrożenie'),
     operatingSystem: 'Web',
     link: 'https://getjustmine.com',
     linkText: site.projects.justmine.link_text,
     icon: justMineLogo,
     iconStyle: 'wordmark',
-    image: justMineHero,
+    image: justMineHome,
     imageFit: 'contain',
     layout: 'web',
     screenshots: [
-      { src: justMineHero, alt: tr('A family reading a personalized Just Mine storybook', 'Rodzina czytająca spersonalizowaną książkę Just Mine'), variant: 'desktop' },
-      { src: justMineFamily, alt: tr('Just Mine family profile with a child, sibling, and pet', 'Profil rodziny Just Mine z dzieckiem, rodzeństwem i zwierzęciem'), variant: 'wide' },
-      { src: justMineKeepsake, alt: tr('Personalized Just Mine hardcover book mockup', 'Wizualizacja spersonalizowanej książki Just Mine w twardej oprawie'), variant: 'wide' },
+      { src: justMineHome, alt: tr('Just Mine website home page', 'Strona główna Just Mine'), variant: 'desktop' },
+      { src: justMineExamples, alt: tr('Just Mine story types and use cases', 'Rodzaje historii i zastosowania Just Mine'), variant: 'desktop' },
+      { src: justMineHowItWorks, alt: tr('How creating a personalized Just Mine book works', 'Jak działa tworzenie spersonalizowanej książki Just Mine'), variant: 'desktop' },
+      { src: justMineStep4, alt: tr('Just Mine book creator — personalized story ideas', 'Kreator książki Just Mine — spersonalizowane pomysły na historie'), variant: 'desktop' },
+      { src: justMinePricing, alt: tr('Just Mine formats and pricing', 'Formaty i ceny książek Just Mine'), variant: 'desktop' },
     ],
   },
   {
@@ -69,9 +85,9 @@ function buildAllProjects(language: Language): Project[] {
     tagline: site.projects.safelabs.tagline,
     description: site.projects.safelabs.description,
     tags: isPl ? ['Strona', 'Edukacja', 'Cyberbezpieczeństwo'] : ['Website', 'Education', 'Cybersecurity'],
-    platform: 'Web',
-    category: tr('Education & Cybersecurity', 'Edukacja i cyberbezpieczeństwo'),
-    scope: tr('Website · design and development', 'Strona internetowa · projekt i wdrożenie'),
+    platform: tr('Website', 'Strona internetowa'),
+    category: tr('Cybersecurity', 'Cyberbezpieczeństwo'),
+    scope: tr('Design & development', 'Projekt i wdrożenie'),
     operatingSystem: 'Web',
     link: 'https://safelabs.pl/',
     linkText: site.projects.safelabs.link_text,
@@ -80,7 +96,31 @@ function buildAllProjects(language: Language): Project[] {
     imageFit: 'contain',
     layout: 'web',
     screenshots: [
-      { src: safeLabsHome, alt: tr('Safe Labs cybersecurity workshops website', 'Strona warsztatów Safe Labs z cyberbezpieczeństwa'), variant: 'desktop' },
+      { src: safeLabsHome, alt: tr('Safe Labs cybersecurity workshops website', 'Strona warsztatów Safe Labs z cyberbezpieczeństwa'), variant: 'desktop', fit: 'contain' },
+      { src: safeLabsPasswordCheck, alt: tr('Safe Labs password strength audit tool', 'Narzędzie Safe Labs do audytu siły hasła'), variant: 'desktop' },
+      { src: safeLabsEbook, alt: tr('Safe Labs cybersecurity e-book page', 'Strona e-booka Safe Labs o cyberbezpieczeństwie'), variant: 'desktop' },
+    ],
+  },
+  {
+    id: 'dragon',
+    name: 'UKS Dragon Mokrzyska',
+    tagline: site.projects.dragon.tagline,
+    description: site.projects.dragon.description,
+    tags: isPl ? ['Strona', 'Sport', 'Klub sportowy'] : ['Website', 'Sports', 'Sports Club'],
+    platform: tr('Website', 'Strona internetowa'),
+    category: tr('Sports & Community', 'Sport i społeczność'),
+    scope: tr('Design & development', 'Projekt i wdrożenie'),
+    operatingSystem: 'Web',
+    link: 'https://uksdragonmokrzyska.vercel.app/',
+    linkText: site.projects.dragon.link_text,
+    icon: dragonLogo,
+    image: dragonHome,
+    imageFit: 'cover',
+    layout: 'web',
+    screenshots: [
+      { src: dragonHome, alt: tr('UKS Dragon Mokrzyska sports club website', 'Strona klubu sportowego UKS Dragon Mokrzyska'), variant: 'desktop' },
+      { src: dragonClasses, alt: tr('UKS Dragon Mokrzyska training schedule', 'Harmonogram zajęć UKS Dragon Mokrzyska'), variant: 'desktop' },
+      { src: dragonSignup, alt: tr('UKS Dragon Mokrzyska enrollment form', 'Formularz zapisów UKS Dragon Mokrzyska'), variant: 'desktop' },
     ],
   },
   {
@@ -105,6 +145,28 @@ function buildAllProjects(language: Language): Project[] {
       { src: trailoMobile2, alt: tr('Trailo mobile trip overview with flights', 'Podsumowanie podróży i lotów w Trailo'), variant: 'phone' },
       { src: trailoMobile3, alt: tr('Trailo mobile attraction tickets', 'Bilety do atrakcji w aplikacji Trailo'), variant: 'phone' },
       { src: trailoMobile4, alt: tr('Trailo mobile trip budget', 'Budżet podróży w aplikacji Trailo'), variant: 'phone' },
+    ],
+  },
+  {
+    id: 'twojasiec',
+    name: 'Twoja Sieć',
+    tagline: site.projects.twojasiec.tagline,
+    description: site.projects.twojasiec.description,
+    tags: isPl
+      ? ['Lokalne informacje', 'Wydarzenia', 'Aplikacja mobilna']
+      : ['Local News', 'Events', 'Mobile App'],
+    platform: tr('Mobile app', 'Aplikacja mobilna'),
+    category: tr('Local Information', 'Lokalne informacje'),
+    scope: tr('Product design & development', 'Projekt produktu i aplikacji'),
+    status: site.projects.twojasiec.status,
+    icon: twojaSiecLogo,
+    image: twojaSiecFeed,
+    layout: 'split',
+    screenshots: [
+      { src: twojaSiecFeed, alt: tr('Twoja Sieć personalized local news feed', 'Spersonalizowany lokalny feed aplikacji Twoja Sieć'), variant: 'phone' },
+      { src: twojaSiecEventDetails, alt: tr('Twoja Sieć local event details', 'Szczegóły lokalnego wydarzenia w aplikacji Twoja Sieć'), variant: 'phone' },
+      { src: twojaSiecEvents, alt: tr('Twoja Sieć local events calendar', 'Kalendarz lokalnych wydarzeń w aplikacji Twoja Sieć'), variant: 'phone' },
+      { src: twojaSiecAlerts, alt: tr('Twoja Sieć local safety and traffic alerts', 'Lokalne alerty bezpieczeństwa i drogowe w aplikacji Twoja Sieć'), variant: 'phone' },
     ],
   },
   {
@@ -207,7 +269,7 @@ function buildAllProjects(language: Language): Project[] {
   ];
 }
 
-export function getProjects(language: Language = 'en'): Project[] {
+function getVisibleProjects(language: Language): Project[] {
   return buildAllProjects(language).filter(
     (project) =>
       (SHOW_OMNI || project.id !== 'omni') &&
@@ -215,10 +277,14 @@ export function getProjects(language: Language = 'en'): Project[] {
   );
 }
 
+export function getProjects(language: Language = 'en'): Project[] {
+  return getVisibleProjects(language).filter((project) => !PORTFOLIO_ONLY_PROJECT_IDS.has(project.id));
+}
+
 export function getPortfolioProjects(language: Language = 'en'): Project[] {
-  return getProjects(language);
+  return getVisibleProjects(language);
 }
 
 export function getProjectById(id: string, language: Language = 'en'): Project | undefined {
-  return getProjects(language).find((project) => project.id === id);
+  return getPortfolioProjects(language).find((project) => project.id === id);
 }

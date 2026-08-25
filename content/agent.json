@@ -26,13 +26,13 @@
     "EdTech",
     "Personalized publishing"
   ],
-  "visible_projects": ["justmine", "safelabs", "trailo", "subby", "doso", "solvee"],
+  "visible_projects": ["justmine", "safelabs", "dragon", "trailo", "subby", "doso", "solvee"],
   "project_meta": {
     "justmine": {
       "nameDisplay": "Just Mine",
-      "platform": "Web",
+      "platform": "Web app",
       "category": "Personalized Publishing",
-      "scope": "Full product · design to launch",
+      "scope": "Design to launch",
       "operatingSystem": "Web",
       "applicationType": "WebApplication",
       "tags": ["Kids", "Personalization", "Web", "AI"],
@@ -40,13 +40,23 @@
     },
     "safelabs": {
       "nameDisplay": "Safe Labs",
-      "platform": "Web",
-      "category": "Education & Cybersecurity",
-      "scope": "Website · design and development",
+      "platform": "Website",
+      "category": "Cybersecurity",
+      "scope": "Design & development",
       "operatingSystem": "Web",
       "applicationType": "WebApplication",
       "tags": ["Website", "Education", "Cybersecurity"],
       "link": "https://safelabs.pl/"
+    },
+    "dragon": {
+      "nameDisplay": "UKS Dragon Mokrzyska",
+      "platform": "Website",
+      "category": "Sports & Community",
+      "scope": "Design & development",
+      "operatingSystem": "Web",
+      "applicationType": "WebApplication",
+      "tags": ["Website", "Sports", "Sports Club"],
+      "link": "https://uksdragonmokrzyska.vercel.app/"
     },
     "trailo": {
       "platform": "Web · iOS · Android",

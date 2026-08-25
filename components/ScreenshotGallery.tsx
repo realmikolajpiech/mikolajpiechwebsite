@@ -22,7 +22,7 @@ const lightboxImageStyles: Record<NonNullable<ProjectScreenshot['variant']>, str
   wide: 'max-h-[72dvh] max-w-[min(96vw,36rem)] rounded-[1.25rem]',
 };
 
-const hoverSpring = { type: 'spring' as const, stiffness: 260, damping: 22, mass: 0.85 };
+const hoverSpring = { type: 'spring' as const, stiffness: 320, damping: 28, mass: 0.75 };
 const lightboxSlideTransition = { type: 'tween' as const, duration: 0.34, ease: [0.16, 1, 0.3, 1] };
 const MOBILE_QUERY = '(max-width: 767px)';
 
@@ -71,7 +71,9 @@ function ScreenshotFrame({
           src={shot.src}
           alt={shot.alt}
           loading="lazy"
-          className={`w-full h-full ${iconShot ? 'object-contain rounded-[22%]' : 'object-cover'}`}
+          className={`w-full h-full ${
+            iconShot || shot.fit === 'contain' ? 'object-contain' : 'object-cover'
+          } ${iconShot ? 'rounded-[22%]' : ''}`}
         />
       </div>
       {variant === 'phone' && (
@@ -242,7 +244,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
             type="button"
             onClick={() => scroll('left')}
             aria-label={site.ui.scroll_left}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-50 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
           >
             <ChevronLeft size={18} />
           </button>
@@ -253,7 +255,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
             type="button"
             onClick={() => scroll('right')}
             aria-label={site.ui.scroll_right}
-            className="absolute top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
+            className="absolute top-1/2 -translate-y-1/2 z-50 w-9 h-9 rounded-full bg-white/95 dark:bg-stone-800/95 border border-stone-200 dark:border-stone-700 shadow-md flex items-center justify-center text-stone-600 dark:text-stone-300 hover:bg-white dark:hover:bg-stone-800"
             style={
               trackWidth !== null
                 ? { left: Math.max(0, trackWidth - 44) }
@@ -266,7 +268,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
 
         <div
           ref={scrollRef}
-          className={`flex flex-nowrap items-center gap-3 sm:gap-4 overflow-x-auto overflow-y-visible scroll-smooth snap-x snap-proximity pb-1 scrollbar-hide ${
+          className={`flex flex-nowrap items-center gap-1.5 sm:gap-2 overflow-x-auto overflow-y-visible scroll-smooth snap-x snap-proximity pb-1 scrollbar-hide ${
             isMobile ? 'py-4 -my-2 w-full' : 'py-8 sm:py-10 -my-6 sm:-my-8'
           }`}
           style={{
@@ -280,26 +282,24 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
               const iconShot = isIconShot(shot);
               const isFirst = index === 0;
               const isLast = index === screenshots.length - 1;
-              const transformOrigin = isFirst
-                ? 'left center'
-                : isLast
-                  ? 'right center'
-                  : 'center center';
+              const hoverOffset = isFirst ? 8 : isLast ? -8 : 0;
               const frameProps = {
                 className: `relative overflow-hidden bg-[#F5F5F7] dark:bg-stone-950/60 border border-stone-200/80 dark:border-stone-700/50 ${
                   isMobile ? 'cursor-pointer touch-manipulation active:scale-[0.98] p-0 text-left' : 'cursor-default'
                 } ${frameStyles[variant]}`,
                 style: {
-                  transformOrigin,
+                  transformOrigin: 'center center',
                   boxShadow: '0 8px 30px -12px rgba(0,0,0,0.12)',
                 } as const,
                 whileHover: isMobile
                   ? undefined
                   : {
-                      scale: 1.14,
+                      scale: 1.035,
+                      x: hoverOffset,
+                      y: -5,
                       zIndex: 40,
-                      boxShadow: '0 32px 64px -18px rgba(0,0,0,0.28)',
-                      borderColor: 'rgba(168,162,158,0.55)',
+                      boxShadow: '0 18px 42px -18px rgba(0,0,0,0.24)',
+                      borderColor: 'rgba(168,162,158,0.45)',
                     },
                 transition: hoverSpring,
               };
@@ -307,7 +307,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
               return (
                 <figure
                   key={`${shot.src}-${index}`}
-                  className={`shrink-0 snap-start overflow-visible px-1 sm:px-1.5 ${isFirst ? 'pl-2 sm:pl-2.5' : ''} ${isLast ? 'pr-2 sm:pr-2.5' : ''}`}
+                  className={`shrink-0 snap-start overflow-visible px-0.5 ${isFirst ? 'pl-1.5' : ''} ${isLast ? 'pr-1.5' : ''}`}
                 >
                   {isMobile ? (
                     <motion.button
