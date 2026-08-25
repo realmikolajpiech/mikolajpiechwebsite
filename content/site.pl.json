@@ -63,8 +63,8 @@
   "hero": {
     "headline_line1": "Projektuję i tworzę",
     "headline_line2": "produkty cyfrowe.",
-    "intro": "Cześć, jestem Mikołaj - zamieniam pomysły w dopracowane produkty cyfrowe.",
-    "description": "Projektuję i buduję aplikacje internetowe, mobilne oraz strony internetowe – od pierwszej koncepcji po gotowy produkt.",
+    "intro": "Cześć, jestem Mikołaj. Projektuję i buduję aplikacje internetowe, mobilne oraz strony internetowe – od pierwszej koncepcji po gotowy produkt.",
+    "description": "",
     "primary_cta": "Zobacz wybrane projekty",
     "secondary_cta": "Rozpocznij projekt"
   },
@@ -117,13 +117,13 @@
     "title": "Wybrane projekty",
     "subtitle": "Wybrane produkty, które zaprojektowałem, stworzyłem i wprowadziłem na rynek – w wersji internetowej, na iOS i Androidzie.",
     "justmine": {
-      "tagline": "Ich twarz. Ich świat. Ich historia.",
+      "tagline": "Spersonalizowane książki dla dzieci.",
       "description": "Platforma do tworzenia spersonalizowanych książek dla dzieci. Dziecko staje się głównym bohaterem pięknie napisanej i zilustrowanej historii dopasowanej do jego wyglądu, zainteresowań, rodziny i wspomnień.",
       "link_text": "Odwiedź stronę"
     },
     "safelabs": {
-      "tagline": "Cyberbezpieczeństwo pokazane na prawdziwych przykładach.",
-      "description": "Interaktywna strona, która uczy nastolatków cyberbezpieczeństwa na praktycznych przykładach. Zawiera wskazówki dotyczące zagrożeń, zapisy na warsztaty, narzędzia do sprawdzania haseł i materiały do pobrania.",
+      "tagline": "Warsztaty z cyberbezpieczeństwa",
+      "description": "Strona warsztatów z cyberbezpieczeństwa współorganizowanych przeze mnie dla uczniów klas 7–8 szkół podstawowych. Zajęcia dotyczyły rozpoznawania phishingu i cyberprzemocy, ochrony haseł oraz prywatności, a także weryfikowania informacji w sieci.",
       "link_text": "Odwiedź stronę"
     },
     "omni": {

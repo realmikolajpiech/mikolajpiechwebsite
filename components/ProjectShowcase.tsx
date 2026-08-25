@@ -94,6 +94,7 @@ const ProjectLinks = ({ project }: { project: Project }) => {
 
 export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => {
   const { site } = useLanguage();
+  const isWordmark = project.iconStyle === 'wordmark';
   const metaItems = [
     { key: 'platform', label: site.ui.platform },
     { key: 'category', label: site.ui.category },
@@ -133,7 +134,9 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
                   src={project.icon}
                   alt=""
                   aria-hidden="true"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-[22%] object-cover bg-white dark:bg-stone-800 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.2)] ring-1 ring-black/[0.06] dark:ring-white/10 shrink-0"
+                  className={isWordmark
+                    ? 'w-16 h-16 sm:w-20 sm:h-20 object-contain shrink-0'
+                    : 'w-12 h-12 sm:w-14 sm:h-14 rounded-[22%] object-contain p-1 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.2)] ring-1 ring-black/[0.06] dark:ring-white/10 shrink-0'}
                 />
               )}
               <div className="min-w-0 flex-1">
@@ -199,7 +202,9 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
                       src={project.icon}
                       alt=""
                       aria-hidden="true"
-                      className="w-11 h-11 sm:w-14 sm:h-14 md:w-[3.75rem] md:h-[3.75rem] rounded-[22%] object-cover bg-white dark:bg-stone-800 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.2)] ring-1 ring-black/[0.06] dark:ring-white/10"
+                      className={isWordmark
+                        ? 'w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain'
+                        : 'w-11 h-11 sm:w-14 sm:h-14 md:w-[3.75rem] md:h-[3.75rem] rounded-[22%] object-contain p-1 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.2)] ring-1 ring-black/[0.06] dark:ring-white/10'}
                     />
                   </div>
                 )}

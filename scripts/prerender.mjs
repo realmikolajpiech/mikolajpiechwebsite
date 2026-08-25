@@ -121,7 +121,7 @@ function noscriptContent(page, language, site) {
   let body = `<h1>${escapeHtml(site.seo.pages[page].title)}</h1><p>${escapeHtml(site.seo.pages[page].description)}</p>`;
 
   if (page === 'home') {
-    body += `<h2>${escapeHtml(site.hero.headline_line1)} ${escapeHtml(site.hero.headline_line2)}</h2><p>${escapeHtml(site.hero.intro)}</p><p>${escapeHtml(site.hero.description)}</p>`;
+    body += `<h2>${escapeHtml(site.hero.headline_line1)} ${escapeHtml(site.hero.headline_line2)}</h2><p>${escapeHtml(site.hero.intro)}</p>${site.hero.description ? `<p>${escapeHtml(site.hero.description)}</p>` : ''}`;
   }
   if (page === 'home' || page === 'portfolio') {
     body += `<section><h2>${escapeHtml(site.projects.title)}</h2>${projects.map((id) => `<article><h3>${id === 'justmine' ? 'Just Mine' : id === 'safelabs' ? 'Safe Labs' : id.charAt(0).toUpperCase() + id.slice(1)}</h3><p>${escapeHtml(site.projects[id].tagline)}</p><p>${escapeHtml(site.projects[id].description)}</p></article>`).join('')}</section>`;

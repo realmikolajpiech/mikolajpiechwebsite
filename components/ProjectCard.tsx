@@ -32,6 +32,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const isPrimary = project.isPrimary;
   const isSplit = project.layout === 'split';
   const isWeb = project.layout === 'web';
+  const isWordmark = project.iconStyle === 'wordmark';
 
   if (isWeb) {
     return (
@@ -57,13 +58,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
 
         <div className="flex flex-col p-5 sm:p-7 md:p-8 bg-white dark:bg-transparent">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 sm:gap-8 mb-5">
+          <div className="flex min-h-16 sm:min-h-20 mb-5">
             <div className="flex items-start gap-3 sm:gap-4 min-w-0">
               {project.icon && (
                 <img
                   src={project.icon}
                   alt={`${project.name} ${site.ui.icon}`}
-                  className="w-28 h-12 sm:w-36 sm:h-14 rounded-lg shadow-md object-contain p-1 bg-white shrink-0"
+                  className={isWordmark
+                    ? 'w-16 h-16 sm:w-20 sm:h-20 object-contain shrink-0'
+                    : 'w-12 h-12 sm:w-14 sm:h-14 rounded-[22%] shadow-md object-contain p-1 shrink-0'}
                 />
               )}
               <div className="min-w-0 pt-0.5">
@@ -75,13 +78,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   {project.tagline}
                 </p>
               </div>
-            </div>
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 sm:justify-end sm:max-w-[48%] shrink-0">
-              {project.tags.map((tag) => (
-                <span key={tag} className="px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400 border border-stone-200 dark:border-stone-700 rounded-full bg-stone-50/50 dark:bg-stone-800/50">
-                  {tag}
-                </span>
-              ))}
             </div>
           </div>
 
@@ -145,7 +141,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <img 
                   src={project.icon} 
                   alt={`${project.name} ${site.ui.icon}`}
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-[22%] shadow-md object-cover bg-white dark:bg-stone-800 shrink-0"
+                  className={isWordmark
+                    ? 'w-16 h-16 sm:w-20 sm:h-20 object-contain shrink-0'
+                    : 'w-12 h-12 sm:w-14 sm:h-14 rounded-[22%] shadow-md object-contain p-1 shrink-0'}
                 />
               )}
               <div className="min-w-0 pt-0.5">
@@ -159,13 +157,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             
             <p className="text-sm sm:text-base text-stone-500 dark:text-stone-400 leading-relaxed mb-5 sm:mb-6">{project.description}</p>
             
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-              {project.tags.map(tag => (
-                <span key={tag} className="px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400 border border-stone-200 dark:border-stone-700 rounded-full bg-stone-50/50 dark:bg-stone-800/50">
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
 
           {(project.appStoreLink || project.playStoreLink || (project.link && project.linkText)) && (
@@ -209,7 +200,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <img 
                   src={project.icon} 
                   alt={`${project.name} ${site.ui.icon}`}
-                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-[22%] shadow-2xl object-cover bg-white dark:bg-stone-900"
+                  className={isWordmark
+                    ? 'w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain'
+                    : 'w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-[22%] shadow-2xl object-contain p-2'}
                 />
              </div>
              
@@ -290,13 +283,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <p className="text-base sm:text-lg font-medium text-stone-800 dark:text-stone-200 mb-3 sm:mb-4 font-serif italic">{project.tagline}</p>
           <p className="text-sm sm:text-base text-stone-500 dark:text-stone-400 leading-relaxed mb-5 sm:mb-8">{project.description}</p>
           
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
-            {project.tags.map(tag => (
-              <span key={tag} className="px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-stone-500 dark:text-stone-400 border border-stone-200 dark:border-stone-700 rounded-full bg-stone-50/50 dark:bg-stone-800/50">
-                {tag}
-              </span>
-            ))}
-          </div>
         </div>
 
         {(project.appStoreLink || project.playStoreLink) && (

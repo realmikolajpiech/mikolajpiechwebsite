@@ -16,6 +16,7 @@ export interface Project {
   image?: string;
   video?: string;
   icon?: string;
+  iconStyle?: 'icon' | 'wordmark';
   tags: string[];
   platform: string;
   category: string;

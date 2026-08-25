@@ -73,9 +73,11 @@ export default function Home() {
               <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
                 {site.hero.intro}
               </p>
-              <p className="text-base md:text-lg text-ink dark:text-stone-200 leading-relaxed font-medium">
-                {site.hero.description}
-              </p>
+              {site.hero.description && (
+                <p className="text-base md:text-lg text-ink dark:text-stone-200 leading-relaxed font-medium">
+                  {site.hero.description}
+                </p>
+              )}
             </motion.div>
 
             <motion.div

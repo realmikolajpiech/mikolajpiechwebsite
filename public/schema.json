@@ -72,7 +72,7 @@
           "item": {
             "@type": "WebApplication",
             "name": "Safe Labs",
-            "description": "An interactive cybersecurity education website for teenagers, with practical threat guidance, workshop registration, password tools, and downloadable resources.",
+            "description": "A website for cybersecurity workshops I co-organized for 12–14-year-old primary school students. The sessions covered phishing and cyberbullying, protecting passwords and privacy, and verifying information online.",
             "applicationCategory": "Education & Cybersecurity",
             "operatingSystem": "Web",
             "author": {
@@ -171,7 +171,7 @@
           "name": "What apps has Mikołaj Piech built?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mikołaj Piech has built Just Mine (personalized children's books), Safe Labs (cybersecurity education website), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play."
+            "text": "Mikołaj Piech has built Just Mine (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play."
           }
         },
         {
@@ -187,7 +187,7 @@
           "name": "Who built the Safe Labs website?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Safe Labs cybersecurity education website was designed and developed by Mikołaj Piech. It presents practical online safety education, workshops, password tools, and project resources."
+            "text": "The Safe Labs website was designed and developed by Mikołaj Piech for cybersecurity workshops he co-organized for 12–14-year-old primary school students. The workshops covered phishing, cyberbullying, password and privacy protection, and verifying information online."
           }
         },
         {

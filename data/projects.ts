@@ -53,6 +53,7 @@ function buildAllProjects(language: Language): Project[] {
     link: 'https://getjustmine.com',
     linkText: site.projects.justmine.link_text,
     icon: justMineLogo,
+    iconStyle: 'wordmark',
     image: justMineHero,
     imageFit: 'contain',
     layout: 'web',
@@ -79,7 +80,7 @@ function buildAllProjects(language: Language): Project[] {
     imageFit: 'contain',
     layout: 'web',
     screenshots: [
-      { src: safeLabsHome, alt: tr('Safe Labs cybersecurity education website', 'Strona edukacyjna Safe Labs o cyberbezpieczeństwie'), variant: 'desktop' },
+      { src: safeLabsHome, alt: tr('Safe Labs cybersecurity workshops website', 'Strona warsztatów Safe Labs z cyberbezpieczeństwa'), variant: 'desktop' },
     ],
   },
   {
