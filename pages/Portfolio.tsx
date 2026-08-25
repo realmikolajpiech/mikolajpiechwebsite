@@ -14,6 +14,7 @@ import { scrollToPortfolioSection } from '../utils/portfolioScroll';
 import { getProjects } from '../data/projects';
 import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedPath } from '../utils/localizedRoutes';
 
 function scrollToSection(id: string) {
   scrollToPortfolioSection(id);
@@ -26,6 +27,8 @@ export default function Portfolio() {
   const scrollOffset = useScrollOffset();
   const activeId = useScrollSpy(projectIds, scrollOffset);
   const year = new Date().getFullYear();
+  const homePath = getLocalizedPath('home', language);
+  const privacyPath = getLocalizedPath('privacy', language);
 
   const handleNavigate = useCallback((id: string) => {
     scrollToSection(id);
@@ -44,7 +47,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen overflow-x-clip bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
-      <PageMeta {...getPageMeta('portfolio', site)} />
+      <PageMeta {...getPageMeta('portfolio', site, language)} />
       <SiteNav />
 
       <main>
@@ -57,7 +60,7 @@ export default function Portfolio() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <Link
-            to="/"
+            to={homePath}
             className="inline-flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 hover:text-ink dark:hover:text-stone-50 transition-colors mb-8 sm:mb-10"
           >
             <ArrowLeft size={16} />
@@ -163,8 +166,8 @@ export default function Portfolio() {
           <div className="mt-16 pt-10 border-t border-stone-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-stone-500">
             <p>{site.common.all_rights_reserved.replace('{{year}}', String(year))}</p>
             <div className="flex gap-6">
-              <Link to="/" className="hover:text-off-white transition-colors">{site.ui.home}</Link>
-              <Link to="/privacy-policy" className="hover:text-off-white transition-colors">{site.common.privacy_policy}</Link>
+              <Link to={homePath} className="hover:text-off-white transition-colors">{site.ui.home}</Link>
+              <Link to={privacyPath} className="hover:text-off-white transition-colors">{site.common.privacy_policy}</Link>
             </div>
           </div>
         </div>

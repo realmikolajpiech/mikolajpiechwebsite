@@ -11,6 +11,7 @@ import { getProjects } from '../data/projects';
 import { Link } from 'react-router-dom';
 import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedPath } from '../utils/localizedRoutes';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
 const FEATURED_PROJECT_IDS = new Set(['kiddumi', 'safelabs', 'trailo', 'solvee']);
 const CAPABILITY_ICONS = [PanelsTopLeft, Smartphone, Monitor];
@@ -38,7 +39,9 @@ export default function Home() {
 
   const projects = getProjects(language);
   const featuredProjects = projects.filter((project) => FEATURED_PROJECT_IDS.has(project.id));
-  const pageMeta = getPageMeta('home', site);
+  const pageMeta = getPageMeta('home', site, language);
+  const portfolioPath = getLocalizedPath('portfolio', language);
+  const privacyPath = getLocalizedPath('privacy', language);
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
@@ -155,7 +158,7 @@ export default function Home() {
             <p className="text-stone-500 dark:text-stone-400 font-light text-lg">{site.projects.subtitle}</p>
           </div>
           <Link
-            to="/portfolio"
+            to={portfolioPath}
             className="inline-flex items-center gap-2 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-ink dark:hover:text-stone-50 transition-colors group"
           >
             {site.portfolio.view_all}
@@ -238,7 +241,7 @@ export default function Home() {
                 {site.footer.description}
               </p>
               <div className="mt-8 flex items-center gap-5 text-sm text-stone-500">
-                <a href="/portfolio" className="transition-colors hover:text-off-white">{site.ui.view_portfolio}</a>
+                <Link to={portfolioPath} className="transition-colors hover:text-off-white">{site.ui.view_portfolio}</Link>
                 <span aria-hidden>·</span>
                 <a href="https://www.linkedin.com/in/mikolajpiech/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-off-white">LinkedIn</a>
               </div>
@@ -263,7 +266,7 @@ export default function Home() {
               </a>
               <a href="https://www.linkedin.com/in/mikolajpiech/" className="hover:text-off-white transition-colors">LinkedIn</a>
               <a href="https://github.com/realmikolajpiech" className="hover:text-off-white transition-colors">GitHub</a>
-              <Link to="/privacy-policy" className="hover:text-off-white transition-colors">{site.common.privacy_policy}</Link>
+              <Link to={privacyPath} className="hover:text-off-white transition-colors">{site.common.privacy_policy}</Link>
             </div>
           </div>
         </div>

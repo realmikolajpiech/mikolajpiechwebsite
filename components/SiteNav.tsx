@@ -5,6 +5,7 @@ import { Button } from './Button';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageToggle } from './LanguageToggle';
 import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedPath } from '../utils/localizedRoutes';
 
 interface SiteNavProps {
   showPortfolioLink?: boolean;
@@ -12,13 +13,15 @@ interface SiteNavProps {
 
 export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) => {
   const { pathname } = useLocation();
-  const { site } = useLanguage();
-  const isPortfolio = pathname === '/portfolio';
+  const { language, site } = useLanguage();
+  const homePath = getLocalizedPath('home', language);
+  const portfolioPath = getLocalizedPath('portfolio', language);
+  const isPortfolio = pathname === portfolioPath;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
       <Link
-        to="/"
+        to={homePath}
         className="font-serif italic text-lg sm:text-xl tracking-tight text-ink dark:text-stone-50 hover:opacity-80 transition-opacity truncate max-w-[55vw] sm:max-w-none"
       >
         Mikołaj Piech
@@ -26,7 +29,7 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) =>
       <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
         {showPortfolioLink && (
           <Link
-            to="/portfolio"
+            to={portfolioPath}
             className={`inline-flex items-center px-3 sm:px-5 py-2 text-[11px] sm:text-xs font-medium tracking-wide rounded-full border transition-all duration-300 ${
               isPortfolio
                 ? 'border-ink dark:border-stone-100 text-ink dark:text-stone-50 bg-stone-100/50 dark:bg-stone-800/50'
@@ -37,7 +40,7 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) =>
           </Link>
         )}
         <Button
-          href="/#contact"
+          href={`${homePath}#contact`}
           variant="outline"
           className="!p-2.5 sm:!px-5 sm:!py-2 !text-xs tracking-wide sm:inline-flex"
           aria-label={site.common.get_in_touch}

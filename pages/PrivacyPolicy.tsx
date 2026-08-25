@@ -6,6 +6,7 @@ import { PageMeta } from '../components/PageMeta';
 import { getPageMeta } from '../utils/seo';
 import { CopyEmail } from '../components/CopyEmail';
 import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedPath } from '../utils/localizedRoutes';
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -26,14 +27,15 @@ const linkClass =
   'text-ink dark:text-stone-50 underline decoration-stone-300 dark:decoration-stone-600 underline-offset-4 hover:decoration-ink dark:hover:decoration-stone-50 transition-all';
 
 export default function PrivacyPolicy() {
-  const { site } = useLanguage();
+  const { language, site } = useLanguage();
+  const privacyPath = getLocalizedPath('privacy', language);
   const p = site.privacy;
   const partners = p.partners as PartnerRow[];
   const year = new Date().getFullYear();
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
-      <PageMeta {...getPageMeta('privacy', site)} />
+      <PageMeta {...getPageMeta('privacy', site, language)} />
       <SiteNav />
 
       <main>
@@ -235,7 +237,7 @@ export default function PrivacyPolicy() {
               </a>
               <a href="https://www.linkedin.com/in/mikolajpiech/" className="hover:text-off-white transition-colors">{site.common.linkedin}</a>
               <a href="https://github.com/realmikolajpiech" className="hover:text-off-white transition-colors">GitHub</a>
-              <Link to="/privacy-policy" className="text-off-white transition-colors">{site.common.privacy_policy}</Link>
+              <Link to={privacyPath} className="text-off-white transition-colors">{site.common.privacy_policy}</Link>
             </div>
           </div>
         </div>

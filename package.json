@@ -8,7 +8,9 @@
     "og:generate": "node scripts/generate-og-image.mjs",
     "llm:generate": "node scripts/generate-llm-assets.mjs",
     "prebuild": "npm run og:generate && npm run llm:generate",
-    "build": "vite build",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr entry-server.tsx --outDir dist-ssr",
+    "build": "npm run build:client && npm run build:ssr && node scripts/prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

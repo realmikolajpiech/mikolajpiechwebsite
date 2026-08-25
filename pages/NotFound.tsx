@@ -7,17 +7,19 @@ import { ThemeToggle } from '../components/ThemeToggle';
 import { getPageMeta } from '../utils/seo';
 import { LanguageToggle } from '../components/LanguageToggle';
 import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedPath } from '../utils/localizedRoutes';
 
 export default function NotFound() {
-  const { site } = useLanguage();
+  const { language, site } = useLanguage();
+  const homePath = getLocalizedPath('home', language);
   const year = new Date().getFullYear();
   const nf = site.not_found;
 
   return (
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 flex flex-col transition-colors duration-300">
-      <PageMeta {...getPageMeta('not_found', site)} />
+      <PageMeta {...getPageMeta('not_found', site, language)} />
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
-        <Link to="/" className="font-serif italic text-xl tracking-tight text-ink dark:text-stone-50 hover:opacity-80 transition-opacity">
+        <Link to={homePath} className="font-serif italic text-xl tracking-tight text-ink dark:text-stone-50 hover:opacity-80 transition-opacity">
           Mikołaj Piech
         </Link>
         <div className="flex gap-4 items-center">
@@ -50,7 +52,7 @@ export default function NotFound() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Button href="/" variant="primary">
+              <Button href={homePath} variant="primary">
                 {nf.button}
               </Button>
             </motion.div>

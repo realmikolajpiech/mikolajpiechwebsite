@@ -6,6 +6,7 @@ import Portfolio from './pages/Portfolio';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import NotFound from './pages/NotFound';
 import { useEffect } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 
 // ScrollToTop component to handle scrolling on route change
 function ScrollToTop() {
@@ -18,17 +19,28 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+export function AppRoutes() {
   return (
-    <Router>
+    <LanguageProvider>
       <Analytics />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/pl" element={<Home />} />
+        <Route path="/pl/portfolio" element={<Portfolio />} />
+        <Route path="/pl/polityka-prywatnosci" element={<PrivacyPolicy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+    </LanguageProvider>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <AppRoutes />
     </Router>
   );
 }

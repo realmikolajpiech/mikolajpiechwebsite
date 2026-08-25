@@ -11,6 +11,10 @@ export interface PageMetaProps {
   imageWidth?: number;
   imageHeight?: number;
   noindex?: boolean;
+  alternatePaths?: {
+    en: string;
+    pl: string;
+  };
 }
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
@@ -23,11 +27,15 @@ function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
   element.setAttribute('content', content);
 }
 
-function upsertLink(rel: string, href: string) {
-  let element = document.head.querySelector(`link[rel="${rel}"]`);
+function upsertLink(rel: string, href: string, hrefLang?: string) {
+  const selector = hrefLang
+    ? `link[rel="${rel}"][hreflang="${hrefLang}"]`
+    : `link[rel="${rel}"]:not([hreflang])`;
+  let element = document.head.querySelector(selector);
   if (!element) {
     element = document.createElement('link');
     element.setAttribute('rel', rel);
+    if (hrefLang) element.setAttribute('hreflang', hrefLang);
     document.head.appendChild(element);
   }
   element.setAttribute('href', href);
@@ -46,6 +54,7 @@ export function PageMeta({
   imageWidth = DEFAULT_OG_IMAGE_WIDTH,
   imageHeight = DEFAULT_OG_IMAGE_HEIGHT,
   noindex = false,
+  alternatePaths,
 }: PageMetaProps) {
   const { language } = useLanguage();
 
@@ -58,6 +67,11 @@ export function PageMeta({
 
     upsertMeta('name', 'description', description);
     upsertLink('canonical', url);
+    if (alternatePaths) {
+      upsertLink('alternate', `${SITE_URL}${alternatePaths.en}`, 'en');
+      upsertLink('alternate', `${SITE_URL}${alternatePaths.pl}`, 'pl');
+      upsertLink('alternate', `${SITE_URL}${alternatePaths.en}`, 'x-default');
+    }
 
     upsertMeta('property', 'og:type', 'website');
     upsertMeta('property', 'og:site_name', SITE_NAME);
@@ -68,6 +82,7 @@ export function PageMeta({
     upsertMeta('property', 'og:image:width', String(imageWidth));
     upsertMeta('property', 'og:image:height', String(imageHeight));
     upsertMeta('property', 'og:locale', language === 'pl' ? 'pl_PL' : 'en_US');
+    upsertMeta('property', 'og:locale:alternate', language === 'pl' ? 'en_US' : 'pl_PL');
 
     upsertMeta('name', 'twitter:card', 'summary_large_image');
     upsertMeta('name', 'twitter:title', title);
@@ -79,7 +94,7 @@ export function PageMeta({
     } else {
       removeMeta('name', 'robots');
     }
-  }, [title, description, socialDescription, path, image, imageWidth, imageHeight, noindex, language]);
+  }, [title, description, socialDescription, path, image, imageWidth, imageHeight, noindex, language, alternatePaths]);
 
   return null;
 }
