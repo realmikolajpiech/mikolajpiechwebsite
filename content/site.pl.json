@@ -21,8 +21,8 @@
     "company": "Firma",
     "optional": "opcjonalnie",
     "company_placeholder": "Nazwa firmy lub produktu",
-    "message_label": "Co tworzysz?",
-    "message_placeholder": "Opowiedz krótko o pomyśle, zakresie i etapie, na którym obecnie jesteś.",
+    "message_label": "Co chcesz stworzyć?",
+    "message_placeholder": "Napisz kilka słów o pomyśle, zakresie projektu i etapie, na którym jesteś.",
     "prefer_email": "Wolisz e-mail?",
     "send_message": "Wyślij wiadomość",
     "sending": "Wysyłanie…",
@@ -56,15 +56,15 @@
   },
   "not_found": {
     "title": "Zgubiłeś się?",
-    "description": "Strona, której szukasz, nie istnieje lub została przeniesiona. Wróćmy na właściwą drogę.",
+    "description": "Strona, której szukasz, nie istnieje albo została przeniesiona. Wróć na stronę główną i spróbuj ponownie.",
     "button": "Wróć na stronę główną",
     "error_code": "Błąd 404"
   },
   "hero": {
     "headline_line1": "Projektuję i tworzę",
     "headline_line2": "produkty cyfrowe.",
-    "intro": "Jestem Mikołaj – founderem i developerem, który zamienia pomysły w dopracowane produkty używane przez prawdziwych ludzi.",
-    "description": "Aplikacje webowe, mobilne i strony internetowe – od projektu produktu i developmentu po wdrożenie.",
+    "intro": "Nazywam się Mikołaj. Jako founder i developer zamieniam pomysły w dopracowane produkty, z których ludzie naprawdę korzystają.",
+    "description": "Projektuję i wdrażam aplikacje webowe, mobilne oraz strony internetowe – od strategii produktu i interfejsu po development i premierę.",
     "primary_cta": "Zobacz wybrane projekty",
     "secondary_cta": "Rozpocznij projekt"
   },
@@ -100,79 +100,79 @@
     "title": "Portfolio",
     "headline": "Produkty, które stworzyłem",
     "headline_accent": "i wdrożyłem.",
-    "subtitle": "Aplikacje webowe, mobilne i strony internetowe – prowadzone od pomysłu do wdrożenia przez projektowanie produktu, development i kolejne iteracje.",
+    "subtitle": "Aplikacje webowe, mobilne i strony internetowe – od pomysłu i projektu, przez development, aż po wdrożenie i dalszy rozwój.",
     "stats": {
       "apps": "6+ wdrożonych produktów",
-      "downloads": "30 tys.+ pobrań",
+      "downloads": "30k+ pobrań",
       "platforms": "iOS · Android · Web",
       "acquired": "1 sprzedany produkt"
     },
-    "cta_title": "Tworzysz coś nowego?",
-    "cta_description": "Pomagam founderom i firmom zamieniać pomysły w dopracowane aplikacje webowe, mobilne i strony internetowe. Porozmawiajmy o tym, co tworzysz.",
+    "cta_title": "Masz pomysł na coś nowego?",
+    "cta_description": "Pomagam founderom, zespołom i firmom zamieniać pomysły w dopracowane aplikacje webowe, mobilne oraz strony internetowe. Porozmawiajmy o Twoim projekcie.",
     "cta_button": "Opowiedz mi o projekcie",
     "view_all": "Zobacz pełne portfolio",
     "back_home": "Wróć na stronę główną"
   },
   "projects": {
     "title": "Wybrane projekty",
-    "subtitle": "Produkty, które zaprojektowałem, stworzyłem i wdrożyłem na webie, iOS i Androidzie.",
+    "subtitle": "Wybrane produkty, które zaprojektowałem, stworzyłem i wprowadziłem na rynek – w wersji webowej, na iOS i Androidzie.",
     "kiddumi": {
       "tagline": "Ich twarz. Ich świat. Ich historia.",
-      "description": "Platforma spersonalizowanych książek dla dzieci, która zmienia dziecko w głównego bohatera pięknie napisanej i zilustrowanej historii dopasowanej do jego wyglądu, zainteresowań, rodziny i prawdziwych wspomnień.",
+      "description": "Platforma do tworzenia spersonalizowanych książek dla dzieci. Dziecko staje się głównym bohaterem pięknie napisanej i zilustrowanej historii dopasowanej do jego wyglądu, zainteresowań, rodziny i wspomnień.",
       "link_text": "Odwiedź stronę"
     },
     "safelabs": {
-      "tagline": "Edukacja o cyberbezpieczeństwie, która dotyczy prawdziwego życia.",
-      "description": "Interaktywna strona edukacyjna o cyberbezpieczeństwie dla nastolatków, zawierająca praktyczne wskazówki, zapisy na warsztaty, narzędzia do haseł i materiały do pobrania.",
+      "tagline": "Cyberbezpieczeństwo pokazane na prawdziwych przykładach.",
+      "description": "Interaktywna strona, która uczy nastolatków cyberbezpieczeństwa na praktycznych przykładach. Zawiera wskazówki dotyczące zagrożeń, zapisy na warsztaty, narzędzia do sprawdzania haseł i materiały do pobrania.",
       "link_text": "Odwiedź stronę"
     },
     "omni": {
       "tagline": "AI, które zna Ciebie i Twój komputer.",
-      "description": "Wyszukuj pliki po znaczeniu, zarządzaj pocztą i kalendarzem, instaluj aplikacje i zmieniaj ustawienia – wystarczy zapytać.",
+      "description": "Wyszukuj pliki po znaczeniu, zarządzaj pocztą i kalendarzem, instaluj aplikacje oraz zmieniaj ustawienia. Wystarczy, że poprosisz.",
       "link_text": "Dowiedz się więcej i dołącz do listy",
       "status": "Wczesny dostęp"
     },
     "platoic": {
       "tagline": "Opanuj sztukę wiedzy.",
-      "description": "Poznawaj dowolny temat dzięki spersonalizowanemu programowi AI, który łączy najlepsze zasoby z internetu w idealną ścieżkę nauki.",
+      "description": "Ucz się dowolnego tematu według spersonalizowanego programu tworzonego przez AI z najlepszych materiałów dostępnych w internecie.",
       "status": "W trakcie tworzenia"
     },
     "solvee": {
       "tagline": "Pomoc w zadaniach domowych z AI",
-      "description": "Sprzedałem tę aplikację. Pomogła ponad 25 tys. uczniów natychmiast rozwiązywać zadania dzięki szczegółowym wyjaśnieniom AI. Dostępna na iOS i Androidzie.",
+      "description": "Stworzyłem, rozwinąłem i sprzedałem tę aplikację. Pomogła ponad 25 tysiącom uczniów rozwiązywać zadania dzięki szczegółowym wyjaśnieniom generowanym przez AI. Była dostępna na iOS i Androidzie.",
       "status": "Sprzedany"
     },
     "subby": {
       "tagline": "Menedżer subskrypcji",
-      "description": "Nie płać więcej za niechciane subskrypcje. Śledź okresy próbne, kontroluj wydatki i oszczędzaj bez wysiłku."
+      "description": "Już nigdy nie zapomnij o kończącym się okresie próbnym. Kontroluj subskrypcje, pilnuj wydatków i unikaj niechcianych opłat."
     },
     "doso": {
       "tagline": "Twoje zdrowie pod kontrolą – bez wysiłku.",
-      "description": "Osobista aplikacja zdrowotna do zarządzania lekami, śledzenia wyników badań i zapisywania objawów – z AI znającym pełną historię Twojego zdrowia."
+      "description": "Osobista aplikacja do zarządzania lekami, śledzenia wyników badań i zapisywania objawów – wspierana przez AI, które zna pełną historię zdrowia użytkownika."
     },
     "trailo": {
       "tagline": "Mniej planowania. Więcej podróżowania.",
-      "description": "Kompleksowe planowanie podróży z AI – znajdź loty, hotele i bilety, a następnie ułóż z nich spersonalizowany plan godzina po godzinie.",
+      "description": "Zaplanuj całą podróż z pomocą AI: znajdź loty, hotele i bilety, a następnie ułóż z nich spersonalizowany plan dzień po dniu i godzina po godzinie.",
       "link_text": "Odwiedź stronę"
     }
   },
   "proof": {
-    "title": "Stworzone, wdrożone i używane.",
-    "description": "Nie zatrzymuję się na makietach ani kodzie. Prowadzę produkty od wczesnego pomysłu aż do ludzi, którzy naprawdę z nich korzystają.",
+    "title": "Od pomysłu do użytkowników.",
+    "description": "Nie kończę na makietach ani samym kodzie. Doprowadzam produkty do premiery – i do ludzi, którzy naprawdę z nich korzystają.",
     "items": [
       { "value": "6+", "label": "wdrożonych produktów" },
-      { "value": "30 tys.+", "label": "pobrań" },
+      { "value": "30k+", "label": "pobrań" },
       { "value": "1", "label": "sprzedany produkt" }
     ]
   },
   "capabilities": {
     "eyebrow": "Co tworzę",
     "title": "Jeden twórca, cały proces.",
-    "description": "Łączę myślenie produktowe, projektowanie interfejsów, development, wdrożenie i kolejne iteracje po premierze.",
+    "description": "Łączę strategię produktu, projektowanie interfejsu, development i wdrożenie, a po premierze rozwijam produkt na podstawie realnego użycia.",
     "items": [
       {
         "title": "Aplikacje webowe",
-        "description": "Produkty SaaS, narzędzia AI, dashboardy, marketplace’y i rozwiązania tworzone na zamówienie."
+        "description": "Produkty SaaS, narzędzia AI, panele, platformy sprzedażowe i rozwiązania tworzone na zamówienie."
       },
       {
         "title": "Aplikacje mobilne",
@@ -180,7 +180,7 @@
       },
       {
         "title": "Strony internetowe",
-        "description": "Strony produktowe, landing page’e i witryny firmowe zaprojektowane tak, by świetnie wyglądały i konwertowały."
+        "description": "Strony produktowe, landing page’e i witryny firmowe, które dobrze wyglądają, jasno komunikują ofertę i skutecznie pozyskują klientów."
       }
     ]
   },
@@ -189,13 +189,13 @@
       "part1": "Tworzysz coś",
       "part2": "nowego?"
     },
-    "description": "Pomagam founderom i zespołom zamieniać pomysły w dopracowane aplikacje webowe, mobilne i strony internetowe – od pierwszej koncepcji po wdrożenie."
+    "description": "Pomagam founderom, zespołom i firmom zamieniać pomysły w dopracowane aplikacje webowe, mobilne oraz strony internetowe – od pierwszej koncepcji po wdrożenie."
   },
   "privacy": {
     "title": "Polityka prywatności",
     "last_updated": "Ostatnia aktualizacja: 25 sierpnia 2026 r.",
-    "intro_before_link": "Mikołaj Piech („ja”, „mnie” lub „mój”) szanuje Twoją prywatność i zobowiązuje się chronić Twoje dane osobowe. Niniejsza Polityka prywatności wyjaśnia, jak gromadzę, wykorzystuję, przechowuję i chronię informacje podczas korzystania z mojej strony (",
-    "intro_after_link": ") oraz aplikacji mobilnych publikowanych przeze mnie w Google Play lub Apple App Store i obsługiwanych przeze mnie aplikacji webowych (łącznie „Usługi”), w tym Trailo, Subby, Meant, Doso i Sitting Time.",
+    "intro_before_link": "Nazywam się Mikołaj Piech i szanuję Twoją prywatność. Niniejsza polityka prywatności wyjaśnia, jakie informacje gromadzę oraz w jaki sposób je wykorzystuję, przechowuję i chronię, gdy korzystasz z mojej strony (",
+    "intro_after_link": "), aplikacji mobilnych publikowanych przeze mnie w Google Play i Apple App Store oraz aplikacji webowych, które prowadzę (łącznie „Usługi”), w tym Trailo, Subby, Meant, Doso i Sitting Time.",
     "s1_title": "1. Informacje, które gromadzę",
     "s1a_title": "A. Informacje przekazywane bezpośrednio",
     "s1a_items": [
@@ -212,17 +212,17 @@
       "Przybliżona lokalizacja (ustalana na podstawie adresu IP)",
       "Dane o użytkowaniu i raporty awarii (za pośrednictwem Expo i powiązanych narzędzi)",
       "Token powiadomień push (do wysyłania powiadomień, jeśli je włączysz)",
-      "W przyszłości, jeśli wyświetlę reklamy: identyfikator reklamowy (IDFA w iOS, AAID w Androidzie), który możesz zresetować"
+      "Jeśli w przyszłości zacznę wyświetlać reklamy: identyfikator reklamowy (IDFA w iOS, AAID w Androidzie), który możesz samodzielnie zresetować"
     ],
     "s2_title": "2. Jak wykorzystuję informacje",
     "s2_items": [
       "Aby odpowiadać na zapytania przesłane przez formularz kontaktowy",
       "Aby tworzyć konta i nimi zarządzać",
-      "Aby świadczyć i ulepszać Usługi",
+      "Aby świadczyć i rozwijać Usługi",
       "Aby obsługiwać subskrypcje i płatności za pośrednictwem RevenueCat i sklepów z aplikacjami",
       "Aby wysyłać powiadomienia push (wyłącznie za Twoją zgodą)",
       "Aby bezpiecznie przechowywać zdjęcia prac domowych i zapewnić do nich dostęp na różnych urządzeniach",
-      "W aplikacji Meant: aby umożliwiać zleconą przez użytkownika edycję i generowanie obrazów AI poprzez przekazywanie ich do Gemini API firmy Google",
+      "W aplikacji Meant: aby wykonywać zleconą przez użytkownika edycję i generowanie obrazów z użyciem AI poprzez przekazywanie ich do Gemini API firmy Google",
       "Do analityki i raportowania awarii, aby naprawiać błędy i ulepszać aplikacje",
       "W przyszłości, jeśli wdrożę Google AdMob: do wyświetlania i mierzenia reklam spersonalizowanych lub niespersonalizowanych"
     ],
@@ -230,16 +230,16 @@
     "s3_items": [
       "<strong>Umowa:</strong> świadczenie usług konta, subskrypcji i podstawowych funkcji aplikacji",
       "<strong>Zgoda:</strong> powiadomienia push i ewentualna przyszła reklama spersonalizowana",
-      "<strong>Uzasadniony interes:</strong> analityka, raportowanie awarii i zapobieganie oszustwom"
+      "<strong>Prawnie uzasadniony interes:</strong> analityka, raportowanie awarii i zapobieganie oszustwom"
     ],
     "s4_title": "4. Udostępnianie informacji",
     "s4_p1": "Nie sprzedaję Twoich danych osobowych.",
-    "s4_p2": "Twoje dane mogą być udostępniane następującym zaufanym partnerom:",
+    "s4_p2": "W celu świadczenia Usług korzystam z następujących zaufanych partnerów:",
     "table_partner": "Partner",
     "table_purpose": "Cel",
     "table_privacy": "Polityka prywatności",
     "partners": [
-      { "partner": "Resend", "purpose": "Dostarczanie wiadomości z formularza kontaktowego", "linkLabel": "resend.com/legal/privacy-policy", "linkHref": "https://resend.com/legal/privacy-policy" },
+      { "partner": "Resend", "purpose": "Wysyłka wiadomości z formularza kontaktowego", "linkLabel": "resend.com/legal/privacy-policy", "linkHref": "https://resend.com/legal/privacy-policy" },
       { "partner": "RevenueCat", "purpose": "Obsługa płatności subskrypcyjnych", "linkLabel": "revenuecat.com/privacy", "linkHref": "https://revenuecat.com/privacy" },
       { "partner": "Apple App Store / Google Play", "purpose": "Przetwarzanie płatności i dystrybucja aplikacji", "linkLabel": "apple.com / google.com", "linkHrefApple": "https://apple.com/legal/privacy", "linkHrefGoogle": "https://policies.google.com/privacy" },
       { "partner": "Expo / EAS", "purpose": "Budowanie aplikacji, aktualizacje i analityka", "linkLabel": "expo.dev/privacy", "linkHref": "https://expo.dev/privacy" },
@@ -248,10 +248,10 @@
       { "partner": "Google AdMob (w przyszłości)", "purpose": "Reklama (jeśli zostanie wdrożona)", "linkLabel": "support.google.com", "linkHref": "https://support.google.com/admob/answer/6128543" }
     ],
     "s4_p3": "Dane są przechowywane głównie w Stanach Zjednoczonych i Unii Europejskiej.",
-    "s5_title": "5. Dane obrazów i dane twarzy w aplikacji Meant",
-    "s5_p1": "W aplikacji Meant możesz udostępniać obrazy (z aparatu lub biblioteki zdjęć) zawierające ludzkie twarze w celu edycji i generowania z wykorzystaniem AI. Obrazy te stanowią dane pikselowe i mogą zawierać wrażliwe wizerunki twarzy.",
+    "s5_title": "5. Obrazy i wizerunki twarzy w aplikacji Meant",
+    "s5_p1": "W aplikacji Meant możesz udostępniać zdjęcia z aparatu lub biblioteki, które zawierają ludzkie twarze, aby edytować je albo tworzyć nowe obrazy z użyciem AI. Pliki te mogą zawierać wrażliwe wizerunki osób.",
     "s5_p2": "<strong>Gromadzenie i przechowywanie:</strong> obrazy są przechowywane wyłącznie lokalnie w prywatnej pamięci aplikacji na Twoim urządzeniu. Nie gromadzę, nie przesyłam ani nie przechowuję ich na swoich serwerach lub w bazach danych.",
-    "s5_p3": "<strong>Wykorzystanie:</strong> obrazy są przetwarzane lokalnie i przesyłane do Gemini API firmy Google wyłącznie w celu wykonania zleconego przez użytkownika generowania lub edycji. Aplikacja nie prowadzi rozpoznawania twarzy, ekstrakcji danych biometrycznych, identyfikacji, śledzenia ani profilowania.",
+    "s5_p3": "<strong>Wykorzystanie:</strong> obrazy są przetwarzane lokalnie i przesyłane do Gemini API firmy Google wyłącznie po to, aby wykonać wybraną przez użytkownika edycję lub wygenerować nowy obraz. Aplikacja nie rozpoznaje twarzy, nie pozyskuje danych biometrycznych oraz nie prowadzi identyfikacji, śledzenia ani profilowania.",
     "s5_p4": "<strong>Ujawnianie i udostępnianie:</strong> obrazy są przekazywane wyłącznie firmie Google LLC jako dostawcy Gemini API w celu tymczasowego przetworzenia. Meant korzysta z płatnej wersji Gemini API, w której dane wejściowe, obrazy i wyniki <strong>nie są wykorzystywane do trenowania ani ulepszania modeli Google</strong>.",
     "s5_p5": "<strong>Okres przechowywania:</strong> obrazy pozostają wyłącznie na Twoim urządzeniu do chwili ich usunięcia lub odinstalowania aplikacji. Google przetwarza je przejściowo i przechowuje tylko tak długo, jak jest to konieczne do świadczenia usługi API.",
     "s6_title": "6. Okres przechowywania danych",
@@ -264,15 +264,15 @@
       "Żądanie eksportu danych",
       "Złożenie skargi do właściwego organu ochrony danych"
     ],
-    "s7_p1": "Mieszkańcom Kalifornii przysługują dodatkowe prawa wynikające z CCPA/CPRA. Nie sprzedaję ani nie udostępniam danych osobowych na potrzeby reklamy behawioralnej między kontekstami.",
+    "s7_p1": "Mieszkańcom Kalifornii przysługują dodatkowe prawa wynikające z CCPA/CPRA. Nie sprzedaję ani nie udostępniam danych osobowych na potrzeby reklamy behawioralnej prowadzonej w różnych kontekstach.",
     "s8_title": "8. Prywatność dzieci",
     "s8_p1": "Moje aplikacje nie są kierowane do dzieci poniżej 13. roku życia (lub 16. roku życia w EOG). Nie gromadzę świadomie danych osobowych dzieci. Jeśli dowiem się, że dziecko przekazało dane osobowe, natychmiast je usunę.",
     "s9_title": "9. Bezpieczeństwo",
-    "s9_p1": "Stosuję standardowe środki techniczne i organizacyjne, w tym szyfrowanie, bezpiecznych dostawców chmurowych oraz kontrolę dostępu, aby chronić Twoje dane.",
+    "s9_p1": "Stosuję standardowe środki techniczne i organizacyjne, w tym szyfrowanie, sprawdzonych dostawców usług chmurowych oraz mechanizmy kontroli dostępu, aby chronić Twoje dane.",
     "s10_title": "10. Przekazywanie danych za granicę",
     "s10_p1": "Twoje dane mogą być przekazywane i przechowywane w Stanach Zjednoczonych lub innych państwach poza krajem zamieszkania. W wymaganych przypadkach stosuję odpowiednie zabezpieczenia, takie jak standardowe klauzule umowne UE.",
     "s11_title": "11. Zmiany niniejszej polityki",
-    "s11_p1": "Mogę okresowo aktualizować niniejszą Politykę prywatności. Nowa wersja zostanie opublikowana na tej stronie wraz z datą aktualizacji. O istotnych zmianach poinformuję wewnątrz aplikacji.",
+    "s11_p1": "Mogę okresowo aktualizować niniejszą Politykę prywatności. Nowa wersja zostanie opublikowana na tej stronie wraz z datą aktualizacji. O istotnych zmianach poinformuję również w aplikacjach.",
     "s12_title": "12. Kontakt",
     "s12_name": "Mikołaj Piech",
     "s12_email_label": "E-mail:",
