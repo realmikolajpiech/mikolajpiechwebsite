@@ -84,6 +84,10 @@ export default async function handler(request: VercelRequest, response: VercelRe
   }
 
   const safeSubjectName = name.replace(/[\r\n]+/g, ' ').slice(0, 80);
+  const emailSubject = `New project inquiry – ${safeSubjectName}`;
+  const normalizedMessage = message
+    .replace(/\r\n/g, '\n')
+    .replace(/\\r\\n|\\n|\\r/g, '\n');
   const emailText = [
     'New project inquiry from mikolajpiech.com',
     '',
@@ -92,12 +96,12 @@ export default async function handler(request: VercelRequest, response: VercelRe
     `Company: ${company || 'Not provided'}`,
     '',
     'Message:',
-    message,
+    normalizedMessage,
   ].join('\n');
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
   const safeCompany = escapeHtml(company || 'Not provided');
-  const safeMessage = escapeHtml(message).replace(/\r?\n/g, '<br>');
+  const safeMessage = escapeHtml(normalizedMessage).replace(/\n/g, '<br>');
   const emailHtml = `
 <!doctype html>
 <html lang="en">
@@ -148,13 +152,6 @@ export default async function handler(request: VercelRequest, response: VercelRe
                   <p style="margin:0;font-size:15px;line-height:1.75;color:#292524;">${safeMessage}</p>
                 </div>
 
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin-top:28px;">
-                  <tr>
-                    <td style="border-radius:999px;background:#1c1917;">
-                      <a href="mailto:${safeEmail}" style="display:inline-block;padding:13px 21px;font-size:13px;font-weight:700;color:#ffffff;text-decoration:none;">Reply to ${safeName} →</a>
-                    </td>
-                  </tr>
-                </table>
               </td>
             </tr>
             <tr>
@@ -180,7 +177,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
         from: fromEmail,
         to: [toEmail],
         reply_to: email,
-        subject: `New project inquiry – ${safeSubjectName}`,
+        subject: emailSubject,
         text: emailText,
         html: emailHtml,
       }),
