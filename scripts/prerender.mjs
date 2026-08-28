@@ -5,7 +5,7 @@ import { pathToFileURL } from 'node:url';
 const ROOT = resolve(import.meta.dirname, '..');
 const DIST = resolve(ROOT, 'dist');
 const SITE_URL = 'https://mikolajpiech.com';
-const HOME_PROJECT_IDS = ['justmine', 'safelabs', 'trailo', 'solvee'];
+const HOME_PROJECT_IDS = ['justmine', 'subby', 'trailo', 'solvee'];
 const PORTFOLIO_PROJECT_IDS = ['justmine', 'safelabs', 'dragon', 'trailo', 'subby', 'doso', 'solvee'];
 
 const [template, siteEnRaw, sitePlRaw] = await Promise.all([
@@ -50,7 +50,7 @@ function replaceNamedMeta(html, attribute, key, value) {
 }
 
 function projectName(id) {
-  if (id === 'justmine') return 'Just Mine';
+  if (id === 'justmine') return 'Charmy Books';
   if (id === 'safelabs') return 'Safe Labs';
   if (id === 'dragon') return 'UKS Dragon Mokrzyska';
   return id.charAt(0).toUpperCase() + id.slice(1);

@@ -29,14 +29,14 @@
   "visible_projects": ["justmine", "safelabs", "dragon", "trailo", "subby", "doso", "solvee"],
   "project_meta": {
     "justmine": {
-      "nameDisplay": "Just Mine",
+      "nameDisplay": "Charmy Books",
       "platform": "Web app",
       "category": "Personalized Publishing",
       "scope": "Design to launch",
       "operatingSystem": "Web",
       "applicationType": "WebApplication",
       "tags": ["Kids", "Personalization", "Web", "AI"],
-      "link": "https://getjustmine.com"
+      "link": "https://charmybooks.com"
     },
     "safelabs": {
       "nameDisplay": "Safe Labs",
@@ -104,11 +104,11 @@
     },
     {
       "question": "What apps has Mikołaj Piech built?",
-      "answer": "Mikołaj Piech has built Just Mine (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play."
+      "answer": "Mikołaj Piech has built Charmy Books (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play."
     },
     {
-      "question": "Who created Just Mine?",
-      "answer": "Just Mine, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story."
+      "question": "Who created Charmy Books?",
+      "answer": "Charmy Books, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story."
     },
     {
       "question": "Who built the Safe Labs website?",

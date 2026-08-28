@@ -56,7 +56,7 @@ function buildAllProjects(language: Language): Project[] {
   return [
   {
     id: 'justmine',
-    name: 'Just Mine',
+    name: 'Charmy Books',
     tagline: site.projects.justmine.tagline,
     description: site.projects.justmine.description,
     tags: isPl ? ['Dzieci', 'Personalizacja', 'Internet', 'AI'] : ['Kids', 'Personalization', 'Web', 'AI'],
@@ -64,7 +64,7 @@ function buildAllProjects(language: Language): Project[] {
     category: tr('Personalized Publishing', 'Książki personalizowane'),
     scope: tr('Design to launch', 'Od projektu po wdrożenie'),
     operatingSystem: 'Web',
-    link: 'https://getjustmine.com',
+    link: 'https://charmybooks.com',
     linkText: site.projects.justmine.link_text,
     icon: justMineLogo,
     iconStyle: 'wordmark',
@@ -72,11 +72,11 @@ function buildAllProjects(language: Language): Project[] {
     imageFit: 'contain',
     layout: 'web',
     screenshots: [
-      { src: justMineHome, alt: tr('Just Mine website home page', 'Strona główna Just Mine'), variant: 'desktop' },
-      { src: justMineExamples, alt: tr('Just Mine story types and use cases', 'Rodzaje historii i zastosowania Just Mine'), variant: 'desktop' },
-      { src: justMineHowItWorks, alt: tr('How creating a personalized Just Mine book works', 'Jak działa tworzenie spersonalizowanej książki Just Mine'), variant: 'desktop' },
-      { src: justMineStep4, alt: tr('Just Mine book creator — personalized story ideas', 'Kreator książki Just Mine — spersonalizowane pomysły na historie'), variant: 'desktop' },
-      { src: justMinePricing, alt: tr('Just Mine formats and pricing', 'Formaty i ceny książek Just Mine'), variant: 'desktop' },
+      { src: justMineHome, alt: tr('Charmy Books website home page', 'Strona główna Charmy Books'), variant: 'desktop' },
+      { src: justMineExamples, alt: tr('Charmy Books story types and use cases', 'Rodzaje historii i zastosowania Charmy Books'), variant: 'desktop' },
+      { src: justMineHowItWorks, alt: tr('How creating a personalized Charmy Books book works', 'Jak działa tworzenie spersonalizowanej książki w Charmy Books'), variant: 'desktop' },
+      { src: justMineStep4, alt: tr('Charmy Books book creator — personalized story ideas', 'Kreator książki Charmy Books — spersonalizowane pomysły na historie'), variant: 'desktop' },
+      { src: justMinePricing, alt: tr('Charmy Books formats and pricing', 'Formaty i ceny Charmy Books'), variant: 'desktop' },
     ],
   },
   {

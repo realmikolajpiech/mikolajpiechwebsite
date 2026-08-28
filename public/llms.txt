@@ -2,7 +2,7 @@
 
 > Founder & developer who designs and builds web apps, mobile apps, websites, and digital products.
 
-Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Just Mine, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.
+Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.
 
 ## Docs
 - [Full site summary (https://mikolajpiech.com/llms-full.txt)](https://mikolajpiech.com/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs — best source for AI agents

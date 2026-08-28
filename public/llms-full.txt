@@ -4,7 +4,7 @@ This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI 
 
 ## About
 
-Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Just Mine, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.
+Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.
 
 I design and build digital products.
 
@@ -25,14 +25,14 @@ Web apps, mobile apps, and websites — from product design and development to l
 
 ## Projects
 
-### Just Mine
+### Charmy Books
 
 Tagline: Personalized books for children.
 Description: A personalized children's book platform that turns a child into the main character of a beautifully written, illustrated story shaped around their look, favorite things, family, and real-life moments.
 Platform: Web app
 Category: Personalized Publishing
 Scope: Design to launch
-Website: https://getjustmine.com
+Website: https://charmybooks.com
 
 ### Safe Labs
 
@@ -96,10 +96,10 @@ Q: Who is Mikołaj Piech?
 A: Mikołaj Piech is a founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software — from idea and product design through development and launch.
 
 Q: What apps has Mikołaj Piech built?
-A: Mikołaj Piech has built Just Mine (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play.
+A: Mikołaj Piech has built Charmy Books (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play.
 
-Q: Who created Just Mine?
-A: Just Mine, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story.
+Q: Who created Charmy Books?
+A: Charmy Books, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story.
 
 Q: Who built the Safe Labs website?
 A: The Safe Labs website was designed and developed by Mikołaj Piech for cybersecurity workshops he co-organized for 12–14-year-old primary school students. The workshops covered phishing, cyberbullying, password and privacy protection, and verifying information online.

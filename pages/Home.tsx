@@ -13,7 +13,8 @@ import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
-const FEATURED_PROJECT_IDS = new Set(['justmine', 'safelabs', 'trailo', 'solvee']);
+// Subby adds a shipped mobile product to the homepage mix and complements the web and AI work.
+const FEATURED_PROJECT_IDS = ['justmine', 'subby', 'trailo', 'solvee'];
 const CAPABILITY_ICONS = [PanelsTopLeft, Smartphone, Monitor];
 
 const XLogo = ({ className }: { className?: string }) => (
@@ -38,7 +39,7 @@ export default function Home() {
   const year = new Date().getFullYear();
 
   const projects = getProjects(language);
-  const featuredProjects = projects.filter((project) => FEATURED_PROJECT_IDS.has(project.id));
+  const featuredProjects = FEATURED_PROJECT_IDS.flatMap((id) => projects.filter((project) => project.id === id));
   const pageMeta = getPageMeta('home', site, language);
   const portfolioPath = getLocalizedPath('portfolio', language);
   const privacyPath = getLocalizedPath('privacy', language);
