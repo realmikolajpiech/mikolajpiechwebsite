@@ -215,8 +215,8 @@ function buildAllProjects(language: Language): Project[] {
     description: site.projects.subby.description,
     outcome: tr('Helps people track subscriptions and trials before they turn into unwanted charges.', 'Pomaga kontrolować subskrypcje i okresy próbne, zanim zmienią się w niechciane opłaty.'),
     whyBuiltIt: tr(
-      'Subscription tracking looks simple until you try to make it genuinely useful. The real problem is not storing a list of subscriptions, but understanding recurring payments, different billing cycles, trials, renewals and what a transaction actually represents. I built Subby around reducing that complexity into something users can understand at a glance.',
-      'Śledzenie subskrypcji wydaje się proste, dopóki nie spróbujesz zrobić tego naprawdę użytecznie. Prawdziwym problemem nie jest zapisanie listy subskrypcji, lecz zrozumienie płatności cyklicznych, różnych okresów rozliczeniowych, wersji próbnych, odnowień oraz tego, co dana transakcja faktycznie oznacza. Zbudowałem Subby tak, aby sprowadzić tę złożoność do formy, którą użytkownik może zrozumieć na pierwszy rzut oka.',
+      'I kept losing money on free trials and subscriptions I forgot to cancel. Instead of relying on calendar reminders or constantly checking my bank account, I wanted one simple place that knew what I was subscribed to, when I would be charged, and warned me beforehand. So I built Subby.',
+      'Ciągle traciłem pieniądze na darmowe okresy próbne i subskrypcje, których zapominałem anulować. Zamiast polegać na przypomnieniach w kalendarzu lub ciągle sprawdzać konto bankowe, chciałem mieć jedno proste miejsce, które wie, co subskrybuję, kiedy zostanie pobrana kolejna opłata i ostrzeże mnie wcześniej. Dlatego stworzyłem Subby.',
     ),
     tags: isPl ? ['FinTech', 'Finanse', 'Aplikacja mobilna'] : ['FinTech', 'Utility', 'Mobile App'],
     platform: 'iOS · Android',

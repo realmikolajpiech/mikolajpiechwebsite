@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
+import React, { useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Apple, Play, ArrowUpRight, ChevronDown, LucideIcon } from 'lucide-react';
 import { Project } from '../types';
 import { ScreenshotGallery } from './ScreenshotGallery';
@@ -94,42 +94,57 @@ const ProjectLinks = ({ project }: { project: Project }) => {
 
 const ProjectTechnologies = ({ project }: { project: Project }) => {
   const { site } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
 
   if (!project.technologies?.length) return null;
 
   return (
-    <details className="group">
-      <summary className="inline-flex cursor-pointer list-none flex-col items-start rounded-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-stone-400/40 [&::-webkit-details-marker]:hidden">
-        <span className="mb-1.5 text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500">
-          {site.ui.tech_stack}
-        </span>
-        <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-colors group-hover:text-stone-600 sm:text-sm dark:text-stone-100 dark:group-hover:text-stone-300">
-          {site.ui.technologies_used}
-          <ChevronDown
-            size={15}
-            strokeWidth={1.75}
-            aria-hidden="true"
-            className="shrink-0 text-stone-400 transition-transform duration-200 group-open:rotate-180 dark:text-stone-500"
-          />
-        </span>
-      </summary>
+    <div>
+      <span className="mb-1.5 block text-[10px] leading-normal uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500">
+        {site.ui.tech_stack}
+      </span>
+      <button
+        type="button"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen((open) => !open)}
+        className="inline-flex items-center gap-1.5 rounded-sm text-[13px] font-medium leading-snug text-ink outline-none transition-colors hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-400/40 sm:text-sm dark:text-stone-100 dark:hover:text-stone-300"
+      >
+        {site.ui.technologies_used}
+        <ChevronDown
+          size={15}
+          strokeWidth={1.75}
+          aria-hidden="true"
+          className={`shrink-0 text-stone-400 transition-transform duration-300 dark:text-stone-500 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
 
-      <dl className="mt-3 grid gap-x-10 gap-y-5 rounded-xl bg-stone-100/60 p-4 sm:grid-cols-2 sm:p-5 dark:bg-stone-800/45">
-        {project.technologies.map((technology) => (
-          <div
-            key={technology.label}
-            className="min-w-0"
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
           >
-            <dt className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.13em] text-stone-500 dark:text-stone-400">
-              {technology.label}
-            </dt>
-            <dd className="text-[13px] leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
-              {technology.items}
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </details>
+            <dl className="mt-3 grid gap-x-10 gap-y-5 rounded-xl bg-stone-100/60 p-4 sm:grid-cols-2 sm:p-5 dark:bg-stone-800/45">
+              {project.technologies.map((technology) => (
+                <div key={technology.label} className="min-w-0">
+                  <dt className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.13em] text-stone-500 dark:text-stone-400">
+                    {technology.label}
+                  </dt>
+                  <dd className="text-[13px] leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
+                    {technology.items}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 
@@ -214,7 +229,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
           </dl>
 
           {project.technologies?.length ? (
-            <div className="min-w-0 flex-1 lg:-mt-0.5">
+            <div className="min-w-0 flex-1">
               <ProjectTechnologies project={project} />
             </div>
           ) : null}
