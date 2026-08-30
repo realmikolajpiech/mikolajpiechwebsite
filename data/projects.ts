@@ -47,6 +47,17 @@ import dragonSignup from '../assets/dragon/dragon-signup.jpg';
 export const SHOW_OMNI = false;
 export const SHOW_PLATOIC = false;
 const PORTFOLIO_ONLY_PROJECT_IDS = new Set(['dragon']);
+const PROJECT_ORDER = [
+  'justmine',
+  'solvee',
+  'trailo',
+  'doso',
+  'subby',
+  'twojasiec',
+  'safelabs',
+  'dragon',
+  'omni',
+] as const;
 
 function buildAllProjects(language: Language): Project[] {
   const isPl = language === 'pl';
@@ -343,11 +354,18 @@ function buildAllProjects(language: Language): Project[] {
 }
 
 function getVisibleProjects(language: Language): Project[] {
-  return buildAllProjects(language).filter(
-    (project) =>
-      (SHOW_OMNI || project.id !== 'omni') &&
-      (SHOW_PLATOIC || project.id !== 'platoic'),
-  );
+  return buildAllProjects(language)
+    .filter(
+      (project) =>
+        (SHOW_OMNI || project.id !== 'omni') &&
+        (SHOW_PLATOIC || project.id !== 'platoic'),
+    )
+    .sort((a, b) => {
+      const aIndex = PROJECT_ORDER.indexOf(a.id as (typeof PROJECT_ORDER)[number]);
+      const bIndex = PROJECT_ORDER.indexOf(b.id as (typeof PROJECT_ORDER)[number]);
+      return (aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex) -
+        (bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex);
+    });
 }
 
 export function getProjects(language: Language = 'en'): Project[] {
