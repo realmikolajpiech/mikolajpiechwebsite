@@ -147,6 +147,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="w-full max-w-full overflow-visible"
     >
+      <div className="lg:pr-10 xl:pr-14">
       <header className="grid items-start gap-5 sm:gap-7 lg:grid-cols-12 lg:gap-14">
         <div className={`min-w-0 space-y-4 ${project.whyBuiltIt ? 'lg:col-span-5' : 'lg:col-span-7'}`}>
           <div className="space-y-3">
@@ -211,6 +212,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
           <ProjectTechnologies project={project} />
         </div>
       ) : null}
+      </div>
 
       <div className="mt-7 min-w-0 overflow-visible sm:mt-9">
         <ScreenshotGallery screenshots={screenshots} projectName={project.name} />
