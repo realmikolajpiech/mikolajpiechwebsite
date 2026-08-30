@@ -107,7 +107,7 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
         type="button"
         aria-expanded={isOpen}
         onClick={() => setIsOpen((open) => !open)}
-        className="inline-flex items-center gap-1.5 rounded-sm text-[13px] font-medium leading-snug text-ink outline-none transition-colors hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-400/40 sm:text-sm dark:text-stone-100 dark:hover:text-stone-300"
+        className="flex w-fit items-center gap-1.5 rounded-sm text-[13px] font-medium leading-snug text-ink outline-none transition-colors hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-400/40 sm:text-sm dark:text-stone-100 dark:hover:text-stone-300"
       >
         {site.ui.technologies_used}
         <ChevronDown
