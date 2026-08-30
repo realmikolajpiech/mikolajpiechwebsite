@@ -107,6 +107,11 @@ function buildAllProjects(language: Language): Project[] {
       { src: safeLabsPasswordCheck, alt: tr('Safe Labs password strength audit tool', 'Narzędzie Safe Labs do audytu siły hasła'), variant: 'desktop' },
       { src: safeLabsEbook, alt: tr('Safe Labs cybersecurity e-book page', 'Strona e-booka Safe Labs o cyberbezpieczeństwie'), variant: 'desktop' },
     ],
+    technologies: [
+      { label: tr('Web platform', 'Platforma webowa'), items: 'React 19, TypeScript, Vite, React Router, Framer Motion' },
+      { label: tr('Password-audit engine', 'Silnik audytu haseł'), items: tr('zxcvbn extended with a custom Polish corpus and a 50k-word frequency list, running in a dedicated Web Worker so analysis stays responsive and the password never leaves the browser', 'zxcvbn rozszerzony o autorski polski korpus i listę 50 tys. najczęstszych słów, uruchamiany w dedykowanym Web Workerze, dzięki czemu analiza pozostaje płynna, a hasło nigdy nie opuszcza przeglądarki') },
+      { label: tr('Data infrastructure', 'Infrastruktura danych'), items: tr('Supabase PostgreSQL for workshop inquiries and e-book delivery telemetry', 'Supabase PostgreSQL do obsługi zgłoszeń na warsztaty i telemetrii dystrybucji e-booka') },
+    ],
   },
   {
     id: 'dragon',
@@ -128,6 +133,12 @@ function buildAllProjects(language: Language): Project[] {
       { src: dragonHome, alt: tr('UKS Dragon Mokrzyska sports club website', 'Strona klubu sportowego UKS Dragon Mokrzyska'), variant: 'desktop' },
       { src: dragonClasses, alt: tr('UKS Dragon Mokrzyska training schedule', 'Harmonogram zajęć UKS Dragon Mokrzyska'), variant: 'desktop' },
       { src: dragonSignup, alt: tr('UKS Dragon Mokrzyska enrollment form', 'Formularz zapisów UKS Dragon Mokrzyska'), variant: 'desktop' },
+    ],
+    technologies: [
+      { label: tr('Web platform', 'Platforma webowa'), items: 'Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4' },
+      { label: tr('Content management', 'Zarządzanie treścią'), items: tr('Custom admin panel with Tiptap rich-text editing for news, galleries, sports sections, tournaments, and page content', 'Autorski panel administracyjny z edytorem tekstu Tiptap do aktualności, galerii, sekcji sportowych, turniejów i treści stron') },
+      { label: tr('Data & security', 'Dane i bezpieczeństwo'), items: tr('Supabase PostgreSQL, authentication, image storage, and row-level security policies', 'Supabase PostgreSQL, uwierzytelnianie, przechowywanie zdjęć i polityki bezpieczeństwa na poziomie rekordów') },
+      { label: tr('Club operations', 'Obsługa klubu'), items: tr('Server Actions, enrollment workflows, consent tracking, admin filtering, CSV exports, and incremental revalidation', 'Server Actions, obsługa zapisów, ewidencja zgód, filtrowanie w panelu, eksport CSV i przyrostowe odświeżanie treści') },
     ],
   },
   {
@@ -209,6 +220,13 @@ function buildAllProjects(language: Language): Project[] {
       { src: subby2, alt: tr('Subby subscriptions list', 'Lista subskrypcji w aplikacji Subby'), variant: 'phone' },
       { src: subby3, alt: tr('Subby spending analytics', 'Analiza wydatków w aplikacji Subby'), variant: 'phone' },
     ],
+    technologies: [
+      { label: tr('Mobile stack', 'Stack mobilny'), items: 'Expo, React Native, React, TypeScript, Expo Router' },
+      { label: tr('Local-first data', 'Dane local-first'), items: tr('AsyncStorage-backed multi-profile subscription data, preferences, currencies, and notification state', 'Dane subskrypcji dla wielu profili, preferencje, waluty i stan powiadomień przechowywane lokalnie w AsyncStorage') },
+      { label: tr('Bank intelligence', 'Analiza bankowa'), items: tr('Enable Banking open-banking integration, Cloudflare Workers, recurring-payment detection, and xAI Grok with web search for merchant classification', 'Integracja open banking z Enable Banking, Cloudflare Workers, wykrywanie płatności cyklicznych oraz xAI Grok z wyszukiwaniem internetowym do klasyfikacji sprzedawców') },
+      { label: tr('Native experience', 'Funkcje natywne'), items: tr('Renewal and trial notifications, plus app quick actions', 'Powiadomienia o odnowieniach i okresach próbnych oraz szybkie akcje aplikacji') },
+      { label: tr('Commerce & support', 'Płatności i zaplecze'), items: tr('RevenueCat subscriptions and entitlements, plus Supabase authentication and PostgreSQL for feedback and legacy account migration', 'Subskrypcje i uprawnienia RevenueCat oraz Supabase Auth i PostgreSQL do obsługi opinii i migracji starszych kont') },
+    ],
   },
   {
     id: 'doso',
@@ -230,6 +248,14 @@ function buildAllProjects(language: Language): Project[] {
       { src: doso4, alt: tr('Doso voice medication input', 'Głosowe dodawanie leków w aplikacji Doso'), variant: 'phone' },
       { src: doso5, alt: tr('Doso profile management', 'Zarządzanie profilem w aplikacji Doso'), variant: 'phone' },
     ],
+    technologies: [
+      { label: tr('Mobile stack', 'Stack mobilny'), items: 'Expo, React Native, React, TypeScript, Expo Router, Zustand' },
+      { label: tr('AI health assistant', 'Asystent zdrowotny AI'), items: tr('xAI Grok behind a rate-limited Cloudflare Worker for health chat, medication parsing, and structured interaction checks with server-side safety rules', 'xAI Grok za limitowanym Cloudflare Workerem do czatu zdrowotnego, rozpoznawania leków i strukturyzowanego sprawdzania interakcji z regułami bezpieczeństwa po stronie serwera') },
+      { label: tr('Health data & privacy', 'Dane zdrowotne i prywatność'), items: tr('Local-first SQLite health records, SecureStore preferences, isolated multi-profile stores, and device-backup restrictions', 'Lokalne dane zdrowotne w SQLite, preferencje w SecureStore, odseparowane magazyny danych dla wielu profili i ograniczenia kopii zapasowych urządzenia') },
+      { label: tr('Medication engine', 'System leków'), items: tr('Dose scheduling, adherence and refill calculations, Expo Notifications, and exact critical alarms with Notifee', 'Harmonogramowanie dawek, obliczanie regularności i terminów uzupełnienia leków, Expo Notifications oraz dokładne alarmy krytyczne z Notifee') },
+      { label: tr('Voice & reports', 'Głos i raporty'), items: tr('Native speech recognition for medication entry and localized PDF health reports with printing, file export, and sharing', 'Natywne rozpoznawanie mowy do dodawania leków oraz lokalizowane raporty zdrowotne PDF z drukowaniem, eksportem plików i udostępnianiem') },
+      { label: tr('Subscriptions', 'Subskrypcje'), items: tr('RevenueCat purchases with server-side Pro entitlement validation at the AI gateway', 'Płatności RevenueCat z weryfikacją uprawnień Pro po stronie serwera w bramce AI') },
+    ],
   },
   {
     id: 'solvee',
@@ -249,6 +275,13 @@ function buildAllProjects(language: Language): Project[] {
       { src: solvee2, alt: tr('Solvee step-by-step math solution', 'Rozwiązanie zadania krok po kroku w Solvee'), variant: 'phone' },
       { src: solvee3, alt: tr('Solvee AI tools home screen', 'Ekran główny narzędzi AI w Solvee'), variant: 'phone' },
       { src: solvee4, alt: tr('Solvee app screenshot', 'Zrzut ekranu aplikacji Solvee'), variant: 'phone' },
+    ],
+    technologies: [
+      { label: tr('Mobile stack', 'Stack mobilny'), items: 'Expo, React Native, React, TypeScript, Expo Router' },
+      { label: tr('Multimodal AI routing', 'Multimodalny routing AI'), items: tr('Gemini 2.5 Flash classifies photographed or typed exercises by subject and routes them through specialized pipelines for mathematics, sciences, humanities, and languages', 'Gemini 2.5 Flash klasyfikuje sfotografowane lub wpisane zadania według przedmiotu i kieruje je do wyspecjalizowanych pipeline’ów dla matematyki, nauk ścisłych, humanistyki i języków') },
+      { label: tr('Learning generation', 'Generowanie materiałów'), items: tr('Structured step-by-step solutions, contextual follow-up tutoring, generated practice exercises and quizzes, translation, vocabulary, presentations, and lesson notes', 'Strukturyzowane rozwiązania krok po kroku, kontekstowy tutoring w kolejnych pytaniach oraz generowanie ćwiczeń, quizów, tłumaczeń, słownictwa, prezentacji i notatek z lekcji') },
+      { label: tr('Technical content', 'Treści techniczne'), items: tr('Custom structured-response blocks with LaTeX, MathJax, and KaTeX rendering plus interactive Desmos integration', 'Autorski system bloków strukturyzowanej odpowiedzi z renderowaniem LaTeX, MathJax i KaTeX oraz interaktywną integracją z Desmos') },
+      { label: tr('Backend & commerce', 'Backend i płatności'), items: tr('Firebase Authentication, Firestore, Cloud Functions, Analytics, and RevenueCat entitlement management', 'Firebase Authentication, Firestore, Cloud Functions, Analytics oraz zarządzanie uprawnieniami przez RevenueCat') },
     ],
   },
   // {
