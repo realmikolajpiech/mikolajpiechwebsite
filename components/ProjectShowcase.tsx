@@ -109,7 +109,7 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
         />
       </summary>
 
-      <dl className="mt-3 grid gap-x-10 gap-y-5 rounded-xl bg-stone-100/60 p-4 sm:grid-cols-2 sm:p-5 lg:grid-cols-3 dark:bg-stone-800/45">
+      <dl className="mt-3 grid gap-x-10 gap-y-5 rounded-xl bg-stone-100/60 p-4 sm:grid-cols-2 sm:p-5 dark:bg-stone-800/45">
         {project.technologies.map((technology) => (
           <div
             key={technology.label}
@@ -148,9 +148,8 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
       className="w-full max-w-full overflow-visible"
     >
       <div className="lg:pr-10 xl:pr-14">
-      <header className="grid items-start gap-5 sm:gap-7 lg:grid-cols-12 lg:gap-14">
-        <div className={`min-w-0 space-y-4 ${project.whyBuiltIt ? 'lg:col-span-5' : 'lg:col-span-7'}`}>
-          <div className="space-y-3">
+        <header className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+          <div className="min-w-0 space-y-3">
             <div className="flex items-center gap-3.5 min-w-0">
               {project.icon && (
                 <div className="relative shrink-0">
@@ -176,42 +175,45 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
             {project.status && <StatusBadge status={project.status} className="self-start" />}
           </div>
 
-          {summary && (
-            <p className="max-w-lg text-sm font-light leading-relaxed text-stone-600 text-pretty break-words sm:text-[15px] md:text-base dark:text-stone-300">
-              {summary}
-            </p>
-          )}
-        </div>
+          <ProjectLinks project={project} />
+        </header>
 
-        {project.whyBuiltIt && (
-          <p className="max-w-2xl text-sm font-light leading-[1.75] text-stone-500 text-pretty break-words sm:text-[15px] lg:col-span-7 lg:pt-1 dark:text-stone-400">
-            {project.whyBuiltIt}
-          </p>
+        {(summary || project.whyBuiltIt) && (
+          <div className="mt-6 grid items-start gap-4 sm:mt-7 lg:grid-cols-12 lg:gap-14">
+            {summary && (
+              <p className={`${project.whyBuiltIt ? 'lg:col-span-5' : 'lg:col-span-7'} max-w-lg text-sm font-light leading-relaxed text-stone-600 text-pretty break-words sm:text-[15px] md:text-base dark:text-stone-300`}>
+                {summary}
+              </p>
+            )}
+
+            {project.whyBuiltIt && (
+              <p className="max-w-2xl text-sm font-light leading-[1.75] text-stone-500 text-pretty break-words sm:text-[15px] lg:col-span-7 dark:text-stone-400">
+                {project.whyBuiltIt}
+              </p>
+            )}
+          </div>
         )}
-      </header>
 
-      <div className="mt-6 flex flex-col gap-5 sm:mt-7 lg:flex-row lg:items-end lg:justify-between">
-        <dl className="flex flex-wrap gap-x-10 gap-y-4 sm:gap-x-14">
-          {metaItems.map((item) => (
-            <div key={item.key} className="min-w-0 max-w-sm">
-              <dt className="mb-1.5 text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500">
-                {item.label}
-              </dt>
-              <dd className="text-[13px] font-medium leading-snug text-ink break-words [overflow-wrap:anywhere] sm:text-sm dark:text-stone-100">
-                {project[item.key]}
-              </dd>
+        <div className="mt-6 flex flex-col gap-5 sm:mt-7 lg:flex-row lg:items-start lg:gap-14">
+          <dl className="flex shrink-0 flex-wrap gap-x-10 gap-y-4 sm:gap-x-14">
+            {metaItems.map((item) => (
+              <div key={item.key} className="min-w-0 max-w-sm">
+                <dt className="mb-1.5 text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500">
+                  {item.label}
+                </dt>
+                <dd className="text-[13px] font-medium leading-snug text-ink break-words [overflow-wrap:anywhere] sm:text-sm dark:text-stone-100">
+                  {project[item.key]}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          {project.technologies?.length ? (
+            <div className="min-w-0 flex-1 lg:-mt-0.5">
+              <ProjectTechnologies project={project} />
             </div>
-          ))}
-        </dl>
-
-        <ProjectLinks project={project} />
-      </div>
-
-      {project.technologies?.length ? (
-        <div className="mt-5 sm:mt-6">
-          <ProjectTechnologies project={project} />
+          ) : null}
         </div>
-      ) : null}
       </div>
 
       <div className="mt-7 min-w-0 overflow-visible sm:mt-9">
