@@ -64,11 +64,12 @@ function buildProjectLinks(project: Project, visitLabel: string): ProjectLink[] 
 const ProjectLinks = ({ project }: { project: Project }) => {
   const { site } = useLanguage();
   const links = useMemo(() => buildProjectLinks(project, site.ui.visit), [project, site.ui.visit]);
+  const hasOnlyStoreLinks = links.length === 2 && links.every((link) => !link.primary);
 
   if (links.length === 0) return null;
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className={`flex gap-2 ${hasOnlyStoreLinks ? 'flex-nowrap' : 'flex-wrap'}`}>
       {links.map((link) => {
         const Icon = link.icon;
         return (
@@ -77,7 +78,7 @@ const ProjectLinks = ({ project }: { project: Project }) => {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-200 ${
+            className={`inline-flex items-center justify-center gap-2 whitespace-nowrap px-3 py-2.5 sm:px-4 rounded-full text-xs font-medium transition-all duration-200 ${
               link.primary
                 ? 'bg-ink text-off-white dark:bg-stone-100 dark:text-ink hover:bg-stone-800 dark:hover:bg-stone-200 shadow-sm'
                 : 'border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-800/70'
