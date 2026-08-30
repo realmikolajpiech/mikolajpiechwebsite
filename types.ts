@@ -8,6 +8,11 @@ export interface ProjectScreenshot {
   fit?: 'cover' | 'contain';
 }
 
+export interface ProjectTechnology {
+  label: string;
+  items: string;
+}
+
 export interface Project {
   id: string;
   name: string;
@@ -32,6 +37,7 @@ export interface Project {
   operatingSystem?: string;
   screenshots?: ProjectScreenshot[];
   outcome?: string;
+  technologies?: ProjectTechnology[];
 }
 
 export interface SocialLink {

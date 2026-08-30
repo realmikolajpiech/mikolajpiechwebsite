@@ -78,6 +78,13 @@ function buildAllProjects(language: Language): Project[] {
       { src: justMineStep4, alt: tr('Charmy Books book creator — personalized story ideas', 'Kreator książki Charmy Books — spersonalizowane pomysły na historie'), variant: 'desktop' },
       { src: justMinePricing, alt: tr('Charmy Books formats and pricing', 'Formaty i ceny Charmy Books'), variant: 'desktop' },
     ],
+    technologies: [
+      { label: tr('AI systems', 'Systemy AI'), items: tr('xAI Grok and Grok Imagine for structured story generation, image generation, and character-consistent visual pipelines', 'xAI Grok i Grok Imagine do strukturyzowanego generowania historii, ilustracji i pipeline’ów zachowujących spójność postaci') },
+      { label: tr('Generation architecture', 'Architektura generowania'), items: tr('Asynchronous generation with durable Supabase queues, Railway workers, retries, idempotency, and streamed progress', 'Asynchroniczne generowanie z trwałymi kolejkami Supabase, workerami Railway, ponawianiem zadań, idempotencją i strumieniowaniem postępu') },
+      { label: tr('Product platform', 'Platforma produktu'), items: 'Next.js, React, TypeScript, Tailwind CSS, Vercel AI SDK, Zod' },
+      { label: tr('Data & security', 'Dane i bezpieczeństwo'), items: tr('Supabase PostgreSQL, authentication, private storage, signed uploads, and row-level access controls', 'Supabase PostgreSQL, uwierzytelnianie, prywatny storage, podpisane uploady i kontrola dostępu na poziomie rekordów') },
+      { label: tr('Commerce', 'Sprzedaż'), items: tr('Stripe Checkout and webhooks, paid-generation gating, and Lulu print-on-demand fulfillment', 'Stripe Checkout i webhooki, uruchamianie dalszego generowania po płatności oraz realizacja druku na żądanie przez Lulu') },
+    ],
   },
   {
     id: 'safelabs',
@@ -146,6 +153,14 @@ function buildAllProjects(language: Language): Project[] {
       { src: trailoMobile3, alt: tr('Trailo mobile attraction tickets', 'Bilety do atrakcji w aplikacji Trailo'), variant: 'phone' },
       { src: trailoMobile4, alt: tr('Trailo mobile trip budget', 'Budżet podróży w aplikacji Trailo'), variant: 'phone' },
     ],
+    technologies: [
+      { label: tr('Multi-agent AI', 'System wieloagentowy AI'), items: tr('Multi-agent orchestration using xAI Grok and the OpenAI Responses API, with specialized research, planning, validation, and guardian agents', 'Orkiestracja wielu agentów wykorzystująca xAI Grok i OpenAI Responses API, ze specjalizowanymi agentami do researchu, planowania, walidacji i kontroli jakości') },
+      { label: tr('Agent infrastructure', 'Infrastruktura agentowa'), items: tr('Native web search, structured outputs, tool calling, multi-pass evaluation, usage tracking, and durable background jobs', 'Natywne wyszukiwanie internetowe, strukturyzowane odpowiedzi, wywoływanie narzędzi, wieloetapowa ewaluacja, monitoring użycia i trwałe zadania w tle') },
+      { label: tr('Cross-platform architecture', 'Architektura wieloplatformowa'), items: tr('Next.js, React, Expo, React Native, TypeScript, and Turborepo with shared types and domain logic', 'Next.js, React, Expo, React Native, TypeScript i Turborepo ze współdzielonymi typami i logiką domenową') },
+      { label: tr('Data & security', 'Dane i bezpieczeństwo'), items: tr('Supabase PostgreSQL, authentication, storage, RLS, durable jobs, and end-to-end encryption', 'Supabase PostgreSQL, uwierzytelnianie, storage, RLS, trwałe zadania i szyfrowanie end-to-end') },
+      { label: tr('Travel intelligence', 'Inteligencja podróżna'), items: tr('MapLibre, HERE, LiteAPI, Tripadvisor, Wikipedia, Wikidata, and live exchange-rate data', 'MapLibre, HERE, LiteAPI, Tripadvisor, Wikipedia, Wikidata i dane kursów walut w czasie rzeczywistym') },
+      { label: tr('Commerce & deployment', 'Płatności i wdrożenie'), items: tr('Stripe, RevenueCat, Railway, Vercel, and native push-notification delivery', 'Stripe, RevenueCat, Railway, Vercel i natywna obsługa powiadomień push') },
+    ],
   },
   {
     id: 'twojasiec',
@@ -167,6 +182,11 @@ function buildAllProjects(language: Language): Project[] {
       { src: twojaSiecEventDetails, alt: tr('Twoja Sieć local event details', 'Szczegóły lokalnego wydarzenia w aplikacji Twoja Sieć'), variant: 'phone' },
       { src: twojaSiecEvents, alt: tr('Twoja Sieć local events calendar', 'Kalendarz lokalnych wydarzeń w aplikacji Twoja Sieć'), variant: 'phone' },
       { src: twojaSiecAlerts, alt: tr('Twoja Sieć local safety and traffic alerts', 'Lokalne alerty bezpieczeństwa i drogowe w aplikacji Twoja Sieć'), variant: 'phone' },
+    ],
+    technologies: [
+      { label: tr('Mobile stack', 'Stack mobilny'), items: 'Expo, React Native, React, TypeScript' },
+      { label: tr('Location', 'Lokalizacja'), items: tr('Device geolocation, reverse geocoding, and radius-based personalization', 'Geolokalizacja urządzenia, geokodowanie odwrotne i personalizacja według promienia') },
+      { label: tr('Native integrations', 'Integracje natywne'), items: tr('Calendar event creation, map routing, in-app browsing, and native sharing', 'Tworzenie wydarzeń w kalendarzu, nawigacja w mapach, przeglądarka w aplikacji i natywne udostępnianie') },
     ],
   },
   {

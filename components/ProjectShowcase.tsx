@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Apple, Play, ArrowUpRight, LucideIcon } from 'lucide-react';
+import { Apple, Play, ArrowUpRight, ChevronDown, LucideIcon } from 'lucide-react';
 import { Project } from '../types';
 import { ScreenshotGallery } from './ScreenshotGallery';
 import { useLanguage } from '../context/LanguageContext';
@@ -92,6 +92,38 @@ const ProjectLinks = ({ project }: { project: Project }) => {
   );
 };
 
+const ProjectTechnologies = ({ project }: { project: Project }) => {
+  const { site } = useLanguage();
+
+  if (!project.technologies?.length) return null;
+
+  return (
+    <details className="group overflow-hidden rounded-xl border border-stone-200/70 bg-white/60 dark:border-stone-700/60 dark:bg-stone-800/25">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-stone-50/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-stone-400 dark:text-stone-100 dark:hover:bg-stone-800/60 [&::-webkit-details-marker]:hidden">
+        <span>{site.ui.technologies_used}</span>
+        <ChevronDown
+          size={16}
+          strokeWidth={1.75}
+          aria-hidden="true"
+          className="shrink-0 text-stone-400 transition-transform duration-200 group-open:rotate-180 dark:text-stone-500"
+        />
+      </summary>
+      <dl className="grid gap-x-8 gap-y-5 border-t border-stone-200/70 px-4 py-5 sm:grid-cols-2 sm:px-5 lg:grid-cols-3 lg:px-6 dark:border-stone-700/60">
+        {project.technologies.map((technology) => (
+          <div key={technology.label} className="min-w-0">
+            <dt className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-stone-400 dark:text-stone-500">
+              {technology.label}
+            </dt>
+            <dd className="text-[13px] leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
+              {technology.items}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </details>
+  );
+};
+
 export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => {
   const { site } = useLanguage();
   const isWordmark = project.iconStyle === 'wordmark';
@@ -173,6 +205,12 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
           <ScreenshotGallery screenshots={screenshots} projectName={project.name} />
         </div>
       </div>
+
+      {project.technologies?.length ? (
+        <div className="mt-6 sm:mt-8">
+          <ProjectTechnologies project={project} />
+        </div>
+      ) : null}
     </motion.article>
   );
 };

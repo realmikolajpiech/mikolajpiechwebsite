@@ -36,6 +36,7 @@
     "platform": "Platform",
     "category": "Category",
     "scope": "Scope",
+    "technologies_used": "Technologies used",
     "visit": "Visit",
     "website_preview": "website preview",
     "preview": "preview",
