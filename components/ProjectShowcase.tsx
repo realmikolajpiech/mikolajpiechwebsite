@@ -98,8 +98,8 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
   if (!project.technologies?.length) return null;
 
   return (
-    <details className="group border-y border-stone-200/80 dark:border-stone-700/70">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-sm font-medium text-ink outline-none transition-colors hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-400/40 dark:text-stone-100 dark:hover:text-stone-300 [&::-webkit-details-marker]:hidden">
+    <details className="group">
+      <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-sm py-1 text-sm font-medium text-ink outline-none transition-colors hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-400/40 dark:text-stone-100 dark:hover:text-stone-300 [&::-webkit-details-marker]:hidden">
         <span>{site.ui.technologies_used}</span>
         <ChevronDown
           size={15}
@@ -109,7 +109,7 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
         />
       </summary>
 
-      <dl className="grid gap-x-10 gap-y-5 border-t border-stone-200/70 py-5 sm:grid-cols-2 lg:grid-cols-3 dark:border-stone-700/60">
+      <dl className="grid gap-x-10 gap-y-5 pt-5 sm:grid-cols-2 lg:grid-cols-3">
         {project.technologies.map((technology) => (
           <div
             key={technology.label}
