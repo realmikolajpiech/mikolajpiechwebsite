@@ -131,7 +131,7 @@ export default function Portfolio() {
                       id={project.id}
                       className="scroll-mt-[7.75rem] pt-14 lg:pt-0 lg:scroll-mt-32 overflow-visible"
                     >
-                      <ProjectShowcase project={project} index={index} total={projects.length} />
+                      <ProjectShowcase project={project} />
                     </section>
                   </React.Fragment>
                 ))}

@@ -7,8 +7,6 @@ import { useLanguage } from '../context/LanguageContext';
 
 interface ProjectShowcaseProps {
   project: Project;
-  index: number;
-  total: number;
 }
 
 const StatusBadge = ({ status, className = '' }: { status: string; className?: string }) => {
@@ -102,40 +100,27 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
   return (
     <section
       aria-labelledby={`${project.id}-technologies`}
-      className="grid gap-7 border-t border-stone-200/80 pt-7 sm:gap-9 sm:pt-9 lg:grid-cols-12 lg:gap-12 dark:border-stone-700/70"
+      className="border-t border-stone-200/80 pt-6 sm:pt-8 dark:border-stone-700/70"
     >
-      <div className="lg:col-span-3">
-        <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.16em] text-stone-400 dark:text-stone-500">
-          {site.ui.inside_the_build}
-        </p>
-        <h3
-          id={`${project.id}-technologies`}
-          className="text-2xl font-serif font-light leading-tight text-ink sm:text-[1.75rem] dark:text-stone-50"
-        >
-          {site.ui.technologies_used}
-        </h3>
-        <p className="mt-2 max-w-xs text-xs leading-relaxed text-stone-500 dark:text-stone-400">
-          {site.ui.technology_intro}
-        </p>
-      </div>
+      <h3
+        id={`${project.id}-technologies`}
+        className="mb-5 text-sm font-medium text-ink dark:text-stone-100"
+      >
+        {site.ui.technologies_used}
+      </h3>
 
-      <dl className="grid gap-x-10 sm:grid-cols-2 lg:col-span-9">
-        {project.technologies.map((technology, index) => (
+      <dl className="grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+        {project.technologies.map((technology) => (
           <div
             key={technology.label}
-            className="grid min-w-0 grid-cols-[1.75rem_1fr] gap-2.5 border-t border-stone-200/70 py-4 first:border-t-0 first:pt-0 sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(2)]:pt-0 dark:border-stone-700/60"
+            className="min-w-0"
           >
-            <span className="pt-0.5 text-[10px] tabular-nums text-stone-300 dark:text-stone-600" aria-hidden="true">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-            <div className="min-w-0">
-              <dt className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.13em] text-stone-500 dark:text-stone-400">
-                {technology.label}
-              </dt>
-              <dd className="text-[13px] leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
-                {technology.items}
-              </dd>
-            </div>
+            <dt className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.13em] text-stone-500 dark:text-stone-400">
+              {technology.label}
+            </dt>
+            <dd className="text-[13px] leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
+              {technology.items}
+            </dd>
           </div>
         ))}
       </dl>
@@ -143,7 +128,7 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
   );
 };
 
-export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project, index, total }) => {
+export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => {
   const { site } = useLanguage();
   const isWordmark = project.iconStyle === 'wordmark';
   const metaItems = [
@@ -163,15 +148,6 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project, index
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="w-full max-w-full overflow-visible"
     >
-      <div className="mb-6 flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.16em] text-stone-400 sm:mb-8 dark:text-stone-500">
-        <span className="tabular-nums text-stone-500 dark:text-stone-400">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-        <span className="h-px w-8 bg-stone-200 dark:bg-stone-700" aria-hidden="true" />
-        <span>{site.projects.title}</span>
-        <span className="ml-auto tabular-nums">{String(total).padStart(2, '0')}</span>
-      </div>
-
       <div className="grid items-start gap-8 overflow-visible sm:gap-10 lg:grid-cols-12 lg:gap-14">
         <div className="min-w-0 space-y-5 lg:col-span-5 lg:pt-2">
           <header className="space-y-4">
