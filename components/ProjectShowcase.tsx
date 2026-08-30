@@ -128,29 +128,6 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
   );
 };
 
-const ProjectStory = ({ project }: { project: Project }) => {
-  const { site } = useLanguage();
-
-  if (!project.whyBuiltIt) return null;
-
-  return (
-    <details className="group">
-      <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-sm py-1 text-sm font-medium text-ink outline-none transition-colors hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-400/40 dark:text-stone-100 dark:hover:text-stone-300 [&::-webkit-details-marker]:hidden">
-        <span>{site.ui.why_i_built_it}</span>
-        <ChevronDown
-          size={15}
-          strokeWidth={1.75}
-          aria-hidden="true"
-          className="shrink-0 text-stone-400 transition-transform duration-200 group-open:rotate-180 dark:text-stone-500"
-        />
-      </summary>
-      <p className="max-w-3xl pt-4 text-sm font-light leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
-        {project.whyBuiltIt}
-      </p>
-    </details>
-  );
-};
-
 export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => {
   const { site } = useLanguage();
   const isWordmark = project.iconStyle === 'wordmark';
@@ -205,6 +182,12 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
                 {summary}
               </p>
             )}
+
+            {project.whyBuiltIt && (
+              <p className="max-w-md font-serif text-sm italic leading-relaxed text-stone-500 text-pretty break-words sm:text-[15px] dark:text-stone-400">
+                {project.whyBuiltIt}
+              </p>
+            )}
           </header>
 
           <dl className="grid grid-cols-2 border-y border-stone-200/80 dark:border-stone-700/70">
@@ -237,9 +220,8 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
         </div>
       </div>
 
-      {project.whyBuiltIt || project.technologies?.length ? (
-        <div className="mt-8 space-y-4 sm:mt-10 lg:mt-12">
-          <ProjectStory project={project} />
+      {project.technologies?.length ? (
+        <div className="mt-8 sm:mt-10 lg:mt-12">
           <ProjectTechnologies project={project} />
         </div>
       ) : null}

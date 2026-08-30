@@ -59,6 +59,10 @@ function buildAllProjects(language: Language): Project[] {
     name: 'Charmy Books',
     tagline: site.projects.justmine.tagline,
     description: site.projects.justmine.description,
+    whyBuiltIt: tr(
+      "Personalized children's books have existed for years, but most personalization stops at changing a name or inserting a few predefined details. I wanted to see what becomes possible when the entire story and visual world can be generated specifically for one child, while still producing something coherent enough to feel like a real book rather than a collection of AI outputs.",
+      'Spersonalizowane książki dla dzieci istnieją od lat, ale w większości z nich personalizacja kończy się na zmianie imienia lub dodaniu kilku wcześniej zdefiniowanych szczegółów. Chciałem sprawdzić, co staje się możliwe, gdy cała historia i jej wizualny świat powstają specjalnie dla jednego dziecka, a jednocześnie pozostają na tyle spójne, by całość przypominała prawdziwą książkę, a nie zbiór wyników wygenerowanych przez AI.',
+    ),
     tags: isPl ? ['Dzieci', 'Personalizacja', 'Internet', 'AI'] : ['Kids', 'Personalization', 'Web', 'AI'],
     platform: tr('Web app', 'Aplikacja internetowa'),
     category: tr('Personalized Publishing', 'Książki personalizowane'),
@@ -210,6 +214,10 @@ function buildAllProjects(language: Language): Project[] {
     tagline: site.projects.subby.tagline,
     description: site.projects.subby.description,
     outcome: tr('Helps people track subscriptions and trials before they turn into unwanted charges.', 'Pomaga kontrolować subskrypcje i okresy próbne, zanim zmienią się w niechciane opłaty.'),
+    whyBuiltIt: tr(
+      'Subscription tracking looks simple until you try to make it genuinely useful. The real problem is not storing a list of subscriptions, but understanding recurring payments, different billing cycles, trials, renewals and what a transaction actually represents. I built Subby around reducing that complexity into something users can understand at a glance.',
+      'Śledzenie subskrypcji wydaje się proste, dopóki nie spróbujesz zrobić tego naprawdę użytecznie. Prawdziwym problemem nie jest zapisanie listy subskrypcji, lecz zrozumienie płatności cyklicznych, różnych okresów rozliczeniowych, wersji próbnych, odnowień oraz tego, co dana transakcja faktycznie oznacza. Zbudowałem Subby tak, aby sprowadzić tę złożoność do formy, którą użytkownik może zrozumieć na pierwszy rzut oka.',
+    ),
     tags: isPl ? ['FinTech', 'Finanse', 'Aplikacja mobilna'] : ['FinTech', 'Utility', 'Mobile App'],
     platform: 'iOS · Android',
     category: tr('Finance & Utility', 'Finanse osobiste'),
@@ -237,6 +245,10 @@ function buildAllProjects(language: Language): Project[] {
     name: 'Doso',
     tagline: site.projects.doso.tagline,
     description: site.projects.doso.description,
+    whyBuiltIt: tr(
+      'Health information is usually fragmented across medication reminders, lab reports, notes and separate health apps. I wanted to explore what a personal health system could look like if those pieces shared context, while keeping sensitive data local and treating reliability and safety as core engineering constraints rather than afterthoughts.',
+      'Informacje o zdrowiu są zwykle rozproszone między przypomnieniami o lekach, wynikami badań, notatkami i osobnymi aplikacjami zdrowotnymi. Chciałem sprawdzić, jak mógłby wyglądać osobisty system zdrowotny, gdyby wszystkie te elementy współdzieliły kontekst, a wrażliwe dane pozostawały lokalnie na urządzeniu, zaś niezawodność i bezpieczeństwo były podstawowymi wymaganiami technicznymi, a nie dodatkiem na końcu.',
+    ),
     tags: isPl ? ['Zdrowie', 'Aplikacja mobilna', 'AI'] : ['Health', 'Mobile App', 'AI'],
     platform: 'iOS',
     category: tr('Health & Wellness', 'Zdrowie'),
@@ -266,6 +278,10 @@ function buildAllProjects(language: Language): Project[] {
     name: 'Solvee',
     tagline: site.projects.solvee.tagline,
     description: site.projects.solvee.description,
+    whyBuiltIt: tr(
+      'I noticed that getting an answer to a school problem was easy, but getting an explanation that actually helped you understand it was not. I built Solvee around that distinction: take any problem, whether photographed or typed, understand what kind of problem it is, and turn the answer into a structured, interactive learning experience. I took it from an idea to 25k+ downloads before eventually selling the product.',
+      'Zauważyłem, że łatwo jest dostać odpowiedź na szkolne zadanie, ale znacznie trudniej znaleźć wyjaśnienie, które naprawdę pomaga je zrozumieć. Zbudowałem Solvee wokół tej różnicy: aplikacja przyjmuje dowolne zadanie — sfotografowane lub wpisane — rozpoznaje jego rodzaj i zamienia odpowiedź w uporządkowane, interaktywne doświadczenie edukacyjne. Rozwinąłem produkt od pomysłu do ponad 25 tys. pobrań, a następnie go sprzedałem.',
+    ),
     tags: isPl ? ['Aplikacja mobilna', 'Edukacja', 'AI'] : ['Mobile App', 'Education', 'AI'],
     platform: 'iOS · Android',
     category: tr('Education · AI', 'Edukacja · AI'),
