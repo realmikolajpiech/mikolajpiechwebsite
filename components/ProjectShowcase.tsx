@@ -99,14 +99,19 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
 
   return (
     <details className="group">
-      <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-full bg-stone-100/90 px-3.5 py-2 text-[13px] font-medium text-stone-700 outline-none transition-colors hover:bg-stone-200/80 focus-visible:ring-2 focus-visible:ring-stone-400/40 dark:bg-stone-800 dark:text-stone-200 dark:hover:bg-stone-700/80 [&::-webkit-details-marker]:hidden">
-        <span>{site.ui.technologies_used}</span>
-        <ChevronDown
-          size={15}
-          strokeWidth={1.75}
-          aria-hidden="true"
-          className="shrink-0 text-stone-500 transition-transform duration-200 group-open:rotate-180 dark:text-stone-400"
-        />
+      <summary className="inline-flex cursor-pointer list-none flex-col items-start rounded-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-stone-400/40 [&::-webkit-details-marker]:hidden">
+        <span className="mb-1.5 text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500">
+          {site.ui.tech_stack}
+        </span>
+        <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-ink transition-colors group-hover:text-stone-600 sm:text-sm dark:text-stone-100 dark:group-hover:text-stone-300">
+          {site.ui.technologies_used}
+          <ChevronDown
+            size={15}
+            strokeWidth={1.75}
+            aria-hidden="true"
+            className="shrink-0 text-stone-400 transition-transform duration-200 group-open:rotate-180 dark:text-stone-500"
+          />
+        </span>
       </summary>
 
       <dl className="mt-3 grid gap-x-10 gap-y-5 rounded-xl bg-stone-100/60 p-4 sm:grid-cols-2 sm:p-5 dark:bg-stone-800/45">

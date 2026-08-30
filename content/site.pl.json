@@ -36,6 +36,7 @@
     "platform": "Platforma",
     "category": "Kategoria",
     "scope": "Zakres",
+    "tech_stack": "Technologie",
     "technologies_used": "Wykorzystane technologie",
     "visit": "Odwiedź",
     "website_preview": "podgląd strony",
