@@ -13,7 +13,7 @@ import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
-const FEATURED_PROJECT_IDS = ['justmine', 'solvee', 'trailo', 'doso'];
+const FEATURED_PROJECT_IDS = ['justmine', 'solvee', 'trailo', 'subby'];
 const CAPABILITY_ICONS = [PanelsTopLeft, Smartphone, Monitor];
 
 const XLogo = ({ className }: { className?: string }) => (
