@@ -13,8 +13,7 @@ import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
-// Subby adds a shipped mobile product to the homepage mix and complements the web and AI work.
-const FEATURED_PROJECT_IDS = ['justmine', 'subby', 'trailo', 'solvee'];
+const FEATURED_PROJECT_IDS = ['justmine', 'solvee', 'trailo', 'doso'];
 const CAPABILITY_ICONS = [PanelsTopLeft, Smartphone, Monitor];
 
 const XLogo = ({ className }: { className?: string }) => (
