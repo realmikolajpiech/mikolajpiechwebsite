@@ -38,7 +38,16 @@ export default function Home() {
   const year = new Date().getFullYear();
 
   const projects = getProjects(language);
-  const featuredProjects = FEATURED_PROJECT_IDS.flatMap((id) => projects.filter((project) => project.id === id));
+  const homepageDescriptions: Record<string, string> = {
+    justmine: site.projects.justmine.homepage_description,
+    solvee: site.projects.solvee.homepage_description,
+  };
+  const featuredProjects = FEATURED_PROJECT_IDS
+    .flatMap((id) => projects.filter((project) => project.id === id))
+    .map((project) => ({
+      ...project,
+      description: homepageDescriptions[project.id] ?? project.description,
+    }));
   const pageMeta = getPageMeta('home', site, language);
   const portfolioPath = getLocalizedPath('portfolio', language);
   const privacyPath = getLocalizedPath('privacy', language);

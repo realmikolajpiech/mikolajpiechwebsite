@@ -117,9 +117,10 @@
   },
   "projects": {
     "title": "Wybrane projekty",
-    "subtitle": "Wybrane produkty, które zaprojektowałem, stworzyłem i wprowadziłem na rynek – w wersji internetowej, na iOS i Androidzie.",
+    "subtitle": "Produkty, które zaprojektowałem, stworzyłem i wdrożyłem na web, iOS i Androida.",
     "justmine": {
       "tagline": "Spersonalizowane książki dla dzieci.",
+      "homepage_description": "Spersonalizowane książki dla dzieci generowane przez AI, w których dziecko staje się głównym bohaterem w pełni ilustrowanej historii.",
       "description": "Platforma do tworzenia spersonalizowanych książek dla dzieci. Dziecko staje się głównym bohaterem pięknie napisanej i zilustrowanej historii dopasowanej do jego wyglądu, zainteresowań, rodziny i wspomnień.",
       "link_text": "Odwiedź stronę"
     },
@@ -146,6 +147,7 @@
     },
     "solvee": {
       "tagline": "Pomoc w zadaniach domowych z AI",
+      "homepage_description": "Stworzyłem, uruchomiłem i rozwinąłem aplikację AI do zadań domowych do ponad 25 tys. pobrań, a następnie ją sprzedałem. Uczniowie mogli sfotografować dowolne zadanie i otrzymać szczegółowe wyjaśnienie krok po kroku.",
       "description": "Stworzyłem, rozwinąłem i sprzedałem tę aplikację. Pomogła ponad 25 tysiącom uczniów rozwiązywać zadania dzięki szczegółowym wyjaśnieniom generowanym przez AI. Była dostępna na iOS i Androidzie.",
       "status": "Sprzedany"
     },
