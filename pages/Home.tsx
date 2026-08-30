@@ -214,10 +214,10 @@ export default function Home() {
                     transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                     className="rounded-2xl bg-white/80 dark:bg-stone-900/70 border border-stone-200/80 dark:border-stone-800 p-6 md:p-7 min-h-[15rem] flex flex-col"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-600 dark:text-stone-300 mb-auto">
+                    <div className="w-10 h-10 rounded-xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-600 dark:text-stone-300 mb-10">
                       <Icon size={19} strokeWidth={1.6} />
                     </div>
-                    <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-3">
+                    <h3 className="text-2xl font-serif text-ink dark:text-stone-50 mb-3">
                       {item.title}
                     </h3>
                     <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
