@@ -166,17 +166,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   {project.linkText}
                 </Button>
               )}
-              {project.appStoreLink && (
-                <a href={project.appStoreLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 transition-colors flex-1 sm:flex-none min-w-[calc(50%-0.25rem)] sm:min-w-0">
-                  <Apple size={14} strokeWidth={1.75} /> 
-                  App Store
-                </a>
-              )}
-              {project.playStoreLink && (
-                <a href={project.playStoreLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 transition-colors flex-1 sm:flex-none min-w-[calc(50%-0.25rem)] sm:min-w-0">
-                  <Play size={14} strokeWidth={1.75} /> 
-                  Play Store
-                </a>
+              {(project.appStoreLink || project.playStoreLink) && (
+                <div className="flex flex-nowrap gap-2">
+                  {project.appStoreLink && (
+                    <a href={project.appStoreLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 whitespace-nowrap px-3 py-2.5 rounded-full text-xs font-medium border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 transition-colors">
+                      <Apple size={14} strokeWidth={1.75} />
+                      App Store
+                    </a>
+                  )}
+                  {project.playStoreLink && (
+                    <a href={project.playStoreLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 whitespace-nowrap px-3 py-2.5 rounded-full text-xs font-medium border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 transition-colors">
+                      <Play size={14} strokeWidth={1.75} />
+                      Play Store
+                    </a>
+                  )}
+                </div>
               )}
             </div>
           )}
