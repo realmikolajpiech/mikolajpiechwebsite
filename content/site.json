@@ -171,7 +171,7 @@
     "title": "Built, shipped, and used.",
     "description": "I don't stop at mockups or code. I take products from an early idea to real people using them.",
     "items": [
-      { "value": "6+", "label": "products shipped" },
+      { "value": "7+", "label": "products shipped" },
       { "value": "30k+", "label": "downloads" },
       { "value": "1", "label": "product sold" }
     ]
