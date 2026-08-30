@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Apple, Play, ArrowUpRight, LucideIcon } from 'lucide-react';
+import { Apple, Play, ArrowUpRight, ChevronDown, LucideIcon } from 'lucide-react';
 import { Project } from '../types';
 import { ScreenshotGallery } from './ScreenshotGallery';
 import { useLanguage } from '../context/LanguageContext';
@@ -98,18 +98,18 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
   if (!project.technologies?.length) return null;
 
   return (
-    <section
-      aria-labelledby={`${project.id}-technologies`}
-      className="border-t border-stone-200/80 pt-6 sm:pt-8 dark:border-stone-700/70"
-    >
-      <h3
-        id={`${project.id}-technologies`}
-        className="mb-5 text-sm font-medium text-ink dark:text-stone-100"
-      >
-        {site.ui.technologies_used}
-      </h3>
+    <details className="group border-y border-stone-200/80 dark:border-stone-700/70">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-sm font-medium text-ink outline-none transition-colors hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-400/40 dark:text-stone-100 dark:hover:text-stone-300 [&::-webkit-details-marker]:hidden">
+        <span>{site.ui.technologies_used}</span>
+        <ChevronDown
+          size={15}
+          strokeWidth={1.75}
+          aria-hidden="true"
+          className="shrink-0 text-stone-400 transition-transform duration-200 group-open:rotate-180 dark:text-stone-500"
+        />
+      </summary>
 
-      <dl className="grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+      <dl className="grid gap-x-10 gap-y-5 border-t border-stone-200/70 py-5 sm:grid-cols-2 lg:grid-cols-3 dark:border-stone-700/60">
         {project.technologies.map((technology) => (
           <div
             key={technology.label}
@@ -124,7 +124,7 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
           </div>
         ))}
       </dl>
-    </section>
+    </details>
   );
 };
 
