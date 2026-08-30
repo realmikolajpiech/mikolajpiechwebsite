@@ -146,6 +146,10 @@ function buildAllProjects(language: Language): Project[] {
     name: 'Trailo',
     tagline: site.projects.trailo.tagline,
     description: site.projects.trailo.description,
+    whyBuiltIt: tr(
+      'I love traveling, but planning a trip still means stitching together flights, hotels, places, opening hours, tickets, routes, budgets and notes across a dozen different tools. I wanted to rethink the experience from the ground up: instead of building another itinerary generator, I treated the entire trip as one connected system and built Trailo around everything a traveler needs before and during the journey.',
+      'Uwielbiam podróżować, ale planowanie wyjazdu nadal oznacza łączenie lotów, hoteli, miejsc, godzin otwarcia, biletów, tras, budżetów i notatek rozsianych po kilkunastu różnych narzędziach. Chciałem przemyśleć to doświadczenie od podstaw: zamiast tworzyć kolejny generator planu podróży, potraktowałem cały wyjazd jako jeden połączony system i zbudowałem Trailo wokół wszystkiego, czego podróżnik potrzebuje przed podróżą i w jej trakcie.',
+    ),
     tags: isPl ? ['Podróże', 'Internet', 'Aplikacja mobilna', 'AI'] : ['Travel', 'Web', 'Mobile App', 'AI'],
     platform: 'Web · iOS · Android',
     category: tr('AI Travel', 'Podróże z AI'),

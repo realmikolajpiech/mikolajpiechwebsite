@@ -37,6 +37,7 @@ export interface Project {
   operatingSystem?: string;
   screenshots?: ProjectScreenshot[];
   outcome?: string;
+  whyBuiltIt?: string;
   technologies?: ProjectTechnology[];
 }
 
