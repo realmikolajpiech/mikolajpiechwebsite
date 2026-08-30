@@ -26,6 +26,7 @@ export interface Project {
   tags: string[];
   platform: string;
   category: string;
+  role: string;
   scope: string;
   status?: string;
   isPrimary?: boolean;

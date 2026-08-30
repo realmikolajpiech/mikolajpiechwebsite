@@ -41,6 +41,7 @@ export default function Home() {
   const homepageDescriptions: Record<string, string> = {
     justmine: site.projects.justmine.homepage_description,
     solvee: site.projects.solvee.homepage_description,
+    subby: site.projects.subby.homepage_description,
   };
   const featuredProjects = FEATURED_PROJECT_IDS
     .flatMap((id) => projects.filter((project) => project.id === id))

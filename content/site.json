@@ -35,6 +35,7 @@
     "project_navigation": "Project navigation",
     "platform": "Platform",
     "category": "Category",
+    "role": "Role",
     "scope": "Scope",
     "tech_stack": "Tech stack",
     "technologies_used": "Technologies used",
@@ -63,7 +64,7 @@
     "error_code": "Error 404"
   },
   "hero": {
-    "headline_line1": "I design and build",
+    "headline_line1": "I build and ship",
     "headline_line2": "digital products.",
     "intro": "I'm Mikołaj — a founder and developer who turns ideas into polished products people actually use.",
     "description": "Web apps, mobile apps, and websites — from product design and development to launch.",
@@ -153,6 +154,7 @@
     },
     "subby": {
       "tagline": "Subscription Manager",
+      "homepage_description": "I built Subby after losing money on forgotten free trials—a simple place to track subscriptions, see upcoming charges, and get warned before renewals.",
       "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly."
     },
     "doso": {

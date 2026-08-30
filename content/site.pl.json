@@ -35,6 +35,7 @@
     "project_navigation": "Nawigacja po projektach",
     "platform": "Platforma",
     "category": "Kategoria",
+    "role": "Rola",
     "scope": "Zakres",
     "tech_stack": "Technologie",
     "technologies_used": "Wykorzystane technologie",
@@ -63,7 +64,7 @@
     "error_code": "Błąd 404"
   },
   "hero": {
-    "headline_line1": "Projektuję i tworzę",
+    "headline_line1": "Tworzę i wdrażam",
     "headline_line2": "produkty cyfrowe.",
     "intro": "Cześć, jestem Mikołaj. Projektuję i buduję aplikacje internetowe, mobilne oraz strony internetowe – od pierwszej koncepcji po gotowy produkt.",
     "description": "",
@@ -153,6 +154,7 @@
     },
     "subby": {
       "tagline": "Menedżer subskrypcji",
+      "homepage_description": "Stworzyłem Subby po tym, jak traciłem pieniądze na zapomniane okresy próbne—proste miejsce do śledzenia subskrypcji, nadchodzących opłat i ostrzeżeń przed odnowieniem.",
       "description": "Już nigdy nie zapomnij o kończącym się okresie próbnym. Kontroluj subskrypcje, pilnuj wydatków i unikaj niechcianych opłat."
     },
     "doso": {

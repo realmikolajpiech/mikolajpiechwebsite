@@ -154,7 +154,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
   const isWordmark = project.iconStyle === 'wordmark';
   const metaItems = [
     { key: 'platform', label: site.ui.platform },
-    { key: 'scope', label: site.ui.scope },
+    { key: 'role', label: site.ui.role },
   ] as const;
   const screenshots = project.screenshots ?? (project.image ? [{ src: project.image, alt: `${project.name} ${site.ui.preview}`, variant: 'phone' as const }] : []);
   const useSiteDescription = ['trailo', 'doso', 'solvee' /* , 'platoic' */].includes(project.id);
