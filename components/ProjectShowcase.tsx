@@ -1,12 +1,14 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Apple, Play, ArrowUpRight, ChevronDown, LucideIcon } from 'lucide-react';
+import { Apple, Play, ArrowUpRight, LucideIcon } from 'lucide-react';
 import { Project } from '../types';
 import { ScreenshotGallery } from './ScreenshotGallery';
 import { useLanguage } from '../context/LanguageContext';
 
 interface ProjectShowcaseProps {
   project: Project;
+  index: number;
+  total: number;
 }
 
 const StatusBadge = ({ status, className = '' }: { status: string; className?: string }) => {
@@ -68,7 +70,7 @@ const ProjectLinks = ({ project }: { project: Project }) => {
   if (links.length === 0) return null;
 
   return (
-    <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2">
       {links.map((link) => {
         const Icon = link.icon;
         return (
@@ -77,7 +79,7 @@ const ProjectLinks = ({ project }: { project: Project }) => {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-200 w-full sm:w-auto ${
+            className={`inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium transition-all duration-200 ${
               link.primary
                 ? 'bg-ink text-off-white dark:bg-stone-100 dark:text-ink hover:bg-stone-800 dark:hover:bg-stone-200 shadow-sm'
                 : 'border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-800/70'
@@ -98,33 +100,50 @@ const ProjectTechnologies = ({ project }: { project: Project }) => {
   if (!project.technologies?.length) return null;
 
   return (
-    <details className="group overflow-hidden rounded-xl border border-stone-200/70 bg-white/60 dark:border-stone-700/60 dark:bg-stone-800/25">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-3.5 text-sm font-medium text-ink transition-colors hover:bg-stone-50/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-stone-400 dark:text-stone-100 dark:hover:bg-stone-800/60 [&::-webkit-details-marker]:hidden">
-        <span>{site.ui.technologies_used}</span>
-        <ChevronDown
-          size={16}
-          strokeWidth={1.75}
-          aria-hidden="true"
-          className="shrink-0 text-stone-400 transition-transform duration-200 group-open:rotate-180 dark:text-stone-500"
-        />
-      </summary>
-      <dl className="grid gap-x-8 gap-y-5 border-t border-stone-200/70 px-4 py-5 sm:grid-cols-2 sm:px-5 lg:grid-cols-3 lg:px-6 dark:border-stone-700/60">
-        {project.technologies.map((technology) => (
-          <div key={technology.label} className="min-w-0">
-            <dt className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-stone-400 dark:text-stone-500">
-              {technology.label}
-            </dt>
-            <dd className="text-[13px] leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
-              {technology.items}
-            </dd>
+    <section
+      aria-labelledby={`${project.id}-technologies`}
+      className="grid gap-7 border-t border-stone-200/80 pt-7 sm:gap-9 sm:pt-9 lg:grid-cols-12 lg:gap-12 dark:border-stone-700/70"
+    >
+      <div className="lg:col-span-3">
+        <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.16em] text-stone-400 dark:text-stone-500">
+          {site.ui.inside_the_build}
+        </p>
+        <h3
+          id={`${project.id}-technologies`}
+          className="text-2xl font-serif font-light leading-tight text-ink sm:text-[1.75rem] dark:text-stone-50"
+        >
+          {site.ui.technologies_used}
+        </h3>
+        <p className="mt-2 max-w-xs text-xs leading-relaxed text-stone-500 dark:text-stone-400">
+          {site.ui.technology_intro}
+        </p>
+      </div>
+
+      <dl className="grid gap-x-10 sm:grid-cols-2 lg:col-span-9">
+        {project.technologies.map((technology, index) => (
+          <div
+            key={technology.label}
+            className="grid min-w-0 grid-cols-[1.75rem_1fr] gap-2.5 border-t border-stone-200/70 py-4 first:border-t-0 first:pt-0 sm:[&:nth-child(2)]:border-t-0 sm:[&:nth-child(2)]:pt-0 dark:border-stone-700/60"
+          >
+            <span className="pt-0.5 text-[10px] tabular-nums text-stone-300 dark:text-stone-600" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <div className="min-w-0">
+              <dt className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.13em] text-stone-500 dark:text-stone-400">
+                {technology.label}
+              </dt>
+              <dd className="text-[13px] leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
+                {technology.items}
+              </dd>
+            </div>
           </div>
         ))}
       </dl>
-    </details>
+    </section>
   );
 };
 
-export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => {
+export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project, index, total }) => {
   const { site } = useLanguage();
   const isWordmark = project.iconStyle === 'wordmark';
   const metaItems = [
@@ -144,11 +163,20 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="w-full max-w-full overflow-visible"
     >
-      <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16 items-start overflow-visible">
-        <div className="lg:col-span-5 space-y-4 sm:space-y-6 min-w-0">
-          <header className="space-y-3 sm:space-y-4">
-            <div className="space-y-2.5">
-              <div className="flex items-center gap-3 min-w-0">
+      <div className="mb-6 flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.16em] text-stone-400 sm:mb-8 dark:text-stone-500">
+        <span className="tabular-nums text-stone-500 dark:text-stone-400">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <span className="h-px w-8 bg-stone-200 dark:bg-stone-700" aria-hidden="true" />
+        <span>{site.projects.title}</span>
+        <span className="ml-auto tabular-nums">{String(total).padStart(2, '0')}</span>
+      </div>
+
+      <div className="grid items-start gap-8 overflow-visible sm:gap-10 lg:grid-cols-12 lg:gap-14">
+        <div className="min-w-0 space-y-5 lg:col-span-5 lg:pt-2">
+          <header className="space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3.5 min-w-0">
                 {project.icon && (
                   <div className="relative shrink-0">
                     <img
@@ -157,15 +185,15 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
                       aria-hidden="true"
                       className={isWordmark
                         ? 'w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain'
-                        : 'w-11 h-11 sm:w-14 sm:h-14 md:w-[3.75rem] md:h-[3.75rem] rounded-[22%] object-contain p-1 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.2)] ring-1 ring-black/[0.06] dark:ring-white/10'}
+                        : 'w-12 h-12 sm:w-14 sm:h-14 md:w-[3.75rem] md:h-[3.75rem] rounded-[22%] object-contain p-1 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.2)] ring-1 ring-black/[0.06] dark:ring-white/10'}
                     />
                   </div>
                 )}
                 <div className="min-w-0 flex-1">
-                  <h2 className="text-xl sm:text-[1.65rem] md:text-[2rem] font-serif font-light text-ink dark:text-stone-50 tracking-tight leading-none">
+                  <h2 className="text-[1.65rem] sm:text-[1.85rem] md:text-[2rem] font-serif font-light text-ink dark:text-stone-50 tracking-tight leading-none">
                     {project.name}
                   </h2>
-                  <p className="mt-1 text-sm sm:text-[0.9375rem] md:text-base font-serif italic text-stone-500 dark:text-stone-400 leading-snug text-pretty break-words">
+                  <p className="mt-1.5 text-sm sm:text-[0.9375rem] md:text-base font-serif italic text-stone-500 dark:text-stone-400 leading-snug text-pretty break-words">
                     {project.tagline}
                   </p>
                 </div>
@@ -174,24 +202,28 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
             </div>
 
             {summary && (
-              <p className="text-sm sm:text-[15px] md:text-base text-stone-600 dark:text-stone-300 font-light leading-relaxed text-pretty break-words">
+              <p className="max-w-md text-sm font-light leading-relaxed text-stone-600 text-pretty break-words sm:text-[15px] md:text-base dark:text-stone-300">
                 {summary}
               </p>
             )}
           </header>
 
-          <dl className="rounded-xl border border-stone-200/70 dark:border-stone-700/60 bg-stone-50/40 dark:bg-stone-800/25 overflow-hidden sm:grid sm:grid-cols-3 sm:divide-x sm:divide-stone-200/70 dark:sm:divide-stone-700/60">
+          <dl className="grid grid-cols-2 border-y border-stone-200/80 dark:border-stone-700/70">
             {metaItems.map((item, i) => (
               <div
                 key={item.key}
-                  className={`flex items-start justify-between gap-3 px-4 py-2.5 sm:flex-col sm:items-start sm:justify-start sm:gap-0 sm:px-3 sm:py-4 md:py-5 ${
-                  i > 0 ? 'border-t border-stone-200/70 dark:border-stone-700/60 sm:border-t-0' : ''
+                className={`min-w-0 py-3.5 sm:py-4 ${
+                  i === 0 ? 'border-r border-stone-200/70 pr-4 dark:border-stone-700/60' : ''
+                } ${
+                  i === 1 ? 'pl-4' : ''
+                } ${
+                  i === 2 ? 'col-span-2 border-t border-stone-200/70 dark:border-stone-700/60' : ''
                 }`}
               >
-                <dt className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500 shrink-0 sm:mb-1.5">
+                <dt className="mb-1.5 text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500">
                   {item.label}
                 </dt>
-                <dd className="text-[13px] sm:text-sm font-medium text-ink dark:text-stone-100 leading-snug text-right sm:text-left break-words [overflow-wrap:anywhere] min-w-0">
+                <dd className="min-w-0 text-[13px] font-medium leading-snug text-ink break-words [overflow-wrap:anywhere] sm:text-sm dark:text-stone-100">
                   {project[item.key]}
                 </dd>
               </div>
@@ -201,13 +233,13 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
           <ProjectLinks project={project} />
         </div>
 
-        <div className="lg:col-span-7 min-w-0 overflow-visible">
+        <div className="min-w-0 overflow-visible lg:col-span-7">
           <ScreenshotGallery screenshots={screenshots} projectName={project.name} />
         </div>
       </div>
 
       {project.technologies?.length ? (
-        <div className="mt-6 sm:mt-8">
+        <div className="mt-8 sm:mt-10 lg:mt-12">
           <ProjectTechnologies project={project} />
         </div>
       ) : null}
