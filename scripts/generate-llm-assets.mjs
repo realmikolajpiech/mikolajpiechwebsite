@@ -133,6 +133,7 @@ ${site.seo.person_description}
 - LinkedIn: ${agent.profiles.linkedin}
 - X: ${agent.profiles.x}
 - GitHub: ${agent.profiles.github}
+- Instagram: ${agent.profiles.instagram}
 `;
 }
 
@@ -194,6 +195,7 @@ function buildLlmsFullTxt(projects) {
   lines.push(`LinkedIn: ${agent.profiles.linkedin}`);
   lines.push(`X: ${agent.profiles.x}`);
   lines.push(`GitHub: ${agent.profiles.github}`);
+  lines.push(`Instagram: ${agent.profiles.instagram}`);
   lines.push('');
   lines.push('## Pages');
   lines.push('');

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Github, Mail, ArrowRight, PanelsTopLeft, Smartphone, Monitor } from 'lucide-react';
+import { Linkedin, Github, Instagram, Mail, ArrowRight, PanelsTopLeft, Smartphone, Monitor } from 'lucide-react';
 import { Button } from '../components/Button';
 import { ProjectCard } from '../components/ProjectCard';
 import { PageMeta } from '../components/PageMeta';
@@ -22,9 +22,10 @@ const XLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const SocialIcon = ({ href, icon }: { href: string; icon: React.ReactNode }) => (
+const SocialIcon = ({ href, label, icon }: { href: string; label: string; icon: React.ReactNode }) => (
   <a
     href={href}
+    aria-label={label}
     target="_blank"
     rel="noopener noreferrer"
     className="p-3 text-stone-400 hover:text-ink dark:hover:text-stone-50 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full transition-all duration-300 flex items-center justify-center"
@@ -107,9 +108,10 @@ export default function Home() {
                 </Button>
               </div>
               <div className="flex flex-wrap gap-1 items-center">
-                <SocialIcon href="https://x.com/mikolajpiech" icon={<XLogo className="w-5 h-5" />} />
-                <SocialIcon href="https://www.linkedin.com/in/mikolajpiech/" icon={<Linkedin size={20} />} />
-                <SocialIcon href="https://github.com/realmikolajpiech" icon={<Github size={20} />} />
+                <SocialIcon href="https://x.com/mikolajpiech" label="X" icon={<XLogo className="w-5 h-5" />} />
+                <SocialIcon href="https://www.linkedin.com/in/mikolajpiech/" label="LinkedIn" icon={<Linkedin size={20} />} />
+                <SocialIcon href="https://github.com/realmikolajpiech" label="GitHub" icon={<Github size={20} />} />
+                <SocialIcon href="https://www.instagram.com/mikolajpiech" label="Instagram" icon={<Instagram size={20} />} />
               </div>
             </motion.div>
           </div>
@@ -245,6 +247,8 @@ export default function Home() {
                 <Link to={portfolioPath} className="transition-colors hover:text-off-white">{site.ui.view_portfolio}</Link>
                 <span aria-hidden>·</span>
                 <a href="https://www.linkedin.com/in/mikolajpiech/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-off-white">LinkedIn</a>
+                <span aria-hidden>·</span>
+                <a href="https://www.instagram.com/mikolajpiech" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-off-white">Instagram</a>
               </div>
             </motion.div>
 
@@ -267,6 +271,7 @@ export default function Home() {
               </a>
               <a href="https://www.linkedin.com/in/mikolajpiech/" className="hover:text-off-white transition-colors">LinkedIn</a>
               <a href="https://github.com/realmikolajpiech" className="hover:text-off-white transition-colors">GitHub</a>
+              <a href="https://www.instagram.com/mikolajpiech" className="hover:text-off-white transition-colors">Instagram</a>
               <Link to={privacyPath} className="hover:text-off-white transition-colors">{site.common.privacy_policy}</Link>
             </div>
           </div>

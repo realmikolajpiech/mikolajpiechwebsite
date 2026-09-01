@@ -120,7 +120,7 @@ Q: Does Mikołaj Piech build products for clients?
 A: Yes. Mikołaj Piech works with founders and businesses to design and develop web apps, mobile apps, product websites, landing pages, and other digital products from idea to launch.
 
 Q: How can I contact Mikołaj Piech?
-A: Email hello@mikolajpiech.com, or find him on LinkedIn (linkedin.com/in/mikolajpiech), X (@mikolajpiech), or GitHub (github.com/realmikolajpiech).
+A: Email hello@mikolajpiech.com, or find him on LinkedIn (linkedin.com/in/mikolajpiech), X (@mikolajpiech), GitHub (github.com/realmikolajpiech), or Instagram (@mikolajpiech).
 
 ## Contact
 
@@ -129,6 +129,7 @@ Website: https://mikolajpiech.com
 LinkedIn: https://www.linkedin.com/in/mikolajpiech/
 X: https://x.com/mikolajpiech
 GitHub: https://github.com/realmikolajpiech
+Instagram: https://www.instagram.com/mikolajpiech
 
 ## Pages
 

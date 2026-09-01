@@ -83,6 +83,7 @@ function structuredData(page, language, site, canonical) {
       'https://x.com/mikolajpiech',
       'https://www.linkedin.com/in/mikolajpiech/',
       'https://github.com/realmikolajpiech',
+      'https://www.instagram.com/mikolajpiech',
     ],
   };
   const webPage = {

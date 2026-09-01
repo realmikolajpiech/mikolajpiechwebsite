@@ -237,6 +237,7 @@ export default function PrivacyPolicy() {
               </a>
               <a href="https://www.linkedin.com/in/mikolajpiech/" className="hover:text-off-white transition-colors">{site.common.linkedin}</a>
               <a href="https://github.com/realmikolajpiech" className="hover:text-off-white transition-colors">GitHub</a>
+              <a href="https://www.instagram.com/mikolajpiech" className="hover:text-off-white transition-colors">Instagram</a>
               <Link to={privacyPath} className="text-off-white transition-colors">{site.common.privacy_policy}</Link>
             </div>
           </div>
