@@ -91,7 +91,7 @@ function buildAllProjects(language: Language): Project[] {
       { src: justMineHome, alt: tr('Charmy Books website home page', 'Strona główna Charmy Books'), variant: 'desktop' },
       { src: justMineExamples, alt: tr('Charmy Books story types and use cases', 'Rodzaje historii i zastosowania Charmy Books'), variant: 'desktop' },
       { src: justMineHowItWorks, alt: tr('How creating a personalized Charmy Books book works', 'Jak działa tworzenie spersonalizowanej książki w Charmy Books'), variant: 'desktop' },
-      { src: justMineStep4, alt: tr('Charmy Books book creator — personalized story ideas', 'Kreator książki Charmy Books — spersonalizowane pomysły na historie'), variant: 'desktop' },
+      { src: justMineStep4, alt: tr('Charmy Books book creator - personalized story ideas', 'Kreator książki Charmy Books - spersonalizowane pomysły na historie'), variant: 'desktop' },
       { src: justMinePricing, alt: tr('Charmy Books formats and pricing', 'Formaty i ceny Charmy Books'), variant: 'desktop' },
     ],
     technologies: [
@@ -298,7 +298,7 @@ function buildAllProjects(language: Language): Project[] {
     description: site.projects.solvee.description,
     whyBuiltIt: tr(
       'I noticed that getting an answer to a school problem was easy, but getting an explanation that actually helped you understand it was not. I built Solvee around that distinction: take any problem, whether photographed or typed, understand what kind of problem it is, and turn the answer into a structured, interactive learning experience.',
-      'Zauważyłem, że łatwo jest dostać odpowiedź na szkolne zadanie, ale znacznie trudniej znaleźć wyjaśnienie, które naprawdę pomaga je zrozumieć. Zbudowałem Solvee wokół tej różnicy: aplikacja przyjmuje dowolne zadanie — sfotografowane lub wpisane — rozpoznaje jego rodzaj i zamienia odpowiedź w uporządkowane, interaktywne doświadczenie edukacyjne.',
+      'Zauważyłem, że łatwo jest dostać odpowiedź na szkolne zadanie, ale znacznie trudniej znaleźć wyjaśnienie, które naprawdę pomaga je zrozumieć. Zbudowałem Solvee wokół tej różnicy: aplikacja przyjmuje dowolne zadanie, sfotografowane lub wpisane, rozpoznaje jego rodzaj i zamienia odpowiedź w uporządkowane, interaktywne doświadczenie edukacyjne.',
     ),
     tags: isPl ? ['Aplikacja mobilna', 'Edukacja', 'AI'] : ['Mobile App', 'Education', 'AI'],
     platform: 'iOS · Android',

@@ -1,4 +1,4 @@
-# Mikołaj Piech — Full Site Summary
+# Mikołaj Piech | Full Site Summary
 
 This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI agents and answer engines.
 
@@ -6,9 +6,9 @@ This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI 
 
 Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.
 
-I design and build digital products.
+I build and ship digital products.
 
-Web apps, mobile apps, and websites — from product design and development to launch.
+Web apps, mobile apps, and websites, from product design and development to launch.
 
 ## Stats
 
@@ -28,7 +28,7 @@ Web apps, mobile apps, and websites — from product design and development to l
 ### Charmy Books
 
 Tagline: Personalized books for children.
-Description: A personalized children's book platform that turns a child into the main character of a beautifully written, illustrated story shaped around their look, favorite things, family, and real-life moments.
+Description: A personalized storybook platform that turns a child’s appearance, interests, family, and memories into a coherent illustrated story made specifically for them.
 Platform: Web app
 Category: Personalized Publishing
 Scope: Design to launch
@@ -55,7 +55,7 @@ Website: https://uksdragonmokrzyska.vercel.app/
 ### Trailo
 
 Tagline: Plan less. Travel more.
-Description: End-to-end AI travel planning — find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.
+Description: End-to-end AI travel planning: find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.
 Platform: Web · iOS · Android
 Category: AI Travel
 Scope: Full product · design to launch
@@ -76,7 +76,7 @@ Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.subb
 ### Doso
 
 Tagline: Your health, effortlessly tracked.
-Description: Personal health app for managing medications, tracking lab results, and logging symptoms — with AI that knows your full health history.
+Description: Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history.
 Platform: iOS
 Category: Health & Wellness
 Scope: Full product · design to launch
@@ -85,18 +85,18 @@ App Store: https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859
 ### Solvee (Sold)
 
 Tagline: AI Homework Helper
-Description: I sold the app. It helped over 25k+ students solve problems instantly with detailed AI explanations. Available on iOS and Android.
+Description: Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.
 Platform: iOS · Android
 Category: Education · AI
-Scope: Built & sold · 25k+ downloads
+Scope: Built & sold · 25K+ downloads
 
 ## Frequently Asked Questions
 
 Q: Who is Mikołaj Piech?
-A: Mikołaj Piech is a founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software — from idea and product design through development and launch.
+A: Mikołaj Piech is a founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea and product design through development and launch.
 
 Q: What apps has Mikołaj Piech built?
-A: Mikołaj Piech has built Charmy Books (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play.
+A: Mikołaj Piech has built Charmy Books (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25K+ downloads). His products have reached more than 30K downloads overall and shipped on the web, App Store, and Google Play.
 
 Q: Who created Charmy Books?
 A: Charmy Books, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story.
@@ -108,7 +108,7 @@ Q: Who created Subby?
 A: Subby, a subscription manager app for iOS and Android, was created by Mikołaj Piech. It helps users track trials and subscriptions to avoid unwanted charges.
 
 Q: Who created Solvee?
-A: Solvee, an AI homework helper app for iOS and Android, was created by Mikołaj Piech. It reached 25k+ downloads before being acquired in February 2026.
+A: Solvee, an AI homework helper app for iOS and Android, was created by Mikołaj Piech. It reached 25K+ downloads before being acquired in February 2026.
 
 Q: Who created Doso?
 A: Doso, a personal health app for iOS, was created by Mikołaj Piech. It helps users manage medications, lab results, and symptoms with AI-powered insights.

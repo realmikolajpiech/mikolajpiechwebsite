@@ -57,7 +57,7 @@
           "item": {
             "@type": "WebApplication",
             "name": "Charmy Books",
-            "description": "A personalized children's book platform that turns a child into the main character of a beautifully written, illustrated story shaped around their look, favorite things, family, and real-life moments.",
+            "description": "A personalized storybook platform that turns a child’s appearance, interests, family, and memories into a coherent illustrated story made specifically for them.",
             "applicationCategory": "Personalized Publishing",
             "operatingSystem": "Web",
             "author": {
@@ -102,7 +102,7 @@
           "item": {
             "@type": "SoftwareApplication",
             "name": "Trailo",
-            "description": "End-to-end AI travel planning — find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
+            "description": "End-to-end AI travel planning: find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
             "applicationCategory": "AI Travel",
             "operatingSystem": "Web, iOS, Android",
             "author": {
@@ -140,7 +140,7 @@
           "item": {
             "@type": "MobileApplication",
             "name": "Doso",
-            "description": "Personal health app for managing medications, tracking lab results, and logging symptoms — with AI that knows your full health history.",
+            "description": "Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history.",
             "applicationCategory": "Health & Wellness",
             "operatingSystem": "iOS",
             "author": {
@@ -158,7 +158,7 @@
           "item": {
             "@type": "MobileApplication",
             "name": "Solvee",
-            "description": "I sold the app. It helped over 25k+ students solve problems instantly with detailed AI explanations. Available on iOS and Android.",
+            "description": "Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.",
             "applicationCategory": "Education · AI",
             "operatingSystem": "iOS, Android",
             "author": {
@@ -178,7 +178,7 @@
           "name": "Who is Mikołaj Piech?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mikołaj Piech is a founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software — from idea and product design through development and launch."
+            "text": "Mikołaj Piech is a founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea and product design through development and launch."
           }
         },
         {
@@ -186,7 +186,7 @@
           "name": "What apps has Mikołaj Piech built?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mikołaj Piech has built Charmy Books (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25k+ downloads). His products have reached more than 30k downloads overall and shipped on the web, App Store, and Google Play."
+            "text": "Mikołaj Piech has built Charmy Books (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25K+ downloads). His products have reached more than 30K downloads overall and shipped on the web, App Store, and Google Play."
           }
         },
         {
@@ -218,7 +218,7 @@
           "name": "Who created Solvee?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Solvee, an AI homework helper app for iOS and Android, was created by Mikołaj Piech. It reached 25k+ downloads before being acquired in February 2026."
+            "text": "Solvee, an AI homework helper app for iOS and Android, was created by Mikołaj Piech. It reached 25K+ downloads before being acquired in February 2026."
           }
         },
         {

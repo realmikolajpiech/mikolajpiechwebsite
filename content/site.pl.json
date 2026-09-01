@@ -64,9 +64,9 @@
     "error_code": "Błąd 404"
   },
   "hero": {
-    "headline_line1": "Tworzę i wdrażam",
-    "headline_line2": "produkty cyfrowe.",
-    "intro": "Cześć, jestem Mikołaj. Projektuję i buduję aplikacje internetowe, mobilne oraz strony internetowe – od pierwszej koncepcji po gotowy produkt.",
+    "headline_line1": "Od pomysłu do",
+    "headline_line2": "gotowego produktu.",
+    "intro": "Projektuję i tworzę aplikacje webowe, mobilne oraz strony internetowe, od projektu po wdrożenie.",
     "description": "",
     "primary_cta": "Zobacz moje portfolio",
     "secondary_cta": "Rozpocznij projekt"
@@ -154,7 +154,7 @@
     },
     "subby": {
       "tagline": "Menedżer subskrypcji",
-      "homepage_description": "Stworzyłem Subby po tym, jak traciłem pieniądze na zapomniane okresy próbne—proste miejsce do śledzenia subskrypcji, nadchodzących opłat i ostrzeżeń przed odnowieniem.",
+      "homepage_description": "Stworzyłem Subby po tym, jak traciłem pieniądze na zapomniane okresy próbne. To proste miejsce do śledzenia subskrypcji, nadchodzących opłat i ostrzeżeń przed odnowieniem.",
       "description": "Już nigdy nie zapomnij o kończącym się okresie próbnym. Kontroluj subskrypcje, pilnuj wydatków i unikaj niechcianych opłat."
     },
     "doso": {
@@ -168,7 +168,7 @@
     },
     "twojasiec": {
       "tagline": "Wiadomości blisko Ciebie.",
-      "description": "Aplikacja mobilna, która porządkuje wiadomości, alerty i wydarzenia z wybranej okolicy. Pozwala dopasować lokalny feed do interesujących tematów, zapisywać materiały oraz dodawać wydarzenia do kalendarza — bez przeglądania wielu stron i przypadkowych grup.",
+      "description": "Aplikacja mobilna, która porządkuje wiadomości, alerty i wydarzenia z wybranej okolicy. Pozwala dopasować lokalny feed do interesujących tematów, zapisywać materiały oraz dodawać wydarzenia do kalendarza bez przeglądania wielu stron i przypadkowych grup.",
       "status": "W budowie"
     }
   },

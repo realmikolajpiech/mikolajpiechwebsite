@@ -119,7 +119,7 @@ function buildLlmsTxt() {
 ${site.seo.person_description}
 
 ## Docs
-- [Full site summary (${SITE_URL}/llms-full.txt)](${SITE_URL}/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs — best source for AI agents
+- [Full site summary (${SITE_URL}/llms-full.txt)](${SITE_URL}/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs, the best source for AI agents
 - [Structured data (${SITE_URL}/schema.json)](${SITE_URL}/schema.json): JSON-LD with Person, WebSite, projects, and FAQs
 
 ## Pages
@@ -138,7 +138,7 @@ ${site.seo.person_description}
 
 function buildLlmsFullTxt(projects) {
   const lines = [
-    `# ${SITE_NAME} — Full Site Summary`,
+    `# ${SITE_NAME} | Full Site Summary`,
     '',
     'This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI agents and answer engines.',
     '',
@@ -225,7 +225,7 @@ function buildPortfolioHtml(projects) {
         .join(' · ');
 
       return `      <article id="${project.id}">
-        <h2>${escapeHtml(project.nameDisplay)}${project.status ? ` — ${escapeHtml(project.status)}` : ''}</h2>
+        <h2>${escapeHtml(project.nameDisplay)}${project.status ? ` | ${escapeHtml(project.status)}` : ''}</h2>
         <p><strong>${escapeHtml(project.tagline)}</strong></p>
         <p>${escapeHtml(project.description)}</p>
         <p>Platform: ${escapeHtml(project.platform)} · Category: ${escapeHtml(project.category)} · ${escapeHtml(project.scope)}</p>

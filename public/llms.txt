@@ -5,7 +5,7 @@
 Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.
 
 ## Docs
-- [Full site summary (https://mikolajpiech.com/llms-full.txt)](https://mikolajpiech.com/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs — best source for AI agents
+- [Full site summary (https://mikolajpiech.com/llms-full.txt)](https://mikolajpiech.com/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs, the best source for AI agents
 - [Structured data (https://mikolajpiech.com/schema.json)](https://mikolajpiech.com/schema.json): JSON-LD with Person, WebSite, projects, and FAQs
 
 ## Pages

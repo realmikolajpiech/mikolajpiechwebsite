@@ -66,8 +66,8 @@
   "hero": {
     "headline_line1": "I build and ship",
     "headline_line2": "digital products.",
-    "intro": "I'm Mikołaj — a founder and developer who turns ideas into polished products people actually use.",
-    "description": "Web apps, mobile apps, and websites — from product design and development to launch.",
+    "intro": "I'm Mikołaj, a founder and developer who turns ideas into polished products people actually use.",
+    "description": "Web apps, mobile apps, and websites, from product design and development to launch.",
     "primary_cta": "View my portfolio",
     "secondary_cta": "Start a project"
   },
@@ -77,24 +77,24 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Mikołaj Piech — founder and developer from Poland. I design and build web apps, mobile apps, websites, and consumer products from idea to launch.",
+    "meta_description": "Mikołaj Piech, founder and developer from Poland. I design and build web apps, mobile apps, websites, and consumer products from idea to launch.",
     "person_description": "Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.",
     "pages": {
       "home": {
-        "title": "Mikołaj Piech — Founder & Developer",
-        "description": "Mikołaj Piech — founder and developer from Poland. I design and build web apps, mobile apps, websites, and consumer products from idea to launch.",
+        "title": "Mikołaj Piech | Founder & Developer",
+        "description": "Mikołaj Piech, founder and developer from Poland. I design and build web apps, mobile apps, websites, and consumer products from idea to launch.",
         "social_description": "Founder & developer building web apps, mobile apps, websites, and digital products from idea to launch."
       },
       "portfolio": {
-        "title": "Portfolio — Apps by Mikołaj Piech",
+        "title": "Portfolio | Apps by Mikołaj Piech",
         "description": "Selected web apps, mobile apps, websites, and digital products designed, built, and shipped by Mikołaj Piech."
       },
       "privacy": {
-        "title": "Privacy Policy — Mikołaj Piech",
+        "title": "Privacy Policy | Mikołaj Piech",
         "description": "How Mikołaj Piech collects, uses, stores, and protects personal data across this website and published mobile and web apps."
       },
       "not_found": {
-        "title": "Page Not Found — Mikołaj Piech",
+        "title": "Page Not Found | Mikołaj Piech",
         "description": "The page you are looking for doesn't exist or has been moved."
       }
     }
@@ -103,7 +103,7 @@
     "title": "Portfolio",
     "headline": "Products I've built",
     "headline_accent": "and shipped.",
-    "subtitle": "Web apps, mobile apps, and websites — taken from idea to launch through product design, development, and iteration.",
+    "subtitle": "Web apps, mobile apps, and websites, taken from idea to launch through product design, development, and iteration.",
     "stats": {
       "apps": "7+ products shipped",
       "downloads": "30k+ downloads",
@@ -137,7 +137,7 @@
     },
     "omni": {
       "tagline": "The AI that knows you and your computer.",
-      "description": "Find files by meaning, manage email & calendar, install apps, change settings — just ask.",
+      "description": "Find files by meaning, manage email & calendar, install apps, change settings. Just ask.",
       "link_text": "Learn more and join waitlist",
       "status": "Early Access"
     },
@@ -154,16 +154,16 @@
     },
     "subby": {
       "tagline": "Subscription Manager",
-      "homepage_description": "I built Subby after losing money on forgotten free trials—a simple place to track subscriptions, see upcoming charges, and get warned before renewals.",
+      "homepage_description": "I built Subby after losing money on forgotten free trials. It is a simple place to track subscriptions, see upcoming charges, and get warned before renewals.",
       "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly."
     },
     "doso": {
       "tagline": "Your health, effortlessly tracked.",
-      "description": "Personal health app for managing medications, tracking lab results, and logging symptoms — with AI that knows your full health history."
+      "description": "Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history."
     },
     "trailo": {
       "tagline": "Plan less. Travel more.",
-      "description": "End-to-end AI travel planning — find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
+      "description": "End-to-end AI travel planning: find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
       "link_text": "Visit website"
     },
     "twojasiec": {
@@ -205,7 +205,7 @@
       "part1": "Building something",
       "part2": "new?"
     },
-    "description": "I help founders and teams turn ideas into polished web apps, mobile apps, and websites — from first concept to launch."
+    "description": "I help founders and teams turn ideas into polished web apps, mobile apps, and websites, from first concept to launch."
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -322,7 +322,7 @@
     "s9_title": "9. Security",
     "s9_p1": "I use industry-standard technical and organizational measures (encryption, secure cloud providers, access controls) to protect your data.",
     "s10_title": "10. International Transfers",
-    "s10_p1": "Your data may be transferred to — and stored in — the United States or other countries outside your residence. I use appropriate safeguards (EU Standard Contractual Clauses, etc.) when required.",
+    "s10_p1": "Your data may be transferred to and stored in the United States or other countries outside your residence. I use appropriate safeguards (EU Standard Contractual Clauses, etc.) when required.",
     "s11_title": "11. Changes to This Policy",
     "s11_p1": "I may update this Privacy Policy from time to time. The new version will be posted on this page with an updated \"Last updated\" date. Significant changes will be notified inside the apps.",
     "s12_title": "12. Contact Me",
