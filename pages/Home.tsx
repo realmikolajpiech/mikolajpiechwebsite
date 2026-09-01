@@ -138,20 +138,13 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="border-y border-stone-200/80 dark:border-stone-800 grid lg:grid-cols-[1.15fr_2fr] gap-10 lg:gap-16 py-10 md:py-14"
+          className="border-y border-stone-200/80 dark:border-stone-800 py-7 md:py-8"
         >
-          <div className="max-w-md">
-            <h2 id="proof-title" className="text-3xl md:text-4xl font-serif text-ink dark:text-stone-50 mb-3">
-              {site.proof.title}
-            </h2>
-            <p className="text-stone-500 dark:text-stone-400 font-light leading-relaxed">
-              {site.proof.description}
-            </p>
-          </div>
-          <dl className="grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-8">
+          <h2 id="proof-title" className="sr-only">{site.proof.title}</h2>
+          <dl className="grid grid-cols-3 divide-x divide-stone-200/80 dark:divide-stone-800">
             {site.proof.items.map((item) => (
-              <div key={item.label} className="flex flex-col">
-                <dt className="order-2 text-xs sm:text-sm text-stone-500 dark:text-stone-400 leading-snug max-w-[9rem]">
+              <div key={item.label} className="flex min-w-0 flex-col items-center px-3 text-center sm:px-6">
+                <dt className="order-2 text-[11px] sm:text-sm text-stone-500 dark:text-stone-400 leading-snug">
                   {item.label}
                 </dt>
                 <dd className="order-1 text-3xl sm:text-4xl font-serif text-ink dark:text-stone-50 mb-1">

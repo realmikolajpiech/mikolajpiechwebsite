@@ -12,7 +12,7 @@ Web apps, mobile apps, and websites, from product design and development to laun
 
 ## Stats
 
-- 7+ products shipped
+- 10+ projects delivered
 - 30k+ downloads
 - iOS · Android · Web
 - 1 product sold

@@ -105,7 +105,7 @@
     "headline_accent": "i wdrożyłem.",
     "subtitle": "Aplikacje internetowe, mobilne i strony internetowe – od pomysłu i projektu, przez development, aż po wdrożenie i dalszy rozwój.",
     "stats": {
-      "apps": "7+ wdrożonych produktów",
+      "apps": "10+ zrealizowanych projektów",
       "downloads": "30k+ pobrań",
       "platforms": "iOS · Android · Web",
       "acquired": "1 sprzedana aplikacja"
@@ -176,7 +176,7 @@
     "title": "Od pomysłu do użytkowników.",
     "description": "Nie kończę na makietach ani samym kodzie. Projektuję, buduję i wdrażam produkty, z których ludzie naprawdę korzystają.",
     "items": [
-      { "value": "7+", "label": "wdrożonych produktów" },
+      { "value": "10+", "label": "zrealizowanych projektów" },
       { "value": "30k+", "label": "pobrań" },
       { "value": "1", "label": "sprzedana aplikacja" }
     ]

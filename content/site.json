@@ -105,7 +105,7 @@
     "headline_accent": "and shipped.",
     "subtitle": "Web apps, mobile apps, and websites, taken from idea to launch through product design, development, and iteration.",
     "stats": {
-      "apps": "7+ products shipped",
+      "apps": "10+ projects delivered",
       "downloads": "30k+ downloads",
       "platforms": "iOS · Android · Web",
       "acquired": "1 product sold"
@@ -176,7 +176,7 @@
     "title": "Built, shipped, and used.",
     "description": "I don't stop at mockups or code. I take products from an early idea to real people using them.",
     "items": [
-      { "value": "7+", "label": "products shipped" },
+      { "value": "10+", "label": "projects delivered" },
       { "value": "30k+", "label": "downloads" },
       { "value": "1", "label": "product sold" }
     ]
