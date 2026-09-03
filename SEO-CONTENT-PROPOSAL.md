@@ -1,10 +1,10 @@
-**Homepage headline and introduction applied; other proposals pending**
+**Homepage copy and metadata applied; project pages pending**
 
-The English and Polish homepage headlines and introductions below were approved and applied locally. The introduction does not repeat the name already in the headline. Proposed titles, meta descriptions, project pages, and related-site credits still await confirmation.
+The English and Polish homepage headlines, introductions, titles, and meta descriptions below were approved and applied locally. The introduction does not repeat the name already in the headline. The related-site credits were added to the local Charmy Books and Safe Labs projects. Dedicated project pages still await confirmation.
 
 **English homepage**
 
-Proposed title (pending): `Mikołaj Piech | App Developer & Founder`
+Applied title: `Mikołaj Piech | App Developer & Founder`
 
 Headline, line 1: **Mikołaj Piech**
 
@@ -18,13 +18,13 @@ Keep the current supporting line:
 
 > Web apps, mobile apps, and websites, from product design and development to launch.
 
-Proposed meta description (pending):
+Applied meta description:
 
 > Mikołaj Piech, founder and app developer from Poland. Creator of Trailo, Subby, Doso and Charmy Books. Explore my projects and get in touch.
 
 **Polish homepage**
 
-Proposed title (pending): `Mikołaj Piech | Twórca aplikacji i stron internetowych`
+Applied title: `Mikołaj Piech | Twórca aplikacji i stron internetowych`
 
 Headline, line 1: **Mikołaj Piech**
 
@@ -34,7 +34,7 @@ Applied introduction:
 
 > Projektuję, tworzę i rozwijam aplikacje mobilne, webowe oraz strony internetowe. Moje produkty to m.in. Trailo, Subby, Doso i Charmy Books.
 
-Proposed meta description (pending):
+Applied meta description:
 
 > Mikołaj Piech — twórca aplikacji mobilnych, webowych i stron internetowych. Poznaj moje projekty: Trailo, Subby, Doso i Charmy Books.
 
@@ -54,8 +54,8 @@ These pages make your existing detailed work independently linkable. Additional 
 
 **Credits on related websites**
 
-Suggested Charmy Books credit: `Created by Mikołaj Piech`, linked to `https://mikolajpiech.com/`.
+Applied locally to Charmy Books: `Created by Mikołaj Piech`, linked to `https://mikolajpiech.com/`.
 
-Suggested Safe Labs credit: `Projekt i wykonanie strony: Mikołaj Piech`, linked to `https://mikolajpiech.com/pl`.
+Applied locally to Safe Labs: `Projekt i wykonanie strony: Mikołaj Piech`, linked to `https://mikolajpiech.com/pl`.
 
-These are proposals for the respective site maintainers. They have not been added to either site; GitHub and Trailo already link to your website.
+These credits require deployment from their respective repositories before search engines can see them. GitHub and Trailo already link to your website.
