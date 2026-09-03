@@ -29,6 +29,8 @@ function buildLlmsTxt() {
 
 ${site.seo.person_description}
 
+${site.hero.intro}
+
 ## Docs
 - [Full site summary (${SITE_URL}/llms-full.txt)](${SITE_URL}/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs, the best source for AI agents
 - [Structured data (${SITE_URL}/schema.json)](${SITE_URL}/schema.json): JSON-LD with Person, WebSite, and projects
@@ -58,9 +60,10 @@ function buildLlmsFullTxt(projects) {
     '',
     site.seo.person_description,
     '',
-    `${site.hero.headline_line1} ${site.hero.headline_line2}`,
+    site.hero.intro,
+    'Studio: https://clevrapps.com/',
     '',
-    site.hero.description,
+    `${site.hero.headline_line1} ${site.hero.headline_line2}`,
     '',
     '## Stats',
     '',
@@ -86,6 +89,7 @@ function buildLlmsFullTxt(projects) {
     lines.push(`Category: ${project.category}`);
     lines.push(`Scope: ${project.scope}`);
     if (project.link) lines.push(`Website: ${project.link}`);
+    if (project.studioLink) lines.push(`Clevr Apps product page: ${project.studioLink}`);
     if (project.appStoreLink) lines.push(`App Store: ${project.appStoreLink}`);
     if (project.playStoreLink) lines.push(`Google Play: ${project.playStoreLink}`);
     lines.push('');

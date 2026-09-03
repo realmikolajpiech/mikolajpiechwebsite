@@ -33,6 +33,7 @@ export interface Project {
   appStoreLink?: string;
   playStoreLink?: string;
   linkText?: string;
+  studioLink?: string;
   layout?: 'standard' | 'split' | 'web';
   imageFit?: 'cover' | 'contain';
   operatingSystem?: string;

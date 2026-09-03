@@ -25,12 +25,21 @@ for (const [route, file, language] of pages) {
   assert.ok(!html.includes('location.replace'), `${route}: no automatic language redirect`);
   const graph = schema(html)['@graph'];
   assert.equal(graph.find((item) => item['@type'] === 'WebPage').url, `${base}${route}`);
-  assert.equal(graph.find((item) => item['@type'] === 'Person').alternateName, 'Mikolaj Piech');
+  const person = graph.find((item) => item['@type'] === 'Person');
+  const clevrApps = graph.find((item) => item['@type'] === 'Organization' && item.name === 'Clevr Apps');
+  assert.equal(person.alternateName, 'Mikolaj Piech');
+  assert.equal(person.worksFor['@id'], 'https://clevrapps.com/#organization');
+  assert.equal(clevrApps.founder['@id'], `${base}/#person`);
   assert.ok(!graph.some((item) => item['@type'] === 'FAQPage'));
   if (route.endsWith('portfolio')) {
     const items = graph.find((item) => item['@type'] === 'ItemList').itemListElement;
     assert.equal(items.length, 8);
     assert.ok(items.some(({ item }) => item.name === 'Twoja Sieć'));
+    const safeLabs = items.find(({ item }) => item.name === 'Safe Labs').item;
+    assert.deepEqual(safeLabs.author.map((author) => author.name).filter(Boolean), ['Oskar Minor', 'Kamil Zdebski']);
+    const clevrProjects = items.filter(({ item }) => item.publisher?.['@id'] === 'https://clevrapps.com/#organization');
+    assert.deepEqual(clevrProjects.map(({ item }) => item.name), ['Solvee', 'Trailo', 'Doso', 'Subby', 'Twoja Sieć']);
+    assert.ok(clevrProjects.every(({ item }) => item.sameAs.some((url) => url.startsWith('https://clevrapps.com/'))));
     assert.equal((html.match(/<details\b/g) ?? []).length, 8, `${route}: technology text exists without JS`);
     assert.ok(html.includes('Supabase PostgreSQL'));
   }
@@ -41,6 +50,16 @@ for (const [route, file, language] of pages) {
     assert.ok(html.includes('property="og:image" content="https://mikolajpiech.com/mikolaj-profile.jpg"'));
     assert.ok(html.includes('<fieldset disabled="">'), 'Form waits for hydration');
     assert.ok(html.includes('href="mailto:hello@mikolajpiech.com"'), 'Email fallback works without JS');
+    const heroLinks = [
+      'https://clevrapps.com/',
+      'https://trailoapp.com',
+      'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
+      'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859',
+      'https://charmybooks.com/',
+    ];
+    assert.ok(heroLinks.every((href) => html.includes(`href="${href}"`)), `${route}: linked hero entities`);
+    assert.ok(html.includes(language === 'pl' ? 'gdzie rozwijam własne aplikacje' : 'where I develop my own apps'), `${route}: clear studio relationship`);
+    assert.equal((html.match(/data-tooltip=/g) ?? []).length, 4, `${route}: app descriptions available as tooltips`);
   }
   for (const [, source] of html.matchAll(/<img[^>]*\ssrc="([^"]+)"/g)) {
     if (source.startsWith('/')) assert.ok((await stat(resolve(root, `dist${source}`))).size > 0, source);

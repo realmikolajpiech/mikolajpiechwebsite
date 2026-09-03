@@ -40,6 +40,7 @@
     "tech_stack": "Technologie",
     "technologies_used": "Wykorzystane technologie",
     "visit": "Odwiedź",
+    "view_on_clevr_apps": "Zobacz w Clevr Apps",
     "website_preview": "podgląd strony",
     "preview": "podgląd",
     "icon": "ikona",
@@ -66,8 +67,13 @@
   "hero": {
     "headline_line1": "Mikołaj Piech",
     "headline_line2": "Twórca aplikacji.",
-    "intro": "Projektuję, tworzę i rozwijam aplikacje mobilne, webowe oraz strony internetowe. Moje produkty to m.in. Trailo, Subby, Doso i Charmy Books.",
-    "description": "",
+    "intro": "Tworzę aplikacje mobilne, webowe i strony internetowe. Prowadzę Clevr Apps, gdzie rozwijam własne aplikacje, m.in. Trailo, Subby, Doso i Charmy Books.",
+    "link_descriptions": {
+      "Trailo": "Planowanie podróży z pomocą AI.",
+      "Subby": "Śledzenie subskrypcji i nadchodzących opłat.",
+      "Doso": "Zarządzanie lekami, wynikami badań i objawami.",
+      "Charmy Books": "Personalizowane książki dla dzieci."
+    },
     "primary_cta": "Zobacz moje portfolio",
     "secondary_cta": "Rozpocznij projekt"
   },
@@ -78,7 +84,7 @@
     "default_image_width": 1200,
     "default_image_height": 630,
     "meta_description": "Mikołaj Piech — twórca aplikacji mobilnych, webowych i stron internetowych. Poznaj moje projekty: Trailo, Subby, Doso i Charmy Books.",
-    "person_description": "Founder i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Twórca Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso i Solvee.",
+    "person_description": "Założyciel Clevr Apps i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Twórca Charmy Books, Trailo, Twoja Sieć, Subby, Doso i Solvee oraz współtwórca Safe Labs.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech | Twórca aplikacji i stron internetowych",

@@ -42,7 +42,7 @@ type ProjectLink = {
   primary?: boolean;
 };
 
-function buildProjectLinks(project: Project, visitLabel: string): ProjectLink[] {
+function buildProjectLinks(project: Project, visitLabel: string, studioLabel: string): ProjectLink[] {
   const links: ProjectLink[] = [];
   const storeUrls = new Set([project.appStoreLink, project.playStoreLink].filter(Boolean));
 
@@ -50,6 +50,10 @@ function buildProjectLinks(project: Project, visitLabel: string): ProjectLink[] 
     links.push({ href: project.link, label: project.linkText, icon: ArrowUpRight, primary: true });
   } else if (project.link && !storeUrls.has(project.link)) {
     links.push({ href: project.link, label: `${visitLabel} ${project.name}`, icon: ArrowUpRight, primary: true });
+  }
+
+  if (project.studioLink) {
+    links.push({ href: project.studioLink, label: studioLabel, icon: ArrowUpRight });
   }
 
   if (project.appStoreLink) {
@@ -64,7 +68,10 @@ function buildProjectLinks(project: Project, visitLabel: string): ProjectLink[] 
 
 const ProjectLinks = ({ project }: { project: Project }) => {
   const { site } = useLanguage();
-  const links = useMemo(() => buildProjectLinks(project, site.ui.visit), [project, site.ui.visit]);
+  const links = useMemo(
+    () => buildProjectLinks(project, site.ui.visit, site.ui.view_on_clevr_apps),
+    [project, site.ui.visit, site.ui.view_on_clevr_apps],
+  );
   const hasOnlyStoreLinks = links.length === 2 && links.every((link) => !link.primary);
 
   if (links.length === 0) return null;

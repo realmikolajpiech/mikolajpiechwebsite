@@ -1,6 +1,6 @@
-**Homepage copy and metadata applied; project pages pending**
+**Homepage copy, metadata, and Clevr Apps relationship applied**
 
-The English and Polish homepage headlines, introductions, titles, and meta descriptions below were approved and applied locally. The introduction does not repeat the name already in the headline. The related-site credits were added to the local Charmy Books and Safe Labs projects. Dedicated project pages still await confirmation.
+The English and Polish homepage headlines, introductions, titles, and meta descriptions below were approved and applied locally. The introduction does not repeat the name already in the headline. The related-site credits were added to the local Charmy Books and Safe Labs projects. Mikołaj Piech and Clevr Apps now link to one another in visible copy, product links, and structured data.
 
 **English homepage**
 
@@ -12,11 +12,9 @@ Headline, line 2: **Founder & developer.**
 
 Applied introduction:
 
-> I design, build, and launch web and mobile products from Poland. My projects include Trailo, Subby, Doso, and Charmy Books.
+> I build mobile apps, web apps, and websites. I run Clevr Apps, where I develop my own apps, including Trailo, Subby, Doso, and Charmy Books.
 
-Keep the current supporting line:
-
-> Web apps, mobile apps, and websites, from product design and development to launch.
+The Clevr Apps name links to the Clevr Apps website. Trailo and Charmy Books link to their product websites, while Subby and Doso link directly to their App Store listings. Each app link has a short description shown on hover or keyboard focus.
 
 Applied meta description:
 
@@ -32,30 +30,32 @@ Headline, line 2: **Twórca aplikacji.**
 
 Applied introduction:
 
-> Projektuję, tworzę i rozwijam aplikacje mobilne, webowe oraz strony internetowe. Moje produkty to m.in. Trailo, Subby, Doso i Charmy Books.
+> Tworzę aplikacje mobilne, webowe i strony internetowe. Prowadzę Clevr Apps, gdzie rozwijam własne aplikacje, m.in. Trailo, Subby, Doso i Charmy Books.
+
+Nazwa Clevr Apps prowadzi do strony Clevr Apps. Trailo i Charmy Books prowadzą do własnych stron, a Subby i Doso bezpośrednio do kart w App Store. Linki aplikacji mają krótkie opisy wyświetlane po najechaniu lub przejściu na nie klawiaturą.
 
 Applied meta description:
 
 > Mikołaj Piech — twórca aplikacji mobilnych, webowych i stron internetowych. Poznaj moje projekty: Trailo, Subby, Doso i Charmy Books.
 
-**Project pages**
+**Product and case-study pages**
 
-Create dedicated English and Polish pages for Trailo, Subby, and Solvee. Reuse the existing portfolio descriptions, personal motivation, role, technologies, screenshots, and store links verbatim. No new metrics, dates, client claims, or acquisition details will be invented. Link the project names in the portfolio to these pages.
+The earlier proposal to duplicate product pages on mikolajpiech.com was superseded after reviewing the existing Clevr Apps pages. Clevr Apps remains the canonical product-publishing destination. The personal portfolio links to those pages instead.
 
-| URLs | English title | Polish title |
-| --- | --- | --- |
-| `/projects/trailo`, `/pl/projects/trailo` | Trailo — AI Trip Planner by Mikołaj Piech | Trailo — planer podróży AI Mikołaja Piecha |
-| `/projects/subby`, `/pl/projects/subby` | Subby — Subscription Manager by Mikołaj Piech | Subby — menedżer subskrypcji Mikołaja Piecha |
-| `/projects/solvee`, `/pl/projects/solvee` | Solvee — AI Homework App by Mikołaj Piech | Solvee — aplikacja do nauki Mikołaja Piecha |
+| Product | Canonical product page |
+| --- | --- |
+| Trailo | `https://clevrapps.com/apps/trailo/` |
+| Subby | `https://clevrapps.com/apps/subby/` |
+| Doso | `https://clevrapps.com/apps/doso/` |
+| Solvee | `https://clevrapps.com/apps/solvee/` |
+| Twoja Sieć | `https://clevrapps.com/twojasiec` |
 
-Each page's H1 will be the existing project name. Its search description will reuse the existing project description. Navigation will reuse existing labels such as Portfolio, Back to home, and their Polish equivalents.
-
-These pages make your existing detailed work independently linkable. Additional case-study writing can follow when you have evidence or results you want to publish.
+Future pages on mikolajpiech.com should be unique personal case studies about Mikołaj's role, decisions, implementation, and outcomes. They should not repeat the Clevr Apps product copy.
 
 **Credits on related websites**
 
 Applied locally to Charmy Books: `Created by Mikołaj Piech`, linked to `https://mikolajpiech.com/`.
 
-Applied locally to Safe Labs: `Projekt i wykonanie strony: Mikołaj Piech`, linked to `https://mikolajpiech.com/pl`.
+Applied locally to Safe Labs: `Projekt i wykonanie strony: Mikołaj Piech, Oskar Minor i Kamil Zdebski`, with each name linked to `https://mikolajpiech.com/pl`, `https://oskarminor.com`, and `https://kamilzdebski.com` respectively. The portfolio structured data and AI-readable project information credit all three creators as well.
 
 These credits require deployment from their respective repositories before search engines can see them. GitHub and Trailo already link to your website.

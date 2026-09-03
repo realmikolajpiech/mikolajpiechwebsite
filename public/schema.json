@@ -44,13 +44,26 @@
         "@id": "https://mikolajpiech.com/#webpage"
       },
       "jobTitle": "Founder & Developer",
-      "description": "Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.",
+      "description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
       "sameAs": [
         "https://x.com/mikolajpiech",
         "https://www.linkedin.com/in/mikolajpiech/",
         "https://github.com/realmikolajpiech",
         "https://www.instagram.com/mikolajpiech"
-      ]
+      ],
+      "worksFor": {
+        "@id": "https://clevrapps.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://clevrapps.com/#organization",
+      "name": "Clevr Apps",
+      "url": "https://clevrapps.com/",
+      "founder": {
+        "@id": "https://mikolajpiech.com/#person"
+      },
+      "description": "Independent product studio building apps for iOS, Android and the web."
     },
     {
       "@type": "ImageObject",
@@ -95,12 +108,18 @@
             "@id": "https://mikolajpiech.com/#project-solvee",
             "name": "Solvee",
             "description": "Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.",
-            "url": "https://mikolajpiech.com/portfolio#solvee",
+            "url": "https://clevrapps.com/apps/solvee/",
             "mainEntityOfPage": "https://mikolajpiech.com/portfolio#solvee",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
+            "publisher": {
+              "@id": "https://clevrapps.com/#organization"
+            },
             "image": "https://mikolajpiech.com/images/solvee-sc/solvee1-314.webp",
+            "sameAs": [
+              "https://clevrapps.com/apps/solvee/"
+            ],
             "applicationCategory": "Education · AI",
             "creativeWorkStatus": "Sold"
           }
@@ -118,9 +137,13 @@
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
+            "publisher": {
+              "@id": "https://clevrapps.com/#organization"
+            },
             "image": "https://mikolajpiech.com/images/trailo-mobile-sc/trailo-mobile-1-1170.webp",
             "sameAs": [
               "https://trailoapp.com",
+              "https://clevrapps.com/apps/trailo/",
               "https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924",
               "https://play.google.com/store/apps/details?id=com.justgoodapps.trailo"
             ],
@@ -136,13 +159,17 @@
             "@id": "https://mikolajpiech.com/#project-doso",
             "name": "Doso",
             "description": "Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history.",
-            "url": "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859",
+            "url": "https://clevrapps.com/apps/doso/",
             "mainEntityOfPage": "https://mikolajpiech.com/portfolio#doso",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
+            "publisher": {
+              "@id": "https://clevrapps.com/#organization"
+            },
             "image": "https://mikolajpiech.com/images/doso-sc/doso1-1170.webp",
             "sameAs": [
+              "https://clevrapps.com/apps/doso/",
               "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859"
             ],
             "applicationCategory": "Health & Wellness"
@@ -156,13 +183,17 @@
             "@id": "https://mikolajpiech.com/#project-subby",
             "name": "Subby",
             "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly.",
-            "url": "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606",
+            "url": "https://clevrapps.com/apps/subby/",
             "mainEntityOfPage": "https://mikolajpiech.com/portfolio#subby",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
+            "publisher": {
+              "@id": "https://clevrapps.com/#organization"
+            },
             "image": "https://mikolajpiech.com/images/subby-sc/subby1-1170.webp",
             "sameAs": [
+              "https://clevrapps.com/apps/subby/",
               "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606",
               "https://play.google.com/store/apps/details?id=com.justgoodapps.subby"
             ],
@@ -177,12 +208,18 @@
             "@id": "https://mikolajpiech.com/#project-twojasiec",
             "name": "Twoja Sieć",
             "description": "A mobile app that brings news, alerts, and events from a selected area into one organized place. Users can personalize their local feed by topic, save stories, and add events to their calendar without browsing multiple websites and scattered community groups.",
-            "url": "https://mikolajpiech.com/portfolio#twojasiec",
+            "url": "https://clevrapps.com/twojasiec",
             "mainEntityOfPage": "https://mikolajpiech.com/portfolio#twojasiec",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
+            "publisher": {
+              "@id": "https://clevrapps.com/#organization"
+            },
             "image": "https://mikolajpiech.com/images/twojasiec/twojasiec-feed-589.webp",
+            "sameAs": [
+              "https://clevrapps.com/twojasiec"
+            ],
             "applicationCategory": "Local Information",
             "creativeWorkStatus": "In development"
           }
@@ -197,9 +234,21 @@
             "description": "A website for cybersecurity workshops I co-organized for 12–14-year-old primary school students. The sessions covered phishing and cyberbullying, protecting passwords and privacy, and verifying information online.",
             "url": "https://safelabs.pl/",
             "mainEntityOfPage": "https://mikolajpiech.com/portfolio#safelabs",
-            "author": {
-              "@id": "https://mikolajpiech.com/#person"
-            },
+            "author": [
+              {
+                "@id": "https://mikolajpiech.com/#person"
+              },
+              {
+                "@type": "Person",
+                "name": "Oskar Minor",
+                "url": "https://oskarminor.com/"
+              },
+              {
+                "@type": "Person",
+                "name": "Kamil Zdebski",
+                "url": "https://kamilzdebski.com/"
+              }
+            ],
             "image": "https://mikolajpiech.com/images/safelabs/safelabs-home-1272.webp",
             "sameAs": [
               "https://safelabs.pl/"

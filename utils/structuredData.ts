@@ -7,11 +7,21 @@ import { getLocalizedPath } from './localizedRoutes';
 
 const base = site.seo.site_url;
 const personId = `${base}/#person`;
+const clevrAppsUrl = 'https://clevrapps.com/';
+const clevrAppsId = `${clevrAppsUrl}#organization`;
+const clevrProjectIds = new Set(['trailo', 'subby', 'doso', 'solvee', 'twojasiec']);
 
 function projectSchema(project: Project, language: Language) {
   const website = ['safelabs', 'dragon'].includes(project.id);
   const portfolio = `${base}${getLocalizedPath('portfolio', language)}`;
-  const urls = [project.link, project.appStoreLink, project.playStoreLink].filter(Boolean);
+  const urls = [project.link, project.studioLink, project.appStoreLink, project.playStoreLink].filter(Boolean);
+  const authors = project.id === 'safelabs'
+    ? [
+        { '@id': personId },
+        { '@type': 'Person', name: 'Oskar Minor', url: 'https://oskarminor.com/' },
+        { '@type': 'Person', name: 'Kamil Zdebski', url: 'https://kamilzdebski.com/' },
+      ]
+    : { '@id': personId };
   return {
     '@type': website ? 'WebSite' : 'SoftwareApplication',
     '@id': `${base}/#project-${project.id}`,
@@ -19,7 +29,8 @@ function projectSchema(project: Project, language: Language) {
     description: project.description,
     url: urls[0] ?? `${portfolio}#${project.id}`,
     mainEntityOfPage: `${portfolio}#${project.id}`,
-    author: { '@id': personId },
+    author: authors,
+    ...(clevrProjectIds.has(project.id) ? { publisher: { '@id': clevrAppsId } } : {}),
     ...(project.image ? { image: `${base}${project.image}` } : {}),
     ...(urls.length ? { sameAs: urls } : {}),
     ...(!website ? {
@@ -53,6 +64,14 @@ export function buildStructuredData(page: PageKey, content: typeof site, languag
       mainEntityOfPage: { '@id': `${base}${getLocalizedPath('home', language)}#webpage` },
       jobTitle: language === 'pl' ? 'Founder i Developer' : 'Founder & Developer',
       description: content.seo.person_description, sameAs: Object.values(agent.profiles),
+      worksFor: { '@id': clevrAppsId },
+    },
+    {
+      '@type': 'Organization', '@id': clevrAppsId, name: 'Clevr Apps', url: clevrAppsUrl,
+      founder: { '@id': personId },
+      description: language === 'pl'
+        ? 'Niezależne studio produktowe tworzące aplikacje na iOS, Androida i web.'
+        : 'Independent product studio building apps for iOS, Android and the web.',
     },
     {
       '@type': 'ImageObject', '@id': `${base}/#portrait`,

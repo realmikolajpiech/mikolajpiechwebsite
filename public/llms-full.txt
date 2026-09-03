@@ -4,11 +4,12 @@ This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI 
 
 ## About
 
-Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.
+Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.
+
+I build mobile apps, web apps, and websites. I run Clevr Apps, where I develop my own apps, including Trailo, Subby, Doso, and Charmy Books.
+Studio: https://clevrapps.com/
 
 Mikołaj Piech Founder & developer.
-
-Web apps, mobile apps, and websites, from product design and development to launch.
 
 ## Stats
 
@@ -41,6 +42,7 @@ Description: Built, launched, and grew an AI homework app to 25K+ downloads befo
 Platform: iOS · Android
 Category: Education · AI
 Scope: Built & sold · 25K+ downloads
+Clevr Apps product page: https://clevrapps.com/apps/solvee/
 
 ### Trailo
 
@@ -50,6 +52,7 @@ Platform: Web · iOS · Android
 Category: AI Travel
 Scope: Full product · design to launch
 Website: https://trailoapp.com
+Clevr Apps product page: https://clevrapps.com/apps/trailo/
 App Store: https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924
 Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.trailo
 
@@ -60,6 +63,7 @@ Description: Personal health app for managing medications, tracking lab results,
 Platform: iOS
 Category: Health & Wellness
 Scope: Full product · design to launch
+Clevr Apps product page: https://clevrapps.com/apps/doso/
 App Store: https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859
 
 ### Subby
@@ -69,6 +73,7 @@ Description: Never pay for an unwanted subscription again. Track trials, manage 
 Platform: iOS · Android
 Category: Finance & Utility
 Scope: Full product · design to deploy
+Clevr Apps product page: https://clevrapps.com/apps/subby/
 App Store: https://apps.apple.com/us/app/subby-subscription-manager/id6755717606
 Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.subby
 
@@ -79,6 +84,7 @@ Description: A mobile app that brings news, alerts, and events from a selected a
 Platform: Mobile app
 Category: Local Information
 Scope: Product design & development
+Clevr Apps product page: https://clevrapps.com/twojasiec
 
 ### Safe Labs
 
@@ -101,16 +107,19 @@ Website: https://uksdragonmokrzyska.vercel.app/
 ## Frequently Asked Questions
 
 Q: Who is Mikołaj Piech?
-A: Mikołaj Piech is a founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea and product design through development and launch.
+A: Mikołaj Piech is the founder of Clevr Apps and a developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea and product design through development and launch.
+
+Q: How are Mikołaj Piech and Clevr Apps connected?
+A: Clevr Apps is the independent product studio founded and run by Mikołaj Piech. It publishes his consumer apps for iOS, Android, and the web, including Trailo, Subby, Doso, Solvee, and Twoja Sieć.
 
 Q: What apps has Mikołaj Piech built?
-A: Mikołaj Piech has built Charmy Books (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25K+ downloads). His products have reached more than 30K downloads overall and shipped on the web, App Store, and Google Play.
+A: Mikołaj Piech has built Charmy Books (personalized children's books), co-built Safe Labs with Oskar Minor and Kamil Zdebski (website for cybersecurity workshops), and created Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25K+ downloads). His products have reached more than 30K downloads overall and shipped on the web, App Store, and Google Play.
 
 Q: Who created Charmy Books?
 A: Charmy Books, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story.
 
 Q: Who built the Safe Labs website?
-A: The Safe Labs website was designed and developed by Mikołaj Piech for cybersecurity workshops he co-organized for 12–14-year-old primary school students. The workshops covered phishing, cyberbullying, password and privacy protection, and verifying information online.
+A: The Safe Labs website was designed and developed by Mikołaj Piech, Oskar Minor, and Kamil Zdebski for cybersecurity workshops they co-organized for 12–14-year-old primary school students. The workshops covered phishing, cyberbullying, password and privacy protection, and verifying information online.
 
 Q: Who created Subby?
 A: Subby, a subscription manager app for iOS and Android, was created by Mikołaj Piech. It helps users track trials and subscriptions to avoid unwanted charges.

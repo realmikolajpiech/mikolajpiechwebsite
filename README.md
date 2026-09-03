@@ -17,6 +17,6 @@ The homepage uses the existing portrait as its social and primary image. Other p
 
 **Pending copy and external work**
 
-`SEO-CONTENT-PROPOSAL.md` records the approved homepage copy and metadata, which are applied in English and Polish. Related-site credits are applied in their local projects. Dedicated project pages still await owner confirmation.
+`SEO-CONTENT-PROPOSAL.md` records the approved homepage copy, metadata, related-site credits, and Clevr Apps relationship. Existing Clevr Apps product pages are linked from the portfolio; future personal case studies should contain unique material rather than duplicate product copy.
 
 After deployment, verify the homepage and `/pl` in Google Search Console, inspect Google's selected canonical and last crawl, submit `/sitemap.xml`, and request recrawling of changed pages. Save branded-query performance before comparing subsequent weeks. Check verified search-crawler requests in hosting logs. These account checks and related-site credits have not been performed by this repository change.

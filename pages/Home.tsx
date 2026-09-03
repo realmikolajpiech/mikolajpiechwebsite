@@ -14,6 +14,37 @@ import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
 const CAPABILITY_ICONS = [PanelsTopLeft, Smartphone, Monitor];
+const HERO_LINKS: Record<string, string> = {
+  'Clevr Apps': 'https://clevrapps.com/',
+  Trailo: 'https://trailoapp.com',
+  Subby: 'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
+  Doso: 'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859',
+  'Charmy Books': 'https://charmybooks.com/',
+};
+
+const HeroIntro = ({ text, descriptions }: { text: string; descriptions: Record<string, string> }) => (
+  <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
+    {text.split(/(Clevr Apps|Trailo|Subby|Doso|Charmy Books)/g).map((part, index) => {
+      const href = HERO_LINKS[part];
+      if (!href) return part;
+
+      const description = descriptions[part];
+      return (
+        <a
+          key={`${part}-${index}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={description ? `${part}: ${description}` : undefined}
+          data-tooltip={description || undefined}
+          className={`${description ? 'hero-app-link ' : ''}font-medium text-ink underline decoration-stone-300 underline-offset-4 transition-colors hover:text-stone-600 dark:text-stone-100 dark:decoration-stone-600 dark:hover:text-stone-300`}
+        >
+          {part}
+        </a>
+      );
+    })}
+  </p>
+);
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 300 271" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -67,16 +98,9 @@ export default function Home() {
               initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-2xl space-y-4"
+              className="max-w-2xl"
             >
-              <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
-                {site.hero.intro}
-              </p>
-              {site.hero.description && (
-                <p className="text-base md:text-lg text-ink dark:text-stone-200 leading-relaxed font-medium">
-                  {site.hero.description}
-                </p>
-              )}
+              <HeroIntro text={site.hero.intro} descriptions={site.hero.link_descriptions} />
             </motion.div>
 
             <motion.div
@@ -240,6 +264,8 @@ export default function Home() {
                 <a href="https://www.linkedin.com/in/mikolajpiech/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-off-white">LinkedIn</a>
                 <span aria-hidden>·</span>
                 <a href="https://www.instagram.com/mikolajpiech" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-off-white">Instagram</a>
+                <span aria-hidden>·</span>
+                <a href="https://clevrapps.com/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-off-white">Clevr Apps</a>
               </div>
             </motion.div>
 

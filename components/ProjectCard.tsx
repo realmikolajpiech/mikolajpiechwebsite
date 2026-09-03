@@ -162,12 +162,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
           </div>
 
-          {(project.appStoreLink || project.playStoreLink || (project.link && project.linkText)) && (
+          {(project.studioLink || project.appStoreLink || project.playStoreLink || (project.link && project.linkText)) && (
             <div className="flex flex-wrap gap-2 sm:gap-3 mt-6 pt-5 border-t border-stone-100 dark:border-stone-700/50">
               {project.link && project.linkText && (
                 <Button href={project.link} external className="!py-2.5 !px-4 !text-xs tracking-wide w-full sm:w-auto justify-center">
                   {project.linkText}
                 </Button>
+              )}
+              {project.studioLink && (
+                <a href={project.studioLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 whitespace-nowrap px-3 py-2.5 rounded-full text-xs font-medium border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 transition-colors">
+                  {site.ui.view_on_clevr_apps}
+                  <ArrowUpRight size={14} strokeWidth={1.75} />
+                </a>
               )}
               {(project.appStoreLink || project.playStoreLink) && (
                 <div className="flex flex-nowrap gap-2">
@@ -293,8 +299,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
         </div>
 
-        {(project.appStoreLink || project.playStoreLink) && (
+        {(project.studioLink || project.appStoreLink || project.playStoreLink) && (
           <div className="flex flex-wrap gap-2 sm:gap-4 mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-stone-100 dark:border-stone-700/50">
+            {project.studioLink && (
+              <a href={project.studioLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 transition-colors w-full sm:w-auto">
+                {site.ui.view_on_clevr_apps}
+                <ArrowUpRight size={14} strokeWidth={1.75} />
+              </a>
+            )}
             {project.appStoreLink && (
               <a href={project.appStoreLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 transition-colors flex-1 sm:flex-none min-w-[calc(50%-0.25rem)] sm:min-w-0">
                 <Apple size={16} strokeWidth={1.75} />
