@@ -1,5 +1,6 @@
-import React, { useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { ResponsiveImage } from './ResponsiveImage';
+import React, { useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { Apple, Play, ArrowUpRight, ChevronDown, LucideIcon } from 'lucide-react';
 import { Project } from '../types';
 import { ScreenshotGallery } from './ScreenshotGallery';
@@ -95,56 +96,28 @@ const ProjectLinks = ({ project }: { project: Project }) => {
 
 const ProjectTechnologies = ({ project }: { project: Project }) => {
   const { site } = useLanguage();
-  const [isOpen, setIsOpen] = useState(false);
-
   if (!project.technologies?.length) return null;
-
   return (
     <div>
-      <span className="mb-1.5 block text-[10px] leading-normal uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500">
-        {site.ui.tech_stack}
-      </span>
-      <button
-        type="button"
-        aria-expanded={isOpen}
-        onClick={() => setIsOpen((open) => !open)}
-        className="flex w-fit items-center gap-1.5 rounded-sm text-[13px] font-medium leading-snug text-ink outline-none transition-colors hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-400/40 sm:text-sm dark:text-stone-100 dark:hover:text-stone-300"
-      >
-        {site.ui.technologies_used}
-        <ChevronDown
-          size={15}
-          strokeWidth={1.75}
-          aria-hidden="true"
-          className={`shrink-0 text-stone-400 transition-transform duration-300 dark:text-stone-500 ${
-            isOpen ? 'rotate-180' : ''
-          }`}
-        />
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden"
-          >
-            <dl className="mt-3 grid gap-x-10 gap-y-5 rounded-xl bg-stone-100/60 p-4 sm:grid-cols-2 sm:p-5 dark:bg-stone-800/45">
-              {project.technologies.map((technology) => (
-                <div key={technology.label} className="min-w-0">
-                  <dt className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.13em] text-stone-500 dark:text-stone-400">
-                    {technology.label}
-                  </dt>
-                  <dd className="text-[13px] leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
-                    {technology.items}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <span className="mb-1.5 block text-[10px] leading-normal uppercase tracking-[0.14em] text-stone-400 dark:text-stone-500">{site.ui.tech_stack}</span>
+      <details className="group/technologies">
+        <summary className="flex w-fit cursor-pointer list-none items-center gap-1.5 rounded-sm text-[13px] font-medium leading-snug text-ink outline-none transition-colors hover:text-stone-600 focus-visible:ring-2 focus-visible:ring-stone-400/40 sm:text-sm dark:text-stone-100 dark:hover:text-stone-300 [&::-webkit-details-marker]:hidden">
+          {site.ui.technologies_used}
+          <ChevronDown size={15} strokeWidth={1.75} aria-hidden="true" className="shrink-0 text-stone-400 transition-transform duration-300 group-open/technologies:rotate-180 dark:text-stone-500" />
+        </summary>
+        <dl className="mt-3 grid gap-x-10 gap-y-5 rounded-xl bg-stone-100/60 p-4 sm:grid-cols-2 sm:p-5 dark:bg-stone-800/45">
+          {project.technologies.map((technology) => (
+            <div key={technology.label} className="min-w-0">
+              <dt className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.13em] text-stone-500 dark:text-stone-400">
+                {technology.label}
+              </dt>
+              <dd className="text-[13px] leading-relaxed text-stone-600 text-pretty dark:text-stone-300">
+                {technology.items}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </details>
     </div>
   );
 };
@@ -162,7 +135,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -174,8 +147,9 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
             <div className="flex items-center gap-3.5 min-w-0">
               {project.icon && (
                 <div className="relative shrink-0">
-                  <img
+                  <ResponsiveImage
                     src={project.icon}
+                    sizes="192px"
                     alt=""
                     aria-hidden="true"
                     className={isWordmark

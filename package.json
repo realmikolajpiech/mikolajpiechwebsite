@@ -4,13 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run images:generate",
     "dev": "vite",
+    "images:generate": "node scripts/generate-images.mjs",
+    "seo:check": "node scripts/check-seo.mjs",
     "og:generate": "node scripts/generate-og-image.mjs",
-    "llm:generate": "node scripts/generate-llm-assets.mjs",
-    "prebuild": "npm run og:generate && npm run llm:generate",
+    "llm:generate": "npm run images:generate && npm run build:ssr && node scripts/generate-llm-assets.mjs",
+    "prebuild": "npm run images:generate",
     "build:client": "vite build",
     "build:ssr": "vite build --ssr entry-server.tsx --outDir dist-ssr",
-    "build": "npm run build:client && npm run build:ssr && node scripts/prerender.mjs",
+    "build": "npm run build:client && npm run build:ssr && node scripts/generate-llm-assets.mjs && node scripts/prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

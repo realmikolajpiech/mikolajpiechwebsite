@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { ThemeProvider } from './context/ThemeContext';
-import { applyThemeClass, getStoredTheme, markAppReady } from './utils/theme';
+import { applyThemeClass, getStoredTheme } from './utils/theme';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -12,8 +12,7 @@ if (!rootElement) {
 
 applyThemeClass(getStoredTheme());
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+const app = (
   <React.StrictMode>
     <ThemeProvider>
       <App />
@@ -21,8 +20,10 @@ root.render(
   </React.StrictMode>
 );
 
-requestAnimationFrame(() => {
-  requestAnimationFrame(() => {
-    markAppReady();
-  });
-});
+// The shared server 404 is English. Unknown URLs mount their localized error page.
+const prerenderedPath = rootElement.dataset.prerenderedPath;
+if (rootElement.hasChildNodes() && prerenderedPath === window.location.pathname) {
+  ReactDOM.hydrateRoot(rootElement, app);
+} else {
+  ReactDOM.createRoot(rootElement).render(app);
+}

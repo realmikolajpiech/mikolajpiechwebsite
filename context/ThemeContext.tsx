@@ -10,11 +10,18 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => getStoredTheme());
+  const [theme, setTheme] = useState<Theme>('system');
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    setTheme(getStoredTheme());
+    setReady(true);
+  }, []);
+
+  useEffect(() => {
+    if (!ready) return;
     applyThemeClass(theme);
-    localStorage.setItem('theme', theme);
+    try { localStorage.setItem('theme', theme); } catch { /* Storage may be disabled. */ }
 
     if (theme !== 'system') return;
 
@@ -23,7 +30,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [theme]);
+  }, [theme, ready]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

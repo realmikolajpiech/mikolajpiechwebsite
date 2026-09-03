@@ -7,13 +7,12 @@ import { PageMeta } from '../components/PageMeta';
 import { SiteNav } from '../components/SiteNav';
 import { ContactForm } from '../components/ContactForm';
 import { CopyEmail } from '../components/CopyEmail';
-import { getProjects } from '../data/projects';
+import { getFeaturedProjects } from '../data/projects';
 import { Link } from 'react-router-dom';
 import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
 const CONTACT_EMAIL = 'hello@mikolajpiech.com';
-const FEATURED_PROJECT_IDS = ['justmine', 'solvee', 'trailo', 'subby'];
 const CAPABILITY_ICONS = [PanelsTopLeft, Smartphone, Monitor];
 
 const XLogo = ({ className }: { className?: string }) => (
@@ -38,18 +37,7 @@ export default function Home() {
   const { language, site } = useLanguage();
   const year = new Date().getFullYear();
 
-  const projects = getProjects(language);
-  const homepageDescriptions: Record<string, string> = {
-    justmine: site.projects.justmine.homepage_description,
-    solvee: site.projects.solvee.homepage_description,
-    subby: site.projects.subby.homepage_description,
-  };
-  const featuredProjects = FEATURED_PROJECT_IDS
-    .flatMap((id) => projects.filter((project) => project.id === id))
-    .map((project) => ({
-      ...project,
-      description: homepageDescriptions[project.id] ?? project.description,
-    }));
+  const featuredProjects = getFeaturedProjects(language);
   const pageMeta = getPageMeta('home', site, language);
   const portfolioPath = getLocalizedPath('portfolio', language);
   const privacyPath = getLocalizedPath('privacy', language);
@@ -65,7 +53,7 @@ export default function Home() {
 
           <div className="md:col-span-7 space-y-8 md:space-y-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -76,7 +64,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-2xl space-y-4"
@@ -92,7 +80,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="pt-2 space-y-5"
@@ -117,7 +105,7 @@ export default function Home() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
             className="md:col-span-5 relative self-start"
@@ -125,6 +113,9 @@ export default function Home() {
             <div className="aspect-[3/4] md:aspect-square relative overflow-hidden rounded-full md:rounded-[3rem]">
               <img
                 src="/mikolaj-profile.jpg"
+                width={400}
+                height={400}
+                fetchPriority="high"
                 alt="Mikołaj Piech"
                 className="w-full h-full object-cover"
               />
@@ -136,7 +127,7 @@ export default function Home() {
 
       <section className="px-6 md:px-12 max-w-7xl mx-auto" aria-labelledby="proof-title">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
@@ -184,7 +175,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_1.7fr] gap-12 lg:gap-20 items-start">
             <motion.div
-              initial={{ opacity: 0, y: 18 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
@@ -204,7 +195,7 @@ export default function Home() {
                 return (
                   <motion.article
                     key={item.title}
-                    initial={{ opacity: 0, y: 18 }}
+                    initial={false}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.35 }}
                     transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
@@ -231,7 +222,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.8 }}
@@ -253,7 +244,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, delay: 0.08 }}

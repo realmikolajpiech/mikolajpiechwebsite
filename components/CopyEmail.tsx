@@ -9,6 +9,8 @@ type CopyEmailProps = {
 
 export function CopyEmail({ email, className = '' }: CopyEmailProps) {
   const { site } = useLanguage();
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
   const [copied, setCopied] = useState(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -34,6 +36,8 @@ export function CopyEmail({ email, className = '' }: CopyEmailProps) {
     if (resetTimer.current) clearTimeout(resetTimer.current);
     resetTimer.current = setTimeout(() => setCopied(false), 2000);
   };
+
+  if (!ready) return <a href={`mailto:${email}`} className={className}>{email}</a>;
 
   return (
     <button

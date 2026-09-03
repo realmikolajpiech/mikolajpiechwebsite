@@ -1,6 +1,6 @@
-import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from 'fs';
 import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -20,96 +20,7 @@ function escapeHtml(value) {
     .replace(/"/g, '&quot;');
 }
 
-function getProjects() {
-  return agent.visible_projects.map((id) => {
-    const copy = site.projects[id];
-    const meta = agent.project_meta[id];
-    return {
-      id,
-      name: id.charAt(0).toUpperCase() + id.slice(1),
-      nameDisplay: id === 'solvee' ? 'Solvee' : id.charAt(0).toUpperCase() + id.slice(1),
-      tagline: copy.tagline,
-      description: copy.description,
-      status: copy.status,
-      tags: meta.tags,
-      ...meta,
-    };
-  });
-}
-
-function buildJsonLd(projects) {
-  const personId = `${SITE_URL}/#person`;
-  const websiteId = `${SITE_URL}/#website`;
-  const projectsId = `${SITE_URL}/#projects`;
-  const faqId = `${SITE_URL}/#faq`;
-
-  const projectSchemas = projects.map((project, index) => {
-    const item = {
-      '@type': project.applicationType,
-      name: project.nameDisplay,
-      description: project.description,
-      applicationCategory: project.category,
-      operatingSystem: project.operatingSystem,
-      author: { '@id': personId },
-    };
-
-    if (project.link || project.appStoreLink) item.url = project.link || project.appStoreLink;
-    const sameAs = [project.appStoreLink, project.playStoreLink].filter(Boolean);
-    if (sameAs.length) item.sameAs = sameAs;
-    if (project.status) item.creativeWorkStatus = project.status;
-
-    return {
-      '@type': 'ListItem',
-      position: index + 1,
-      item,
-    };
-  });
-
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebSite',
-        '@id': websiteId,
-        url: SITE_URL,
-        name: SITE_NAME,
-        description: site.seo.person_description,
-        inLanguage: 'en',
-        publisher: { '@id': personId },
-      },
-      {
-        '@type': 'Person',
-        '@id': personId,
-        name: SITE_NAME,
-        jobTitle: 'Founder & Developer',
-        url: SITE_URL,
-        image: `${SITE_URL}/mikolaj-profile.jpg`,
-        email: CONTACT_EMAIL,
-        sameAs: Object.values(agent.profiles),
-        description: site.seo.person_description,
-        knowsAbout: agent.knows_about,
-      },
-      {
-        '@type': 'ItemList',
-        '@id': projectsId,
-        name: 'Apps by Mikołaj Piech',
-        itemListElement: projectSchemas,
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': faqId,
-        mainEntity: agent.faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer,
-          },
-        })),
-      },
-    ],
-  };
-}
+const { getPortfolioProjects, getPageMeta } = await import(pathToFileURL(join(root, 'dist-ssr/entry-server.js')).href);
 
 function buildLlmsTxt() {
   return `# ${SITE_NAME}
@@ -120,12 +31,12 @@ ${site.seo.person_description}
 
 ## Docs
 - [Full site summary (${SITE_URL}/llms-full.txt)](${SITE_URL}/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs, the best source for AI agents
-- [Structured data (${SITE_URL}/schema.json)](${SITE_URL}/schema.json): JSON-LD with Person, WebSite, projects, and FAQs
+- [Structured data (${SITE_URL}/schema.json)](${SITE_URL}/schema.json): JSON-LD with Person, WebSite, and projects
 
 ## Pages
 - [Home](${SITE_URL}/): About, proof, selected work, services, and contact
 - [Portfolio (interactive)](${SITE_URL}/portfolio): Detailed shipped products in the main site
-- [Portfolio (plain HTML for agents)](${SITE_URL}/crawl/portfolio.html): Crawlable project details without JavaScript
+- [Portfolio (plain HTML for agents)](${SITE_URL}/portfolio): Crawlable project details without JavaScript
 - [Privacy Policy](${SITE_URL}/privacy-policy): Data handling for this website and published apps
 
 ## Contact
@@ -201,7 +112,7 @@ function buildLlmsFullTxt(projects) {
   lines.push('');
   lines.push(`Home: ${SITE_URL}/`);
   lines.push(`Portfolio: ${SITE_URL}/portfolio`);
-  lines.push(`Portfolio (crawlable HTML): ${SITE_URL}/crawl/portfolio.html`);
+  lines.push(`Portfolio (crawlable HTML): ${SITE_URL}/portfolio`);
   lines.push(`Privacy Policy: ${SITE_URL}/privacy-policy`);
   lines.push(`LLM summary (this file): ${SITE_URL}/llms-full.txt`);
   lines.push(`Structured data: ${SITE_URL}/schema.json`);
@@ -209,106 +120,17 @@ function buildLlmsFullTxt(projects) {
   return `${lines.join('\n')}\n`;
 }
 
-function buildPortfolioHtml(projects) {
-  const projectArticles = projects
-    .map((project) => {
-      const links = [
-        project.link
-          ? `<a href="${project.link}" rel="noopener noreferrer">Website</a>`
-          : '',
-        project.appStoreLink
-          ? `<a href="${project.appStoreLink}" rel="noopener noreferrer">App Store</a>`
-          : '',
-        project.playStoreLink
-          ? `<a href="${project.playStoreLink}" rel="noopener noreferrer">Google Play</a>`
-          : '',
-      ]
-        .filter(Boolean)
-        .join(' · ');
+const projects = getPortfolioProjects('en').map((project) => ({ ...project, nameDisplay: project.name }));
+const jsonLd = getPageMeta('portfolio', site, 'en').structuredData;
 
-      return `      <article id="${project.id}">
-        <h2>${escapeHtml(project.nameDisplay)}${project.status ? ` | ${escapeHtml(project.status)}` : ''}</h2>
-        <p><strong>${escapeHtml(project.tagline)}</strong></p>
-        <p>${escapeHtml(project.description)}</p>
-        <p>Platform: ${escapeHtml(project.platform)} · Category: ${escapeHtml(project.category)} · ${escapeHtml(project.scope)}</p>
-        ${links ? `<p>${links}</p>` : ''}
-      </article>`;
-    })
-    .join('\n\n');
-
-  return `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${escapeHtml(site.seo.pages.portfolio.title)}</title>
-    <meta name="description" content="${escapeHtml(site.seo.pages.portfolio.description)}" />
-    <link rel="canonical" href="${SITE_URL}/portfolio" />
-    <link rel="alternate" type="text/plain" href="${SITE_URL}/llms-full.txt" title="LLM-readable site summary" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a href="${SITE_URL}/">${escapeHtml(SITE_NAME)}</a>
-        <a href="${SITE_URL}/portfolio">Portfolio</a>
-        <a href="${SITE_URL}/privacy-policy">Privacy Policy</a>
-        <a href="${SITE_URL}/llms-full.txt">LLM summary</a>
-      </nav>
-    </header>
-
-    <main>
-      <h1>${escapeHtml(site.portfolio.headline)} ${escapeHtml(site.portfolio.headline_accent)}</h1>
-      <p>${escapeHtml(site.portfolio.subtitle)}</p>
-      <ul>
-        <li>${escapeHtml(site.portfolio.stats.apps)}</li>
-        <li>${escapeHtml(site.portfolio.stats.downloads)}</li>
-        <li>${escapeHtml(site.portfolio.stats.platforms)}</li>
-        <li>${escapeHtml(site.portfolio.stats.acquired)}</li>
-      </ul>
-
-${projectArticles}
-    </main>
-
-    <footer>
-      <p>${escapeHtml(site.portfolio.cta_description)}</p>
-      <p>Contact: ${CONTACT_EMAIL}</p>
-      <p><a href="${SITE_URL}/">Back to home</a></p>
-    </footer>
-  </body>
-</html>
-`;
+mkdirSync(publicDir, { recursive: true });
+const outputs = {
+  'llms.txt': buildLlmsTxt(),
+  'llms-full.txt': buildLlmsFullTxt(projects),
+  'schema.json': `${JSON.stringify(jsonLd, null, 2)}\n`,
+};
+for (const [name, content] of Object.entries(outputs)) {
+  writeFileSync(join(publicDir, name), content);
+  if (existsSync(join(root, 'dist'))) copyFileSync(join(publicDir, name), join(root, 'dist', name));
 }
-
-function patchIndexHtml(jsonLd) {
-  const indexPath = join(root, 'index.html');
-  const html = readFileSync(indexPath, 'utf8');
-  const json = JSON.stringify(jsonLd, null, 2);
-  const start = '    <!-- GENERATED:JSON-LD:START -->';
-  const end = '    <!-- GENERATED:JSON-LD:END -->';
-  const replacement = `${start}\n    <script type="application/ld+json">\n${json}\n    </script>\n    ${end}`;
-
-  const pattern = /    <!-- GENERATED:JSON-LD:START -->[\s\S]*?    <!-- GENERATED:JSON-LD:END -->/;
-  if (!pattern.test(html)) {
-    throw new Error('JSON-LD markers not found in index.html');
-  }
-
-  writeFileSync(indexPath, html.replace(pattern, replacement));
-}
-
-const projects = getProjects();
-const jsonLd = buildJsonLd(projects);
-
-mkdirSync(join(publicDir, 'crawl'), { recursive: true });
-
-writeFileSync(join(publicDir, 'llms.txt'), buildLlmsTxt());
-writeFileSync(join(publicDir, 'llms-full.txt'), buildLlmsFullTxt(projects));
-writeFileSync(join(publicDir, 'schema.json'), `${JSON.stringify(jsonLd, null, 2)}\n`);
-writeFileSync(join(publicDir, 'crawl', 'portfolio.html'), buildPortfolioHtml(projects));
-patchIndexHtml(jsonLd);
-
-console.log('Generated LLM assets:');
-console.log('  public/llms.txt');
-console.log('  public/llms-full.txt');
-console.log('  public/schema.json');
-console.log('  public/crawl/portfolio.html');
-console.log('  index.html (JSON-LD synced)');
+console.log('Generated AI guides and structured data from the visible portfolio.');

@@ -1,3 +1,4 @@
+import { ResponsiveImage } from './ResponsiveImage';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '../types';
@@ -37,14 +38,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   if (isWeb) {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
         className={`group relative flex flex-col ${isPrimary ? 'md:col-span-2' : ''} w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-all duration-500`}
       >
         <div className="relative w-full aspect-[16/10] md:aspect-[16/7] bg-[#F5F5F7] dark:bg-stone-950/50 overflow-hidden">
           {project.image ? (
-            <img
+            <ResponsiveImage
               src={project.image}
               alt={`${project.name} ${site.ui.website_preview}`}
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
@@ -61,8 +62,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <div className="flex min-h-16 sm:min-h-20 mb-5">
             <div className="flex items-start gap-3 sm:gap-4 min-w-0">
               {project.icon && (
-                <img
+                <ResponsiveImage
                   src={project.icon}
+                    sizes="192px"
                   alt={`${project.name} ${site.ui.icon}`}
                   className={isWordmark
                     ? 'w-16 h-16 sm:w-20 sm:h-20 object-contain shrink-0'
@@ -100,7 +102,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   if (isSplit) {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
         className={`group relative flex flex-col md:flex-row w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500 md:min-h-[500px] ${isPrimary ? 'md:col-span-2' : ''}`}
@@ -114,17 +116,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   : 'h-[min(100%,20rem)] sm:h-[min(100%,24rem)] w-auto aspect-[9/19] rounded-[1.25rem] sm:rounded-[1.2rem]'
               }`}>
                 {project.video ? (
-                  <video 
-                    src={project.video} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
+                  <video
+                    src={project.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <img 
-                    src={project.image} 
+                  <ResponsiveImage
+                    src={project.image}
                     alt={`${project.name} ${site.ui.preview}`}
                     className={`w-full h-full ${project.imageFit === 'contain' ? 'object-contain p-3 sm:p-4' : 'object-cover'}`}
                   />
@@ -138,8 +140,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <div>
             <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
               {project.icon && (
-                <img 
-                  src={project.icon} 
+                <ResponsiveImage
+                  src={project.icon}
+                    sizes="192px"
                   alt={`${project.name} ${site.ui.icon}`}
                   className={isWordmark
                     ? 'w-16 h-16 sm:w-20 sm:h-20 object-contain shrink-0'
@@ -154,9 +157,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <p className="text-sm sm:text-base font-medium text-stone-800 dark:text-stone-200 font-serif italic leading-snug">{project.tagline}</p>
               </div>
             </div>
-            
+
             <p className="text-sm sm:text-base text-stone-500 dark:text-stone-400 leading-relaxed mb-5 sm:mb-6">{project.description}</p>
-            
+
           </div>
 
           {(project.appStoreLink || project.playStoreLink || (project.link && project.linkText)) && (
@@ -191,7 +194,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className={`group relative flex flex-col ${isPrimary ? 'md:col-span-2' : ''} w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500`}
@@ -201,28 +204,29 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         {project.icon ? (
           <div className="w-full h-full flex items-center justify-center px-6 sm:px-8 md:px-12 relative overflow-hidden">
              <div className="relative z-10 shrink-0 group-hover:scale-105 transition-transform duration-500 ease-out">
-                <img 
-                  src={project.icon} 
+                <ResponsiveImage
+                  src={project.icon}
+                    sizes="192px"
                   alt={`${project.name} ${site.ui.icon}`}
                   className={isWordmark
                     ? 'w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain'
                     : 'w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-[22%] shadow-2xl object-contain p-2'}
                 />
              </div>
-             
+
              <div className="absolute right-4 sm:right-6 md:right-10 top-1/2 -translate-y-1/2 h-[78%] sm:h-[85%] w-auto aspect-[9/19] bg-white dark:bg-stone-900 rounded-[1.25rem] sm:rounded-[1.5rem] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] border-[3px] sm:border-[4px] border-white dark:border-stone-900 overflow-hidden transform rotate-[-3deg] group-hover:rotate-0 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
                 {project.video ? (
-                  <video 
-                    src={project.video} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
+                  <video
+                    src={project.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <img 
-                    src={project.image} 
+                  <ResponsiveImage
+                    src={project.image}
                     alt={`${project.name} ${site.ui.screenshot}`}
                     className="w-full h-full object-cover"
                   />
@@ -233,16 +237,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           /* Standard Layout */
           <>
             {project.video ? (
-              <video 
-                src={project.video} 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
+              <video
+                src={project.video}
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-full object-cover transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
               />
             ) : project.image ? (
-              <img
+              <ResponsiveImage
                 src={project.image}
                 alt={project.name}
                 className="w-full h-full object-cover transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
@@ -254,7 +258,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             )}
           </>
         )}
-        
+
         {project.status && (
           <div className="absolute top-5 right-5 z-20">
             <StatusBadge status={project.status} />
@@ -271,9 +275,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               {project.status && !project.icon && <StatusBadge status={project.status} />}
             </div>
             {project.linkText ? (
-              <Button 
-                href={project.link} 
-                external 
+              <Button
+                href={project.link}
+                external
                 className="!py-2.5 !px-5 !text-xs tracking-wide w-full sm:w-auto text-center justify-center shrink-0"
               >
                 {project.linkText}
@@ -286,20 +290,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </div>
           <p className="text-base sm:text-lg font-medium text-stone-800 dark:text-stone-200 mb-3 sm:mb-4 font-serif italic">{project.tagline}</p>
           <p className="text-sm sm:text-base text-stone-500 dark:text-stone-400 leading-relaxed mb-5 sm:mb-8">{project.description}</p>
-          
+
         </div>
 
         {(project.appStoreLink || project.playStoreLink) && (
           <div className="flex flex-wrap gap-2 sm:gap-4 mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-stone-100 dark:border-stone-700/50">
             {project.appStoreLink && (
               <a href={project.appStoreLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 transition-colors flex-1 sm:flex-none min-w-[calc(50%-0.25rem)] sm:min-w-0">
-                <Apple size={16} strokeWidth={1.75} /> 
+                <Apple size={16} strokeWidth={1.75} />
                 App Store
               </a>
             )}
             {project.playStoreLink && (
               <a href={project.playStoreLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-medium border border-stone-200/80 dark:border-stone-700/60 bg-white/80 dark:bg-stone-800/40 text-stone-700 dark:text-stone-200 hover:border-stone-300 dark:hover:border-stone-600 transition-colors flex-1 sm:flex-none min-w-[calc(50%-0.25rem)] sm:min-w-0">
-                <Play size={16} strokeWidth={1.75} /> 
+                <Play size={16} strokeWidth={1.75} />
                 Play Store
               </a>
             )}

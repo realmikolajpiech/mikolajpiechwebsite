@@ -1,51 +1,54 @@
+import imageManifest from './image-manifest.json';
 import { Language, Project } from '../types';
 import siteEn from '../content/site.json';
 import sitePl from '../content/site.pl.json';
-import omniImage from '../assets/omni.jpeg';
 import omniVideo from '../assets/omni-teaser.mp4';
-import solvee1 from '../assets/solvee-sc/solvee1.webp';
-import solvee2 from '../assets/solvee-sc/solvee2.webp';
-import solvee3 from '../assets/solvee-sc/solvee3.webp';
-import solvee4 from '../assets/solvee-sc/solvee4.webp';
-import solveeLogo from '../assets/solvee-logo.png';
-import subby1 from '../assets/subby-sc/subby1.png';
-import subby2 from '../assets/subby-sc/subby2.png';
-import subby3 from '../assets/subby-sc/subby3.png';
-import subbyLogo from '../assets/subby-logo.png';
-import doso1 from '../assets/doso-sc/doso1.png';
-import doso2 from '../assets/doso-sc/doso2.png';
-import doso3 from '../assets/doso-sc/doso3.png';
-import doso4 from '../assets/doso-sc/doso4.png';
-import doso5 from '../assets/doso-sc/doso5.png';
-import dosoLogo from '../assets/doso-logo.png';
-import trailoIcon from '../assets/trailo-icon.png';
-import trailoMobile1 from '../assets/trailo-mobile-sc/trailo-mobile-1.png';
-import trailoMobile2 from '../assets/trailo-mobile-sc/trailo-mobile-2.png';
-import trailoMobile3 from '../assets/trailo-mobile-sc/trailo-mobile-3.png';
-import trailoMobile4 from '../assets/trailo-mobile-sc/trailo-mobile-4.png';
-import twojaSiecLogo from '../assets/twojasiec/twojasiec-logo.jpeg';
-import twojaSiecFeed from '../assets/twojasiec/twojasiec-feed.jpeg';
-import twojaSiecEventDetails from '../assets/twojasiec/twojasiec-event-details.jpeg';
-import twojaSiecEvents from '../assets/twojasiec/twojasiec-events.jpeg';
-import twojaSiecAlerts from '../assets/twojasiec/twojasiec-alerts.jpeg';
-import justMineHome from '../assets/justmine/justmine-home.jpg';
-import justMineExamples from '../assets/justmine/justmine-examples.jpg';
-import justMineHowItWorks from '../assets/justmine/justmine-how-it-works.jpg';
-import justMineStep4 from '../assets/justmine/justmine-create-step-4.jpg';
-import justMinePricing from '../assets/justmine/justmine-pricing.jpg';
-import justMineLogo from '../assets/justmine/justmine-logo.png';
-import safeLabsLogo from '../assets/safelabs/safelabs-logo.png';
-import safeLabsHome from '../assets/safelabs/safelabs-home.jpg';
-import safeLabsPasswordCheck from '../assets/safelabs/safelabs-password-check.jpg';
-import safeLabsEbook from '../assets/safelabs/safelabs-ebook.jpg';
-import dragonLogo from '../assets/dragon/dragon-logo.png';
-import dragonHome from '../assets/dragon/dragon-home.jpg';
-import dragonClasses from '../assets/dragon/dragon-classes.jpg';
-import dragonSignup from '../assets/dragon/dragon-signup.jpg';
-// import platoicLogo from '../assets/platoic-logo.png';
+
+const omniImage = imageManifest['assets/omni.jpeg'].src;
+const solvee1 = imageManifest['assets/solvee-sc/solvee1.webp'].src;
+const solvee2 = imageManifest['assets/solvee-sc/solvee2.webp'].src;
+const solvee3 = imageManifest['assets/solvee-sc/solvee3.webp'].src;
+const solvee4 = imageManifest['assets/solvee-sc/solvee4.webp'].src;
+const solveeLogo = imageManifest['assets/solvee-logo.png'].src;
+const subby1 = imageManifest['assets/subby-sc/subby1.png'].src;
+const subby2 = imageManifest['assets/subby-sc/subby2.png'].src;
+const subby3 = imageManifest['assets/subby-sc/subby3.png'].src;
+const subbyLogo = imageManifest['assets/subby-logo.png'].src;
+const doso1 = imageManifest['assets/doso-sc/doso1.png'].src;
+const doso2 = imageManifest['assets/doso-sc/doso2.png'].src;
+const doso3 = imageManifest['assets/doso-sc/doso3.png'].src;
+const doso4 = imageManifest['assets/doso-sc/doso4.png'].src;
+const doso5 = imageManifest['assets/doso-sc/doso5.png'].src;
+const dosoLogo = imageManifest['assets/doso-logo.png'].src;
+const trailoIcon = imageManifest['assets/trailo-icon.png'].src;
+const trailoMobile1 = imageManifest['assets/trailo-mobile-sc/trailo-mobile-1.png'].src;
+const trailoMobile2 = imageManifest['assets/trailo-mobile-sc/trailo-mobile-2.png'].src;
+const trailoMobile3 = imageManifest['assets/trailo-mobile-sc/trailo-mobile-3.png'].src;
+const trailoMobile4 = imageManifest['assets/trailo-mobile-sc/trailo-mobile-4.png'].src;
+const twojaSiecLogo = imageManifest['assets/twojasiec/twojasiec-logo.jpeg'].src;
+const twojaSiecFeed = imageManifest['assets/twojasiec/twojasiec-feed.jpeg'].src;
+const twojaSiecEventDetails = imageManifest['assets/twojasiec/twojasiec-event-details.jpeg'].src;
+const twojaSiecEvents = imageManifest['assets/twojasiec/twojasiec-events.jpeg'].src;
+const twojaSiecAlerts = imageManifest['assets/twojasiec/twojasiec-alerts.jpeg'].src;
+const justMineHome = imageManifest['assets/justmine/justmine-home.jpg'].src;
+const justMineExamples = imageManifest['assets/justmine/justmine-examples.jpg'].src;
+const justMineHowItWorks = imageManifest['assets/justmine/justmine-how-it-works.jpg'].src;
+const justMineStep4 = imageManifest['assets/justmine/justmine-create-step-4.jpg'].src;
+const justMinePricing = imageManifest['assets/justmine/justmine-pricing.jpg'].src;
+const justMineLogo = imageManifest['assets/justmine/justmine-logo.png'].src;
+const safeLabsLogo = imageManifest['assets/safelabs/safelabs-logo.png'].src;
+const safeLabsHome = imageManifest['assets/safelabs/safelabs-home.jpg'].src;
+const safeLabsPasswordCheck = imageManifest['assets/safelabs/safelabs-password-check.jpg'].src;
+const safeLabsEbook = imageManifest['assets/safelabs/safelabs-ebook.jpg'].src;
+const dragonLogo = imageManifest['assets/dragon/dragon-logo.png'].src;
+const dragonHome = imageManifest['assets/dragon/dragon-home.jpg'].src;
+const dragonClasses = imageManifest['assets/dragon/dragon-classes.jpg'].src;
+const dragonSignup = imageManifest['assets/dragon/dragon-signup.jpg'].src;
+// const platoicLogo = imageManifest['assets/platoic-logo.png'].src;
 
 export const SHOW_OMNI = false;
 export const SHOW_PLATOIC = false;
+export const FEATURED_PROJECT_IDS = ['justmine', 'solvee', 'trailo', 'subby'];
 const PORTFOLIO_ONLY_PROJECT_IDS = new Set(['dragon']);
 const PROJECT_ORDER = [
   'justmine',
@@ -387,4 +390,15 @@ export function getPortfolioProjects(language: Language = 'en'): Project[] {
 
 export function getProjectById(id: string, language: Language = 'en'): Project | undefined {
   return getPortfolioProjects(language).find((project) => project.id === id);
+}
+
+export function getFeaturedProjects(language: Language = 'en'): Project[] {
+  const site = language === 'pl' ? sitePl : siteEn;
+  return FEATURED_PROJECT_IDS.flatMap((id) => {
+    const project = getProjectById(id, language);
+    if (!project) return [];
+    const copy = site.projects[id as keyof typeof site.projects];
+    return [{ ...project, description: typeof copy === 'object' && 'homepage_description' in copy
+      ? copy.homepage_description : project.description }];
+  });
 }

@@ -1,3 +1,4 @@
+import { ResponsiveImage } from './ResponsiveImage';
 import React from 'react';
 import { Project } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -38,8 +39,9 @@ export const PortfolioSideNav: React.FC<PortfolioSideNavProps> = ({
                 }`}
               >
                 {project.icon && (
-                  <img
+                  <ResponsiveImage
                     src={project.icon}
+                    sizes="32px"
                     alt=""
                     aria-hidden="true"
                     className={`w-6 h-6 rounded-[20%] object-contain shrink-0 transition-opacity duration-200 ${

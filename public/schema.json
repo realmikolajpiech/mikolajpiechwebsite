@@ -4,97 +4,128 @@
     {
       "@type": "WebSite",
       "@id": "https://mikolajpiech.com/#website",
-      "url": "https://mikolajpiech.com",
+      "url": "https://mikolajpiech.com/",
       "name": "Mikołaj Piech",
-      "description": "Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.",
-      "inLanguage": "en",
+      "inLanguage": [
+        "en",
+        "pl"
+      ],
       "publisher": {
         "@id": "https://mikolajpiech.com/#person"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mikolajpiech.com/portfolio#webpage",
+      "url": "https://mikolajpiech.com/portfolio",
+      "name": "Portfolio | Apps by Mikołaj Piech",
+      "description": "Selected web apps, mobile apps, websites, and digital products designed, built, and shipped by Mikołaj Piech.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://mikolajpiech.com/#website"
+      },
+      "about": {
+        "@id": "https://mikolajpiech.com/#person"
+      },
+      "mainEntity": {
+        "@id": "https://mikolajpiech.com/portfolio#projects"
       }
     },
     {
       "@type": "Person",
       "@id": "https://mikolajpiech.com/#person",
       "name": "Mikołaj Piech",
+      "alternateName": "Mikolaj Piech",
+      "url": "https://mikolajpiech.com/",
+      "image": {
+        "@id": "https://mikolajpiech.com/#portrait"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://mikolajpiech.com/#webpage"
+      },
       "jobTitle": "Founder & Developer",
-      "url": "https://mikolajpiech.com",
-      "image": "https://mikolajpiech.com/mikolaj-profile.jpg",
-      "email": "hello@mikolajpiech.com",
+      "description": "Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.",
       "sameAs": [
         "https://x.com/mikolajpiech",
         "https://www.linkedin.com/in/mikolajpiech/",
         "https://github.com/realmikolajpiech",
         "https://www.instagram.com/mikolajpiech"
-      ],
-      "description": "Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.",
-      "knowsAbout": [
-        "Mobile app development",
-        "iOS development",
-        "Android development",
-        "Web development",
-        "Web application development",
-        "Website design and development",
-        "React",
-        "TypeScript",
-        "AI applications",
-        "Consumer software",
-        "Product design",
-        "App Store launches",
-        "Travel technology",
-        "Health technology",
-        "FinTech",
-        "EdTech",
-        "Personalized publishing"
       ]
     },
     {
+      "@type": "ImageObject",
+      "@id": "https://mikolajpiech.com/#portrait",
+      "url": "https://mikolajpiech.com/mikolaj-profile.jpg",
+      "contentUrl": "https://mikolajpiech.com/mikolaj-profile.jpg",
+      "width": 400,
+      "height": 400,
+      "caption": "Mikołaj Piech"
+    },
+    {
       "@type": "ItemList",
-      "@id": "https://mikolajpiech.com/#projects",
-      "name": "Apps by Mikołaj Piech",
+      "@id": "https://mikolajpiech.com/portfolio#projects",
+      "name": "Selected work",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "item": {
-            "@type": "WebApplication",
+            "@type": "SoftwareApplication",
+            "@id": "https://mikolajpiech.com/#project-justmine",
             "name": "Charmy Books",
             "description": "A personalized storybook platform that turns a child’s appearance, interests, family, and memories into a coherent illustrated story made specifically for them.",
-            "applicationCategory": "Personalized Publishing",
-            "operatingSystem": "Web",
+            "url": "https://charmybooks.com",
+            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#justmine",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "url": "https://charmybooks.com"
+            "image": "https://mikolajpiech.com/images/justmine/justmine-home-1280.webp",
+            "sameAs": [
+              "https://charmybooks.com"
+            ],
+            "applicationCategory": "Personalized Publishing",
+            "operatingSystem": "Web"
           }
         },
         {
           "@type": "ListItem",
           "position": 2,
           "item": {
-            "@type": "WebApplication",
-            "name": "Safe Labs",
-            "description": "A website for cybersecurity workshops I co-organized for 12–14-year-old primary school students. The sessions covered phishing and cyberbullying, protecting passwords and privacy, and verifying information online.",
-            "applicationCategory": "Cybersecurity",
-            "operatingSystem": "Web",
+            "@type": "SoftwareApplication",
+            "@id": "https://mikolajpiech.com/#project-solvee",
+            "name": "Solvee",
+            "description": "Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.",
+            "url": "https://mikolajpiech.com/portfolio#solvee",
+            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#solvee",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "url": "https://safelabs.pl/"
+            "image": "https://mikolajpiech.com/images/solvee-sc/solvee1-314.webp",
+            "applicationCategory": "Education · AI",
+            "creativeWorkStatus": "Sold"
           }
         },
         {
           "@type": "ListItem",
           "position": 3,
           "item": {
-            "@type": "WebApplication",
-            "name": "UKS Dragon Mokrzyska",
-            "description": "A complete website for UKS Dragon Mokrzyska, bringing club news, training schedules, tournaments, enrollment, and contact information together in one clear, easy-to-manage place.",
-            "applicationCategory": "Sports & Community",
-            "operatingSystem": "Web",
+            "@type": "SoftwareApplication",
+            "@id": "https://mikolajpiech.com/#project-trailo",
+            "name": "Trailo",
+            "description": "End-to-end AI travel planning: find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
+            "url": "https://trailoapp.com",
+            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#trailo",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "url": "https://uksdragonmokrzyska.vercel.app/"
+            "image": "https://mikolajpiech.com/images/trailo-mobile-sc/trailo-mobile-1-1170.webp",
+            "sameAs": [
+              "https://trailoapp.com",
+              "https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924",
+              "https://play.google.com/store/apps/details?id=com.justgoodapps.trailo"
+            ],
+            "applicationCategory": "AI Travel",
+            "operatingSystem": "Web, iOS, Android"
           }
         },
         {
@@ -102,156 +133,96 @@
           "position": 4,
           "item": {
             "@type": "SoftwareApplication",
-            "name": "Trailo",
-            "description": "End-to-end AI travel planning: find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
-            "applicationCategory": "AI Travel",
-            "operatingSystem": "Web, iOS, Android",
+            "@id": "https://mikolajpiech.com/#project-doso",
+            "name": "Doso",
+            "description": "Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history.",
+            "url": "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859",
+            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#doso",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "url": "https://trailoapp.com",
+            "image": "https://mikolajpiech.com/images/doso-sc/doso1-1170.webp",
             "sameAs": [
-              "https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924",
-              "https://play.google.com/store/apps/details?id=com.justgoodapps.trailo"
-            ]
+              "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859"
+            ],
+            "applicationCategory": "Health & Wellness"
           }
         },
         {
           "@type": "ListItem",
           "position": 5,
           "item": {
-            "@type": "MobileApplication",
+            "@type": "SoftwareApplication",
+            "@id": "https://mikolajpiech.com/#project-subby",
             "name": "Subby",
             "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly.",
-            "applicationCategory": "Finance & Utility",
-            "operatingSystem": "iOS, Android",
+            "url": "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606",
+            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#subby",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "url": "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606",
+            "image": "https://mikolajpiech.com/images/subby-sc/subby1-1170.webp",
             "sameAs": [
               "https://apps.apple.com/us/app/subby-subscription-manager/id6755717606",
               "https://play.google.com/store/apps/details?id=com.justgoodapps.subby"
-            ]
+            ],
+            "applicationCategory": "Finance & Utility"
           }
         },
         {
           "@type": "ListItem",
           "position": 6,
           "item": {
-            "@type": "MobileApplication",
-            "name": "Doso",
-            "description": "Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history.",
-            "applicationCategory": "Health & Wellness",
-            "operatingSystem": "iOS",
+            "@type": "SoftwareApplication",
+            "@id": "https://mikolajpiech.com/#project-twojasiec",
+            "name": "Twoja Sieć",
+            "description": "A mobile app that brings news, alerts, and events from a selected area into one organized place. Users can personalize their local feed by topic, save stories, and add events to their calendar without browsing multiple websites and scattered community groups.",
+            "url": "https://mikolajpiech.com/portfolio#twojasiec",
+            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#twojasiec",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "url": "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859",
-            "sameAs": [
-              "https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859"
-            ]
+            "image": "https://mikolajpiech.com/images/twojasiec/twojasiec-feed-589.webp",
+            "applicationCategory": "Local Information",
+            "creativeWorkStatus": "In development"
           }
         },
         {
           "@type": "ListItem",
           "position": 7,
           "item": {
-            "@type": "MobileApplication",
-            "name": "Solvee",
-            "description": "Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.",
-            "applicationCategory": "Education · AI",
-            "operatingSystem": "iOS, Android",
+            "@type": "WebSite",
+            "@id": "https://mikolajpiech.com/#project-safelabs",
+            "name": "Safe Labs",
+            "description": "A website for cybersecurity workshops I co-organized for 12–14-year-old primary school students. The sessions covered phishing and cyberbullying, protecting passwords and privacy, and verifying information online.",
+            "url": "https://safelabs.pl/",
+            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#safelabs",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
-            "creativeWorkStatus": "Sold"
-          }
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://mikolajpiech.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Who is Mikołaj Piech?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Mikołaj Piech is a founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea and product design through development and launch."
+            "image": "https://mikolajpiech.com/images/safelabs/safelabs-home-1272.webp",
+            "sameAs": [
+              "https://safelabs.pl/"
+            ]
           }
         },
         {
-          "@type": "Question",
-          "name": "What apps has Mikołaj Piech built?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Mikołaj Piech has built Charmy Books (personalized children's books), Safe Labs (website for cybersecurity workshops), Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25K+ downloads). His products have reached more than 30K downloads overall and shipped on the web, App Store, and Google Play."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who created Charmy Books?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Charmy Books, a web app for creating personalized children's books, was created by Mikołaj Piech. It turns a child's look, interests, family, and life into a custom illustrated story."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who built the Safe Labs website?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Safe Labs website was designed and developed by Mikołaj Piech for cybersecurity workshops he co-organized for 12–14-year-old primary school students. The workshops covered phishing, cyberbullying, password and privacy protection, and verifying information online."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who created Subby?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Subby, a subscription manager app for iOS and Android, was created by Mikołaj Piech. It helps users track trials and subscriptions to avoid unwanted charges."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who created Solvee?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Solvee, an AI homework helper app for iOS and Android, was created by Mikołaj Piech. It reached 25K+ downloads before being acquired in February 2026."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who created Doso?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Doso, a personal health app for iOS, was created by Mikołaj Piech. It helps users manage medications, lab results, and symptoms with AI-powered insights."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who created Trailo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Trailo, an AI travel planning product for web, iOS, and Android, was created by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Mikołaj Piech build products for clients?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Mikołaj Piech works with founders and businesses to design and develop web apps, mobile apps, product websites, landing pages, and other digital products from idea to launch."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I contact Mikołaj Piech?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Email hello@mikolajpiech.com, or find him on LinkedIn (linkedin.com/in/mikolajpiech), X (@mikolajpiech), GitHub (github.com/realmikolajpiech), or Instagram (@mikolajpiech)."
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "WebSite",
+            "@id": "https://mikolajpiech.com/#project-dragon",
+            "name": "UKS Dragon Mokrzyska",
+            "description": "A complete website for UKS Dragon Mokrzyska, bringing club news, training schedules, tournaments, enrollment, and contact information together in one clear, easy-to-manage place.",
+            "url": "https://uksdragonmokrzyska.vercel.app/",
+            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#dragon",
+            "author": {
+              "@id": "https://mikolajpiech.com/#person"
+            },
+            "image": "https://mikolajpiech.com/images/dragon/dragon-home-1280.webp",
+            "sameAs": [
+              "https://uksdragonmokrzyska.vercel.app/"
+            ]
           }
         }
       ]

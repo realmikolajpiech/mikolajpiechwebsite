@@ -1,3 +1,4 @@
+import { ResponsiveImage } from './ResponsiveImage';
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -67,8 +68,9 @@ function ScreenshotFrame({
   return (
     <>
       <div className={`absolute inset-0 flex items-center justify-center ${iconShot ? 'p-8 sm:p-10' : ''}`}>
-        <img
+        <ResponsiveImage
           src={shot.src}
+          sizes={variant === 'phone' ? '(max-width: 639px) 200px, (max-width: 767px) 236px, 264px' : '(max-width: 639px) 84vw, 520px'}
           alt={shot.alt}
           loading="lazy"
           className={`w-full h-full ${
@@ -395,7 +397,7 @@ export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshot
                       onClick={(event) => event.stopPropagation()}
                       className="absolute inset-0 flex items-center justify-center"
                     >
-                      <img
+                      <ResponsiveImage
                         src={activeShot.src}
                         alt={activeShot.alt}
                         loading="eager"

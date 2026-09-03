@@ -11,6 +11,7 @@ export interface PageMetaProps {
   imageWidth?: number;
   imageHeight?: number;
   noindex?: boolean;
+  structuredData?: Record<string, unknown> | null;
   alternatePaths?: {
     en: string;
     pl: string;
@@ -41,10 +42,6 @@ function upsertLink(rel: string, href: string, hrefLang?: string) {
   element.setAttribute('href', href);
 }
 
-function removeMeta(attr: 'name' | 'property', key: string) {
-  document.head.querySelector(`meta[${attr}="${key}"]`)?.remove();
-}
-
 export function PageMeta({
   title,
   description,
@@ -55,6 +52,7 @@ export function PageMeta({
   imageHeight = DEFAULT_OG_IMAGE_HEIGHT,
   noindex = false,
   alternatePaths,
+  structuredData,
 }: PageMetaProps) {
   const { language } = useLanguage();
 
@@ -66,7 +64,9 @@ export function PageMeta({
     document.title = title;
 
     upsertMeta('name', 'description', description);
-    upsertLink('canonical', url);
+    if (noindex) document.head.querySelector('link[rel="canonical"]')?.remove();
+    else upsertLink('canonical', url);
+    document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((link) => link.remove());
     if (alternatePaths) {
       upsertLink('alternate', `${SITE_URL}${alternatePaths.en}`, 'en');
       upsertLink('alternate', `${SITE_URL}${alternatePaths.pl}`, 'pl');
@@ -90,11 +90,12 @@ export function PageMeta({
     upsertMeta('name', 'twitter:image', ogImage);
 
     if (noindex) {
-      upsertMeta('name', 'robots', 'noindex, nofollow');
+      upsertMeta('name', 'robots', 'noindex, follow');
     } else {
-      removeMeta('name', 'robots');
+      upsertMeta('name', 'robots', 'index, follow, max-image-preview:large');
     }
   }, [title, description, socialDescription, path, image, imageWidth, imageHeight, noindex, language, alternatePaths]);
 
-  return null;
+  return structuredData ? <script id="page-schema" type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }} /> : null;
 }

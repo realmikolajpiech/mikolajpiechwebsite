@@ -6,7 +6,7 @@ This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI 
 
 Founder and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Safe Labs, Trailo, Twoja Sieć, Subby, Doso, and Solvee.
 
-I build and ship digital products.
+Mikołaj Piech Founder & developer.
 
 Web apps, mobile apps, and websites, from product design and development to launch.
 
@@ -34,6 +34,52 @@ Category: Personalized Publishing
 Scope: Design to launch
 Website: https://charmybooks.com
 
+### Solvee (Sold)
+
+Tagline: AI Homework Helper
+Description: Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.
+Platform: iOS · Android
+Category: Education · AI
+Scope: Built & sold · 25K+ downloads
+
+### Trailo
+
+Tagline: Plan less. Travel more.
+Description: End-to-end AI travel planning: find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.
+Platform: Web · iOS · Android
+Category: AI Travel
+Scope: Full product · design to launch
+Website: https://trailoapp.com
+App Store: https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924
+Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.trailo
+
+### Doso
+
+Tagline: Your health, effortlessly tracked.
+Description: Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history.
+Platform: iOS
+Category: Health & Wellness
+Scope: Full product · design to launch
+App Store: https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859
+
+### Subby
+
+Tagline: Subscription Manager
+Description: Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly.
+Platform: iOS · Android
+Category: Finance & Utility
+Scope: Full product · design to deploy
+App Store: https://apps.apple.com/us/app/subby-subscription-manager/id6755717606
+Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.subby
+
+### Twoja Sieć (In development)
+
+Tagline: Local news, close to you.
+Description: A mobile app that brings news, alerts, and events from a selected area into one organized place. Users can personalize their local feed by topic, save stories, and add events to their calendar without browsing multiple websites and scattered community groups.
+Platform: Mobile app
+Category: Local Information
+Scope: Product design & development
+
 ### Safe Labs
 
 Tagline: Cybersecurity workshops
@@ -51,44 +97,6 @@ Platform: Website
 Category: Sports & Community
 Scope: Design & development
 Website: https://uksdragonmokrzyska.vercel.app/
-
-### Trailo
-
-Tagline: Plan less. Travel more.
-Description: End-to-end AI travel planning: find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.
-Platform: Web · iOS · Android
-Category: AI Travel
-Scope: Full product · design to launch
-Website: https://trailoapp.com
-App Store: https://apps.apple.com/us/app/trailo-ai-trip-planner/id6767237924
-Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.trailo
-
-### Subby
-
-Tagline: Subscription Manager
-Description: Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly.
-Platform: iOS · Android
-Category: Finance & Utility
-Scope: Full product · design to deploy
-App Store: https://apps.apple.com/us/app/subby-subscription-manager/id6755717606
-Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.subby
-
-### Doso
-
-Tagline: Your health, effortlessly tracked.
-Description: Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history.
-Platform: iOS
-Category: Health & Wellness
-Scope: Full product · design to launch
-App Store: https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859
-
-### Solvee (Sold)
-
-Tagline: AI Homework Helper
-Description: Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.
-Platform: iOS · Android
-Category: Education · AI
-Scope: Built & sold · 25K+ downloads
 
 ## Frequently Asked Questions
 
@@ -135,7 +143,7 @@ Instagram: https://www.instagram.com/mikolajpiech
 
 Home: https://mikolajpiech.com/
 Portfolio: https://mikolajpiech.com/portfolio
-Portfolio (crawlable HTML): https://mikolajpiech.com/crawl/portfolio.html
+Portfolio (crawlable HTML): https://mikolajpiech.com/portfolio
 Privacy Policy: https://mikolajpiech.com/privacy-policy
 LLM summary (this file): https://mikolajpiech.com/llms-full.txt
 Structured data: https://mikolajpiech.com/schema.json

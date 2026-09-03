@@ -6,12 +6,12 @@ Founder and developer from Poland who designs, builds, and ships web apps, mobil
 
 ## Docs
 - [Full site summary (https://mikolajpiech.com/llms-full.txt)](https://mikolajpiech.com/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs, the best source for AI agents
-- [Structured data (https://mikolajpiech.com/schema.json)](https://mikolajpiech.com/schema.json): JSON-LD with Person, WebSite, projects, and FAQs
+- [Structured data (https://mikolajpiech.com/schema.json)](https://mikolajpiech.com/schema.json): JSON-LD with Person, WebSite, and projects
 
 ## Pages
 - [Home](https://mikolajpiech.com/): About, proof, selected work, services, and contact
 - [Portfolio (interactive)](https://mikolajpiech.com/portfolio): Detailed shipped products in the main site
-- [Portfolio (plain HTML for agents)](https://mikolajpiech.com/crawl/portfolio.html): Crawlable project details without JavaScript
+- [Portfolio (plain HTML for agents)](https://mikolajpiech.com/portfolio): Crawlable project details without JavaScript
 - [Privacy Policy](https://mikolajpiech.com/privacy-policy): Data handling for this website and published apps
 
 ## Contact
