@@ -16,6 +16,7 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) =>
   const { language, site } = useLanguage();
   const homePath = getLocalizedPath('home', language);
   const portfolioPath = getLocalizedPath('portfolio', language);
+  const isHome = pathname === homePath;
   const isPortfolio = pathname === portfolioPath;
 
   return (
@@ -30,7 +31,7 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) =>
         {showPortfolioLink && (
           <Link
             to={portfolioPath}
-            className={`inline-flex items-center px-3 sm:px-5 py-2 text-[11px] sm:text-xs font-medium tracking-wide rounded-full border transition-all duration-300 ${
+            className={`${isHome ? 'hidden sm:inline-flex' : 'inline-flex'} items-center px-3 sm:px-5 py-2 text-[11px] sm:text-xs font-medium tracking-wide rounded-full border transition-all duration-300 ${
               isPortfolio
                 ? 'border-ink dark:border-stone-100 text-ink dark:text-stone-50 bg-stone-100/50 dark:bg-stone-800/50'
                 : 'border-stone-200 dark:border-stone-700 text-ink dark:text-stone-50 hover:border-stone-400 dark:hover:border-stone-500'
@@ -42,7 +43,7 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) =>
         <Button
           href={`${homePath}#contact`}
           variant="outline"
-          className="!p-2.5 sm:!px-5 sm:!py-2 !text-xs tracking-wide sm:inline-flex"
+          className={`${isHome ? 'hidden sm:inline-flex' : ''} !p-2.5 sm:!px-5 sm:!py-2 !text-xs tracking-wide`}
           aria-label={site.common.get_in_touch}
         >
           <Mail size={16} strokeWidth={1.75} className="sm:hidden" />

@@ -76,3 +76,9 @@
   background: #f5f5f4;
   color: #1c1917;
 }
+
+@media (hover: none) {
+  .hero-app-link::after {
+    display: none;
+  }
+}

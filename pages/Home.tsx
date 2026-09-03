@@ -23,7 +23,7 @@ const HERO_LINKS: Record<string, string> = {
 };
 
 const HeroIntro = ({ text, descriptions }: { text: string; descriptions: Record<string, string> }) => (
-  <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
+  <p className="text-base sm:text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed font-light">
     {text.split(/(Clevr Apps|Trailo|Subby|Doso|Charmy Books)/g).map((part, index) => {
       const href = HERO_LINKS[part];
       if (!href) return part;
@@ -79,77 +79,75 @@ export default function Home() {
       <SiteNav />
 
       <main>
-      <section className="relative pt-28 md:pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-12 items-center">
-
-          <div className="md:col-span-7 space-y-8 md:space-y-10">
-            <motion.div
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <h1 className="text-5xl md:text-8xl font-serif font-light leading-[0.95] text-ink dark:text-stone-50 mb-6 tracking-tight">
-                {site.hero.headline_line1}<br />
-                <span className="font-serif-italic text-stone-400">{site.hero.headline_line2}</span>
-              </h1>
-            </motion.div>
-
-            <motion.div
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-2xl"
-            >
-              <HeroIntro text={site.hero.intro} descriptions={site.hero.link_descriptions} />
-            </motion.div>
-
-            <motion.div
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="pt-2 space-y-5"
-            >
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button href="#work" className="w-full sm:w-auto">
-                  {site.hero.primary_cta}
-                  <ArrowRight size={15} className="ml-2" />
-                </Button>
-                <Button href="#contact" variant="outline" className="w-full sm:w-auto">
-                  <Mail size={15} className="mr-2" />
-                  {site.hero.secondary_cta}
-                </Button>
-              </div>
-              <div className="flex flex-wrap gap-1 items-center">
-                <SocialIcon href="https://x.com/mikolajpiech" label="X" icon={<XLogo className="w-5 h-5" />} />
-                <SocialIcon href="https://www.linkedin.com/in/mikolajpiech/" label="LinkedIn" icon={<Linkedin size={20} />} />
-                <SocialIcon href="https://github.com/realmikolajpiech" label="GitHub" icon={<Github size={20} />} />
-                <SocialIcon href="https://www.instagram.com/mikolajpiech" label="Instagram" icon={<Instagram size={20} />} />
-              </div>
-            </motion.div>
-          </div>
+      <section className="relative mx-auto max-w-7xl px-4 pb-8 pt-20 sm:px-6 sm:pb-20 sm:pt-28 md:px-12 md:pt-40">
+        <div className="grid grid-cols-1 items-start gap-y-7 sm:gap-y-9 md:grid-cols-12 md:items-center md:gap-x-12 md:gap-y-10">
+          <motion.div
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="col-start-1 row-start-1 min-w-0 md:col-span-7"
+          >
+            <h1 className="text-[clamp(3.25rem,15vw,4.25rem)] sm:text-7xl md:text-8xl font-serif font-light leading-[0.88] md:leading-[0.95] text-ink dark:text-stone-50 tracking-tight">
+              <span className="block text-balance">{site.hero.headline_line1}</span>
+              <span className="mt-2 block text-balance font-serif-italic text-stone-400 md:mt-0">{site.hero.headline_line2}</span>
+            </h1>
+          </motion.div>
 
           <motion.div
             initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="md:col-span-5 relative self-start"
+            className="relative col-start-1 row-start-2 w-full md:col-span-5 md:col-start-8 md:row-start-1 md:row-span-3 md:self-center"
           >
-            <div className="aspect-[3/4] md:aspect-square relative overflow-hidden rounded-full md:rounded-[3rem]">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-[1.5rem] md:aspect-square md:rounded-[3rem]">
               <img
                 src="/mikolaj-profile.jpg"
                 width={400}
                 height={400}
                 fetchPriority="high"
                 alt="Mikołaj Piech"
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-full md:rounded-[3rem]"></div>
+              <div className="absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-black/5 md:rounded-[3rem]"></div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="col-start-1 row-start-3 min-w-0 max-w-2xl md:col-span-7 md:row-start-2"
+          >
+            <HeroIntro text={site.hero.intro} descriptions={site.hero.link_descriptions} />
+          </motion.div>
+
+          <motion.div
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="col-start-1 row-start-4 md:col-span-7 md:row-start-3 md:pt-2"
+          >
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap">
+              <Button href="#work" className="min-h-12 w-full sm:w-auto">
+                {site.hero.primary_cta}
+                <ArrowRight size={15} className="ml-2" />
+              </Button>
+              <Button href="#contact" variant="outline" className="!border-0 !px-2 !py-2 !text-stone-600 dark:!text-stone-300 sm:!border sm:!px-6 sm:!py-3 sm:!text-ink sm:dark:!text-stone-50">
+                <Mail size={15} className="mr-2" />
+                {site.hero.secondary_cta}
+              </Button>
+              <div className="flex w-full items-center justify-center gap-1 border-t border-stone-200/70 pt-3 dark:border-stone-800 sm:basis-full sm:w-auto sm:justify-start sm:border-0 sm:pt-1">
+                <SocialIcon href="https://x.com/mikolajpiech" label="X" icon={<XLogo className="w-5 h-5" />} />
+                <SocialIcon href="https://www.linkedin.com/in/mikolajpiech/" label="LinkedIn" icon={<Linkedin size={20} />} />
+                <SocialIcon href="https://github.com/realmikolajpiech" label="GitHub" icon={<Github size={20} />} />
+                <SocialIcon href="https://www.instagram.com/mikolajpiech" label="Instagram" icon={<Instagram size={20} />} />
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="px-6 md:px-12 max-w-7xl mx-auto" aria-labelledby="proof-title">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12" aria-labelledby="proof-title">
         <motion.div
           initial={false}
           whileInView={{ opacity: 1, y: 0 }}
