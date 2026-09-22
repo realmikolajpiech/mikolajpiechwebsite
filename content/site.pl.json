@@ -1,6 +1,6 @@
 {
   "common": {
-    "get_in_touch": "Rozpocznij projekt",
+    "get_in_touch": "Kontakt",
     "email_me": "Napisz do mnie",
     "copied": "Skopiowano!",
     "email_on_clipboard": "Skopiowano {{email}}",
@@ -39,6 +39,7 @@
     "scope": "Zakres",
     "tech_stack": "Technologie",
     "technologies_used": "Wykorzystane technologie",
+    "why_built_it": "Dlaczego powstał",
     "visit": "Odwiedź",
     "view_on_clevr_apps": "Zobacz w Clevr Apps",
     "website_preview": "podgląd strony",
@@ -66,12 +67,12 @@
   },
   "hero": {
     "headline_line1": "Mikołaj Piech",
-    "headline_line2": "Twórca aplikacji.",
-    "intro": "Tworzę aplikacje mobilne, webowe i strony internetowe. Prowadzę Clevr Apps, gdzie rozwijam własne aplikacje, m.in. Trailo, Subby, Doso i Charmy Books.",
+    "headline_line2": "",
+    "intro": "Tworzę aplikacje i prowadzę Clevr Apps, moje niezależne studio.",
     "link_descriptions": {
       "Trailo": "Planowanie podróży z pomocą AI.",
       "Subby": "Śledzenie subskrypcji i nadchodzących opłat.",
-      "Doso": "Zarządzanie lekami, wynikami badań i objawami.",
+      "Doso": "Przypomnienia o lekach, zapasy i udostępnianie rodzinie.",
       "Charmy Books": "Personalizowane książki dla dzieci."
     },
     "primary_cta": "Zobacz moje portfolio",
@@ -83,13 +84,13 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Mikołaj Piech — twórca aplikacji mobilnych, webowych i stron internetowych. Poznaj moje projekty: Trailo, Subby, Doso i Charmy Books.",
+    "meta_description": "Osobista strona Mikołaja Piecha. Tworzę aplikacje i prowadzę Clevr Apps. Poznaj moje projekty i dowiedz się więcej o mnie.",
     "person_description": "Założyciel Clevr Apps i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Twórca Charmy Books, Trailo, Twoja Sieć, Subby, Doso i Solvee oraz współtwórca Safe Labs.",
     "pages": {
       "home": {
-        "title": "Mikołaj Piech | Twórca aplikacji i stron internetowych",
-        "description": "Mikołaj Piech — twórca aplikacji mobilnych, webowych i stron internetowych. Poznaj moje projekty: Trailo, Subby, Doso i Charmy Books.",
-        "social_description": "Mikołaj Piech — twórca aplikacji mobilnych, webowych i stron internetowych. Poznaj projekty Trailo, Subby, Doso i Charmy Books."
+        "title": "Mikołaj Piech",
+        "description": "Osobista strona Mikołaja Piecha. Tworzę aplikacje i prowadzę Clevr Apps. Poznaj moje projekty i dowiedz się więcej o mnie.",
+        "social_description": "Osobista strona Mikołaja Piecha. Tworzę aplikacje i prowadzę Clevr Apps. Poznaj moje projekty i dowiedz się więcej o mnie."
       },
       "portfolio": {
         "title": "Portfolio – projekty Mikołaja Piecha",
@@ -127,7 +128,7 @@
     "subtitle": "Produkty, które zaprojektowałem, stworzyłem i wdrożyłem na web, iOS i Androida.",
     "justmine": {
       "tagline": "Spersonalizowane książki dla dzieci.",
-      "homepage_description": "Platforma spersonalizowanych książek, która zamienia wygląd dziecka, jego zainteresowania, rodzinę i wspomnienia w spójną, ilustrowaną historię stworzoną specjalnie dla niego.",
+      "homepage_description": "Sprawdzam, jak tworzyć książki, w których historia i ilustracje są dopasowane do jednego dziecka.",
       "description": "Platforma spersonalizowanych książek, która zamienia wygląd dziecka, jego zainteresowania, rodzinę i wspomnienia w spójną, ilustrowaną historię stworzoną specjalnie dla niego.",
       "link_text": "Odwiedź stronę"
     },
@@ -154,37 +155,47 @@
     },
     "solvee": {
       "tagline": "Pomoc w zadaniach domowych z AI",
-      "homepage_description": "Stworzyłem, uruchomiłem i rozwinąłem aplikację AI do zadań domowych do ponad 25 tys. pobrań, a następnie ją sprzedałem. Uczniowie mogli sfotografować dowolne zadanie i otrzymać szczegółowe wyjaśnienie krok po kroku.",
+      "homepage_description": "Stworzyłem i rozwinąłem aplikację do pomocy w zadaniach domowych do ponad 25 tys. pobrań, a następnie sprzedałem ją w 2026 roku.",
       "description": "Stworzyłem, rozwinąłem i sprzedałem tę aplikację. Pomogła ponad 25 tysiącom uczniów rozwiązywać zadania dzięki szczegółowym wyjaśnieniom generowanym przez AI. Była dostępna na iOS i Androidzie.",
       "status": "Sprzedany"
     },
     "subby": {
       "tagline": "Menedżer subskrypcji",
-      "homepage_description": "Stworzyłem Subby po tym, jak traciłem pieniądze na zapomniane okresy próbne. To proste miejsce do śledzenia subskrypcji, nadchodzących opłat i ostrzeżeń przed odnowieniem.",
+      "homepage_description": "Stworzyłem Subby po tym, jak traciłem pieniądze na zapomniane okresy próbne. Pomaga pilnować subskrypcji i nadchodzących opłat.",
       "description": "Już nigdy nie zapomnij o kończącym się okresie próbnym. Kontroluj subskrypcje, pilnuj wydatków i unikaj niechcianych opłat."
     },
     "doso": {
       "tagline": "Twoje zdrowie pod kontrolą – bez wysiłku.",
-      "description": "Osobista aplikacja do zarządzania lekami, śledzenia wyników badań i zapisywania objawów – wspierana przez AI, które zna pełną historię zdrowia użytkownika."
+      "description": "Aplikacja do harmonogramów leków, historii dawek, alertów o kończących się zapasach, wielu profili i opcjonalnego udostępniania planu rodzinie."
     },
     "trailo": {
       "tagline": "Mniej planowania. Więcej podróżowania.",
       "description": "Zaplanuj całą podróż z pomocą AI: znajdź loty, hotele i bilety, a następnie ułóż z nich spersonalizowany plan dzień po dniu i godzina po godzinie.",
-      "link_text": "Odwiedź stronę"
+      "link_text": "Odwiedź stronę",
+      "homepage_description": "Planowanie podróży w jednym miejscu: loty, noclegi i plan na każdy dzień."
     },
     "twojasiec": {
       "tagline": "Wiadomości blisko Ciebie.",
       "description": "Aplikacja mobilna, która porządkuje wiadomości, alerty i wydarzenia z wybranej okolicy. Pozwala dopasować lokalny feed do interesujących tematów, zapisywać materiały oraz dodawać wydarzenia do kalendarza bez przeglądania wielu stron i przypadkowych grup.",
-      "status": "W budowie"
+      "status": ""
     }
   },
   "proof": {
     "title": "Od pomysłu do użytkowników.",
     "description": "Nie kończę na makietach ani samym kodzie. Projektuję, buduję i wdrażam produkty, z których ludzie naprawdę korzystają.",
     "items": [
-      { "value": "10+", "label": "zrealizowanych projektów" },
-      { "value": "30k+", "label": "pobrań" },
-      { "value": "1", "label": "sprzedana aplikacja" }
+      {
+        "value": "10+",
+        "label": "zrealizowanych projektów"
+      },
+      {
+        "value": "30k+",
+        "label": "pobrań"
+      },
+      {
+        "value": "1",
+        "label": "sprzedana aplikacja"
+      }
     ]
   },
   "capabilities": {
@@ -261,13 +272,49 @@
     "table_purpose": "Cel",
     "table_privacy": "Polityka prywatności",
     "partners": [
-      { "partner": "Resend", "purpose": "Wysyłka wiadomości z formularza kontaktowego", "linkLabel": "resend.com/legal/privacy-policy", "linkHref": "https://resend.com/legal/privacy-policy" },
-      { "partner": "RevenueCat", "purpose": "Obsługa płatności subskrypcyjnych", "linkLabel": "revenuecat.com/privacy", "linkHref": "https://revenuecat.com/privacy" },
-      { "partner": "Apple App Store / Google Play", "purpose": "Przetwarzanie płatności i dystrybucja aplikacji", "linkLabel": "apple.com / google.com", "linkHrefApple": "https://apple.com/legal/privacy", "linkHrefGoogle": "https://policies.google.com/privacy" },
-      { "partner": "Expo / EAS", "purpose": "Budowanie aplikacji, aktualizacje i analityka", "linkLabel": "expo.dev/privacy", "linkHref": "https://expo.dev/privacy" },
-      { "partner": "Firebase / Google Cloud", "purpose": "Raportowanie awarii i przechowywanie zdjęć prac domowych w chmurze", "linkLabel": "firebase.google.com", "linkHref": "https://firebase.google.com/support/privacy" },
-      { "partner": "Google LLC (Gemini API)", "purpose": "Generowanie i edycja obrazów AI w aplikacji Meant", "linkLabel": "ai.google.dev/gemini-api/terms", "linkHref": "https://ai.google.dev/gemini-api/terms" },
-      { "partner": "Google AdMob (w przyszłości)", "purpose": "Reklama (jeśli zostanie wdrożona)", "linkLabel": "support.google.com", "linkHref": "https://support.google.com/admob/answer/6128543" }
+      {
+        "partner": "Resend",
+        "purpose": "Wysyłka wiadomości z formularza kontaktowego",
+        "linkLabel": "resend.com/legal/privacy-policy",
+        "linkHref": "https://resend.com/legal/privacy-policy"
+      },
+      {
+        "partner": "RevenueCat",
+        "purpose": "Obsługa płatności subskrypcyjnych",
+        "linkLabel": "revenuecat.com/privacy",
+        "linkHref": "https://revenuecat.com/privacy"
+      },
+      {
+        "partner": "Apple App Store / Google Play",
+        "purpose": "Przetwarzanie płatności i dystrybucja aplikacji",
+        "linkLabel": "apple.com / google.com",
+        "linkHrefApple": "https://apple.com/legal/privacy",
+        "linkHrefGoogle": "https://policies.google.com/privacy"
+      },
+      {
+        "partner": "Expo / EAS",
+        "purpose": "Budowanie aplikacji, aktualizacje i analityka",
+        "linkLabel": "expo.dev/privacy",
+        "linkHref": "https://expo.dev/privacy"
+      },
+      {
+        "partner": "Firebase / Google Cloud",
+        "purpose": "Raportowanie awarii i przechowywanie zdjęć prac domowych w chmurze",
+        "linkLabel": "firebase.google.com",
+        "linkHref": "https://firebase.google.com/support/privacy"
+      },
+      {
+        "partner": "Google LLC (Gemini API)",
+        "purpose": "Generowanie i edycja obrazów AI w aplikacji Meant",
+        "linkLabel": "ai.google.dev/gemini-api/terms",
+        "linkHref": "https://ai.google.dev/gemini-api/terms"
+      },
+      {
+        "partner": "Google AdMob (w przyszłości)",
+        "purpose": "Reklama (jeśli zostanie wdrożona)",
+        "linkLabel": "support.google.com",
+        "linkHref": "https://support.google.com/admob/answer/6128543"
+      }
     ],
     "s4_p3": "Dane są przechowywane głównie w Stanach Zjednoczonych i Unii Europejskiej.",
     "s5_title": "5. Obrazy i wizerunki twarzy w aplikacji Meant",
@@ -299,5 +346,24 @@
     "s12_name": "Mikołaj Piech",
     "s12_email_label": "E-mail:",
     "s12_site_label": "Strona:"
+  },
+  "personal": {
+    "skip": "Przejdź do treści",
+    "work_link": "Moje projekty",
+    "work_intro": "Kilka rzeczy, które stworzyłem.",
+    "project_link": "Poznaj projekt",
+    "studio_note": "Więcej o moich aplikacjach znajdziesz na",
+    "about_title": "O mnie",
+    "nav_about": "O mnie",
+    "nav_work": "Projekty",
+    "nav_contact": "Kontakt",
+    "about_paragraphs": [
+      "Lubię zamieniać pomysły w coś, z czego można korzystać. Pracuję nad różnymi projektami, głównie aplikacjami i stronami internetowymi.",
+      "Poza aplikacjami interesuję się psychologią i filozofią. Lubię też trenować, podróżować i czytać książki."
+    ],
+    "contact_title": "Porozmawiajmy.",
+    "social_label": "Profile społecznościowe",
+    "message_label": "Wiadomość",
+    "message_placeholder": "Co chcesz mi napisać?"
   }
 }

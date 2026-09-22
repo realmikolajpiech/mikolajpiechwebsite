@@ -82,3 +82,116 @@
     display: none;
   }
 }
+
+/* A shared rhythm for the small interactions across the site. */
+:root {
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid #a8a29e;
+  outline-offset: 5px;
+}
+
+.site-nav {
+  border-bottom: 1px solid transparent;
+  transition: padding 400ms var(--motion-ease), background-color 400ms ease,
+    border-color 400ms ease, box-shadow 400ms ease;
+}
+.site-nav[data-scrolled="true"] {
+  padding-top: .65rem;
+  padding-bottom: .65rem;
+  border-bottom-color: rgb(120 113 108 / .14);
+  box-shadow: 0 8px 30px rgb(28 25 23 / .035);
+}
+
+.experience-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 350ms var(--motion-ease), background-color 250ms,
+    border-color 250ms, box-shadow 350ms;
+}
+.experience-button::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 20%, rgb(168 162 158 / .18) 50%, transparent 80%);
+  transform: translateX(-110%);
+  transition: transform 650ms var(--motion-ease);
+  pointer-events: none;
+}
+.experience-button:active:not(:disabled) { transform: scale(.96); }
+.experience-button:disabled { cursor: wait; }
+.experience-button svg { transition: transform 350ms var(--motion-ease); }
+
+[data-spotlight] { position: relative; isolation: isolate; }
+[data-spotlight]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgb(168 162 158 / .12), transparent 70%);
+  opacity: 0;
+  transition: opacity 450ms;
+}
+.capability-card {
+  transition: transform 500ms var(--motion-ease), border-color 350ms, box-shadow 500ms;
+}
+.capability-card > div { transition: transform 500ms var(--motion-ease); }
+.hero-portrait img { transition: transform 1100ms var(--motion-ease); }
+.social-link { transition: transform 400ms var(--motion-ease), color 250ms, background-color 250ms; }
+.copy-email svg { transition: transform 350ms var(--motion-ease), color 250ms; }
+.copy-email[data-copied="true"] svg { color: #6ee7b7; animation: copied-pop 400ms var(--motion-ease); }
+
+@media (hover: hover) and (pointer: fine) {
+  .experience-button:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 8px 18px rgb(28 25 23 / .1); }
+  .experience-button:hover::before { transform: translateX(110%); }
+  .experience-button:hover svg:last-child { transform: translate(2px, -1px); }
+  .experience-button:active:not(:disabled) { transform: translateY(0) scale(.96); }
+  [data-spotlight]:hover::after { opacity: 1; }
+  .capability-card:hover { transform: translateY(-6px); border-color: #a8a29e; box-shadow: 0 16px 32px rgb(28 25 23 / .06); }
+  .capability-card:hover > div { transform: rotate(-8deg) scale(1.08); }
+  .hero-portrait:hover img { transform: scale(1.045); }
+  .social-link:hover { transform: translateY(-4px) rotate(-5deg); }
+  .social-link:active { transform: scale(.92); }
+  .hero-app-link { transition: text-decoration-color 250ms, color 250ms; }
+  .hero-app-link:hover { text-decoration-color: currentColor; }
+}
+
+@keyframes copied-pop {
+  from { transform: scale(.5) rotate(-25deg); }
+  to { transform: scale(1) rotate(0); }
+}
+@keyframes hero-line-in {
+  from { opacity: 0; clip-path: inset(0 0 100% 0); translate: 0 18px; }
+  to { opacity: 1; clip-path: inset(-10% -5% -20% -5%); translate: 0 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-line { animation: hero-line-in 1000ms var(--motion-ease) both; }
+  .hero-line-delayed { animation-delay: 120ms; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .experience-button, .social-link, .capability-card, .capability-card > div,
+  .hero-portrait img { transform: none !important; }
+  [data-spotlight]::after, .experience-button::before { display: none; }
+}
+
+form input, form textarea, form select {
+  transition: border-color 250ms ease, background-color 250ms ease, box-shadow 250ms ease;
+}
+form input:focus, form textarea:focus, form select:focus {
+  box-shadow: 0 0 0 4px rgb(168 162 158 / .1);
+}
+form label { transition: color 250ms ease; }
+form label:focus-within { color: #fafaf9; }

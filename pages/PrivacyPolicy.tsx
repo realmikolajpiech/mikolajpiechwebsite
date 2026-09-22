@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
       <SiteNav />
 
       <main>
-      <section className="pt-40 pb-20 px-6 md:px-12 max-w-4xl mx-auto">
+      <section className="pt-12 sm:pt-16 md:pt-20 pb-20 px-6 md:px-12 max-w-4xl mx-auto">
         <motion.div
           initial={false}
           animate={{ opacity: 1, y: 0 }}

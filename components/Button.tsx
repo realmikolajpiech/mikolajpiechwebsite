@@ -9,7 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: React.FC<ButtonProps> = ({ href, variant = 'primary', children, external = false, className = '', ...props }) => {
-  const baseStyles = "inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-300 ease-out rounded-full group";
+  const baseStyles = "experience-button inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-300 ease-out rounded-full group";
   
   const variants = {
     primary: "bg-ink text-off-white hover:bg-stone-800 hover:scale-[1.02] dark:bg-stone-100 dark:text-ink dark:hover:bg-stone-200",
@@ -31,7 +31,7 @@ export const Button: React.FC<ButtonProps> = ({ href, variant = 'primary', child
         e.preventDefault();
         const element = document.getElementById(href.substring(1));
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
         }
       }
       

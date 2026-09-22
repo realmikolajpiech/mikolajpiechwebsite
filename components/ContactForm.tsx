@@ -13,7 +13,7 @@ const initialForm = {
   website: '',
 };
 
-export function ContactForm() {
+export function ContactForm({ personal = false }: { personal?: boolean }) {
   const { site } = useLanguage();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState<FormStatus>('idle');
@@ -35,10 +35,14 @@ export function ContactForm() {
     setFeedback('');
 
     try {
+      const browserContext = {
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+        language: navigator.language || '',
+      };
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, browserContext }),
       });
 
       const result = await response.json().catch(() => null) as { message?: string } | null;
@@ -56,16 +60,16 @@ export function ContactForm() {
     }
   };
 
-  const fieldClass =
+  const fieldClass = personal ? 'personal-form-field' :
     'w-full rounded-xl border border-stone-700/80 bg-stone-900/70 px-4 py-3.5 text-sm text-off-white outline-none transition placeholder:text-stone-600 focus:border-stone-400 focus:ring-2 focus:ring-stone-500/20';
-  const labelClass = 'mb-2 block text-xs font-medium uppercase tracking-[0.13em] text-stone-400';
+  const labelClass = personal ? 'personal-form-label' : 'mb-2 block text-xs font-medium uppercase tracking-[0.13em] text-stone-400';
 
   return (
     <form
       method="post"
       action="/api/contact"
       onSubmit={handleSubmit}
-      className="rounded-3xl border border-stone-800 bg-stone-900/55 p-5 sm:p-7 md:p-8 text-left shadow-2xl shadow-black/10"
+      className={personal ? "personal-form" : "rounded-3xl border border-stone-800 bg-stone-900/55 p-5 sm:p-7 md:p-8 text-left shadow-2xl shadow-black/10"}
     >
       <fieldset disabled={!ready}>
         <div className="grid gap-5 sm:grid-cols-2">
@@ -97,13 +101,13 @@ export function ContactForm() {
               maxLength={254}
               value={form.email}
               onChange={updateField}
-              placeholder={site.ui.email_placeholder}
+              placeholder={personal ? "you@example.com" : site.ui.email_placeholder}
               className={fieldClass}
             />
           </div>
         </div>
 
-        <div className="mt-5">
+        {!personal && <div className="mt-5">
           <label htmlFor="contact-company" className={labelClass}>{site.ui.company} <span className="normal-case tracking-normal text-stone-600">({site.ui.optional})</span></label>
           <input
             id="contact-company"
@@ -116,10 +120,10 @@ export function ContactForm() {
             placeholder={site.ui.company_placeholder}
             className={fieldClass}
           />
-        </div>
+        </div>}
 
         <div className="mt-5">
-          <label htmlFor="contact-message" className={labelClass}>{site.ui.message_label}</label>
+          <label htmlFor="contact-message" className={labelClass}>{personal ? site.personal.message_label : site.ui.message_label}</label>
           <textarea
             id="contact-message"
             name="message"
@@ -129,7 +133,7 @@ export function ContactForm() {
             rows={5}
             value={form.message}
             onChange={updateField}
-            placeholder={site.ui.message_placeholder}
+            placeholder={personal ? site.personal.message_placeholder : site.ui.message_placeholder}
             className={`${fieldClass} min-h-[9rem] resize-y`}
           />
         </div>
@@ -147,14 +151,14 @@ export function ContactForm() {
           />
         </div>
 
-        <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs leading-relaxed text-stone-500">
+        <div className={personal ? "personal-form-actions" : "mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"}>
+          {!personal && <p className="text-xs leading-relaxed text-stone-500">
             {site.ui.prefer_email}{' '}
             <CopyEmail
               email="hello@mikolajpiech.com"
               className="text-stone-300 underline decoration-stone-700 underline-offset-4 transition hover:text-white"
             />
-          </p>
+          </p>}
           <button
             type="submit"
             disabled={status === 'sending'}

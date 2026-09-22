@@ -40,7 +40,10 @@ for (const [route, file, language] of pages) {
     const clevrProjects = items.filter(({ item }) => item.publisher?.['@id'] === 'https://clevrapps.com/#organization');
     assert.deepEqual(clevrProjects.map(({ item }) => item.name), ['Solvee', 'Trailo', 'Doso', 'Subby', 'Twoja Sieć']);
     assert.ok(clevrProjects.every(({ item }) => item.sameAs.some((url) => url.startsWith('https://clevrapps.com/'))));
-    assert.equal((html.match(/<details\b/g) ?? []).length, 8, `${route}: technology text exists without JS`);
+    const technologySections = [...html.matchAll(/<section\b[^>]*aria-labelledby="[^"]+-technologies"[^>]*>([\s\S]*?)<\/section>/g)];
+    assert.equal(technologySections.length, 8, `${route}: technology sections exist without JS`);
+    assert.ok(technologySections.every(([, content]) => /<dd\b[^>]*>[^<]+<\/dd>/.test(content)), `${route}: each technology section contains rendered text`);
+    assert.ok(!html.includes('<details'), `${route}: project details are visible without expanding a control`);
     assert.ok(html.includes('Supabase PostgreSQL'));
   }
   if (route === '/' || route === '/pl') {
@@ -48,18 +51,12 @@ for (const [route, file, language] of pages) {
     assert.equal(preloads.length, 1, `${route}: only hero is preloaded`);
     assert.ok(preloads[0].includes('/mikolaj-profile.jpg'));
     assert.ok(html.includes('property="og:image" content="https://mikolajpiech.com/mikolaj-profile.jpg"'));
+    assert.ok(html.includes('href="mailto:hello@mikolajpiech.com"'), 'Email works without JS');
+    assert.ok(html.includes('href="https://clevrapps.com/"'), `${route}: studio link`);
+    assert.ok(html.includes(language === 'pl' ? 'moje niezależne studio' : 'my independent app studio'), `${route}: clear studio relationship`);
     assert.ok(html.includes('<fieldset disabled="">'), 'Form waits for hydration');
-    assert.ok(html.includes('href="mailto:hello@mikolajpiech.com"'), 'Email fallback works without JS');
-    const heroLinks = [
-      'https://clevrapps.com/',
-      'https://trailoapp.com',
-      'https://apps.apple.com/us/app/subby-subscription-manager/id6755717606',
-      'https://apps.apple.com/app/doso-pill-reminder-tracker/id6761341859',
-      'https://charmybooks.com/',
-    ];
-    assert.ok(heroLinks.every((href) => html.includes(`href="${href}"`)), `${route}: linked hero entities`);
-    assert.ok(html.includes(language === 'pl' ? 'gdzie rozwijam własne aplikacje' : 'where I develop my own apps'), `${route}: clear studio relationship`);
-    assert.equal((html.match(/data-tooltip=/g) ?? []).length, 4, `${route}: app descriptions available as tooltips`);
+    assert.ok(html.includes('id="about"'), `${route}: personal introduction`);
+    assert.ok(!html.includes('id="services"'), `${route}: no homepage sales section`);
   }
   for (const [, source] of html.matchAll(/<img[^>]*\ssrc="([^"]+)"/g)) {
     if (source.startsWith('/')) assert.ok((await stat(resolve(root, `dist${source}`))).size > 0, source);

@@ -1,6 +1,6 @@
 {
   "common": {
-    "get_in_touch": "Start a project",
+    "get_in_touch": "Get in touch",
     "email_me": "Email Me",
     "copied": "Copied!",
     "email_on_clipboard": "{{email}} copied",
@@ -39,6 +39,7 @@
     "scope": "Scope",
     "tech_stack": "Tech stack",
     "technologies_used": "Technologies used",
+    "why_built_it": "Why I built it",
     "visit": "Visit",
     "view_on_clevr_apps": "View on Clevr Apps",
     "website_preview": "website preview",
@@ -66,12 +67,12 @@
   },
   "hero": {
     "headline_line1": "Mikołaj Piech",
-    "headline_line2": "Founder & developer.",
-    "intro": "I build mobile apps, web apps, and websites. I run Clevr Apps, where I develop my own apps, including Trailo, Subby, Doso, and Charmy Books.",
+    "headline_line2": "",
+    "intro": "I build apps and run Clevr Apps, my independent app studio.",
     "link_descriptions": {
       "Trailo": "AI-powered trip planning.",
       "Subby": "Subscription and upcoming payment tracking.",
-      "Doso": "Medication, lab result, and symptom tracking.",
+      "Doso": "Medication reminders, refill tracking, and family sharing.",
       "Charmy Books": "Personalized books for children."
     },
     "primary_cta": "View my portfolio",
@@ -83,13 +84,13 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Mikołaj Piech, founder and app developer from Poland. Creator of Trailo, Subby, Doso and Charmy Books. Explore my projects and get in touch.",
+    "meta_description": "The personal website of Mikołaj Piech. I build apps and run Clevr Apps. Explore my projects and a little about me.",
     "person_description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
     "pages": {
       "home": {
-        "title": "Mikołaj Piech | App Developer & Founder",
-        "description": "Mikołaj Piech, founder and app developer from Poland. Creator of Trailo, Subby, Doso and Charmy Books. Explore my projects and get in touch.",
-        "social_description": "Mikołaj Piech, founder and app developer from Poland. Creator of Trailo, Subby, Doso and Charmy Books."
+        "title": "Mikołaj Piech",
+        "description": "The personal website of Mikołaj Piech. I build apps and run Clevr Apps. Explore my projects and a little about me.",
+        "social_description": "The personal website of Mikołaj Piech. I build apps and run Clevr Apps. Explore my projects and a little about me."
       },
       "portfolio": {
         "title": "Portfolio | Apps by Mikołaj Piech",
@@ -127,7 +128,7 @@
     "subtitle": "Products I've designed, built, and shipped across web, iOS, and Android.",
     "justmine": {
       "tagline": "Personalized books for children.",
-      "homepage_description": "A personalized storybook platform that turns a child’s appearance, interests, family, and memories into a coherent illustrated story made specifically for them.",
+      "homepage_description": "Exploring how to make children’s books where the story and illustrations are created for one particular child.",
       "description": "A personalized storybook platform that turns a child’s appearance, interests, family, and memories into a coherent illustrated story made specifically for them.",
       "link_text": "Visit website"
     },
@@ -154,37 +155,47 @@
     },
     "solvee": {
       "tagline": "AI Homework Helper",
-      "homepage_description": "Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.",
+      "homepage_description": "I built and grew this homework app to more than 25,000 downloads, then sold it in 2026.",
       "description": "Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.",
       "status": "Sold"
     },
     "subby": {
       "tagline": "Subscription Manager",
-      "homepage_description": "I built Subby after losing money on forgotten free trials. It is a simple place to track subscriptions, see upcoming charges, and get warned before renewals.",
+      "homepage_description": "I built Subby after losing money on forgotten free trials. It keeps subscriptions and upcoming charges in view.",
       "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly."
     },
     "doso": {
       "tagline": "Your health, effortlessly tracked.",
-      "description": "Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history."
+      "description": "Medication companion for schedules, dose history, refill alerts, multiple profiles, and optional family sharing across devices."
     },
     "trailo": {
       "tagline": "Plan less. Travel more.",
       "description": "End-to-end AI travel planning: find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
-      "link_text": "Visit website"
+      "link_text": "Visit website",
+      "homepage_description": "Bringing the scattered parts of planning a trip together, from flights and stays to what to do each day."
     },
     "twojasiec": {
       "tagline": "Local news, close to you.",
       "description": "A mobile app that brings news, alerts, and events from a selected area into one organized place. Users can personalize their local feed by topic, save stories, and add events to their calendar without browsing multiple websites and scattered community groups.",
-      "status": "In development"
+      "status": ""
     }
   },
   "proof": {
     "title": "Built, shipped, and used.",
     "description": "I don't stop at mockups or code. I take products from an early idea to real people using them.",
     "items": [
-      { "value": "10+", "label": "projects delivered" },
-      { "value": "30k+", "label": "downloads" },
-      { "value": "1", "label": "product sold" }
+      {
+        "value": "10+",
+        "label": "projects delivered"
+      },
+      {
+        "value": "30k+",
+        "label": "downloads"
+      },
+      {
+        "value": "1",
+        "label": "product sold"
+      }
     ]
   },
   "capabilities": {
@@ -335,5 +346,24 @@
     "s12_name": "Mikołaj Piech",
     "s12_email_label": "Email:",
     "s12_site_label": "Website:"
+  },
+  "personal": {
+    "skip": "Skip to content",
+    "work_link": "Explore my work",
+    "work_intro": "A few things I’ve made.",
+    "project_link": "Read about the project",
+    "studio_note": "For my apps, downloads and support, visit",
+    "about_title": "A little about me",
+    "nav_about": "About",
+    "nav_work": "Work",
+    "nav_contact": "Contact",
+    "about_paragraphs": [
+      "I like turning ideas into things people can use. I work on a variety of projects, mostly apps and websites.",
+      "Outside of apps, I’m interested in psychology and philosophy. I also enjoy training, travelling and reading books."
+    ],
+    "contact_title": "Say hello.",
+    "social_label": "Social profiles",
+    "message_label": "Message",
+    "message_placeholder": "What’s on your mind?"
   }
 }

@@ -38,10 +38,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   if (isWeb) {
     return (
       <motion.div
+        data-reveal={index % 2 * 100}
+        data-spotlight
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className={`group relative flex flex-col ${isPrimary ? 'md:col-span-2' : ''} w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-all duration-500`}
+        className={`project-card group relative flex flex-col ${isPrimary ? 'md:col-span-2' : ''} w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.08)] transition-all duration-500`}
       >
         <div className="relative w-full aspect-[16/10] md:aspect-[16/7] bg-[#F5F5F7] dark:bg-stone-950/50 overflow-hidden">
           {project.image ? (
@@ -102,10 +104,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   if (isSplit) {
     return (
       <motion.div
+        data-reveal={index % 2 * 100}
+        data-spotlight
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className={`group relative flex flex-col md:flex-row w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500 md:min-h-[500px] ${isPrimary ? 'md:col-span-2' : ''}`}
+        className={`project-card group relative flex flex-col md:flex-row w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500 md:min-h-[500px] ${isPrimary ? 'md:col-span-2' : ''}`}
       >
         {/* Image */}
         <div className={`relative w-full ${isPrimary ? 'md:w-[58%]' : 'md:w-[45%]'} md:order-2 aspect-[16/10] sm:aspect-[5/4] md:aspect-auto md:min-h-[500px] bg-[#F5F5F7] dark:bg-stone-950/50 overflow-hidden shrink-0`}>
@@ -200,10 +204,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
   return (
     <motion.div
+        data-reveal={index % 2 * 100}
+        data-spotlight
       initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`group relative flex flex-col ${isPrimary ? 'md:col-span-2' : ''} w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500`}
+      className={`project-card group relative flex flex-col ${isPrimary ? 'md:col-span-2' : ''} w-full overflow-hidden rounded-2xl sm:rounded-[2rem] bg-white dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.06)] transition-all duration-500`}
     >
       {/* Background/Image Area */}
       <div className={`relative w-full overflow-hidden ${isPrimary ? 'aspect-[4/3] sm:h-96 sm:aspect-auto' : 'aspect-[4/3] sm:aspect-[16/10]'} bg-[#F5F5F7] dark:bg-stone-950/50 shrink-0`}>

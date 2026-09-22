@@ -208,7 +208,7 @@ function buildAllProjects(language: Language): Project[] {
     tags: isPl
       ? ['Lokalne informacje', 'Wydarzenia', 'Aplikacja mobilna']
       : ['Local News', 'Events', 'Mobile App'],
-    platform: tr('Mobile app', 'Aplikacja mobilna'),
+    platform: 'iOS · Android',
     category: tr('Local Information', 'Lokalne informacje'),
     role: tr('Product designer & developer', 'Projektant i developer'),
     scope: tr('Product design & development', 'Projekt produktu i aplikacji'),
@@ -269,8 +269,8 @@ function buildAllProjects(language: Language): Project[] {
     tagline: site.projects.doso.tagline,
     description: site.projects.doso.description,
     whyBuiltIt: tr(
-      'Health information is usually fragmented across medication reminders, lab reports, notes and separate health apps. I wanted to explore what a personal health system could look like if those pieces shared context, while keeping sensitive data local and treating reliability and safety as core engineering constraints rather than afterthoughts.',
-      'Informacje o zdrowiu są zwykle rozproszone między przypomnieniami o lekach, wynikami badań, notatkami i osobnymi aplikacjami zdrowotnymi. Chciałem sprawdzić, jak mógłby wyglądać osobisty system zdrowotny, gdyby wszystkie te elementy współdzieliły kontekst, a wrażliwe dane pozostawały lokalnie na urządzeniu, zaś niezawodność i bezpieczeństwo były podstawowymi wymaganiami technicznymi, a nie dodatkiem na końcu.',
+      'Medication routines become difficult when schedules, refills, and caregiving live in separate places. I rebuilt Doso around one clear daily plan that works offline, supports multiple profiles, and can be shared with trusted caregivers when needed.',
+      'Codzienne przyjmowanie leków staje się trudne, gdy harmonogramy, zapasy i opieka są rozproszone. Przebudowałem Doso wokół jednego czytelnego planu dnia, który działa offline, obsługuje wiele profili i w razie potrzeby może być udostępniony zaufanym opiekunom.',
     ),
     tags: isPl ? ['Zdrowie', 'Aplikacja mobilna', 'AI'] : ['Health', 'Mobile App', 'AI'],
     platform: 'iOS',
@@ -284,14 +284,14 @@ function buildAllProjects(language: Language): Project[] {
     layout: 'split',
     screenshots: [
       { src: doso1, alt: tr('Doso home dashboard', 'Panel główny aplikacji Doso'), variant: 'phone' },
-      { src: doso2, alt: tr('Doso lab results analysis', 'Analiza wyników badań w aplikacji Doso'), variant: 'phone' },
-      { src: doso3, alt: tr('Doso medication interaction warning', 'Ostrzeżenie o interakcji leków w aplikacji Doso'), variant: 'phone' },
-      { src: doso4, alt: tr('Doso voice medication input', 'Głosowe dodawanie leków w aplikacji Doso'), variant: 'phone' },
-      { src: doso5, alt: tr('Doso profile management', 'Zarządzanie profilem w aplikacji Doso'), variant: 'phone' },
+      { src: doso2, alt: tr('Doso medication and refill overview', 'Leki i zapasy w aplikacji Doso'), variant: 'phone' },
+      { src: doso3, alt: tr('Doso dose history', 'Historia dawek w aplikacji Doso'), variant: 'phone' },
+      { src: doso4, alt: tr('Doso Connected Family sharing', 'Udostępnianie Connected Family w aplikacji Doso'), variant: 'phone' },
+      { src: doso5, alt: tr('Doso medication schedule editor', 'Edycja harmonogramu leków w aplikacji Doso'), variant: 'phone' },
     ],
     technologies: [
       { label: tr('Mobile stack', 'Stack mobilny'), items: 'Expo, React Native, React, TypeScript, Expo Router, Zustand' },
-      { label: tr('AI health assistant', 'Asystent zdrowotny AI'), items: tr('xAI Grok behind a rate-limited Cloudflare Worker for health chat, medication parsing, and structured interaction checks with server-side safety rules', 'xAI Grok za limitowanym Cloudflare Workerem do czatu zdrowotnego, rozpoznawania leków i strukturyzowanego sprawdzania interakcji z regułami bezpieczeństwa po stronie serwera') },
+      { label: tr('Connected Family', 'Connected Family'), items: tr('Optional Supabase synchronization for households, caregiver access, invitations, and private follow-up notifications', 'Opcjonalna synchronizacja Supabase dla rodzin, dostępu opiekunów, zaproszeń i prywatnych powiadomień kontrolnych') },
       { label: tr('Health data & privacy', 'Dane zdrowotne i prywatność'), items: tr('Local-first SQLite health records, SecureStore preferences, isolated multi-profile stores, and device-backup restrictions', 'Lokalne dane zdrowotne w SQLite, preferencje w SecureStore, odseparowane magazyny danych dla wielu profili i ograniczenia kopii zapasowych urządzenia') },
       { label: tr('Medication engine', 'System leków'), items: tr('Dose scheduling, adherence and refill calculations, Expo Notifications, and exact critical alarms with Notifee', 'Harmonogramowanie dawek, obliczanie regularności i terminów uzupełnienia leków, Expo Notifications oraz dokładne alarmy krytyczne z Notifee') },
       { label: tr('Voice & reports', 'Głos i raporty'), items: tr('Native speech recognition for medication entry and localized PDF health reports with printing, file export, and sharing', 'Natywne rozpoznawanie mowy do dodawania leków oraz lokalizowane raporty zdrowotne PDF z drukowaniem, eksportem plików i udostępnianiem') },

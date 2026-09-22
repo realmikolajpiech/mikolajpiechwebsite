@@ -22,6 +22,8 @@ const routes = [
   { page: 'not_found', language: 'pl', url: '/pl/404', output: 'pl/404.html' },
   { page: 'portfolio', language: 'en', url: '/portfolio', output: 'portfolio.html' },
   { page: 'privacy', language: 'en', url: '/privacy-policy', output: 'privacy-policy.html' },
+  { page: 'privacy', language: 'en', url: '/doso/privacy', output: 'doso/privacy.html', title: 'Doso Privacy Policy', description: 'How Doso handles medication routines, Connected Family data, reminders, purchases, and optional AI features.' },
+  { page: 'privacy', language: 'en', url: '/doso/support', output: 'doso/support.html', title: 'Doso Support', description: 'Get help with Doso medication reminders, Connected Family, subscriptions, backups, and account deletion.' },
   { page: 'home', language: 'pl', url: '/pl', output: 'pl.html' },
   { page: 'portfolio', language: 'pl', url: '/pl/portfolio', output: 'pl/portfolio.html' },
   { page: 'privacy', language: 'pl', url: '/pl/polityka-prywatnosci', output: 'pl/polityka-prywatnosci.html' },
@@ -43,7 +45,14 @@ function replaceNamedMeta(html, attribute, key, value) {
 }
 
 function updateHead(html, route, site) {
-  const meta = getPageMeta(route.page, site, route.language);
+  const generatedMeta = getPageMeta(route.page, site, route.language);
+  const meta = {
+    ...generatedMeta,
+    title: route.title ?? generatedMeta.title,
+    description: route.description ?? generatedMeta.description,
+    socialDescription: route.description ?? generatedMeta.socialDescription,
+    alternatePaths: route.url.startsWith('/doso/') ? undefined : generatedMeta.alternatePaths,
+  };
   const socialDescription = meta.socialDescription;
   const canonical = `${SITE_URL}${route.url}`;
   const alternates = meta.alternatePaths;

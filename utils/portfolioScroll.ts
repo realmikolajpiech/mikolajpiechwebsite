@@ -17,5 +17,5 @@ export function scrollToPortfolioSection(id: string) {
   if (!el) return;
 
   const top = el.getBoundingClientRect().top + window.scrollY - getPortfolioScrollOffset();
-  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  window.scrollTo({ top: Math.max(0, top), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
 }

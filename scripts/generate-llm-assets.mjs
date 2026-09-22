@@ -32,11 +32,11 @@ ${site.seo.person_description}
 ${site.hero.intro}
 
 ## Docs
-- [Full site summary (${SITE_URL}/llms-full.txt)](${SITE_URL}/llms-full.txt): Plain-text bio, services, projects, proof, and FAQs, the best source for AI agents
+- [Full site summary (${SITE_URL}/llms-full.txt)](${SITE_URL}/llms-full.txt): Plain-text bio, interests, projects, and FAQs, the best source for AI agents
 - [Structured data (${SITE_URL}/schema.json)](${SITE_URL}/schema.json): JSON-LD with Person, WebSite, and projects
 
 ## Pages
-- [Home](${SITE_URL}/): About, proof, selected work, services, and contact
+- [Home](${SITE_URL}/): Personal introduction, selected work, interests, and contact
 - [Portfolio (interactive)](${SITE_URL}/portfolio): Detailed shipped products in the main site
 - [Portfolio (plain HTML for agents)](${SITE_URL}/portfolio): Crawlable project details without JavaScript
 - [Privacy Policy](${SITE_URL}/privacy-policy): Data handling for this website and published apps
@@ -63,7 +63,7 @@ function buildLlmsFullTxt(projects) {
     site.hero.intro,
     'Studio: https://clevrapps.com/',
     '',
-    `${site.hero.headline_line1} ${site.hero.headline_line2}`,
+    ...site.personal.about_paragraphs,
     '',
     '## Stats',
     '',

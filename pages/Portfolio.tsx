@@ -1,6 +1,6 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, ArrowDown } from 'lucide-react';
 import { SiteNav } from '../components/SiteNav';
 import { PageMeta } from '../components/PageMeta';
@@ -22,6 +22,12 @@ function scrollToSection(id: string) {
 
 export default function Portfolio() {
   const { language, site } = useLanguage();
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!hash) return;
+    const frame = requestAnimationFrame(() => scrollToPortfolioSection(hash.slice(1)));
+    return () => cancelAnimationFrame(frame);
+  }, [hash]);
   const projects = useMemo(() => getPortfolioProjects(language), [language]);
   const projectIds = useMemo(() => projects.map((p) => p.id), [projects]);
   const scrollOffset = useScrollOffset();
@@ -51,10 +57,11 @@ export default function Portfolio() {
       <SiteNav />
 
       <main>
-      <header className="relative pt-24 sm:pt-28 md:pt-36 pb-14 sm:pb-20 md:pb-28 px-5 sm:px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+      <header className="relative pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-20 md:pb-28 px-5 sm:px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(120,113,108,0.08),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(120,113,108,0.15),transparent)]" />
 
         <motion.div
+          data-reveal
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -106,7 +113,7 @@ export default function Portfolio() {
         />
 
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 overflow-visible">
-          <div className="lg:grid lg:grid-cols-[9rem_1fr] xl:grid-cols-[10rem_1fr] xl:gap-x-16 lg:gap-x-12">
+          <div className="lg:grid lg:grid-cols-[9rem_minmax(0,1fr)] xl:grid-cols-[10rem_minmax(0,1fr)] xl:gap-x-16 lg:gap-x-12">
             <aside className="hidden lg:block">
               <div className="sticky top-28 pt-12 pb-24">
                 <PortfolioSideNav
@@ -117,13 +124,13 @@ export default function Portfolio() {
               </div>
             </aside>
 
-            <div className="overflow-visible py-8 sm:py-12 md:py-16 pb-20 sm:pb-24 md:pb-32">
+            <div className="min-w-0 overflow-visible py-8 sm:py-12 md:py-16 pb-20 sm:pb-24 md:pb-32">
               <div>
                 {projects.map((project, index) => (
                   <React.Fragment key={project.id}>
                     {index > 0 && (
                       <div
-                        className="h-px bg-gradient-to-r from-transparent via-stone-200 dark:via-stone-800 to-transparent mt-8 md:mt-10 mb-6 md:mb-8"
+                        className="h-px bg-gradient-to-r from-transparent via-stone-200 dark:via-stone-800 to-transparent mt-14 md:mt-20 mb-8 md:mb-14"
                         aria-hidden
                       />
                     )}
@@ -144,6 +151,7 @@ export default function Portfolio() {
       <section id="contact" className="scroll-mt-20 bg-ink text-off-white py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
+          data-reveal
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}

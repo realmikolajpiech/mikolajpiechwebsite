@@ -158,7 +158,7 @@
             "@type": "SoftwareApplication",
             "@id": "https://mikolajpiech.com/#project-doso",
             "name": "Doso",
-            "description": "Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history.",
+            "description": "Medication companion for schedules, dose history, refill alerts, multiple profiles, and optional family sharing across devices.",
             "url": "https://clevrapps.com/apps/doso/",
             "mainEntityOfPage": "https://mikolajpiech.com/portfolio#doso",
             "author": {
@@ -220,8 +220,7 @@
             "sameAs": [
               "https://clevrapps.com/twojasiec"
             ],
-            "applicationCategory": "Local Information",
-            "creativeWorkStatus": "In development"
+            "applicationCategory": "Local Information"
           }
         },
         {

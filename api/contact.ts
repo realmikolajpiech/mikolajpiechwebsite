@@ -6,6 +6,10 @@ type ContactPayload = {
   company?: unknown;
   message?: unknown;
   website?: unknown;
+  browserContext?: {
+    timezone?: unknown;
+    language?: unknown;
+  };
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,6 +30,29 @@ function escapeHtml(value: string) {
 
     return entities[character];
   });
+}
+
+function readHeader(request: VercelRequest, name: string) {
+  const value = request.headers[name];
+  return readText(Array.isArray(value) ? value[0] : value);
+}
+
+function decodeHeader(value: string) {
+  if (!value) return '';
+
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function readCoordinate(value: string, min: number, max: number) {
+  if (!value) return '';
+  const coordinate = Number(value);
+  return Number.isFinite(coordinate) && coordinate >= min && coordinate <= max
+    ? String(coordinate)
+    : '';
 }
 
 function respond(response: VercelResponse, status: number, message: string) {
@@ -53,6 +80,8 @@ export default async function handler(request: VercelRequest, response: VercelRe
   const company = readText(payload?.company);
   const message = readText(payload?.message);
   const website = readText(payload?.website);
+  const timezone = readText(payload?.browserContext?.timezone).slice(0, 100);
+  const language = readText(payload?.browserContext?.language).slice(0, 35);
 
   // Honeypot: bots often fill hidden fields. Return success without sending.
   if (website) {
@@ -88,12 +117,30 @@ export default async function handler(request: VercelRequest, response: VercelRe
   const normalizedMessage = message
     .replace(/\r\n/g, '\n')
     .replace(/\\r\\n|\\n|\\r/g, '\n');
+  // Vercel derives these values from the request IP without prompting the visitor.
+  // They are approximate and may reflect a VPN or mobile-network exit point.
+  const city = decodeHeader(readHeader(request, 'x-vercel-ip-city')).slice(0, 120);
+  const region = decodeHeader(readHeader(request, 'x-vercel-ip-country-region')).slice(0, 120);
+  const postalCode = decodeHeader(readHeader(request, 'x-vercel-ip-postal-code')).slice(0, 24);
+  const countryHeader = readHeader(request, 'x-vercel-ip-country').toUpperCase();
+  const country = /^[A-Z]{2}$/.test(countryHeader) ? countryHeader : '';
+  const ipTimezone = decodeHeader(readHeader(request, 'x-vercel-ip-timezone')).slice(0, 100);
+  const latitude = readCoordinate(readHeader(request, 'x-vercel-ip-latitude'), -90, 90);
+  const longitude = readCoordinate(readHeader(request, 'x-vercel-ip-longitude'), -180, 180);
+  const locationParts = [city, region, postalCode, country].filter(Boolean);
+  const location = locationParts.length ? locationParts.join(', ') : 'Unavailable';
+  const coordinates = latitude && longitude ? `${latitude}, ${longitude}` : 'Unavailable';
   const emailText = [
     'New project inquiry from mikolajpiech.com',
     '',
     `Name: ${name}`,
     `Email: ${email}`,
     `Company: ${company || 'Not provided'}`,
+    `Approximate location: ${location}`,
+    `Approximate coordinates: ${coordinates}`,
+    `IP-derived timezone: ${ipTimezone || 'Unavailable'}`,
+    `Browser timezone: ${timezone || 'Unavailable'}`,
+    `Browser language: ${language || 'Unavailable'}`,
     '',
     'Message:',
     normalizedMessage,
@@ -102,6 +149,11 @@ export default async function handler(request: VercelRequest, response: VercelRe
   const safeEmail = escapeHtml(email);
   const safeCompany = escapeHtml(company || 'Not provided');
   const safeMessage = escapeHtml(normalizedMessage).replace(/\n/g, '<br>');
+  const safeLocation = escapeHtml(location);
+  const safeCoordinates = escapeHtml(coordinates);
+  const safeIpTimezone = escapeHtml(ipTimezone || 'Unavailable');
+  const safeTimezone = escapeHtml(timezone || 'Unavailable');
+  const safeLanguage = escapeHtml(language || 'Unavailable');
   const emailHtml = `
 <!doctype html>
 <html lang="en">
@@ -146,6 +198,13 @@ export default async function handler(request: VercelRequest, response: VercelRe
                     </td>
                   </tr>
                 </table>
+
+                <div style="margin-top:8px;padding:18px 20px;border:1px solid #e7e5e4;border-radius:16px;">
+                  <p style="margin:0 0 10px;font-size:10px;font-weight:700;letter-spacing:1.25px;color:#a8a29e;">APPROXIMATE LOCATION</p>
+                  <p style="margin:0;font-size:14px;line-height:1.5;color:#1c1917;">${safeLocation}</p>
+                  <p style="margin:5px 0 0;font-size:12px;line-height:1.5;color:#78716c;">Coordinates: ${safeCoordinates} &middot; IP timezone: ${safeIpTimezone}</p>
+                  <p style="margin:3px 0 0;font-size:12px;line-height:1.5;color:#78716c;">Browser timezone: ${safeTimezone} &middot; Language: ${safeLanguage}</p>
+                </div>
 
                 <div style="margin-top:8px;padding:24px;border-radius:16px;background:#f7f6f3;">
                   <p style="margin:0 0 12px;font-size:10px;font-weight:700;letter-spacing:1.25px;color:#a8a29e;">MESSAGE</p>

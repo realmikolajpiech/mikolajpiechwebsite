@@ -7,9 +7,14 @@ export function useScrollOffset() {
   useEffect(() => {
     const update = () => setOffset(getPortfolioScrollOffset());
 
+    const observer = new ResizeObserver(update);
+    document.querySelectorAll('nav.fixed, nav[data-project-navigation]').forEach(nav => observer.observe(nav));
     update();
     window.addEventListener('resize', update, { passive: true });
-    return () => window.removeEventListener('resize', update);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
   return offset;

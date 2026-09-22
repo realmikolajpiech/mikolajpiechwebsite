@@ -27,3 +27,5 @@ data/image-manifest.json
 *.njsproj
 *.sln
 *.sw?
+.vercel
+.env*

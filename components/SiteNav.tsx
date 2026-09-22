@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 import { Button } from './Button';
@@ -9,9 +9,17 @@ import { getLocalizedPath } from '../utils/localizedRoutes';
 
 interface SiteNavProps {
   showPortfolioLink?: boolean;
+  personal?: boolean;
 }
 
-export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) => {
+export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true, personal = true }) => {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 32);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
   const { pathname } = useLocation();
   const { language, site } = useLanguage();
   const homePath = getLocalizedPath('home', language);
@@ -19,8 +27,20 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true }) =>
   const isHome = pathname === homePath;
   const isPortfolio = pathname === portfolioPath;
 
+  if (personal) return (
+    <nav className="personal-nav" aria-label={language === 'pl' ? 'Nawigacja główna' : 'Main navigation'}>
+      <Link to={homePath} className="personal-nav-name">Mikołaj Piech</Link>
+      <div className="personal-nav-links">
+        <Link to={portfolioPath} aria-current={isPortfolio ? 'page' : undefined}>{site.portfolio.title}</Link>
+        <Link to={`${homePath}#about`}>{site.personal.nav_about}</Link>
+        <Link to={`${homePath}#contact`}>{site.personal.nav_contact}</Link>
+      </div>
+      <div className="personal-nav-controls"><LanguageToggle /><ThemeToggle /></div>
+    </nav>
+  );
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
+    <nav data-scrolled={scrolled} className="site-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
       <Link
         to={homePath}
         className="font-serif italic text-lg sm:text-xl tracking-tight text-ink dark:text-stone-50 hover:opacity-80 transition-opacity truncate max-w-[55vw] sm:max-w-none"

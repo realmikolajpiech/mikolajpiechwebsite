@@ -41,9 +41,10 @@ export function CopyEmail({ email, className = '' }: CopyEmailProps) {
 
   return (
     <button
+      data-copied={copied}
       type="button"
       onClick={copyEmail}
-      className={`group inline-flex items-center gap-2 ${className}`}
+      className={`copy-email group inline-flex items-center gap-2 ${className}`}
       aria-label={copied ? site.common.email_on_clipboard.replace('{{email}}', email) : `${site.ui.copy} ${email}`}
     >
       <span>{email}</span>

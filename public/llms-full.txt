@@ -6,10 +6,11 @@ This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI 
 
 Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.
 
-I build mobile apps, web apps, and websites. I run Clevr Apps, where I develop my own apps, including Trailo, Subby, Doso, and Charmy Books.
+I build apps and run Clevr Apps, my independent app studio.
 Studio: https://clevrapps.com/
 
-Mikołaj Piech Founder & developer.
+I like turning ideas into things people can use. I work on a variety of projects, mostly apps and websites.
+Outside of apps, I’m interested in psychology and philosophy. I also enjoy training, travelling and reading books.
 
 ## Stats
 
@@ -59,7 +60,7 @@ Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.trai
 ### Doso
 
 Tagline: Your health, effortlessly tracked.
-Description: Personal health app for managing medications, tracking lab results, and logging symptoms, with AI that knows your full health history.
+Description: Medication companion for schedules, dose history, refill alerts, multiple profiles, and optional family sharing across devices.
 Platform: iOS
 Category: Health & Wellness
 Scope: Full product · design to launch
@@ -77,11 +78,11 @@ Clevr Apps product page: https://clevrapps.com/apps/subby/
 App Store: https://apps.apple.com/us/app/subby-subscription-manager/id6755717606
 Google Play: https://play.google.com/store/apps/details?id=com.justgoodapps.subby
 
-### Twoja Sieć (In development)
+### Twoja Sieć
 
 Tagline: Local news, close to you.
 Description: A mobile app that brings news, alerts, and events from a selected area into one organized place. Users can personalize their local feed by topic, save stories, and add events to their calendar without browsing multiple websites and scattered community groups.
-Platform: Mobile app
+Platform: iOS · Android
 Category: Local Information
 Scope: Product design & development
 Clevr Apps product page: https://clevrapps.com/twojasiec
