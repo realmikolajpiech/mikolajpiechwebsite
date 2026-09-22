@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Mail } from 'lucide-react';
+import { ArrowUpRight, Mail } from 'lucide-react';
 import { Button } from './Button';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageToggle } from './LanguageToggle';
@@ -14,21 +14,50 @@ interface SiteNavProps {
 
 export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true, personal = true }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 32);
     update();
     window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
   }, []);
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const { language, site } = useLanguage();
   const homePath = getLocalizedPath('home', language);
   const portfolioPath = getLocalizedPath('portfolio', language);
   const isHome = pathname === homePath;
   const isPortfolio = pathname === portfolioPath;
 
+  useEffect(() => setMenuOpen(false), [pathname, hash]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!navRef.current?.contains(event.target as Node)) setMenuOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    const desktop = window.matchMedia('(min-width: 768px)');
+    const onResize = () => { if (desktop.matches) setMenuOpen(false); };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    desktop.addEventListener('change', onResize);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+      desktop.removeEventListener('change', onResize);
+    };
+  }, [menuOpen]);
+
   if (personal) return (
-    <nav className="personal-nav" aria-label={language === 'pl' ? 'Nawigacja główna' : 'Main navigation'}>
+    <nav ref={navRef} className="personal-nav" data-menu-open={menuOpen} aria-label={language === 'pl' ? 'Nawigacja główna' : 'Main navigation'}
+      onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setMenuOpen(false); }}>
       <Link to={homePath} className="personal-nav-name">Mikołaj Piech</Link>
       <div className="personal-nav-links">
         <Link to={portfolioPath} aria-current={isPortfolio ? 'page' : undefined}>{site.portfolio.title}</Link>
@@ -36,6 +65,25 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true, pers
         <Link to={`${homePath}#contact`}>{site.personal.nav_contact}</Link>
       </div>
       <div className="personal-nav-controls"><LanguageToggle /><ThemeToggle /></div>
+      <button
+        ref={menuButtonRef}
+        type="button"
+        className="personal-menu-toggle"
+        aria-expanded={menuOpen}
+        aria-controls="personal-mobile-menu"
+        aria-label={language === 'pl' ? (menuOpen ? 'Zamknij menu' : 'Otwórz menu') : (menuOpen ? 'Close menu' : 'Open menu')}
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <span aria-hidden="true" /><span aria-hidden="true" />
+      </button>
+      <div id="personal-mobile-menu" className="personal-mobile-menu" inert={!menuOpen} aria-hidden={!menuOpen}>
+        <div className="personal-mobile-menu-links" onClick={() => setMenuOpen(false)}>
+          <Link to={portfolioPath} aria-current={isPortfolio ? 'page' : undefined}>{site.portfolio.title}<ArrowUpRight size={20} aria-hidden="true" /></Link>
+          <Link to={`${homePath}#about`}>{site.personal.nav_about}<ArrowUpRight size={20} aria-hidden="true" /></Link>
+          <Link to={`${homePath}#contact`}>{site.personal.nav_contact}<ArrowUpRight size={20} aria-hidden="true" /></Link>
+        </div>
+        <div className="personal-mobile-menu-controls"><LanguageToggle /><ThemeToggle /></div>
+      </div>
     </nav>
   );
 
