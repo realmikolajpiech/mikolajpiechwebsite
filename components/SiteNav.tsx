@@ -74,15 +74,14 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true, pers
         aria-label={language === 'pl' ? (menuOpen ? 'Zamknij menu' : 'Otwórz menu') : (menuOpen ? 'Close menu' : 'Open menu')}
         onClick={() => setMenuOpen((open) => !open)}
       >
-        <span aria-hidden="true" /><span aria-hidden="true" />
+        <span aria-hidden="true" /><span aria-hidden="true" /><span aria-hidden="true" />
       </button>
       <div id="personal-mobile-menu" className="personal-mobile-menu" inert={!menuOpen} aria-hidden={!menuOpen}>
         <div className="personal-mobile-menu-links" onClick={() => setMenuOpen(false)}>
-          <Link to={portfolioPath} aria-current={isPortfolio ? 'page' : undefined}>{site.portfolio.title}<ArrowUpRight size={20} aria-hidden="true" /></Link>
-          <Link to={`${homePath}#about`}>{site.personal.nav_about}<ArrowUpRight size={20} aria-hidden="true" /></Link>
-          <Link to={`${homePath}#contact`}>{site.personal.nav_contact}<ArrowUpRight size={20} aria-hidden="true" /></Link>
+          <Link to={portfolioPath} aria-current={isPortfolio ? 'page' : undefined}>{site.portfolio.title}<ArrowUpRight size={15} aria-hidden="true" /></Link>
+          <Link to={`${homePath}#about`}>{site.personal.nav_about}</Link>
+          <Link to={`${homePath}#contact`}>{site.personal.nav_contact}</Link>
         </div>
-        <div className="personal-mobile-menu-controls"><LanguageToggle /><ThemeToggle /></div>
       </div>
     </nav>
   );
