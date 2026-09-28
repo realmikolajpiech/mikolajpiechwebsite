@@ -6,7 +6,7 @@ This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI 
 
 Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.
 
-I build apps and run Clevr Apps, my independent app studio.
+I build apps and run Clevr Apps.
 Studio: https://clevrapps.com/
 
 I like turning ideas into things people can use. I work on a variety of projects, mostly apps and websites.
