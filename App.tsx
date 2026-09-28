@@ -37,11 +37,17 @@ function ScrollToTop() {
     if (hash && pathname.endsWith('/portfolio')) return;
     if (hash) {
       const frame = requestAnimationFrame(() => {
-        document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'instant', block: 'start' });
+        document.getElementById(hash.slice(1))?.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+          block: 'start',
+        });
       });
       return () => cancelAnimationFrame(frame);
     }
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
   }, [pathname, hash, languageScrollY]);
 
   return null;

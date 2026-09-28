@@ -48,7 +48,7 @@ const dragonSignup = imageManifest['assets/dragon/dragon-signup.jpg'].src;
 
 export const SHOW_OMNI = false;
 export const SHOW_PLATOIC = false;
-export const FEATURED_PROJECT_IDS = ['justmine', 'solvee', 'trailo', 'subby'];
+export const FEATURED_PROJECT_IDS = ['subby', 'solvee', 'trailo', 'justmine'];
 const PORTFOLIO_ONLY_PROJECT_IDS = new Set(['dragon']);
 const PROJECT_ORDER = [
   'justmine',
