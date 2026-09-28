@@ -48,7 +48,8 @@ const dragonSignup = imageManifest['assets/dragon/dragon-signup.jpg'].src;
 
 export const SHOW_OMNI = false;
 export const SHOW_PLATOIC = false;
-export const FEATURED_PROJECT_IDS = ['subby', 'solvee', 'trailo', 'justmine'];
+export const SHOW_CHARMY_BOOKS = false;
+export const FEATURED_PROJECT_IDS = ['subby', 'solvee', 'trailo', 'twojasiec'];
 const PORTFOLIO_ONLY_PROJECT_IDS = new Set(['dragon']);
 const PROJECT_ORDER = [
   'justmine',
@@ -205,6 +206,7 @@ function buildAllProjects(language: Language): Project[] {
     name: 'Twoja Sieć',
     tagline: site.projects.twojasiec.tagline,
     description: site.projects.twojasiec.description,
+    milestone: site.projects.twojasiec.milestone,
     tags: isPl
       ? ['Lokalne informacje', 'Wydarzenia', 'Aplikacja mobilna']
       : ['Local News', 'Events', 'Mobile App'],
@@ -375,7 +377,8 @@ function getVisibleProjects(language: Language): Project[] {
     .filter(
       (project) =>
         (SHOW_OMNI || project.id !== 'omni') &&
-        (SHOW_PLATOIC || project.id !== 'platoic'),
+        (SHOW_PLATOIC || project.id !== 'platoic') &&
+        (SHOW_CHARMY_BOOKS || project.id !== 'justmine'),
     )
     .sort((a, b) => {
       const aIndex = PROJECT_ORDER.indexOf(a.id as (typeof PROJECT_ORDER)[number]);

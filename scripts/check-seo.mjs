@@ -23,6 +23,7 @@ for (const [route, file, language] of pages) {
   assert.ok(!html.includes('<noscript>'), `${route}: one content representation`);
   assert.ok(!html.includes('opacity:0'), `${route}: initially visible content`);
   assert.ok(!html.includes('location.replace'), `${route}: no automatic language redirect`);
+  assert.ok(!html.includes('Charmy Books'), `${route}: hidden project stays out of rendered HTML`);
   const graph = schema(html)['@graph'];
   assert.equal(graph.find((item) => item['@type'] === 'WebPage').url, `${base}${route}`);
   const person = graph.find((item) => item['@type'] === 'Person');
@@ -33,7 +34,8 @@ for (const [route, file, language] of pages) {
   assert.ok(!graph.some((item) => item['@type'] === 'FAQPage'));
   if (route.endsWith('portfolio')) {
     const items = graph.find((item) => item['@type'] === 'ItemList').itemListElement;
-    assert.equal(items.length, 8);
+    assert.equal(items.length, 7);
+    assert.ok(!items.some(({ item }) => item.name === 'Charmy Books'));
     assert.ok(items.some(({ item }) => item.name === 'Twoja Sieć'));
     const safeLabs = items.find(({ item }) => item.name === 'Safe Labs').item;
     assert.deepEqual(safeLabs.author.map((author) => author.name).filter(Boolean), ['Oskar Minor', 'Kamil Zdebski']);
@@ -41,7 +43,7 @@ for (const [route, file, language] of pages) {
     assert.deepEqual(clevrProjects.map(({ item }) => item.name), ['Solvee', 'Trailo', 'Doso', 'Subby', 'Twoja Sieć']);
     assert.ok(clevrProjects.every(({ item }) => item.sameAs.some((url) => url.startsWith('https://clevrapps.com/'))));
     const technologySections = [...html.matchAll(/<section\b[^>]*aria-labelledby="[^"]+-technologies"[^>]*>([\s\S]*?)<\/section>/g)];
-    assert.equal(technologySections.length, 8, `${route}: technology sections exist without JS`);
+    assert.equal(technologySections.length, 7, `${route}: technology sections exist without JS`);
     assert.ok(technologySections.every(([, content]) => /<dd\b[^>]*>[^<]+<\/dd>/.test(content)), `${route}: each technology section contains rendered text`);
     assert.ok(!html.includes('<details'), `${route}: project details are visible without expanding a control`);
     assert.ok(html.includes('Supabase PostgreSQL'));
@@ -70,6 +72,9 @@ for (const [route, file, language] of pages) {
 
 const portfolioGraph = schema(await read('portfolio.html'));
 assert.deepEqual(JSON.parse(await read('schema.json')), portfolioGraph, 'External and inline portfolio metadata agree');
+for (const file of ['llms.txt', 'llms-full.txt']) {
+  assert.ok(!(await read(file)).includes('Charmy Books'), `${file}: hidden project stays out of AI guides`);
+}
 for (const file of ['404.html', 'pl/404.html']) {
   const html = await read(file);
   assert.ok(html.includes('noindex, follow'));

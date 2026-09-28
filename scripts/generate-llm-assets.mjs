@@ -85,6 +85,7 @@ function buildLlmsFullTxt(projects) {
     lines.push('');
     lines.push(`Tagline: ${project.tagline}`);
     lines.push(`Description: ${project.description}`);
+    if (project.milestone) lines.push(`Milestone: ${project.milestone}`);
     lines.push(`Platform: ${project.platform}`);
     lines.push(`Category: ${project.category}`);
     lines.push(`Scope: ${project.scope}`);

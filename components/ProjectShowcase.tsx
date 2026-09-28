@@ -1,7 +1,7 @@
 import { ResponsiveImage } from './ResponsiveImage';
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Apple, Play, ArrowUpRight, LucideIcon } from 'lucide-react';
+import { Apple, Play, ArrowUpRight, TrendingUp, LucideIcon } from 'lucide-react';
 import { Project } from '../types';
 import { ScreenshotGallery } from './ScreenshotGallery';
 import { useLanguage } from '../context/LanguageContext';
@@ -208,6 +208,12 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ project }) => 
             {summary && (
               <p className="max-w-[48ch] text-[17px] leading-[1.7] text-stone-700 text-pretty break-words sm:text-lg dark:text-stone-300">
                 {summary}
+              </p>
+            )}
+            {project.milestone && (
+              <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed text-ink dark:text-stone-200">
+                <TrendingUp size={17} className="mt-0.5 shrink-0" aria-hidden="true" />
+                {project.milestone}
               </p>
             )}
             <div className="mt-4 empty:hidden">

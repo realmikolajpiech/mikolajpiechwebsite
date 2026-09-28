@@ -85,7 +85,7 @@
     "default_image_width": 1200,
     "default_image_height": 630,
     "meta_description": "The personal website of Mikołaj Piech. I build apps and run Clevr Apps. Explore my projects and a little about me.",
-    "person_description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
+    "person_description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech",
@@ -176,7 +176,9 @@
     },
     "twojasiec": {
       "tagline": "Local news, close to you.",
+      "homepage_description": "Local news, alerts, and events from your area in one app.",
       "description": "A mobile app that brings news, alerts, and events from a selected area into one organized place. Users can personalize their local feed by topic, save stories, and add events to their calendar without browsing multiple websites and scattered community groups.",
+      "milestone": "No. 11 among the most downloaded apps in Poland’s App Store · 28 Sep 2026",
       "status": ""
     }
   },
@@ -351,6 +353,7 @@
     "skip": "Skip to content",
     "work_link": "Explore my work",
     "work_intro": "A few things I’ve made.",
+    "more_projects": "See more projects",
     "project_link": "Read about the project",
     "studio_note": "For my apps, downloads and support, visit",
     "about_title": "A little about me",

@@ -85,7 +85,7 @@
     "default_image_width": 1200,
     "default_image_height": 630,
     "meta_description": "Osobista strona Mikołaja Piecha. Tworzę aplikacje i prowadzę Clevr Apps. Poznaj moje projekty i dowiedz się więcej o mnie.",
-    "person_description": "Założyciel Clevr Apps i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Twórca Charmy Books, Trailo, Twoja Sieć, Subby, Doso i Solvee oraz współtwórca Safe Labs.",
+    "person_description": "Założyciel Clevr Apps i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Twórca Trailo, Twoja Sieć, Subby, Doso i Solvee oraz współtwórca Safe Labs.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech",
@@ -176,7 +176,9 @@
     },
     "twojasiec": {
       "tagline": "Wiadomości blisko Ciebie.",
+      "homepage_description": "Lokalne wiadomości, alerty i wydarzenia z Twojej okolicy w jednej aplikacji.",
       "description": "Aplikacja mobilna, która porządkuje wiadomości, alerty i wydarzenia z wybranej okolicy. Pozwala dopasować lokalny feed do interesujących tematów, zapisywać materiały oraz dodawać wydarzenia do kalendarza bez przeglądania wielu stron i przypadkowych grup.",
+      "milestone": "11. miejsce w rankingu najczęściej pobieranych aplikacji w polskim App Store · 28.09.2026",
       "status": ""
     }
   },
@@ -351,6 +353,7 @@
     "skip": "Przejdź do treści",
     "work_link": "Moje projekty",
     "work_intro": "Kilka rzeczy, które stworzyłem.",
+    "more_projects": "Zobacz resztę projektów",
     "project_link": "Poznaj projekt",
     "studio_note": "Więcej o moich aplikacjach znajdziesz na",
     "about_title": "O mnie",

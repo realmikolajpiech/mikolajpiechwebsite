@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, TrendingUp } from 'lucide-react';
 import { ResponsiveImage } from './ResponsiveImage';
 import { useLanguage } from '../context/LanguageContext';
 import type { Project } from '../types';
@@ -8,12 +8,16 @@ import type { Project } from '../types';
 export const SelectedProject: React.FC<{ project: Project; portfolioPath: string }> = ({ project, portfolioPath }) => {
   const { site } = useLanguage();
   const isWeb = project.layout === 'web';
-  const previews = isWeb ? [{ src: project.image, alt: `${project.name} ${site.ui.website_preview}` }] : project.screenshots?.slice(0, 2) ?? [{ src: project.image, alt: `${project.name} ${site.ui.preview}` }];
+  const previews = isWeb
+    ? [{ src: project.image, alt: `${project.name} ${site.ui.website_preview}` }]
+    : project.screenshots?.length
+      ? project.screenshots
+      : [{ src: project.image, alt: `${project.name} ${site.ui.preview}` }];
   return (
     <article className={`personal-project personal-project-${project.id}`}>
       <Link to={`${portfolioPath}#${project.id}`} className="personal-project-link" aria-label={`${project.name}: ${site.personal.project_link}`}>
         <div className={`personal-project-preview ${isWeb ? 'personal-preview-web' : 'personal-preview-app'}`}>
-          {previews.map(preview => <ResponsiveImage key={preview.src} src={preview.src} alt={preview.alt} sizes={isWeb ? '(max-width: 767px) 90vw, 500px' : '220px'} />)}
+          {previews.map(preview => <ResponsiveImage key={preview.src} src={preview.src} alt={preview.alt} sizes={isWeb ? '(max-width: 767px) 90vw, 500px' : '135px'} />)}
         </div>
         <div className="personal-project-heading">
           {project.icon && <ResponsiveImage src={project.icon} alt="" sizes="48px" className="personal-project-icon" />}
@@ -23,6 +27,7 @@ export const SelectedProject: React.FC<{ project: Project; portfolioPath: string
         </div>
       </Link>
       <p className="personal-project-description">{project.description}</p>
+      {project.milestone && <p className="personal-project-milestone"><TrendingUp size={15} aria-hidden="true" />{project.milestone}</p>}
     </article>
   );
 }

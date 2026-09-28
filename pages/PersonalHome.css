@@ -41,11 +41,17 @@
 .personal-section-heading p { margin-top: 10px; font-size: 14px; color: var(--personal-muted); }
 .personal-text-link { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; padding-block: 8px; }
 .personal-projects { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 40px 28px; }
+.personal-project { container-type: inline-size; }
 .personal-project-preview { height: 280px; background: var(--personal-surface); border-radius: 18px; overflow: hidden; transition: background-color 180ms ease; }
 .personal-preview-web { padding: 24px 24px 0; }
 .personal-preview-web img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 8px 8px 0 0; }
-.personal-preview-app { display: flex; justify-content: center; align-items: start; gap: 20px; padding: 24px 20px 0; }
-.personal-preview-app img { height: 292px; width: auto; max-width: 44%; object-fit: cover; object-position: top; border-radius: 14px 14px 0 0; }
+.personal-preview-app { display: flex; justify-content: center; align-items: start; gap: 16px; padding: 24px 20px 0; }
+.personal-preview-app img { flex: none; width: 135px; height: 292px; max-width: none; object-fit: cover; object-position: top; border-radius: 14px 14px 0 0; }
+.personal-preview-app img:nth-child(n + 3) { display: none; }
+@container (max-width: 325px) { .personal-preview-app img:nth-child(n + 2) { display: none; } }
+@container (min-width: 477px) { .personal-preview-app img:nth-child(3) { display: block; } }
+@container (min-width: 628px) { .personal-preview-app img:nth-child(4) { display: block; } }
+@container (min-width: 779px) { .personal-preview-app img:nth-child(5) { display: block; } }
 .personal-project-link:hover .personal-project-preview { background: #e9e5da; }
 .dark .personal-project-link:hover .personal-project-preview { background: #342e27; }
 .personal-project-heading { display: flex; align-items: center; gap: 10px; margin-top: 21px; }
@@ -55,6 +61,17 @@
 .personal-project-arrow { margin-left: auto; color: var(--personal-muted); transition: transform 180ms ease; }
 .personal-project-link:hover .personal-project-arrow { transform: translate(2px,-2px); }
 .personal-project-description { font-size: 14px; line-height: 1.8; color: var(--personal-muted); margin-top: 12px; max-width: 54ch; }
+.personal-project-milestone { display: flex; align-items: flex-start; gap: 8px; margin-top: 12px; font-size: 12px; line-height: 1.6; color: var(--personal-ink); }
+.personal-project-milestone svg { flex: none; margin-top: 2px; }
+.personal-more-projects { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--personal-line); }
+.personal-more-link { display: inline-flex; align-items: center; gap: 10px; flex: none; font-size: 15px; }
+.personal-more-link svg { color: var(--personal-muted); transition: transform 180ms ease; }
+.personal-more-link:hover svg { transform: translate(2px, -2px); }
+.personal-more-list { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; list-style: none; }
+.personal-more-project { display: inline-flex; align-items: center; gap: 8px; padding: 7px 9px; border-radius: 10px; color: var(--personal-muted); font-size: 12px; white-space: nowrap; }
+.personal-more-project:hover { background: var(--personal-surface); }
+.personal-more-icon { width: 32px; height: 32px; object-fit: contain; border-radius: 7px; }
+.personal-more-projects a:focus-visible { outline: 2px solid var(--personal-ink); outline-offset: 3px; }
 .personal-studio-note { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; margin-top: 38px; font-size: 13px; color: var(--personal-muted); }
 .personal-studio-note a { display: inline-flex; gap: 6px; align-items: center; color: var(--personal-ink); }
 .personal-about { display: grid; grid-template-columns: 1fr 1.6fr; gap: 70px; padding: 66px 0; margin-top: 64px; border-top: 1px solid var(--personal-line); }
@@ -71,7 +88,6 @@
 @media (max-width: 900px) {
  .personal-hero { gap: 40px; }
 
- .personal-preview-app { gap: 12px; }
  .personal-about { gap: 35px; }
 }
 @media (max-width: 767px) {
@@ -161,6 +177,9 @@
  .personal-project-heading { margin-top: 17px; }
  .personal-project-heading h3 { font-size: 27px; }
  .personal-project-description { font-size: 13px; margin-top: 10px; }
+ .personal-more-projects { align-items: start; flex-direction: column; gap: 14px; margin-top: 34px; padding-top: 21px; }
+ .personal-more-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: stretch; width: 100%; gap: 4px; }
+ .personal-more-project { width: 100%; padding-inline: 0; }
  .personal-studio-note { margin-top: 30px; font-size: 12px; }
  .personal-about { grid-template-columns: 1fr; gap: 24px; margin-top: 40px; padding: 36px 0; }
  .personal-about p { font-size: 15px; line-height: 1.85; }

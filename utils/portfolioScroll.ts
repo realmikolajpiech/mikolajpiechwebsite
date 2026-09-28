@@ -4,7 +4,7 @@ export function getPortfolioScrollOffset(): number {
 
   const siteNav = document.querySelector<HTMLElement>('nav.fixed');
   const mobileNav = document.querySelector<HTMLElement>('nav[data-project-navigation]');
-  const siteHeight = siteNav?.offsetHeight ?? 64;
+  const siteHeight = siteNav?.offsetHeight ?? 0;
   const mobileHeight = mobileNav?.offsetHeight ?? 52;
 
   return siteHeight + mobileHeight + 12;

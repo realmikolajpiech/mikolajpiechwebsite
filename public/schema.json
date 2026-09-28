@@ -44,7 +44,7 @@
         "@id": "https://mikolajpiech.com/#webpage"
       },
       "jobTitle": "Founder & Developer",
-      "description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Charmy Books, Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
+      "description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
       "sameAs": [
         "https://x.com/mikolajpiech",
         "https://www.linkedin.com/in/mikolajpiech/",
@@ -84,27 +84,6 @@
           "position": 1,
           "item": {
             "@type": "SoftwareApplication",
-            "@id": "https://mikolajpiech.com/#project-justmine",
-            "name": "Charmy Books",
-            "description": "A personalized storybook platform that turns a child’s appearance, interests, family, and memories into a coherent illustrated story made specifically for them.",
-            "url": "https://charmybooks.com",
-            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#justmine",
-            "author": {
-              "@id": "https://mikolajpiech.com/#person"
-            },
-            "image": "https://mikolajpiech.com/images/justmine/justmine-home-1280.webp",
-            "sameAs": [
-              "https://charmybooks.com"
-            ],
-            "applicationCategory": "Personalized Publishing",
-            "operatingSystem": "Web"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "SoftwareApplication",
             "@id": "https://mikolajpiech.com/#project-solvee",
             "name": "Solvee",
             "description": "Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.",
@@ -126,7 +105,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 2,
           "item": {
             "@type": "SoftwareApplication",
             "@id": "https://mikolajpiech.com/#project-trailo",
@@ -153,7 +132,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 3,
           "item": {
             "@type": "SoftwareApplication",
             "@id": "https://mikolajpiech.com/#project-doso",
@@ -177,7 +156,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 5,
+          "position": 4,
           "item": {
             "@type": "SoftwareApplication",
             "@id": "https://mikolajpiech.com/#project-subby",
@@ -202,7 +181,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 6,
+          "position": 5,
           "item": {
             "@type": "SoftwareApplication",
             "@id": "https://mikolajpiech.com/#project-twojasiec",
@@ -225,7 +204,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 7,
+          "position": 6,
           "item": {
             "@type": "WebSite",
             "@id": "https://mikolajpiech.com/#project-safelabs",
@@ -256,7 +235,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 8,
+          "position": 7,
           "item": {
             "@type": "WebSite",
             "@id": "https://mikolajpiech.com/#project-dragon",

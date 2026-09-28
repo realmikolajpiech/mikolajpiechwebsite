@@ -5,7 +5,8 @@ import { PageMeta } from '../components/PageMeta';
 import { SiteNav } from '../components/SiteNav';
 import { ContactForm } from '../components/ContactForm';
 import { SelectedProject } from '../components/SelectedProject';
-import { getFeaturedProjects } from '../data/projects';
+import { ResponsiveImage } from '../components/ResponsiveImage';
+import { getFeaturedProjects, getPortfolioProjects } from '../data/projects';
 import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
@@ -35,6 +36,9 @@ export default function Home() {
   const copy = site.personal;
   const portfolioPath = getLocalizedPath('portfolio', language);
   const [before, after] = site.hero.intro.split('Clevr Apps');
+  const featuredProjects = getFeaturedProjects(language);
+  const featuredIds = new Set(featuredProjects.map(project => project.id));
+  const otherProjects = getPortfolioProjects(language).filter(project => !featuredIds.has(project.id));
 
   return (
     <div className="personal-home">
@@ -45,7 +49,7 @@ export default function Home() {
         <section className="personal-hero" aria-labelledby="intro-title">
           <div className="personal-intro">
             <h1 id="intro-title">Mikołaj <span>Piech</span></h1>
-            <p>{before}<a href="https://clevrapps.com/">Clevr Apps</a>{after}</p>
+            <p>{before}<a href="https://clevrapps.com/" target="_blank" rel="noopener noreferrer">Clevr Apps</a>{after}</p>
             <div className="personal-intro-links">
               <a href="#work">{copy.work_link}<ArrowDown size={16} aria-hidden="true" /></a>
               <a href="#about">{copy.about_title}</a>
@@ -60,12 +64,22 @@ export default function Home() {
         <section id="work" className="personal-work" aria-labelledby="work-title">
           <div className="personal-section-heading">
             <div><h2 id="work-title">{site.projects.title}</h2><p>{copy.work_intro}</p></div>
-            <Link className="personal-text-link" to={portfolioPath}>{site.portfolio.view_all}<ArrowUpRight size={17} aria-hidden="true" /></Link>
           </div>
           <div className="personal-projects">
-            {getFeaturedProjects(language).map(project => <SelectedProject key={project.id} project={project} portfolioPath={portfolioPath} />)}
+            {featuredProjects.map(project => <SelectedProject key={project.id} project={project} portfolioPath={portfolioPath} />)}
           </div>
-          <p className="personal-studio-note">{copy.studio_note} <a href="https://clevrapps.com/">Clevr Apps<ArrowUpRight size={14} aria-hidden="true" /></a></p>
+          {otherProjects.length > 0 && <div className="personal-more-projects">
+            <Link className="personal-more-link" to={portfolioPath}>{copy.more_projects}<ArrowUpRight size={18} aria-hidden="true" /></Link>
+            <ul className="personal-more-list">
+              {otherProjects.map(project => <li key={project.id}>
+                <Link to={`${portfolioPath}#${project.id}`} className="personal-more-project">
+                  {project.icon && <ResponsiveImage src={project.icon} alt="" sizes="36px" className="personal-more-icon" />}
+                  <span>{project.name}</span>
+                </Link>
+              </li>)}
+            </ul>
+          </div>}
+          <p className="personal-studio-note">{copy.studio_note} <a href="https://clevrapps.com/" target="_blank" rel="noopener noreferrer">Clevr Apps<ArrowUpRight size={14} aria-hidden="true" /></a></p>
         </section>
 
         <section id="about" className="personal-about" aria-labelledby="about-title">
