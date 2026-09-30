@@ -36,6 +36,7 @@ export default function Home() {
   const copy = site.personal;
   const portfolioPath = getLocalizedPath('portfolio', language);
   const [before, after] = site.hero.intro.split('Clevr Apps');
+  const hasClevrAppsLink = after !== undefined;
   const featuredProjects = getFeaturedProjects(language);
   const featuredIds = new Set(featuredProjects.map(project => project.id));
   const otherProjects = getPortfolioProjects(language).filter(project => !featuredIds.has(project.id));
@@ -49,7 +50,7 @@ export default function Home() {
         <section className="personal-hero" aria-labelledby="intro-title">
           <div className="personal-intro">
             <h1 id="intro-title">Mikołaj <span>Piech</span></h1>
-            <p>{before}<a href="https://clevrapps.com/" target="_blank" rel="noopener noreferrer">Clevr Apps</a>{after}</p>
+            <p>{hasClevrAppsLink ? <>{before}<a href="https://clevrapps.com/" target="_blank" rel="noopener noreferrer">Clevr Apps</a>{after}</> : site.hero.intro}</p>
             <div className="personal-intro-links">
               <a href="#work">{copy.work_link}<ArrowDown size={16} aria-hidden="true" /></a>
               <a href="#about">{copy.about_title}</a>

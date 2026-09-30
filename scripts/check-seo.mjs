@@ -55,7 +55,7 @@ for (const [route, file, language] of pages) {
     assert.ok(html.includes('property="og:image" content="https://mikolajpiech.com/mikolaj-profile.jpg"'));
     assert.ok(html.includes('href="mailto:hello@mikolajpiech.com"'), 'Email works without JS');
     assert.ok(html.includes('href="https://clevrapps.com/"'), `${route}: studio link`);
-    assert.ok(html.includes(language === 'pl' ? 'Tworzę aplikacje i prowadzę' : 'I build apps and run'), `${route}: clear Clevr Apps relationship`);
+    assert.ok(html.includes(language === 'pl' ? 'Tworzę aplikacje i strony internetowe' : 'I build apps and run'), `${route}: clear homepage intro`);
     assert.ok(html.includes('<fieldset disabled="">'), 'Form waits for hydration');
     assert.ok(html.includes('id="about"'), `${route}: personal introduction`);
     assert.ok(!html.includes('id="services"'), `${route}: no homepage sales section`);
