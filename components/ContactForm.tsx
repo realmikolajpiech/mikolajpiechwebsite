@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle2, LoaderCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { CopyEmail } from './CopyEmail';
 import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedPath } from '../utils/localizedRoutes';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
@@ -14,7 +16,7 @@ const initialForm = {
 };
 
 export function ContactForm({ personal = false }: { personal?: boolean }) {
-  const { site } = useLanguage();
+  const { site, language } = useLanguage();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState<FormStatus>('idle');
   const [feedback, setFeedback] = useState('');
@@ -150,6 +152,11 @@ export function ContactForm({ personal = false }: { personal?: boolean }) {
             onChange={updateField}
           />
         </div>
+
+        <p className={`mt-5 text-xs leading-relaxed ${personal ? 'text-stone-600 dark:text-stone-400' : 'text-stone-400'}`}>
+          {site.ui.form_privacy_notice}{' '}
+          <Link to={getLocalizedPath('privacy', language)} className="underline underline-offset-4">{site.ui.form_privacy_link}</Link>
+        </p>
 
         <div className={personal ? "personal-form-actions" : "mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"}>
           {!personal && <p className="text-xs leading-relaxed text-stone-500">

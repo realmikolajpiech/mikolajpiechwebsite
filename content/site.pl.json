@@ -57,7 +57,9 @@
     "google_terms": "Warunkach korzystania z Gemini API",
     "and": "oraz",
     "google_privacy": "Polityce prywatności Google",
-    "exercise_rights": "Aby skorzystać z któregokolwiek prawa, skontaktuj się ze mną:"
+    "exercise_rights": "Aby skorzystać z któregokolwiek prawa, skontaktuj się ze mną:",
+    "form_privacy_notice": "Do wiadomości dołączane są przybliżona lokalizacja z IP, język i strefa czasowa przeglądarki. Doręczenie obsługuje Resend.",
+    "form_privacy_link": "Jak wykorzystuję Twoje dane"
   },
   "not_found": {
     "title": "Zgubiłeś się?",
@@ -98,7 +100,7 @@
       },
       "privacy": {
         "title": "Polityka prywatności – Mikołaj Piech",
-        "description": "Informacje o tym, jak Mikołaj Piech gromadzi, wykorzystuje, przechowuje i chroni dane osobowe na tej stronie oraz w opublikowanych aplikacjach."
+        "description": "Jak Mikołaj Piech przetwarza odwiedziny strony, wiadomości, preferencje przeglądarki i statystyki, z odnośnikami do zasad prywatności aplikacji."
       },
       "not_found": {
         "title": "Nie znaleziono strony – Mikołaj Piech",
@@ -228,126 +230,113 @@
   },
   "privacy": {
     "title": "Polityka prywatności",
-    "last_updated": "Ostatnia aktualizacja: 25 sierpnia 2026 r.",
-    "intro_before_link": "Nazywam się Mikołaj Piech i szanuję Twoją prywatność. Niniejsza polityka prywatności wyjaśnia, jakie informacje gromadzę oraz w jaki sposób je wykorzystuję, przechowuję i chronię, gdy korzystasz z mojej strony (",
-    "intro_after_link": "), aplikacji mobilnych publikowanych przeze mnie w Google Play i Apple App Store oraz aplikacji internetowych, które prowadzę (łącznie „Usługi”), w tym Trailo, Subby, Meant, Doso i Sitting Time.",
-    "s1_title": "1. Informacje, które gromadzę",
-    "s1a_title": "A. Informacje przekazywane bezpośrednio",
+    "last_updated": "Ostatnia aktualizacja: 17 października 2026 r.",
+    "intro_before_link": "Administratorem danych osobowych przetwarzanych za pośrednictwem ",
+    "intro_after_link": " jest Mikołaj Piech, osoba fizyczna z Polski. Ta polityka opisuje odwiedziny strony, formularz kontaktowy, korespondencję, statystyki witryny i zapisane preferencje wyglądu. Clevr Apps jest marką deweloperską używaną przez Mikołaja Piecha, a nie odrębną spółką.",
+    "s1_title": "1. Przetwarzane informacje i ich źródła",
+    "s1a_title": "A. Wiadomości i formularz kontaktowy",
     "s1a_items": [
-      "Imię i nazwisko, adres e-mail, nazwa firmy (opcjonalnie) oraz treść wiadomości przesłanej przez formularz kontaktowy",
-      "Adres e-mail i hasło (podczas zakładania konta)",
-      "Nazwa wyświetlana lub pseudonim",
-      "Zdjęcia prac domowych lub ćwiczeń wykonywane w wybranych aplikacjach (przechowywane bezpiecznie na urządzeniu i w chmurze wyłącznie do Twojego użytku)",
-      "Obrazy udostępnione przez użytkownika w aplikacji Meant (mogące zawierać twarze lub inne wizerunki osób) – są przechowywane wyłącznie lokalnie na urządzeniu i nigdy nie są przesyłane na moje serwery",
-      "Informacje rozliczeniowe przetwarzane przez RevenueCat oraz systemy płatności Google Play i Apple App Store (nie widzę ani nie przechowuję pełnych danych karty płatniczej)"
+      "Imię i nazwisko, adres e-mail, treść wiadomości oraz opcjonalna nazwa firmy podane w formularzu. Imię, poprawny adres e-mail i wiadomość są potrzebne do wysłania formularza; możesz zamiast tego napisać do mnie bezpośrednio e-mailem.",
+      "Informacje, które zdecydujesz się zawrzeć w korespondencji, w tym załączniki, dane nadawcy i zwykłe metadane wiadomości przekazywane przez usługę pocztową.",
+      "Przy wysłaniu formularza przeglądarka przekazuje swój język i strefę czasową. Hosting, jeżeli dane są dostępne, ustala z adresu IP przybliżoną miejscowość, region, obszar pocztowy, kraj, strefę czasową i współrzędne. Te informacje są dołączane do e-maila z zapytaniem. Nie są to współrzędne GPS; mogą wskazywać lokalizację serwera VPN lub punktu wyjścia sieci."
     ],
-    "s1b_title": "B. Informacje gromadzone automatycznie",
+    "s1b_title": "B. Żądania do strony, statystyki i preferencje",
     "s1b_items": [
-      "Informacje o urządzeniu (model, wersja systemu operacyjnego, unikalne identyfikatory)",
-      "Przybliżona lokalizacja (ustalana na podstawie adresu IP)",
-      "Dane o użytkowaniu i raporty awarii (za pośrednictwem Expo i powiązanych narzędzi)",
-      "Token powiadomień push (do wysyłania powiadomień, jeśli je włączysz)",
-      "Jeśli w przyszłości zacznę wyświetlać reklamy: identyfikator reklamowy (IDFA w iOS, AAID w Androidzie), który możesz samodzielnie zresetować"
+      "Hosting i bezpieczeństwo: Vercel otrzymuje adres IP, żądany URL, czas żądania, informacje o przeglądarce lub urządzeniu, status odpowiedzi oraz dane potrzebne do udostępnienia i ochrony witryny.",
+      "Vercel Web Analytics zapisuje odsłony, czas zdarzeń, źródła wejścia, przybliżony obszar geograficzny oraz kategorie przeglądarki, systemu i urządzenia w celu tworzenia statystyk strony. Zamiast reklamowych cookies używa skrótu tworzonego z żądania. Według Vercel sesja odwiedzającego jest usuwana po 24 godzinach. Widzę raporty zbiorcze, a nie listę imion, nazwisk czy adresów e-mail odwiedzających. Ten limit sesji nie jest okresem przechowywania wszystkich logów hostingu ani raportów statystycznych.",
+      "Google Fonts otrzymuje adres IP, informacje o przeglądarce oraz odpowiednie dane żądania, gdy przeglądarka pobiera fonty używane na stronie.",
+      "Wybrany jasny, ciemny lub systemowy motyw jest zapisywany w localStorage przeglądarki pod kluczem „theme”. Pozostaje tam do zmiany ustawienia lub wyczyszczenia danych witryny. Nie jest to identyfikator reklamowy."
     ],
-    "s2_title": "2. Jak wykorzystuję informacje",
+    "s2_title": "2. Cele przetwarzania danych strony",
     "s2_items": [
-      "Aby odpowiadać na zapytania przesłane przez formularz kontaktowy",
-      "Aby tworzyć konta i nimi zarządzać",
-      "Aby świadczyć i rozwijać Usługi",
-      "Aby obsługiwać subskrypcje i płatności za pośrednictwem RevenueCat i sklepów z aplikacjami",
-      "Aby wysyłać powiadomienia push (wyłącznie za Twoją zgodą)",
-      "Aby bezpiecznie przechowywać zdjęcia prac domowych i zapewnić do nich dostęp na różnych urządzeniach",
-      "W aplikacji Meant: aby wykonywać zleconą przez użytkownika edycję i generowanie obrazów z użyciem AI poprzez przekazywanie ich do Gemini API firmy Google",
-      "Do analityki i raportowania awarii, aby naprawiać błędy i ulepszać aplikacje",
-      "W przyszłości, jeśli wdrożę Google AdMob: do wyświetlania i mierzenia reklam spersonalizowanych lub niespersonalizowanych"
+      "Udostępnianie strony i zapamiętanie wybranego wyglądu.",
+      "Odpowiedzi na zapytania o projekty, współpracę, pomoc i inne sprawy oraz, na Twoje żądanie, podjęcie działań prowadzących do umowy.",
+      "Zrozumienie kontekstu zapytania, w tym języka, strefy czasowej i przybliżonego regionu przekazanego wraz z formularzem.",
+      "Ocena przydatności podstron, diagnozowanie problemów i ulepszanie treści na podstawie zbiorczych statystyk.",
+      "Ochrona witryny i formularza przed spamem, nadużyciami i awariami, obsługa praw dotyczących danych oraz wykonanie właściwych obowiązków prawnych."
     ],
-    "s3_title": "3. Podstawa prawna (użytkownicy z EOG i Wielkiej Brytanii – RODO)",
+    "s3_title": "3. Podstawy prawne",
     "s3_items": [
-      "<strong>Umowa:</strong> świadczenie usług konta, subskrypcji i podstawowych funkcji aplikacji",
-      "<strong>Zgoda:</strong> powiadomienia push i ewentualna przyszła reklama spersonalizowana",
-      "<strong>Prawnie uzasadniony interes:</strong> analityka, raportowanie awarii i zapobieganie oszustwom"
+      "<strong>Art. 6 ust. 1 lit. b RODO:</strong> dane niezbędne do podjęcia działań na Twoje żądanie przed zawarciem umowy albo do wykonania umowy z Tobą. Ta podstawa nie obejmuje automatycznie każdego odwiedzającego ani każdej wiadomości z prośbą o pomoc.",
+      "<strong>Art. 6 ust. 1 lit. f:</strong> uzasadnione interesy polegające na publikowaniu i ochronie portfolio, odpowiadaniu na pozostałą korespondencję, poznaniu językowego i regionalnego kontekstu zapytań, diagnozowaniu problemów i ocenie przydatności treści strony. Interesy te wymagają wyważenia z Twoimi prawami, w szczególności gdy sprawa dotyczy dzieci. Możesz wnieść sprzeciw, korzystając z danych kontaktowych poniżej.",
+      "<strong>Art. 6 ust. 1 lit. c:</strong> wykonanie właściwych obowiązków prawnych, w tym obsługa żądań dotyczących danych i przechowywanie dokumentacji wymaganej prawem.",
+      "<strong>Art. 6 ust. 1 lit. a, jeżeli ma zastosowanie:</strong> odrębnie opisany opcjonalny cel, dla którego zwracam się o zgodę. Wysłanie zapytania nie jest zgodą na listę mailingową ani niezwiązany z nim marketing. Zgoda wymagana dla zapisu lub odczytu informacji z urządzenia jest odrębna od podstawy wynikającej z RODO."
     ],
-    "s4_title": "4. Udostępnianie informacji",
-    "s4_p1": "Nie sprzedaję Twoich danych osobowych.",
-    "s4_p2": "W celu świadczenia Usług korzystam z następujących zaufanych partnerów:",
+    "s4_title": "4. Odbiorcy i dostawcy usług",
+    "s4_p1": "Nie sprzedaję danych osobowych ani nie zapisuję osób kontaktujących się ze mną na listy marketingowe na podstawie samego wysłania wiadomości.",
+    "s4_p2": "Strona korzysta z wymienionych poniżej dostawców. Korespondencja przechodzi również przez dostawców poczty nadawcy i odbiorcy. Dane mogą zostać ujawnione organom publicznym, gdy wymaga tego prawo, albo w zakresie niezbędnym do ustalenia, dochodzenia lub obrony roszczeń.",
     "table_partner": "Partner",
     "table_purpose": "Cel",
     "table_privacy": "Polityka prywatności",
     "partners": [
       {
+        "partner": "Vercel",
+        "purpose": "Hosting strony i formularza, obsługa żądań i bezpieczeństwa oraz Web Analytics",
+        "linkLabel": "vercel.com/legal/privacy-policy",
+        "linkHref": "https://vercel.com/legal/privacy-policy"
+      },
+      {
         "partner": "Resend",
-        "purpose": "Wysyłka wiadomości z formularza kontaktowego",
+        "purpose": "Doręczanie zapytań z formularza i związana z nimi dokumentacja doręczenia",
         "linkLabel": "resend.com/legal/privacy-policy",
         "linkHref": "https://resend.com/legal/privacy-policy"
       },
       {
-        "partner": "RevenueCat",
-        "purpose": "Obsługa płatności subskrypcyjnych",
-        "linkLabel": "revenuecat.com/privacy",
-        "linkHref": "https://revenuecat.com/privacy"
-      },
-      {
-        "partner": "Apple App Store / Google Play",
-        "purpose": "Przetwarzanie płatności i dystrybucja aplikacji",
-        "linkLabel": "apple.com / google.com",
-        "linkHrefApple": "https://apple.com/legal/privacy",
-        "linkHrefGoogle": "https://policies.google.com/privacy"
-      },
-      {
-        "partner": "Expo / EAS",
-        "purpose": "Budowanie aplikacji, aktualizacje i analityka",
-        "linkLabel": "expo.dev/privacy",
-        "linkHref": "https://expo.dev/privacy"
-      },
-      {
-        "partner": "Firebase / Google Cloud",
-        "purpose": "Raportowanie awarii i przechowywanie zdjęć prac domowych w chmurze",
-        "linkLabel": "firebase.google.com",
-        "linkHref": "https://firebase.google.com/support/privacy"
+        "partner": "Google Fonts",
+        "purpose": "Pobieranie zewnętrznych fontów i obsługa żądań przeglądarki",
+        "linkLabel": "policies.google.com/privacy",
+        "linkHref": "https://policies.google.com/privacy"
       },
       {
         "partner": "Google LLC (Gemini API)",
         "purpose": "Generowanie i edycja obrazów AI w aplikacji Meant",
         "linkLabel": "ai.google.dev/gemini-api/terms",
         "linkHref": "https://ai.google.dev/gemini-api/terms"
-      },
-      {
-        "partner": "Google AdMob (w przyszłości)",
-        "purpose": "Reklama (jeśli zostanie wdrożona)",
-        "linkLabel": "support.google.com",
-        "linkHref": "https://support.google.com/admob/answer/6128543"
       }
     ],
-    "s4_p3": "Dane są przechowywane głównie w Stanach Zjednoczonych i Unii Europejskiej.",
+    "s4_p3": "Resend otrzymuje pola formularza oraz przybliżoną lokalizację i kontekst przeglądarki dołączone do e-maila z zapytaniem. Doręczona korespondencja jest przechowywana w mojej skrzynce. Dostawcy hostingu i fontów otrzymują żądania potrzebne do obsługi swoich usług. Wpis o Gemini dotyczy wyłącznie zachowanej sekcji o aplikacji Meant poniżej; portfolio nie wysyła obrazów odwiedzających do Gemini.",
     "s5_title": "5. Obrazy i wizerunki twarzy w aplikacji Meant",
     "s5_p1": "W aplikacji Meant możesz udostępniać zdjęcia z aparatu lub biblioteki, które zawierają ludzkie twarze, aby edytować je albo tworzyć nowe obrazy z użyciem AI. Pliki te mogą zawierać wrażliwe wizerunki osób.",
     "s5_p2": "<strong>Gromadzenie i przechowywanie:</strong> obrazy są przechowywane wyłącznie lokalnie w prywatnej pamięci aplikacji na Twoim urządzeniu. Nie gromadzę, nie przesyłam ani nie przechowuję ich na swoich serwerach lub w bazach danych.",
     "s5_p3": "<strong>Wykorzystanie:</strong> obrazy są przetwarzane lokalnie i przesyłane do Gemini API firmy Google wyłącznie po to, aby wykonać wybraną przez użytkownika edycję lub wygenerować nowy obraz. Aplikacja nie rozpoznaje twarzy, nie pozyskuje danych biometrycznych oraz nie prowadzi identyfikacji, śledzenia ani profilowania.",
     "s5_p4": "<strong>Ujawnianie i udostępnianie:</strong> obrazy są przekazywane wyłącznie firmie Google LLC jako dostawcy Gemini API w celu tymczasowego przetworzenia. Meant korzysta z płatnej wersji Gemini API, w której dane wejściowe, obrazy i wyniki <strong>nie są wykorzystywane do trenowania ani ulepszania modeli Google</strong>.",
     "s5_p5": "<strong>Okres przechowywania:</strong> obrazy pozostają wyłącznie na Twoim urządzeniu do chwili ich usunięcia lub odinstalowania aplikacji. Google przetwarza je przejściowo i przechowuje tylko tak długo, jak jest to konieczne do świadczenia usługi API.",
-    "s6_title": "6. Okres przechowywania danych",
-    "s6_p1": "Przechowuję dane tylko tak długo, jak istnieje Twoje konto lub jest to potrzebne do świadczenia Usług. Konto wraz ze wszystkimi powiązanymi danymi, w tym zdjęciami prac domowych, możesz usunąć w ustawieniach aplikacji. Obrazy w aplikacji Meant są przechowywane wyłącznie lokalnie na urządzeniu.",
-    "s7_title": "7. Twoje prawa i wybory",
+    "s6_title": "6. Przechowywanie i usuwanie danych",
+    "s6_p1": "Okres przechowywania zależy od celu i rodzaju informacji, a nie od posiadania konta w aplikacji. Portfolio nie oferuje kont użytkowników strony.",
+    "s7_title": "7. Twoje prawa i żądania",
     "s7_items": [
-      "Dostęp do danych osobowych, ich poprawienie lub usunięcie",
-      "Wycofanie zgody, np. na powiadomienia push lub spersonalizowane reklamy",
-      "Rezygnacja z przyszłych reklam spersonalizowanych w ustawieniach urządzenia",
-      "Żądanie eksportu danych",
-      "Złożenie skargi do właściwego organu ochrony danych"
+      "Żądanie dostępu do danych i ich kopii, sprostowania, usunięcia albo ograniczenia przetwarzania, na warunkach określonych prawem.",
+      "Sprzeciw wobec przetwarzania opartego na uzasadnionym interesie. Muszę zaprzestać takiego przetwarzania, chyba że istnieje prawnie dopuszczalna nadrzędna podstawa.",
+      "Żądanie przeniesienia danych, gdy są spełnione odpowiednie warunki prawne.",
+      "Wycofanie zgody w dowolnym momencie bez wpływu na zgodność z prawem wcześniejszego przetwarzania opartego na tej zgodzie.",
+      "Skarga do właściwego organu nadzorczego, w tym Prezesa Urzędu Ochrony Danych Osobowych, bez konieczności wcześniejszego kontaktowania się ze mną."
     ],
-    "s7_p1": "Mieszkańcom Kalifornii przysługują dodatkowe prawa wynikające z CCPA/CPRA. Nie sprzedaję ani nie udostępniam danych osobowych na potrzeby reklamy behawioralnej prowadzonej w różnych kontekstach.",
-    "s8_title": "8. Prywatność dzieci",
-    "s8_p1": "Moje aplikacje nie są kierowane do dzieci poniżej 13. roku życia (lub 16. roku życia w EOG). Nie gromadzę świadomie danych osobowych dzieci. Jeśli dowiem się, że dziecko przekazało dane osobowe, natychmiast je usunę.",
-    "s9_title": "9. Bezpieczeństwo",
-    "s9_p1": "Stosuję standardowe środki techniczne i organizacyjne, w tym szyfrowanie, sprawdzonych dostawców usług chmurowych oraz mechanizmy kontroli dostępu, aby chronić Twoje dane.",
-    "s10_title": "10. Przekazywanie danych za granicę",
-    "s10_p1": "Twoje dane mogą być przekazywane i przechowywane w Stanach Zjednoczonych lub innych państwach poza krajem zamieszkania. W wymaganych przypadkach stosuję odpowiednie zabezpieczenia, takie jak standardowe klauzule umowne UE.",
-    "s11_title": "11. Zmiany niniejszej polityki",
-    "s11_p1": "Mogę okresowo aktualizować niniejszą Politykę prywatności. Nowa wersja zostanie opublikowana na tej stronie wraz z datą aktualizacji. O istotnych zmianach poinformuję również w aplikacjach.",
-    "s12_title": "12. Kontakt",
-    "s12_name": "Mikołaj Piech",
-    "s12_email_label": "E-mail:",
-    "s12_site_label": "Strona:"
+    "s7_p1": "Odpowiadam bez zbędnej zwłoki, zwykle w ciągu miesiąca. Jeżeli złożoność lub liczba żądań uzasadnia przedłużenie o maksymalnie dwa kolejne miesiące, wyjaśnię to w pierwszym miesiącu. Weryfikacja tożsamości będzie proporcjonalna. Nie mogę zidentyfikować osoby na podstawie raportu zbiorczego ani zdalnie wyczyścić danych zapisanych wyłącznie w jej przeglądarce. Informacje UODO są dostępne pod adresem uodo.gov.pl.",
+    "s8_title": "8. Dzieci i informacje o innych osobach",
+    "s8_p1": "To ogólnodostępne portfolio i strona kontaktowa, a nie usługa kierowana specjalnie do małych dzieci. Przeglądanie nie wymaga konta. Żądania techniczne lub korespondencja mogą jednak dotyczyć małoletniego; nie zakładam, że samo oświadczenie o wieku oznacza brak przetwarzania danych dzieci. Rodzice i opiekunowie mogą kontaktować się ze mną w sprawie danych dziecka. W wiadomości podaj tylko dane potrzebne do sprawy i nie przesyłaj prywatnych ani wrażliwych informacji innych osób bez odpowiedniego uprawnienia.",
+    "s9_title": "9. Pamięć przeglądarki, linki zewnętrzne i bezpieczeństwo",
+    "s9_p1": "Strona zapisuje preferencję motywu w localStorage. Integracja Vercel Web Analytics nie używa cookies podmiotów trzecich do identyfikowania odwiedzających. Nie używam na tej stronie pikseli reklamowych ani identyfikatorów reklamy między witrynami. Możesz wyczyścić pamięć witryny albo blokować żądania w przeglądarce; część funkcji lub fontów może wtedy działać inaczej. Linki do serwisów społecznościowych, sklepów z aplikacjami i projektów prowadzą do usług z ich własnymi zasadami prywatności. Korzystam z HTTPS, ograniczeń dostępu i zabezpieczeń dostawców, ale żadna usługa nie zapewnia absolutnego bezpieczeństwa. Nie wykorzystuję zapytań do profilowania ani decyzji opartych wyłącznie na automatycznym przetwarzaniu wywołujących skutki prawne lub podobnie istotne konsekwencje.",
+    "s10_title": "10. Przekazywanie danych poza EOG",
+    "s10_p1": "Vercel, Resend, Google i dostawcy poczty mogą przetwarzać odpowiednie informacje poza Polską lub Europejskim Obszarem Gospodarczym, w tym w USA. Dla transferów wymagających zabezpieczeń na gruncie RODO korzystam z mechanizmów przewidzianych w warunkach powierzenia właściwego dostawcy, w tym standardowych klauzul umownych i niezbędnych środków uzupełniających. Decyzja o odpowiednim stopniu ochrony może obejmować kwalifikującego się odbiorcę, w tym odpowiedni transfer do podmiotu uczestniczącego w EU–US Data Privacy Framework. Napisz do mnie, aby uzyskać informacje o mechanizmie właściwym dla Twojej sprawy, kopię odpowiednich zabezpieczeń lub wskazanie miejsca ich udostępnienia.",
+    "s11_title": "11. Zmiany polityki",
+    "s11_p1": "Aktualizuję politykę, gdy zmieniają się funkcje strony, dostawcy lub przetwarzanie, i zmieniam datę powyżej. Istotne zmiany wymagające osobnego powiadomienia przekażę we właściwy sposób przed rozpoczęciem nowego przetwarzania. Opublikowanie nowej wersji nie zastępuje zgody, gdy zgoda jest wymagana.",
+    "s12_title": "12. Administrator i kontakt",
+    "s12_name": "Mikołaj Piech — osoba fizyczna prowadząca stronę",
+    "s12_email_label": "E-mail w sprawach prywatności:",
+    "s12_site_label": "Strona:",
+    "last_updated_iso": "2026-10-17",
+    "scope_before_link": "Dane związane z aplikacjami, w tym subskrypcjami, kontami, finansami, podróżami i funkcjami zdrowotnymi, opisuje ",
+    "scope_link_label": "polityka prywatności Clevr Apps",
+    "scope_after_link": ". Zawiera ona odnośniki do zasad dotyczących poszczególnych usług. Samo odwiedzenie portfolio nie zakłada konta w aplikacji, nie uruchamia subskrypcji ani nie przekazuje danych z aplikacji dostawcy AI. Dotychczasowe informacje dotyczące Meant w sekcji 5 pozostają dostępne dla użytkowników tej aplikacji.",
+    "s6_items": [
+      "Zwykłe zapytania: przez czas obsługi sprawy, a następnie nie dłużej niż 12 miesięcy od jej zakończenia, chyba że konkretny, nadal aktualny cel umowny, prawny lub związany ze sporem wymaga dłuższego przechowania.",
+      "Dokumentacja umowna i księgowa: przez właściwy okres ustawowy albo czas niezbędny dla danej umowy lub roszczenia. Na żądanie wyjaśnię, który powód ma zastosowanie.",
+      "Logi hostingu, bezpieczeństwa i doręczania poczty: według skonfigurowanego u właściwego dostawcy cyklu przechowywania i usuwania, dla obsługi doręczeń, diagnostyki, ochrony przed nadużyciami i obowiązków prawnych. Rekordy doręczenia w Resend i kopie w skrzynkach pocztowych są odrębne; usunięcie jednego nie usuwa automatycznie pozostałych.",
+      "Statystyki strony: sesja odwiedzającego Vercel jest usuwana po 24 godzinach; historyczne raporty zbiorcze mogą pozostawać dostępne dłużej. Nie oznacza to usuwania każdego rekordu żądania do strony po 24 godzinach.",
+      "Preferencja wyglądu pozostaje w localStorage do zmiany ustawienia lub wyczyszczenia danych witryny. Ograniczone kopie zapasowe dostawców wygasają w odpowiednim cyklu; usunięcie e-maila z mojej skrzynki nie usuwa kopii niezależnie posiadanej przez nadawcę."
+    ],
+    "s12_address": "os. Wł. Jagiełły 7/9, Brzesko, Polska",
+    "authority_label": "Urząd Ochrony Danych Osobowych (UODO)"
   },
   "personal": {
     "skip": "Przejdź do treści",

@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
           <h1 className="text-4xl md:text-5xl font-serif text-ink dark:text-stone-50 mb-10 leading-tight">{p.title}</h1>
 
           <div className="prose prose-stone dark:prose-invert prose-lg max-w-none font-light text-stone-600 dark:text-stone-300">
-            <p className="text-stone-500 dark:text-stone-400 mb-8">{p.last_updated}</p>
+            <p className="text-stone-500 dark:text-stone-400 mb-8"><time dateTime={p.last_updated_iso}>{p.last_updated}</time></p>
 
             <p className="mb-6">
               {p.intro_before_link}
@@ -61,6 +61,12 @@ export default function PrivacyPolicy() {
                 https://mikolajpiech.com
               </a>
               {p.intro_after_link}
+            </p>
+
+            <p className="mb-6">
+              {p.scope_before_link}
+              <a href="https://clevrapps.com/privacy.html" className={linkClass}>{p.scope_link_label}</a>
+              {p.scope_after_link}
             </p>
 
             <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s1_title}</h2>
@@ -183,6 +189,9 @@ export default function PrivacyPolicy() {
 
             <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s6_title}</h2>
             <p className="mb-6">{p.s6_p1}</p>
+            <ul className="list-disc pl-6 space-y-2 mb-6 text-stone-600 dark:text-stone-300">
+              {p.s6_items.map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
 
             <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s7_title}</h2>
             <ul className="list-disc pl-6 space-y-2 mb-6 text-stone-600 dark:text-stone-300">
@@ -194,9 +203,10 @@ export default function PrivacyPolicy() {
               {p.s7_p1}
               <br />
               {site.ui.exercise_rights}{' '}
-              <CopyEmail email="contact@mikolajpiech.com" className={linkClass} />
+              <a href="mailto:hello@mikolajpiech.com" className={linkClass}>hello@mikolajpiech.com</a>
               .
             </p>
+            <p className="mb-6"><a href={language === 'pl' ? 'https://uodo.gov.pl/' : 'https://uodo.gov.pl/en'} className={linkClass}>{p.authority_label}</a></p>
 
             <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s8_title}</h2>
             <p className="mb-6">{p.s8_p1}</p>
@@ -212,9 +222,10 @@ export default function PrivacyPolicy() {
 
             <h2 className="text-2xl font-serif text-ink dark:text-stone-50 mt-10 mb-4">{p.s12_title}</h2>
             <p className="mb-2">{p.s12_name}</p>
+            <p className="mb-2">{p.s12_address}</p>
             <p className="mb-2">
               {p.s12_email_label}{' '}
-              <CopyEmail email="contact@mikolajpiech.com" className={linkClass} />
+              <a href="mailto:hello@mikolajpiech.com" className={linkClass}>hello@mikolajpiech.com</a>
             </p>
             <p className="mb-6">
               {p.s12_site_label}{' '}
@@ -230,7 +241,7 @@ export default function PrivacyPolicy() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
             <p className="mb-4 md:mb-0">{site.common.all_rights_reserved.replace('{{year}}', String(year))}</p>
-            <div className="flex gap-8 items-center">
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 items-center">
               <CopyEmail email="hello@mikolajpiech.com" className="hover:text-off-white transition-colors" />
               <a href="https://x.com/mikolajpiech" className="hover:text-off-white transition-colors flex items-center gap-2">
                  <XLogo className="w-4 h-4" />

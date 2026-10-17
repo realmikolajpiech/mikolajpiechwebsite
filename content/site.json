@@ -57,7 +57,9 @@
     "google_terms": "Gemini API Terms of Service",
     "and": "and",
     "google_privacy": "Google Privacy Policy",
-    "exercise_rights": "To exercise any right, contact me at"
+    "exercise_rights": "To exercise any right, contact me at",
+    "form_privacy_notice": "Your message includes approximate IP-based location, browser language, and timezone and is delivered through Resend.",
+    "form_privacy_link": "How your information is used"
   },
   "not_found": {
     "title": "Lost?",
@@ -98,7 +100,7 @@
       },
       "privacy": {
         "title": "Privacy Policy | Mikołaj Piech",
-        "description": "How Mikołaj Piech collects, uses, stores, and protects personal data across this website and published mobile and web apps."
+        "description": "How Mikołaj Piech handles website visits, contact messages, browser preferences, and usage statistics, with links to app privacy notices."
       },
       "not_found": {
         "title": "Page Not Found | Mikołaj Piech",
@@ -228,126 +230,113 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "last_updated": "Last updated: August 25, 2026",
-    "intro_before_link": "Mikołaj Piech (\"I\", \"me\", or \"my\") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how I collect, use, store, and protect information when you use my website (",
-    "intro_after_link": ") and any mobile applications I publish on Google Play or the Apple App Store, and web applications I operate (collectively \"the Services\"), including Trailo, Subby, Meant, Doso, and Sitting Time.",
-    "s1_title": "1. Information I Collect",
-    "s1a_title": "A. Information You Provide Directly",
+    "last_updated": "Last updated: 17 October 2026",
+    "intro_before_link": "Mikołaj Piech, an individual based in Poland, is the controller of personal information processed through ",
+    "intro_after_link": ". This notice describes website visits, the contact form, correspondence, website statistics, and saved display preferences. Clevr Apps is a developer brand used by Mikołaj Piech, not a separate company.",
+    "s1_title": "1. Information Processed and Its Sources",
+    "s1a_title": "A. Messages and Contact Form",
     "s1a_items": [
-      "Name, email address, company name (optional), and message when you use the website contact form",
-      "Email address and password (when you create an account)",
-      "Display name or nickname",
-      "Photos of homework/exercises you take within certain apps (stored securely on your device and in the cloud only for your personal use)",
-      "User-provided images in the Meant app (which may contain faces or other personal depictions) – these are stored exclusively locally on your device and never uploaded to my servers",
-      "Billing information processed through RevenueCat and the Google Play / Apple App Store payment systems (I never see or store your full payment card details)"
+      "Your name, email address, message, and optional company name when you use the contact form. Name, a valid email address, and a message are needed to submit the form; you can email me directly instead.",
+      "Information you choose to include in email correspondence, including attachments and the sender details and ordinary message metadata supplied by your email service.",
+      "With a form submission, the browser supplies its language and timezone. The hosting service derives an approximate city, region, postal area, country, timezone, and coordinates from the request IP address where available. These details are included in the enquiry email. They are not GPS coordinates and can reflect a VPN or network exit point."
     ],
-    "s1b_title": "B. Automatically Collected Information",
+    "s1b_title": "B. Website Requests, Statistics, and Preferences",
     "s1b_items": [
-      "Device information (device model, operating system version, unique device identifiers)",
-      "Approximate location (derived from IP address)",
-      "Usage data and crash reports (via Expo and related tools)",
-      "Push notification token (to send you notifications if you enable them)",
-      "In the future, if I display ads: Advertising ID (IDFA on iOS, AAID on Android) – resettable by you"
+      "Hosting and security: Vercel receives your IP address, requested URL, request time, browser or device information, response status, and information needed to deliver and secure the website.",
+      "Vercel Web Analytics records page views, timestamps, referring pages, approximate geographical area, and browser, operating-system, and device categories to produce website statistics. It uses a request-derived visitor hash rather than advertising cookies, and Vercel states that the visitor session is discarded after 24 hours. I see aggregated reports, not a list of visitors' names or email addresses. That session limit is not the retention period for all hosting logs or statistical reports.",
+      "Google Fonts receives your IP address, browser information, and relevant request details when your browser downloads the website's fonts.",
+      "Your selected light, dark, or system theme is saved in browser local storage under the key “theme”. It remains on that browser until changed or cleared. This preference is not an advertising identifier."
     ],
-    "s2_title": "2. How I Use Your Information",
+    "s2_title": "2. Why I Use Website Information",
     "s2_items": [
-      "To respond to enquiries submitted through the website contact form",
-      "To create and manage your account",
-      "To provide and improve the Services",
-      "To process subscriptions and payments via RevenueCat and the app stores",
-      "To send push notifications (only if you allow them)",
-      "To store your homework photos securely so you can access them across your devices",
-      "In the Meant app: To enable user-requested AI image editing and generation by transmitting images to Google's Gemini API",
-      "For analytics and crash reporting (to fix bugs and improve the apps)",
-      "In the future, if I display ads via Google AdMob: to serve and measure personalized or non-personalized ads"
+      "Deliver the website and remember its selected appearance.",
+      "Respond to project, collaboration, support, and other enquiries and, where requested, take steps toward a contract.",
+      "Understand the context of an enquiry, including language, timezone, and the approximate region supplied with the form.",
+      "Understand which pages are useful, diagnose problems, and improve website content through aggregated usage statistics.",
+      "Protect the website and form against spam, misuse, and technical failures, handle privacy requests, and meet applicable legal obligations."
     ],
-    "s3_title": "3. Legal Basis (EEA/UK users – GDPR)",
+    "s3_title": "3. Legal Bases",
     "s3_items": [
-      "<strong>Contract:</strong> to provide the account, subscription, and core app features",
-      "<strong>Consent:</strong> push notifications, future personalized advertising",
-      "<strong>Legitimate interests:</strong> analytics, crash reporting, fraud prevention"
+      "<strong>Article 6(1)(b) GDPR:</strong> information necessary to respond to your request for steps toward a contract or to perform a contract with you. It does not cover every visitor or every support message.",
+      "<strong>Article 6(1)(f):</strong> legitimate interests in publishing and securing my portfolio, answering other correspondence, understanding the language and regional context of enquiries, diagnosing problems, and measuring the usefulness of website content. These interests must be balanced against your rights, particularly where children are concerned. You can object using the contact details below.",
+      "<strong>Article 6(1)(c):</strong> processing needed to comply with applicable legal obligations, including responding to privacy requests and retaining records where the law requires it.",
+      "<strong>Article 6(1)(a), where applicable:</strong> a separately described optional purpose for which consent is requested. Sending an enquiry is not consent to a mailing list or to unrelated marketing. Any required device-storage consent is separate from the GDPR basis."
     ],
-    "s4_title": "4. Sharing of Information",
-    "s4_p1": "I do not sell your personal data.",
-    "s4_p2": "Your data may be shared with the following trusted partners:",
+    "s4_title": "4. Recipients and Providers",
+    "s4_p1": "I do not sell personal information or use contact messages to enroll visitors in marketing lists.",
+    "s4_p2": "The website uses the providers below. Email correspondence also passes through the sender's and recipient's email providers. Information may be disclosed to public authorities where legally required or where necessary to establish, exercise, or defend a legal claim.",
     "table_partner": "Partner",
     "table_purpose": "Purpose",
     "table_privacy": "Privacy Policy",
     "partners": [
       {
+        "partner": "Vercel",
+        "purpose": "Website hosting, contact endpoint, technical and security requests, and Web Analytics",
+        "linkLabel": "vercel.com/legal/privacy-policy",
+        "linkHref": "https://vercel.com/legal/privacy-policy"
+      },
+      {
         "partner": "Resend",
-        "purpose": "Contact form email delivery",
+        "purpose": "Delivery of contact-form enquiries and associated email-delivery records",
         "linkLabel": "resend.com/legal/privacy-policy",
         "linkHref": "https://resend.com/legal/privacy-policy"
       },
       {
-        "partner": "RevenueCat",
-        "purpose": "Subscription billing",
-        "linkLabel": "revenuecat.com/privacy",
-        "linkHref": "https://revenuecat.com/privacy"
-      },
-      {
-        "partner": "Apple App Store / Google Play",
-        "purpose": "Payment processing & app distribution",
-        "linkLabel": "apple.com / google.com",
-        "linkHrefApple": "https://apple.com/legal/privacy",
-        "linkHrefGoogle": "https://policies.google.com/privacy"
-      },
-      {
-        "partner": "Expo / EAS",
-        "purpose": "App building, updates, analytics",
-        "linkLabel": "expo.dev/privacy",
-        "linkHref": "https://expo.dev/privacy"
-      },
-      {
-        "partner": "Firebase / Google Cloud",
-        "purpose": "Crash reporting, cloud storage for homework photos",
-        "linkLabel": "firebase.google.com",
-        "linkHref": "https://firebase.google.com/support/privacy"
+        "partner": "Google Fonts",
+        "purpose": "External font delivery and associated browser requests",
+        "linkLabel": "policies.google.com/privacy",
+        "linkHref": "https://policies.google.com/privacy"
       },
       {
         "partner": "Google LLC (Gemini API)",
         "purpose": "AI image generation and editing in the Meant app",
         "linkLabel": "ai.google.dev/gemini-api/terms",
         "linkHref": "https://ai.google.dev/gemini-api/terms"
-      },
-      {
-        "partner": "Google AdMob (future)",
-        "purpose": "Advertising (if implemented)",
-        "linkLabel": "support.google.com",
-        "linkHref": "https://support.google.com/admob/answer/6128543"
       }
     ],
-    "s4_p3": "Data is primarily stored in the United States and the European Union.",
+    "s4_p3": "Resend receives the contact-form fields and the approximate location and browser context included in the enquiry email. My mailbox retains the delivered correspondence. Hosting and font providers receive the requests needed for their services. The Gemini entry concerns only the existing Meant app section below; the portfolio does not submit visitors' images to Gemini.",
     "s5_title": "5. Image Data and Face Data in the Meant App",
     "s5_p1": "In the Meant app, you may provide images (via camera or photo library) that contain human faces for AI-based editing and generation. These images constitute pixel data and may include sensitive face depictions.",
     "s5_p2": "<strong>Collection and Storage:</strong> Images are stored exclusively locally on your device in the app's private storage. I do not collect, upload, or store any images on my servers or in any database.",
     "s5_p3": "<strong>Use:</strong> Images are processed locally and sent to Google's Gemini API solely to perform the user-requested AI image generation or editing. The app performs no facial recognition, biometric extraction, identification, tracking, or profiling.",
     "s5_p4": "<strong>Disclosure and Sharing:</strong> Images are shared only with Google LLC (as the Gemini API provider) for temporary processing. The Meant app uses the paid tier of the Gemini API, where your inputs (including images) and outputs are <strong>not used to train or improve Google's models</strong>.",
     "s5_p5": "<strong>Retention:</strong> Images are retained only on your device until you delete them or uninstall the app. Google processes images transiently and retains them only as necessary for API service provision (typically briefly; no long-term storage for training).",
-    "s6_title": "6. Data Retention",
-    "s6_p1": "I keep your data only as long as your account exists or as needed to provide the Services. You can delete your account (and all associated data including homework photos) at any time from within the app settings. For images in the Meant app, retention is local to your device only.",
-    "s7_title": "7. Your Rights & Choices",
+    "s6_title": "6. Retention and Deletion",
+    "s6_p1": "The retention period depends on the purpose and type of information, rather than whether you have an app account. This portfolio does not offer website user accounts.",
+    "s7_title": "7. Your Rights and Requests",
     "s7_items": [
-      "Access, correct, or delete your personal data",
-      "Withdraw consent (e.g., for push notifications or personalized ads)",
-      "Opt out of future personalized advertising (via device settings)",
-      "Request export of your data",
-      "Lodge a complaint with your local data protection authority"
+      "Request access to and a copy of personal information, correction, erasure, or restriction of processing, subject to the applicable legal conditions.",
+      "Object to processing based on legitimate interests. I must stop that processing unless a legally permitted overriding reason applies.",
+      "Request data portability where the relevant legal conditions are met.",
+      "Withdraw any consent at any time without affecting the lawfulness of earlier processing based on that consent.",
+      "Complain to a competent supervisory authority, including Poland's President of the Personal Data Protection Office (UODO), without having to contact me first."
     ],
-    "s7_p1": "California residents: You have additional rights under CCPA/CPRA. I do not sell or share your personal information for cross-context behavioral advertising.",
-    "s8_title": "8. Children's Privacy",
-    "s8_p1": "My apps are not directed to children under 13 (or 16 in the EEA). I do not knowingly collect personal information from children. If I learn that a child has provided personal information, I will delete it immediately.",
-    "s9_title": "9. Security",
-    "s9_p1": "I use industry-standard technical and organizational measures (encryption, secure cloud providers, access controls) to protect your data.",
+    "s7_p1": "I respond without undue delay, normally within one month. Where the complexity or number of requests justifies up to two additional months, I will explain that extension within the first month. Any identity checks will be proportionate. I cannot identify a person from an aggregated report or remotely clear information stored only in their browser. UODO information is available at uodo.gov.pl/en.",
+    "s8_title": "8. Children and Other People's Information",
+    "s8_p1": "This is a general portfolio and contact website, not a service aimed specifically at young children. Browsing does not require an account. Technical requests or correspondence can nevertheless concern a minor; I do not assume that an age statement means no children's information is processed. Parents or guardians can contact me about a child's information. Please include only information needed for your enquiry and do not send other people's private or sensitive details without appropriate authority.",
+    "s9_title": "9. Browser Storage, External Links, and Security",
+    "s9_p1": "The website stores your theme preference in local storage. Its Vercel Web Analytics integration does not use third-party cookies to identify visitors. I do not use advertising pixels or cross-site advertising identifiers on this website. You can clear website storage or use browser controls to block requests; some features or fonts may then work differently. External social, app-store, and project links take you to services with their own privacy practices. I use HTTPS, access restrictions, and the relevant providers' security controls, but no service guarantees absolute security. I do not use website enquiries for profiling or solely automated decisions with legal or similarly significant effects.",
     "s10_title": "10. International Transfers",
-    "s10_p1": "Your data may be transferred to and stored in the United States or other countries outside your residence. I use appropriate safeguards (EU Standard Contractual Clauses, etc.) when required.",
-    "s11_title": "11. Changes to This Policy",
-    "s11_p1": "I may update this Privacy Policy from time to time. The new version will be posted on this page with an updated \"Last updated\" date. Significant changes will be notified inside the apps.",
-    "s12_title": "12. Contact Me",
-    "s12_name": "Mikołaj Piech",
-    "s12_email_label": "Email:",
-    "s12_site_label": "Website:"
+    "s10_p1": "Vercel, Resend, Google, and email providers can process relevant information outside Poland or the European Economic Area, including in the United States. For transfers requiring safeguards under GDPR, I use the mechanisms in the relevant provider's data-processing terms, including standard contractual clauses and any necessary supplementary measures. An adequacy decision can cover an eligible recipient, including a covered transfer to an organization participating in the EU–US Data Privacy Framework. Contact me to obtain information about the mechanism relevant to your enquiry, a copy of the appropriate safeguards, or where they can be accessed.",
+    "s11_title": "11. Changes to This Notice",
+    "s11_p1": "I update this notice when the website's features, providers, or processing change and revise the date above. Material changes requiring a separate notice will be communicated appropriately before the relevant new processing starts. Publishing an updated notice is not a substitute for consent where consent is required.",
+    "s12_title": "12. Controller and Contact",
+    "s12_name": "Mikołaj Piech — individual operator",
+    "s12_email_label": "Privacy email:",
+    "s12_site_label": "Website:",
+    "last_updated_iso": "2026-10-17",
+    "scope_before_link": "For applications, including subscription, account, financial, travel, and health-related features, see the ",
+    "scope_link_label": "Clevr Apps privacy policy",
+    "scope_after_link": ". The linked app notices describe those services; visiting this portfolio does not itself create an app account, start a subscription, or send app records to an AI provider. The existing Meant-specific information in section 5 is retained for users of that app.",
+    "s6_items": [
+      "Ordinary enquiries: retained while I handle the enquiry, then for no more than 12 months after it is resolved, unless a specific continuing contractual, legal, or dispute-related reason requires longer retention.",
+      "Contract and accounting records: kept for the applicable statutory period or the period necessary for the particular contract or legal claim. I can explain the applicable reason in response to a request.",
+      "Hosting, security, and email-delivery logs: kept under the relevant provider's configured retention and deletion cycle for delivery, troubleshooting, abuse prevention, and legal requirements. Resend's delivery records and copies in mailboxes are distinct records; deleting one does not automatically delete the other.",
+      "Website statistics: Vercel's visitor session is discarded after 24 hours; historical aggregated reports can remain available afterward. That does not mean that every underlying website request record is deleted after 24 hours.",
+      "The display preference stays in local storage until you change it or clear website data. Restricted provider backups expire through the relevant backup cycle; a mailbox deletion does not erase the sender's independently held copy."
+    ],
+    "s12_address": "os. Wł. Jagiełły 7/9, Brzesko, Poland",
+    "authority_label": "Polish data protection authority (UODO)"
   },
   "personal": {
     "skip": "Skip to content",

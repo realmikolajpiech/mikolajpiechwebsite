@@ -39,7 +39,7 @@ ${site.hero.intro}
 - [Home](${SITE_URL}/): Personal introduction, selected work, interests, and contact
 - [Portfolio (interactive)](${SITE_URL}/portfolio): Detailed shipped products in the main site
 - [Portfolio (plain HTML for agents)](${SITE_URL}/portfolio): Crawlable project details without JavaScript
-- [Privacy Policy](${SITE_URL}/privacy-policy): Data handling for this website and published apps
+- [Privacy Policy](${SITE_URL}/privacy-policy): Website data handling, contact details, and links to app privacy notices
 
 ## Contact
 - Email: ${CONTACT_EMAIL}

@@ -14,7 +14,7 @@ I build apps and run Clevr Apps.
 - [Home](https://mikolajpiech.com/): Personal introduction, selected work, interests, and contact
 - [Portfolio (interactive)](https://mikolajpiech.com/portfolio): Detailed shipped products in the main site
 - [Portfolio (plain HTML for agents)](https://mikolajpiech.com/portfolio): Crawlable project details without JavaScript
-- [Privacy Policy](https://mikolajpiech.com/privacy-policy): Data handling for this website and published apps
+- [Privacy Policy](https://mikolajpiech.com/privacy-policy): Website data handling, contact details, and links to app privacy notices
 
 ## Contact
 - Email: hello@mikolajpiech.com
