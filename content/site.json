@@ -57,9 +57,7 @@
     "google_terms": "Gemini API Terms of Service",
     "and": "and",
     "google_privacy": "Google Privacy Policy",
-    "exercise_rights": "To exercise any right, contact me at",
-    "form_privacy_notice": "Your message includes approximate IP-based location, browser language, and timezone and is delivered through Resend.",
-    "form_privacy_link": "How your information is used"
+    "exercise_rights": "To exercise any right, contact me at"
   },
   "not_found": {
     "title": "Lost?",
@@ -70,7 +68,7 @@
   "hero": {
     "headline_line1": "Mikołaj Piech",
     "headline_line2": "",
-    "intro": "I build apps and run Clevr Apps.",
+    "intro": "I design and build apps. Most of them live at Clevr Apps.",
     "link_descriptions": {
       "Trailo": "AI-powered trip planning.",
       "Subby": "Subscription and upcoming payment tracking.",
@@ -86,13 +84,13 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "The personal website of Mikołaj Piech. I build apps and run Clevr Apps. Explore my projects and a little about me.",
-    "person_description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Creator of Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
+    "meta_description": "Mikołaj Piech designs and builds apps. Most of them live at Clevr Apps. A few things he has made and a little about him.",
+    "person_description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Co-founder of Jedziemy, creator of Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech",
-        "description": "The personal website of Mikołaj Piech. I build apps and run Clevr Apps. Explore my projects and a little about me.",
-        "social_description": "The personal website of Mikołaj Piech. I build apps and run Clevr Apps. Explore my projects and a little about me."
+        "description": "Mikołaj Piech designs and builds apps. Most of them live at Clevr Apps. A few things he has made and a little about him.",
+        "social_description": "Mikołaj Piech designs and builds apps. Most of them live at Clevr Apps. A few things he has made and a little about him."
       },
       "portfolio": {
         "title": "Portfolio | Apps by Mikołaj Piech",
@@ -128,6 +126,13 @@
   "projects": {
     "title": "Selected work",
     "subtitle": "Products I've designed, built, and shipped across web, iOS, and Android.",
+    "jedziemy": {
+      "tagline": "Lessons, hours, and payments for driving schools",
+      "homepage_description": "My newest project: one place for driving schools to schedule lessons and track hours and payments, with fewer phone calls.",
+      "description": "Jedziemy brings a driving school's office dashboard and its instructor and student app together. Lessons, hours, payments, and theory practice with mock exams are in one place, so fewer things need a phone call.",
+      "link_text": "Visit website",
+      "status": "New"
+    },
     "justmine": {
       "tagline": "Personalized books for children.",
       "homepage_description": "Exploring how to make children’s books where the story and illustrations are created for one particular child.",
@@ -174,11 +179,11 @@
       "tagline": "Plan less. Travel more.",
       "description": "End-to-end AI travel planning: find flights, hotels, and tickets, then turn them into a personalized hour-by-hour itinerary.",
       "link_text": "Visit website",
-      "homepage_description": "Bringing the scattered parts of planning a trip together, from flights and stays to what to do each day."
+      "homepage_description": "I love travelling but hate a dozen open tabs, so I’m building one place for flights, stays, and what to do each day."
     },
     "twojasiec": {
       "tagline": "Local news, close to you.",
-      "homepage_description": "Local news, alerts, and events from your area in one app.",
+      "homepage_description": "I designed and built an app that gathers local news, alerts, and events from your area in one place.",
       "description": "A mobile app that brings news, alerts, and events from a selected area into one organized place. Users can personalize their local feed by topic, save stories, and add events to their calendar without browsing multiple websites and scattered community groups.",
       "milestone": "No. 11 among the most downloaded apps in Poland’s App Store · 28 Sep 2026",
       "status": ""
@@ -344,14 +349,15 @@
     "work_intro": "A few things I’ve made.",
     "more_projects": "See more projects",
     "project_link": "Read about the project",
-    "studio_note": "For my apps, downloads and support, visit",
+    "studio_note": "Downloads, support and all of my apps are at",
     "about_title": "A little about me",
     "nav_about": "About",
     "nav_work": "Work",
     "nav_contact": "Contact",
     "about_paragraphs": [
-      "I like turning ideas into things people can use. I work on a variety of projects, mostly apps and websites.",
-      "Outside of apps, I’m interested in psychology and philosophy. I also enjoy training, travelling and reading books."
+      "I like taking an idea from a note on my phone to something people actually use: the design, the code, the launch, and what happens after.",
+      "I’m most interested in the business side: why people choose one product over another, and what makes them come back.",
+      "Away from the screen I read a lot (mostly psychology and philosophy), train, and travel whenever I can."
     ],
     "contact_title": "Say hello.",
     "social_label": "Social profiles",

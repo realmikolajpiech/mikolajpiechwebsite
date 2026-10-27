@@ -21,7 +21,9 @@ function projectSchema(project: Project, language: Language) {
         { '@type': 'Person', name: 'Oskar Minor', url: 'https://oskarminor.com/' },
         { '@type': 'Person', name: 'Kamil Zdebski', url: 'https://kamilzdebski.com/' },
       ]
-    : { '@id': personId };
+    : project.id === 'jedziemy'
+      ? [{ '@id': personId }, { '@type': 'Person', name: 'Marcel Chudyba' }]
+      : { '@id': personId };
   return {
     '@type': website ? 'WebSite' : 'SoftwareApplication',
     '@id': `${base}/#project-${project.id}`,

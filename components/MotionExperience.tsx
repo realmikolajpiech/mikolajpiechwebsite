@@ -12,12 +12,13 @@ export function MotionExperience() {
     const targets = document.querySelectorAll<HTMLElement>('[data-reveal]');
     const reveal = (element: HTMLElement) => {
       if (preference.matches) return;
+      const delay = Number(element.dataset.reveal);
       const animation = element.animate([
         { opacity: 0, translate: '0 24px' },
         { opacity: 1, translate: '0 0' },
       ], {
         duration: 800,
-        delay: Number(element.dataset.reveal || 0),
+        delay: Number.isFinite(delay) ? Math.max(0, delay) : 0,
         easing: 'cubic-bezier(.16,1,.3,1)',
         fill: 'backwards',
       });

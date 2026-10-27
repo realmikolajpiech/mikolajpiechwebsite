@@ -41,6 +41,10 @@ const safeLabsHome = imageManifest['assets/safelabs/safelabs-home.jpg'].src;
 const safeLabsPasswordCheck = imageManifest['assets/safelabs/safelabs-password-check.jpg'].src;
 const safeLabsEbook = imageManifest['assets/safelabs/safelabs-ebook.jpg'].src;
 const dragonLogo = imageManifest['assets/dragon/dragon-logo.png'].src;
+const jedziemyLogo = imageManifest['assets/jedziemy/app-logo.png'].src;
+const jedziemyTheoryPath = imageManifest['assets/jedziemy/teoria-path.jpg'].src;
+const jedziemyTheoryTraining = imageManifest['assets/jedziemy/teoria-training.jpg'].src;
+const jedziemyTheoryAnswer = imageManifest['assets/jedziemy/teoria-answer.jpg'].src;
 const dragonHome = imageManifest['assets/dragon/dragon-home.jpg'].src;
 const dragonClasses = imageManifest['assets/dragon/dragon-classes.jpg'].src;
 const dragonSignup = imageManifest['assets/dragon/dragon-signup.jpg'].src;
@@ -49,9 +53,10 @@ const dragonSignup = imageManifest['assets/dragon/dragon-signup.jpg'].src;
 export const SHOW_OMNI = false;
 export const SHOW_PLATOIC = false;
 export const SHOW_CHARMY_BOOKS = false;
-export const FEATURED_PROJECT_IDS = ['subby', 'solvee', 'trailo', 'twojasiec'];
+export const FEATURED_PROJECT_IDS = ['jedziemy', 'solvee', 'subby', 'twojasiec'];
 const PORTFOLIO_ONLY_PROJECT_IDS = new Set(['dragon']);
 const PROJECT_ORDER = [
+  'jedziemy',
   'justmine',
   'solvee',
   'trailo',
@@ -69,6 +74,28 @@ function buildAllProjects(language: Language): Project[] {
   const tr = (english: string, polish: string) => isPl ? polish : english;
 
   return [
+  {
+    id: 'jedziemy',
+    name: 'Jedziemy',
+    tagline: site.projects.jedziemy.tagline,
+    description: site.projects.jedziemy.description,
+    tags: isPl ? ['Szkoły jazdy', 'Internet', 'Aplikacja mobilna'] : ['Driving Schools', 'Web', 'Mobile App'],
+    platform: tr('Web · mobile app', 'Web · aplikacja mobilna'),
+    category: tr('Driving school software', 'Oprogramowanie dla szkół jazdy'),
+    role: tr('Co-founder · Product design & engineering', 'Współzałożyciel · Projekt i rozwój produktu'),
+    scope: tr('Full product · with Marcel Chudyba', 'Kompleksowa realizacja · z Marcelem Chudybą'),
+    status: site.projects.jedziemy.status,
+    link: 'https://jedziemy.app',
+    linkText: site.projects.jedziemy.link_text,
+    icon: jedziemyLogo,
+    image: jedziemyTheoryPath,
+    layout: 'split',
+    screenshots: [
+      { src: jedziemyTheoryPath, alt: tr('Jedziemy theory course path for a category B student', 'Ścieżka nauki teorii kursanta kategorii B w Jedziemy'), variant: 'phone' },
+      { src: jedziemyTheoryTraining, alt: tr('Jedziemy theory training session', 'Sesja nauki teorii w Jedziemy'), variant: 'phone' },
+      { src: jedziemyTheoryAnswer, alt: tr('Jedziemy theory question with answer feedback', 'Pytanie z teorii z omówieniem odpowiedzi w Jedziemy'), variant: 'phone' },
+    ],
+  },
   {
     id: 'justmine',
     name: 'Charmy Books',

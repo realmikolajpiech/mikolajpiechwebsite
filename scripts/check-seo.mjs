@@ -34,7 +34,10 @@ for (const [route, file, language] of pages) {
   assert.ok(!graph.some((item) => item['@type'] === 'FAQPage'));
   if (route.endsWith('portfolio')) {
     const items = graph.find((item) => item['@type'] === 'ItemList').itemListElement;
-    assert.equal(items.length, 7);
+    assert.equal(items.length, 8);
+    const jedziemy = items.find(({ item }) => item.name === 'Jedziemy').item;
+    assert.ok(!jedziemy.publisher, `${route}: Jedziemy is not a Clevr Apps product`);
+    assert.deepEqual(jedziemy.author.map((author) => author.name).filter(Boolean), ['Marcel Chudyba']);
     assert.ok(!items.some(({ item }) => item.name === 'Charmy Books'));
     assert.ok(items.some(({ item }) => item.name === 'Twoja Sieć'));
     const safeLabs = items.find(({ item }) => item.name === 'Safe Labs').item;
@@ -55,7 +58,7 @@ for (const [route, file, language] of pages) {
     assert.ok(html.includes('property="og:image" content="https://mikolajpiech.com/mikolaj-profile.jpg"'));
     assert.ok(html.includes('href="mailto:hello@mikolajpiech.com"'), 'Email works without JS');
     assert.ok(html.includes('href="https://clevrapps.com/"'), `${route}: studio link`);
-    assert.ok(html.includes(language === 'pl' ? 'Tworzę własne aplikacje i strony internetowe' : 'I build apps and run'), `${route}: clear homepage intro`);
+    assert.ok(html.includes(language === 'pl' ? 'Projektuję i tworzę aplikacje' : 'I design and build apps'), `${route}: clear homepage intro`);
     assert.ok(html.includes('<fieldset disabled="">'), 'Form waits for hydration');
     assert.ok(html.includes('id="about"'), `${route}: personal introduction`);
     assert.ok(!html.includes('id="services"'), `${route}: no homepage sales section`);

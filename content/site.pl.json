@@ -57,9 +57,7 @@
     "google_terms": "Warunkach korzystania z Gemini API",
     "and": "oraz",
     "google_privacy": "Polityce prywatności Google",
-    "exercise_rights": "Aby skorzystać z któregokolwiek prawa, skontaktuj się ze mną:",
-    "form_privacy_notice": "Do wiadomości dołączane są przybliżona lokalizacja z IP, język i strefa czasowa przeglądarki. Doręczenie obsługuje Resend.",
-    "form_privacy_link": "Jak wykorzystuję Twoje dane"
+    "exercise_rights": "Aby skorzystać z któregokolwiek prawa, skontaktuj się ze mną:"
   },
   "not_found": {
     "title": "Zgubiłeś się?",
@@ -70,7 +68,7 @@
   "hero": {
     "headline_line1": "Mikołaj Piech",
     "headline_line2": "",
-    "intro": "Tworzę własne aplikacje i strony internetowe.",
+    "intro": "Projektuję i tworzę aplikacje. Większość z nich znajdziesz w Clevr Apps.",
     "link_descriptions": {
       "Trailo": "Planowanie podróży z pomocą AI.",
       "Subby": "Śledzenie subskrypcji i nadchodzących opłat.",
@@ -86,13 +84,13 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Osobista strona Mikołaja Piecha. Tworzę aplikacje i prowadzę Clevr Apps. Poznaj moje projekty i dowiedz się więcej o mnie.",
-    "person_description": "Założyciel Clevr Apps i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Twórca Trailo, Twoja Sieć, Subby, Doso i Solvee oraz współtwórca Safe Labs.",
+    "meta_description": "Mikołaj Piech projektuje i tworzy aplikacje. Większość z nich znajdziesz w Clevr Apps. Kilka jego projektów i trochę o nim.",
+    "person_description": "Założyciel Clevr Apps i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Współzałożyciel Jedziemy, twórca Trailo, Twoja Sieć, Subby, Doso i Solvee oraz współtwórca Safe Labs.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech",
-        "description": "Osobista strona Mikołaja Piecha. Tworzę aplikacje i prowadzę Clevr Apps. Poznaj moje projekty i dowiedz się więcej o mnie.",
-        "social_description": "Osobista strona Mikołaja Piecha. Tworzę aplikacje i prowadzę Clevr Apps. Poznaj moje projekty i dowiedz się więcej o mnie."
+        "description": "Mikołaj Piech projektuje i tworzy aplikacje. Większość z nich znajdziesz w Clevr Apps. Kilka jego projektów i trochę o nim.",
+        "social_description": "Mikołaj Piech projektuje i tworzy aplikacje. Większość z nich znajdziesz w Clevr Apps. Kilka jego projektów i trochę o nim."
       },
       "portfolio": {
         "title": "Portfolio – projekty Mikołaja Piecha",
@@ -128,6 +126,13 @@
   "projects": {
     "title": "Wybrane projekty",
     "subtitle": "Produkty, które zaprojektowałem, stworzyłem i wdrożyłem na web, iOS i Androida.",
+    "jedziemy": {
+      "tagline": "Jazdy, godziny i wpłaty w szkole jazdy",
+      "homepage_description": "Mój najnowszy projekt: jedno miejsce, w którym szkoła jazdy ustala jazdy i pilnuje godzin oraz wpłat, z mniejszą liczbą telefonów.",
+      "description": "Jedziemy łączy panel biura szkoły jazdy z aplikacją instruktora i kursanta. Jazdy, godziny, wpłaty oraz nauka teorii z egzaminami próbnymi są w jednym miejscu, więc mniej spraw wymaga telefonu.",
+      "link_text": "Odwiedź stronę",
+      "status": "Nowy"
+    },
     "justmine": {
       "tagline": "Spersonalizowane książki dla dzieci.",
       "homepage_description": "Sprawdzam, jak tworzyć książki, w których historia i ilustracje są dopasowane do jednego dziecka.",
@@ -174,11 +179,11 @@
       "tagline": "Mniej planowania. Więcej podróżowania.",
       "description": "Zaplanuj całą podróż z pomocą AI: znajdź loty, hotele i bilety, a następnie ułóż z nich spersonalizowany plan dzień po dniu i godzina po godzinie.",
       "link_text": "Odwiedź stronę",
-      "homepage_description": "Planowanie podróży w jednym miejscu: loty, noclegi i plan na każdy dzień."
+      "homepage_description": "Uwielbiam podróże, ale nie kilkanaście otwartych kart, więc tworzę jedno miejsce na loty, noclegi i plan na każdy dzień."
     },
     "twojasiec": {
       "tagline": "Wiadomości blisko Ciebie.",
-      "homepage_description": "Lokalne wiadomości, alerty i wydarzenia z Twojej okolicy w jednej aplikacji.",
+      "homepage_description": "Zaprojektowałem i stworzyłem aplikację, która zbiera lokalne wiadomości, alerty i wydarzenia z okolicy w jednym miejscu.",
       "description": "Aplikacja mobilna, która porządkuje wiadomości, alerty i wydarzenia z wybranej okolicy. Pozwala dopasować lokalny feed do interesujących tematów, zapisywać materiały oraz dodawać wydarzenia do kalendarza bez przeglądania wielu stron i przypadkowych grup.",
       "milestone": "11. miejsce w rankingu najczęściej pobieranych aplikacji w polskim App Store · 28.09.2026",
       "status": ""
@@ -344,14 +349,15 @@
     "work_intro": "Kilka rzeczy, które stworzyłem.",
     "more_projects": "Zobacz resztę projektów",
     "project_link": "Poznaj projekt",
-    "studio_note": "Więcej o moich aplikacjach znajdziesz na",
+    "studio_note": "Pobieranie, wsparcie i wszystkie moje aplikacje znajdziesz na stronie",
     "about_title": "O mnie",
     "nav_about": "O mnie",
     "nav_work": "Projekty",
     "nav_contact": "Kontakt",
     "about_paragraphs": [
       "Lubię zamieniać pomysły w coś, z czego można korzystać. Pracuję nad różnymi projektami, głównie aplikacjami i stronami internetowymi.",
-      "Poza aplikacjami interesuję się psychologią i filozofią. Lubię też trenować, podróżować i czytać książki."
+      "Najbardziej ciekawi mnie strona biznesowa: dlaczego ludzie wybierają jeden produkt zamiast innego i co sprawia, że do niego wracają.",
+      "Z dala od ekranu dużo czytam, trenuję i podróżuję, kiedy tylko mogę :)"
     ],
     "contact_title": "Porozmawiajmy.",
     "social_label": "Profile społecznościowe",

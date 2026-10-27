@@ -23,6 +23,9 @@
 .personal-home a:hover { color: var(--personal-ink); }
 .personal-skip { position: absolute; z-index: 60; top: 8px; left: 16px; padding: 12px 20px; background: var(--personal-ink); color: var(--personal-paper); transform: translateY(-180%); }
 .personal-skip:focus { transform: none; }
+.personal-home :where(a, button, summary):focus-visible { outline: 2px solid var(--personal-ink); outline-offset: 5px; }
+.personal-home h1, .personal-home h2, .personal-home h3 { text-wrap: balance; }
+.personal-home p { text-wrap: pretty; }
 .personal-hero { display: grid; grid-template-columns: 1.45fr 1fr; align-items: center; gap: 60px; padding: 68px 0 96px; }
 .personal-intro { min-width: 0; container-type: inline-size; }
 .personal-intro h1 { white-space: nowrap; font-family: 'Instrument Serif', serif; font-size: clamp(48px, 17cqw, 102px); font-weight: 400; line-height: 1.05; letter-spacing: -2.5px; }
@@ -72,8 +75,9 @@
 .personal-more-project:hover { background: var(--personal-surface); }
 .personal-more-icon { width: 32px; height: 32px; object-fit: contain; border-radius: 7px; }
 .personal-more-projects a:focus-visible { outline: 2px solid var(--personal-ink); outline-offset: 3px; }
-.personal-studio-note { display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; margin-top: 38px; font-size: 13px; color: var(--personal-muted); }
-.personal-studio-note a { display: inline-flex; gap: 6px; align-items: center; color: var(--personal-ink); }
+.personal-studio-note { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: 38px; font-size: 15px; color: var(--personal-muted); }
+.personal-studio-note a { display: inline-flex; gap: 6px; align-items: center; color: var(--personal-ink); text-decoration: underline; text-decoration-color: var(--personal-line); text-underline-offset: 4px; }
+.personal-studio-note a:hover { text-decoration-color: currentColor; }
 .personal-about { display: grid; grid-template-columns: 1fr 1.6fr; gap: 70px; padding: 66px 0; margin-top: 64px; border-top: 1px solid var(--personal-line); }
 .personal-about p { font-size: 17px; line-height: 1.9; color: var(--personal-muted); }
 .personal-about p + p { margin-top: 22px; }
@@ -180,7 +184,7 @@
  .personal-more-projects { align-items: start; flex-direction: column; gap: 14px; margin-top: 34px; padding-top: 21px; }
  .personal-more-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: stretch; width: 100%; gap: 4px; }
  .personal-more-project { width: 100%; padding-inline: 0; }
- .personal-studio-note { margin-top: 30px; font-size: 12px; }
+ .personal-studio-note { margin-top: 30px; font-size: 14px; }
  .personal-about { grid-template-columns: 1fr; gap: 24px; margin-top: 40px; padding: 36px 0; }
  .personal-about p { font-size: 15px; line-height: 1.85; }
  .personal-contact { align-items: start; flex-direction: column; gap: 26px; padding: 36px 0; }
