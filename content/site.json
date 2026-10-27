@@ -355,13 +355,13 @@
     "nav_work": "Work",
     "nav_contact": "Contact",
     "about_paragraphs": [
-      "I like taking an idea from a note on my phone to something people actually use: the design, the code, the launch, and what happens after.",
+      "I like taking an idea or a problem to something people actually use: the design, the code, the launch, and what happens after.",
       "I’m most interested in the business side: why people choose one product over another, and what makes them come back.",
-      "Away from the screen I read a lot (mostly psychology and philosophy), train, and travel whenever I can."
+      "Away from the screen I read a lot, train, and travel whenever I can :)"
     ],
     "contact_title": "Say hello.",
     "social_label": "Social profiles",
     "message_label": "Message",
-    "message_placeholder": "What’s on your mind?"
+    "message_placeholder": "What do you want to talk about?"
   }
 }
