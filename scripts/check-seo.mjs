@@ -15,13 +15,14 @@ const schema = (html) => JSON.parse(html.match(/<script id="page-schema" type="a
 
 for (const [route, file, language] of pages) {
   const html = await read(file);
-  assert.ok(html.includes(`<html lang="${language}">`), `${route}: HTML language`);
+  assert.ok(new RegExp(`<html\\b[^>]*\\blang="${language}"`).test(html), `${route}: HTML language`);
   assert.ok(html.includes(`<link rel="canonical" href="${base}${route}"`), `${route}: self canonical`);
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1, `${route}: single rendered H1`);
   assert.ok(html.includes('max-image-preview:large'), `${route}: image preview permission`);
   assert.ok(!html.includes('noindex'), `${route}: indexable`);
-  assert.ok(!html.includes('<noscript>'), `${route}: one content representation`);
-  assert.ok(!html.includes('opacity:0'), `${route}: initially visible content`);
+  const noscriptBlocks = [...html.matchAll(/<noscript>([\s\S]*?)<\/noscript>/g)];
+  assert.ok(noscriptBlocks.every(([, content]) => !content.replace(/<(?:link|img)\b[^>]*>/g, '').replace(/<style>[\s\S]*?<\/style>/g, '').trim()), `${route}: noscript contains only CSS and image fallbacks`);
+  assert.ok(!/style="[^"]*opacity:\s*0(?:;|")/.test(html), `${route}: initially visible content`);
   assert.ok(!html.includes('location.replace'), `${route}: no automatic language redirect`);
   assert.ok(!html.includes('Charmy Books'), `${route}: hidden project stays out of rendered HTML`);
   const graph = schema(html)['@graph'];
@@ -53,13 +54,13 @@ for (const [route, file, language] of pages) {
   }
   if (route === '/' || route === '/pl') {
     const preloads = html.match(/<link rel="preload" as="image"[^>]*>/g) ?? [];
-    assert.equal(preloads.length, 1, `${route}: only hero is preloaded`);
-    assert.ok(preloads[0].includes('/mikolaj-profile.jpg'));
+    assert.equal(preloads.length, 0, `${route}: inline portrait needs no image preload`);
+    assert.equal((html.match(/<img\b[^>]*src="data:image\/webp;base64,/g) ?? []).length, 1, `${route}: one inline portrait`);
     assert.ok(html.includes('property="og:image" content="https://mikolajpiech.com/mikolaj-profile.jpg"'));
     assert.ok(html.includes('href="mailto:hello@mikolajpiech.com"'), 'Email works without JS');
     assert.ok(html.includes('href="https://clevrapps.com/"'), `${route}: studio link`);
     assert.ok(html.includes(language === 'pl' ? 'Projektuję i tworzę aplikacje' : 'I design and build apps'), `${route}: clear homepage intro`);
-    assert.ok(html.includes('<fieldset disabled="">'), 'Form waits for hydration');
+    assert.ok(/<fieldset\b[^>]*\bdisabled(?:="")?[\s>]/.test(html), 'Form waits for hydration');
     assert.ok(html.includes('id="about"'), `${route}: personal introduction`);
     assert.ok(!html.includes('id="services"'), `${route}: no homepage sales section`);
   }
@@ -82,7 +83,7 @@ for (const file of ['404.html', 'pl/404.html']) {
   const html = await read(file);
   assert.ok(html.includes('noindex, follow'));
   assert.ok(!html.includes('rel="canonical"'));
-  assert.ok(!html.includes('hreflang='));
+  assert.ok(!/<link\b[^>]*\bhreflang=/.test(html));
   assert.ok(!html.includes('id="page-schema"'));
 }
 const config = JSON.parse(await readFile(resolve(root, 'vercel.json'), 'utf8'));

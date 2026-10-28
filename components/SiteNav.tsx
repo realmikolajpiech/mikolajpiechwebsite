@@ -69,6 +69,8 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true, pers
         ref={menuButtonRef}
         type="button"
         className="personal-menu-toggle"
+        data-menu-open-label={language === 'pl' ? 'Otwórz menu' : 'Open menu'}
+        data-menu-close-label={language === 'pl' ? 'Zamknij menu' : 'Close menu'}
         aria-expanded={menuOpen}
         aria-controls="personal-mobile-menu"
         aria-label={language === 'pl' ? (menuOpen ? 'Zamknij menu' : 'Otwórz menu') : (menuOpen ? 'Close menu' : 'Open menu')}

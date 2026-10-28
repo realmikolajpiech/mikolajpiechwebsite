@@ -1,29 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import { ThemeProvider } from './context/ThemeContext';
-import { applyThemeClass, getStoredTheme } from './utils/theme';
+import './pages/PersonalHome.css';
+import { enhanceHome } from './home-client';
+import { inject } from '@vercel/analytics';
 
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
-}
-
-applyThemeClass(getStoredTheme());
-
-const app = (
-  <React.StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>
-);
-
-// The shared server 404 is English. Unknown URLs mount their localized error page.
-const prerenderedPath = rootElement.dataset.prerenderedPath;
-if (rootElement.hasChildNodes() && prerenderedPath === window.location.pathname) {
-  ReactDOM.hydrateRoot(rootElement, app);
+const path = window.location.pathname;
+const root = document.getElementById('root');
+if ((path === '/' || path === '/pl') && root?.dataset.prerenderedPath === path) {
+  enhanceHome();
+  if (import.meta.env.PROD && !['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)) {
+    inject({ mode: 'production' });
+  }
 } else {
-  ReactDOM.createRoot(rootElement).render(app);
+  void import('./entry-client');
 }

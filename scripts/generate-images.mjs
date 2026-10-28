@@ -5,7 +5,7 @@ import sharp from 'sharp';
 const root = resolve(import.meta.dirname, '..');
 const projectSource = await readFile(resolve(root, 'data/projects.ts'), 'utf8');
 // Source paths stay in the manifest references so regeneration never uses a lossy derivative.
-const paths = [...new Set(projectSource.match(/assets\/[\w/-]+\.(?:png|jpe?g|webp)/g))];
+const paths = ['public/mikolaj-profile.jpg', ...new Set(projectSource.match(/assets\/[\w/-]+\.(?:png|jpe?g|webp)/g))];
 const manifest = {};
 const previous = await readFile(resolve(root, 'data/image-manifest.json'), 'utf8').then(JSON.parse, () => ({}));
 const generatorTime = (await stat(import.meta.filename)).mtimeMs;

@@ -2,16 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle2, LoaderCircle } from 'lucide-react';
 import { CopyEmail } from './CopyEmail';
 import { useLanguage } from '../context/LanguageContext';
+import { emptyContactForm, submitContact } from '../utils/contact';
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
-const initialForm = {
-  name: '',
-  email: '',
-  company: '',
-  message: '',
-  website: '',
-};
+const initialForm = emptyContactForm;
 
 export function ContactForm({ personal = false }: { personal?: boolean }) {
   const { site } = useLanguage();
@@ -35,21 +30,7 @@ export function ContactForm({ personal = false }: { personal?: boolean }) {
     setFeedback('');
 
     try {
-      const browserContext = {
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
-        language: navigator.language || '',
-      };
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, browserContext }),
-      });
-
-      const result = await response.json().catch(() => null) as { message?: string } | null;
-
-      if (!response.ok || !result) {
-        throw new Error(site.ui.form_error);
-      }
+      await submitContact(form, site.ui.form_error);
 
       setForm(initialForm);
       setStatus('success');
@@ -69,6 +50,9 @@ export function ContactForm({ personal = false }: { personal?: boolean }) {
       method="post"
       action="/api/contact"
       onSubmit={handleSubmit}
+      data-contact-error={personal ? site.ui.form_error : undefined}
+      data-contact-sent={personal ? site.ui.sent : undefined}
+      aria-busy={status === 'sending'}
       className={personal ? "personal-form" : "rounded-3xl border border-stone-800 bg-stone-900/55 p-5 sm:p-7 md:p-8 text-left shadow-2xl shadow-black/10"}
     >
       <fieldset disabled={!ready}>
@@ -164,17 +148,14 @@ export function ContactForm({ personal = false }: { personal?: boolean }) {
             disabled={status === 'sending'}
             className="group inline-flex min-w-[148px] items-center justify-center rounded-full bg-off-white px-6 py-3 text-sm font-medium text-ink transition hover:bg-stone-200 disabled:cursor-wait disabled:opacity-70"
           >
-            {status === 'sending' ? (
-              <>
+            <span data-submit-pending style={{ display: status === 'sending' ? 'inline-flex' : 'none' }} className="items-center">
                 <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
                 {site.ui.sending}
-              </>
-            ) : (
-              <>
+            </span>
+            <span data-submit-idle style={{ display: status === 'sending' ? 'none' : 'inline-flex' }} className="items-center">
                 {site.ui.send_message}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </>
-            )}
+            </span>
           </button>
         </div>
 

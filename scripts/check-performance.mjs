@@ -26,14 +26,26 @@ for (const file of ['index.html', 'pl.html']) {
     assert.ok(src.startsWith('/assets/'), `${file}: local initial JavaScript`);
     bytes += gzipSync(await read(src.slice(1))).length;
   }
-  assert.ok(bytes < 130 * 1024, `${file}: initial JS budget exceeded (${bytes} bytes gzip)`);
+  assert.ok(bytes < 5 * 1024, `${file}: homepage JS budget exceeded (${bytes} bytes gzip)`);
 
   const fontPreloads = [...html.matchAll(/<link rel="preload"[^>]*href="([^"]+)"[^>]*as="font"/g)];
-  assert.equal(fontPreloads.length, 2, `${file}: preload the main text and heading fonts`);
+  assert.equal(fontPreloads.length, 3, `${file}: preload body and both display fonts`);
   for (const [, src] of fontPreloads) {
     assert.ok(src.startsWith('/assets/') && src.endsWith('.woff2'), `${file}: bundled WOFF2 font`);
     assert.ok((await readFile(resolve(dist, src.slice(1)))).length > 0, src);
   }
+  const head = html.split('</head>')[0];
+  const activeHead = head.replace(/<noscript>[\s\S]*?<\/noscript>/g, '');
+  const stylesheets = [...activeHead.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>/g)];
+  assert.ok(stylesheets.length > 0 && stylesheets.every(([tag]) => tag.includes('media="print"') && tag.includes('onload=')), `${file}: full CSS is deferred`);
+  assert.ok(head.includes('.personal-hero') && head.includes('@font-face'), `${file}: critical layout and fonts exist in HTML`);
+  const portrait = html.match(/<img\b[^>]*src="data:image\/webp;base64,([^"]+)"/);
+  assert.ok(portrait, `${file}: portrait arrives with the document`);
+  const portraitTag = html.match(/<img\b[^>]*src="data:image\/webp;base64,[^>]+>/)[0];
+  assert.ok(!/\bsrcset=/i.test(portraitTag), `${file}: portrait does not request an external responsive variant`);
+  assert.ok(Buffer.from(portrait[1], 'base64').length < 16 * 1024, `${file}: inline portrait stays below 16 KiB`);
+  assert.ok(html.includes('data-deferred-srcset='), `${file}: preview downloads wait for proximity`);
+  assert.ok(/<noscript><img\b/.test(html), `${file}: previews have a no-JavaScript fallback`);
   console.log(`${file}: ${(bytes / 1024).toFixed(1)} KiB initial JavaScript gzip; local font preloads verified.`);
 }
 

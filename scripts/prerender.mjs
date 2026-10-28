@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import Beasties from 'beasties';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const DIST = resolve(ROOT, 'dist');
@@ -15,6 +16,21 @@ const siteEn = JSON.parse(siteEnRaw);
 const sitePl = JSON.parse(sitePlRaw);
 const serverEntry = pathToFileURL(resolve(ROOT, 'dist-ssr/entry-server.js')).href;
 const { render, getPageMeta } = await import(serverEntry);
+const portraitManifest = JSON.parse(await readFile(resolve(ROOT, 'data/image-manifest.json'), 'utf8'))['public/mikolaj-profile.jpg'];
+const portraitBytes = await readFile(resolve(DIST, `.${portraitManifest.src}`));
+const inlinePortrait = `data:image/webp;base64,${portraitBytes.toString('base64')}`;
+const criticalCss = new Beasties({
+  path: DIST,
+  preload: 'media',
+  inlineFonts: true,
+  preloadFonts: false,
+  // All routes share the stylesheet; never prune it using just one document.
+  pruneSource: false,
+  reduceInlineStyles: false,
+  // These states are applied in the browser after the static render.
+  allowRules: [/\.dark\b/, /\[data-menu-open=/],
+  logLevel: 'warn',
+});
 
 const routes = [
   { page: 'home', language: 'en', url: '/', output: 'index.html' },
@@ -89,7 +105,33 @@ function updateHead(html, route, site) {
 for (const route of routes) {
   const site = route.language === 'pl' ? sitePl : siteEn;
   let html = updateHead(template, route, site);
-  html = html.replace('<div id="root"></div>', `<div id="root" data-prerendered-path="${route.url}">${render(route.url)}</div>`);
+  let markup = render(route.url);
+  // The 13 KiB homepage portrait arrives with HTML, without a second request.
+  // These two pages use native enhancement, so no React hydration is affected.
+  if (route.page === 'home') {
+    markup = markup.replace(/<img\b[^>]*>/g, (tag) => tag.includes(`src="${portraitManifest.src}"`)
+      ? tag.replace(`src="${portraitManifest.src}"`, `src="${inlinePortrait}"`).replace(/\s(?:srcset|sizes)="[^"]*"/gi, '')
+      : tag);
+    // Native lazy loading can fetch several screens of previews during startup.
+    // Defer preview sources until the small homepage client observes them nearby.
+    markup = markup.replace(/(<div\b[^>]*class="personal-project-preview[^\"]*"[^>]*>)([\s\S]*?)(<\/div>)/g, (all, start, images, end) => {
+      if (images.includes('<div')) return all;
+      const deferred = images.replace(/<img\b[^>]*>/g, (tag) => tag
+        .replace(/\ssrc="([^"]+)"/, ' data-deferred-src="$1" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"')
+        .replace(/\ssrcset=/gi, ' data-deferred-srcset=')
+        .replace(/\ssizes=/gi, ' data-deferred-sizes='));
+      return `${start}${deferred}<noscript>${images}</noscript>${end}`;
+    });
+    html = html.replace('</head>', '<noscript><style>[data-deferred-src]{display:none!important}noscript{display:contents}</style></noscript></head>');
+  }
+  const imagePreloads = route.page === 'home' ? [] : markup.match(/<link rel="preload" as="image"[^>]*>/g) ?? [];
+  markup = markup.replace(/<link rel="preload" as="image"[^>]*>/g, '');
+  html = html.replace('<meta charset="UTF-8" />', `<meta charset="UTF-8" />\n    ${imagePreloads.join('\n    ')}`);
+  html = html.replace('<div id="root"></div>', `<div id="root" data-prerendered-path="${route.url}">${markup}</div>`);
+  html = await criticalCss.process(html);
+  // Applying the full stylesheet before the first frame can delay that frame,
+  // even when its network request is non-blocking. Apply it during idle time.
+  html = html.replaceAll('onload="this.media=\'all\'"', 'onload="var s=this;s.onload=null;(window.requestIdleCallback||window.setTimeout)(function(){s.media=\'all\'})"');
   const outputPath = resolve(DIST, route.output);
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(outputPath, html, 'utf8');

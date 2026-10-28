@@ -12,7 +12,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
 import { ThreadsIcon } from '../components/ThreadsIcon';
 import { SubstackIcon } from '../components/SubstackIcon';
-import './PersonalHome.css';
+import imageManifest from '../data/image-manifest.json';
 
 const XIcon = () => <svg viewBox="0 0 300 271" fill="currentColor" aria-hidden="true"><path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z" /></svg>;
 
@@ -58,7 +58,7 @@ export default function Home() {
             <SocialLinks label={copy.social_label} hero />
           </div>
           <div className="personal-portrait">
-            <img src="/mikolaj-profile.jpg" width="400" height="400" fetchPriority="high" alt="Mikołaj Piech" />
+            <ResponsiveImage src={imageManifest['public/mikolaj-profile.jpg'].src} sizes="(max-width: 767px) calc(100vw - 40px), 416px" loading="eager" decoding="sync" fetchPriority="high" alt="Mikołaj Piech" />
           </div>
         </section>
 

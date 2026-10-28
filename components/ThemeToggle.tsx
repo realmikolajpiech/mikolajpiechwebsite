@@ -15,6 +15,7 @@ export function ThemeToggle() {
 
   return (
     <button
+      data-theme-toggle
       onClick={toggleTheme}
       className="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
       aria-label={site.ui.toggle_theme}
@@ -23,9 +24,9 @@ export function ThemeToggle() {
         className="transition-transform duration-300 motion-reduce:transition-none"
         style={{ transform: `rotate(${theme === 'dark' ? 180 : 0}deg)` }}
       >
-        {theme === 'light' && <Sun className="w-5 h-5 text-stone-900 dark:text-stone-100" />}
-        {theme === 'dark' && <Moon className="w-5 h-5 text-stone-900 dark:text-stone-100" />}
-        {theme === 'system' && <Monitor className="w-5 h-5 text-stone-900 dark:text-stone-100" />}
+        <Sun data-theme-icon="light" style={{ display: theme === 'light' ? 'block' : 'none' }} className="w-5 h-5 text-stone-900 dark:text-stone-100" />
+        <Moon data-theme-icon="dark" style={{ display: theme === 'dark' ? 'block' : 'none' }} className="w-5 h-5 text-stone-900 dark:text-stone-100" />
+        <Monitor data-theme-icon="system" style={{ display: theme === 'system' ? 'block' : 'none' }} className="w-5 h-5 text-stone-900 dark:text-stone-100" />
       </div>
     </button>
   );
