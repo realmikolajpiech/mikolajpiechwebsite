@@ -1,7 +1,6 @@
 import React from 'react';
 import { Moon, Sun, Monitor } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 export function ThemeToggle() {
@@ -20,15 +19,14 @@ export function ThemeToggle() {
       className="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
       aria-label={site.ui.toggle_theme}
     >
-      <motion.div
-        initial={false}
-        animate={{ rotate: theme === 'dark' ? 180 : 0 }}
-        transition={{ duration: 0.3 }}
+      <div
+        className="transition-transform duration-300 motion-reduce:transition-none"
+        style={{ transform: `rotate(${theme === 'dark' ? 180 : 0}deg)` }}
       >
         {theme === 'light' && <Sun className="w-5 h-5 text-stone-900 dark:text-stone-100" />}
         {theme === 'dark' && <Moon className="w-5 h-5 text-stone-900 dark:text-stone-100" />}
         {theme === 'system' && <Monitor className="w-5 h-5 text-stone-900 dark:text-stone-100" />}
-      </motion.div>
+      </div>
     </button>
   );
 }

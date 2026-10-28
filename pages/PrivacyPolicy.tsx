@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { SiteNav } from '../components/SiteNav';
 import { PageMeta } from '../components/PageMeta';
@@ -34,6 +34,7 @@ export default function PrivacyPolicy() {
   const year = new Date().getFullYear();
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
       <PageMeta {...getPageMeta('privacy', site, language)} />
       <SiteNav />
@@ -256,5 +257,6 @@ export default function PrivacyPolicy() {
       </footer>
       </main>
     </div>
+    </MotionConfig>
   );
 }

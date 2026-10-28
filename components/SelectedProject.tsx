@@ -20,7 +20,7 @@ export const SelectedProject: React.FC<{ project: Project; portfolioPath: string
           {previews.map(preview => <ResponsiveImage key={preview.src} src={preview.src} alt={preview.alt} sizes={isWeb ? '(max-width: 767px) 90vw, 500px' : '135px'} />)}
         </div>
         <div className="personal-project-heading">
-          {project.icon && <ResponsiveImage src={project.icon} alt="" sizes="48px" className="personal-project-icon" />}
+          {project.icon && <ResponsiveImage src={project.icon} alt="" sizes="30px" className="personal-project-icon" />}
           <h3>{project.name}</h3>
           {project.status && <span className="personal-project-status">{project.status}</span>}
           <ArrowUpRight size={20} className="personal-project-arrow" aria-hidden="true" />

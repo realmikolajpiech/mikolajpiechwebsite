@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { PageMeta } from '../components/PageMeta';
@@ -16,6 +16,7 @@ export default function NotFound() {
   const nf = site.not_found;
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 flex flex-col transition-colors duration-300">
       <PageMeta {...getPageMeta('not_found', site, language)} />
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-off-white/80 dark:bg-stone-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-off-white/50 dark:supports-[backdrop-filter]:bg-stone-900/50 transition-all duration-300">
@@ -66,5 +67,6 @@ export default function NotFound() {
         </p>
       </footer>
     </div>
+    </MotionConfig>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, ArrowDown } from 'lucide-react';
 import { SiteNav } from '../components/SiteNav';
@@ -52,6 +52,7 @@ export default function Portfolio() {
   ];
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen overflow-x-clip bg-off-white dark:bg-stone-900 selection:bg-stone-200 dark:selection:bg-stone-700 transition-colors duration-300">
       <PageMeta {...getPageMeta('portfolio', site, language)} />
       <SiteNav />
@@ -181,5 +182,6 @@ export default function Portfolio() {
       </section>
       </main>
     </div>
+    </MotionConfig>
   );
 }

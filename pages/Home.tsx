@@ -74,7 +74,7 @@ export default function Home() {
             <ul className="personal-more-list">
               {otherProjects.map(project => <li key={project.id}>
                 <Link to={`${portfolioPath}#${project.id}`} className="personal-more-project">
-                  {project.icon && <ResponsiveImage src={project.icon} alt="" sizes="36px" className="personal-more-icon" />}
+                  {project.icon && <ResponsiveImage src={project.icon} alt="" sizes="32px" className="personal-more-icon" />}
                   <span>{project.name}</span>
                 </Link>
               </li>)}

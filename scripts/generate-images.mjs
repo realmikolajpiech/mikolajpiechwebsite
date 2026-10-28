@@ -8,6 +8,7 @@ const projectSource = await readFile(resolve(root, 'data/projects.ts'), 'utf8');
 const paths = [...new Set(projectSource.match(/assets\/[\w/-]+\.(?:png|jpe?g|webp)/g))];
 const manifest = {};
 const previous = await readFile(resolve(root, 'data/image-manifest.json'), 'utf8').then(JSON.parse, () => ({}));
+const generatorTime = (await stat(import.meta.filename)).mtimeMs;
 // An image is up to date when its manifest entry exists and every variant is newer than the source.
 const isFresh = async (path) => {
   const entry = previous[path];
@@ -15,7 +16,7 @@ const isFresh = async (path) => {
   const sourceTime = (await stat(resolve(root, path))).mtimeMs;
   const urls = entry.srcSet.split(', ').map((candidate) => candidate.split(' ')[0]);
   const times = await Promise.all(urls.map((url) => stat(resolve(root, `public${url}`)).then((s) => s.mtimeMs, () => 0)));
-  return times.every((time) => time > sourceTime);
+  return times.every((time) => time > Math.max(sourceTime, generatorTime));
 };
 let originalBytes = 0;
 let optimizedBytes = 0;
@@ -31,7 +32,7 @@ for (const path of paths) {
   const metadata = await sharp(input).metadata();
   const isIcon = /(?:logo|icon)\./.test(path);
   const maxWidth = isIcon ? 384 : 1280;
-  const widths = [...new Set((isIcon ? [96, 192, 384] : [400, 800, 1280])
+  const widths = [...new Set((isIcon ? [48, 96, 192, 384] : [160, 240, 320, 400, 800, 1280])
     .map((width) => Math.min(width, metadata.width, maxWidth)))];
   const variants = [];
   for (const width of widths) {

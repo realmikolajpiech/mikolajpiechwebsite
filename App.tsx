@@ -1,17 +1,22 @@
-import React from 'react';
-import { MotionConfig } from 'framer-motion';
+import React, { lazy, Suspense } from 'react';
 import { MotionExperience } from './components/MotionExperience';
 import { Analytics } from '@vercel/analytics/react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
-import Portfolio from './pages/Portfolio';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import DosoPrivacy from './pages/DosoPrivacy';
-import DosoSupport from './pages/DosoSupport';
-import NotFound from './pages/NotFound';
 import { useEffect } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { clearLanguageScroll, getLanguageScroll } from './utils/languageScroll';
+
+// Secondary pages (including the animation/gallery runtime) load on navigation.
+// Prerendering supplies eager components so every static document stays complete.
+const clientPages = {
+  Portfolio: lazy(() => import('./pages/Portfolio')),
+  PrivacyPolicy: lazy(() => import('./pages/PrivacyPolicy')),
+  DosoPrivacy: lazy(() => import('./pages/DosoPrivacy')),
+  DosoSupport: lazy(() => import('./pages/DosoSupport')),
+  NotFound: lazy(() => import('./pages/NotFound')),
+};
+type Pages = Record<keyof typeof clientPages, React.ComponentType>;
 
 // ScrollToTop component to handle scrolling on route change
 function ScrollToTop() {
@@ -53,11 +58,12 @@ function ScrollToTop() {
   return null;
 }
 
-export function AppRoutes() {
+export function AppRoutes({ pages = clientPages }: { pages?: Pages } = {}) {
+  const { Portfolio, PrivacyPolicy, DosoPrivacy, DosoSupport, NotFound } = pages;
   return (
-    <MotionConfig reducedMotion="user">
     <LanguageProvider>
       <Analytics />
+      <Suspense fallback={null}>
       <ScrollToTop />
       <MotionExperience />
       <Routes>
@@ -71,8 +77,8 @@ export function AppRoutes() {
         <Route path="/pl/polityka-prywatnosci" element={<PrivacyPolicy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </Suspense>
     </LanguageProvider>
-    </MotionConfig>
   );
 }
 
