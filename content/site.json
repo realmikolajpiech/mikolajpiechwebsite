@@ -68,7 +68,7 @@
   "hero": {
     "headline_line1": "Mikołaj Piech",
     "headline_line2": "",
-    "intro": "I design and build apps. Most of them live at Clevr Apps.",
+    "intro": "I design and build apps. I run Clevr Apps and co-founded Jedziemy.",
     "link_descriptions": {
       "Trailo": "AI-powered trip planning.",
       "Subby": "Subscription and upcoming payment tracking.",
@@ -84,17 +84,17 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Mikołaj Piech designs and builds apps. Most of them live at Clevr Apps. A few things he has made and a little about him.",
+    "meta_description": "Mikołaj Piech — app developer and founder of Clevr Apps. Creator of Subby, Trailo and Doso. Read the stories and decisions behind my projects.",
     "person_description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Co-founder of Jedziemy, creator of Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech",
-        "description": "Mikołaj Piech designs and builds apps. Most of them live at Clevr Apps. A few things he has made and a little about him.",
-        "social_description": "Mikołaj Piech designs and builds apps. Most of them live at Clevr Apps. A few things he has made and a little about him."
+        "description": "Mikołaj Piech — app developer and founder of Clevr Apps. Creator of Subby, Trailo and Doso. Read the stories and decisions behind my projects.",
+        "social_description": "Mikołaj Piech — app developer and founder of Clevr Apps. Creator of Subby, Trailo and Doso. Read the stories and decisions behind my projects."
       },
       "portfolio": {
-        "title": "Portfolio | Apps by Mikołaj Piech",
-        "description": "Selected web apps, mobile apps, websites, and digital products designed, built, and shipped by Mikołaj Piech."
+        "title": "Projects and their stories | Mikołaj Piech",
+        "description": "Selected project stories by Mikołaj Piech: Solvee, Jedziemy and Twoja Sieć. My role, product decisions and outcomes."
       },
       "privacy": {
         "title": "Privacy Policy | Mikołaj Piech",
@@ -107,7 +107,7 @@
     }
   },
   "portfolio": {
-    "title": "Portfolio",
+    "title": "Projects",
     "headline": "Products I've built",
     "headline_accent": "and shipped.",
     "subtitle": "Web apps, mobile apps, and websites, taken from idea to launch through product design, development, and iteration.",
@@ -347,9 +347,9 @@
     "skip": "Skip to content",
     "work_link": "Explore my work",
     "work_intro": "A few things I’ve made.",
-    "more_projects": "See more projects",
+    "more_projects": "All projects",
     "project_link": "Read about the project",
-    "studio_note": "Downloads, support and all of my apps are at",
+    "studio_note": "Apps and downloads:",
     "about_title": "A little about me",
     "nav_about": "About",
     "nav_work": "Work",

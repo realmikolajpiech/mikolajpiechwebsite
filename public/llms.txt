@@ -4,7 +4,7 @@
 
 Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Co-founder of Jedziemy, creator of Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.
 
-I design and build apps. Most of them live at Clevr Apps.
+I design and build apps. I run Clevr Apps and co-founded Jedziemy.
 
 ## Docs
 - [Full site summary (https://mikolajpiech.com/llms-full.txt)](https://mikolajpiech.com/llms-full.txt): Plain-text bio, interests, projects, and FAQs, the best source for AI agents
@@ -12,8 +12,11 @@ I design and build apps. Most of them live at Clevr Apps.
 
 ## Pages
 - [Home](https://mikolajpiech.com/): Personal introduction, selected work, interests, and contact
-- [Portfolio (interactive)](https://mikolajpiech.com/portfolio): Detailed shipped products in the main site
-- [Portfolio (plain HTML for agents)](https://mikolajpiech.com/portfolio): Crawlable project details without JavaScript
+- [Projects and stories](https://mikolajpiech.com/portfolio): Four project stories and a compact list of other work
+- [Jedziemy](https://mikolajpiech.com/projects/jedziemy): One platform for the office, instructors and students.
+- [Solvee](https://mikolajpiech.com/projects/solvee): Building the homework app I needed.
+- [Subby](https://mikolajpiech.com/projects/subby): I kept forgetting to cancel free trials.
+- [Twoja Sieć](https://mikolajpiech.com/projects/twojasiec): Making local information easier to find.
 - [Privacy Policy](https://mikolajpiech.com/privacy-policy): Website data handling, contact details, and links to app privacy notices
 
 ## Contact

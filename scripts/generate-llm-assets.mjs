@@ -20,7 +20,7 @@ function escapeHtml(value) {
     .replace(/"/g, '&quot;');
 }
 
-const { getPortfolioProjects, getPageMeta } = await import(pathToFileURL(join(root, 'dist-ssr/entry-server.js')).href);
+const { getPortfolioProjects, getPageMeta, getStories } = await import(pathToFileURL(join(root, 'dist-ssr/entry-server.js')).href);
 
 function buildLlmsTxt() {
   return `# ${SITE_NAME}
@@ -37,8 +37,8 @@ ${site.hero.intro}
 
 ## Pages
 - [Home](${SITE_URL}/): Personal introduction, selected work, interests, and contact
-- [Portfolio (interactive)](${SITE_URL}/portfolio): Detailed shipped products in the main site
-- [Portfolio (plain HTML for agents)](${SITE_URL}/portfolio): Crawlable project details without JavaScript
+- [Projects and stories](${SITE_URL}/portfolio): Four project stories and a compact list of other work
+${getStories('en').map(story => `- [${story.project.name}](${SITE_URL}${story.path}): ${story.title}`).join('\n')}
 - [Privacy Policy](${SITE_URL}/privacy-policy): Website data handling, contact details, and links to app privacy notices
 
 ## Contact
@@ -65,20 +65,15 @@ function buildLlmsFullTxt(projects) {
     '',
     ...site.personal.about_paragraphs,
     '',
-    '## Stats',
-    '',
-    `- ${site.portfolio.stats.apps}`,
-    `- ${site.portfolio.stats.downloads}`,
-    `- ${site.portfolio.stats.platforms}`,
-    `- ${site.portfolio.stats.acquired}`,
-    '',
-    '## Services',
-    '',
-    ...site.capabilities.items.map((item) => `- ${item.title}: ${item.description}`),
-    '',
-    '## Projects',
+    '## Project stories',
     '',
   ];
+
+  for (const story of getStories('en')) {
+    lines.push(`### ${story.project.name}: ${story.title}`, '', `${SITE_URL}${story.path}`, '', story.summary, '', `Role: ${story.role}`, `Outcome: ${story.outcome}`, '');
+    for (const section of story.sections) lines.push(`#### ${section.title}`, '', section.body, '');
+  }
+  lines.push('## Other project information', '');
 
   for (const project of projects) {
     lines.push(`### ${project.nameDisplay}${project.status ? ` (${project.status})` : ''}`);
@@ -93,14 +88,6 @@ function buildLlmsFullTxt(projects) {
     if (project.studioLink) lines.push(`Clevr Apps product page: ${project.studioLink}`);
     if (project.appStoreLink) lines.push(`App Store: ${project.appStoreLink}`);
     if (project.playStoreLink) lines.push(`Google Play: ${project.playStoreLink}`);
-    lines.push('');
-  }
-
-  lines.push('## Frequently Asked Questions');
-  lines.push('');
-  for (const faq of agent.faqs) {
-    lines.push(`Q: ${faq.question}`);
-    lines.push(`A: ${faq.answer}`);
     lines.push('');
   }
 

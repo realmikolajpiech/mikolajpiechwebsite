@@ -6,27 +6,108 @@ This file is a plain-text, citation-friendly summary of mikolajpiech.com for AI 
 
 Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Co-founder of Jedziemy, creator of Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.
 
-I design and build apps. Most of them live at Clevr Apps.
+I design and build apps. I run Clevr Apps and co-founded Jedziemy.
 Studio: https://clevrapps.com/
 
 I like taking an idea or a problem to something people actually use: the design, the code, the launch, and what happens after.
 I’m most interested in the business side: why people choose one product over another, and what makes them come back.
 Away from the screen I read a lot, train, and travel whenever I can :)
 
-## Stats
+## Project stories
 
-- 10+ projects delivered
-- 30k+ downloads
-- iOS · Android · Web
-- 1 product sold
+### Jedziemy: One platform for the office, instructors and students.
 
-## Services
+https://mikolajpiech.com/projects/jedziemy
 
-- Web apps: SaaS products, AI tools, dashboards, marketplaces, and custom platforms.
-- Mobile apps: Polished iOS and Android products, from the first screen to App Store and Google Play.
-- Websites: Product sites, landing pages, and company websites built to look sharp and convert.
+I co-founded Jedziemy with Marcel Chudyba. I work on product design and engineering across the office dashboard and the instructor and student app.
 
-## Projects
+Role: Co-founder · Product design & engineering
+Outcome: An ongoing project with Marcel Chudyba
+
+#### One school, several perspectives
+
+The office, an instructor and a student need different views of the same driving course. Jedziemy brings those views into one platform: an office dashboard alongside a mobile app. My work spans the interfaces and the engineering that connects them.
+
+#### Connect the course, not just the calendar
+
+Scheduling a lesson is connected to the hours a student has completed and the payments the school records. The product brings these jobs together, rather than treating each as a separate screen with unrelated information.
+
+#### Include the learning side
+
+The student app also includes a theory course, practice sessions and mock exams. The course path and answer feedback shown here are examples of that part of the design. Jedziemy remains an ongoing project, with product work continuing across the school’s administrative and learning workflows.
+
+### Solvee: Building the homework app I needed.
+
+https://mikolajpiech.com/projects/solvee
+
+I was a student. The tools I tried gave me ready-made answers; I wanted to understand how to get there. That became Solvee.
+
+Role: Founder · Product design & engineering
+Outcome: 25,000+ downloads · acquired in 2026
+
+#### Starting with my own problem
+
+When I needed help with homework, getting the final answer was only part of the problem. I wanted a tool that would explain the solution step by step, so I could follow the reasoning. I designed Solvee around that need.
+
+#### Begin with the exercise
+
+The starting point could be a photo or a typed exercise. The app classified the problem by subject and routed it to a suitable solution pipeline. A student could bring the exercise they already had, without first translating it into a carefully written prompt.
+
+#### Make the reasoning readable
+
+I built structured solution blocks with mathematical notation, rather than leaving every explanation as one long chat message. LaTeX rendering and interactive graphs supported the explanation where plain text was not enough. The work covered both generating the answer and presenting its steps clearly on a phone.
+
+#### Leave room for the next question
+
+A worked solution was followed by contextual questions and tools for generating practice exercises and quizzes. That kept the next step connected to the problem the student was working on. It followed the original motivation: help someone work through the subject, beyond displaying a final result.
+
+#### Where it ended up
+
+I took Solvee through product design, development, launch and iteration. It reached more than 25,000 downloads before being acquired in 2026. The project is now part of my past work; Clevr Apps no longer publishes or supports it.
+
+### Subby: I kept forgetting to cancel free trials.
+
+https://mikolajpiech.com/projects/subby
+
+I kept forgetting to cancel free trials and lost money on them. I also had no idea how much I paid for subscriptions in total. I built Subby for myself, and it helped a lot.
+
+Role: Founder · Product design & engineering
+Outcome: Published on iOS and Android
+
+#### Starting with forgotten trials
+
+Free trials I forgot to cancel kept turning into charges. On top of that, I could not see how much all my subscriptions cost together; the payments were scattered across the month. Calendar reminders and checking my bank account were not enough. I wanted one simple place that knew what I was subscribed to, what it added up to, and warned me before the next charge. Since then it has helped me a lot.
+
+#### Put the next charge first
+
+The overview opens with monthly spend, the trials that are about to end and the payments coming up next. Each subscription carries its next billing date, and Subby sends renewal and trial notifications before it arrives. The data stays on the phone, with separate profiles, currencies and preferences.
+
+#### Show what it adds up to
+
+The second problem was the total. Subby adds every subscription up per week, month and year, and splits the spending by category and billing cycle, so the cost is visible in one place instead of scattered across bank statements. I designed and built Subby end to end, from the product to its release on iOS and Android. It is published by Clevr Apps.
+
+### Twoja Sieć: Making local information easier to find.
+
+https://mikolajpiech.com/projects/twojasiec
+
+I designed and built Twoja Sieć around a selected area: local news, alerts and events brought together in one app.
+
+Role: Product designer & developer
+Outcome: No. 11 in Poland’s App Store · 28 Sep 2026
+
+#### Start with the area
+
+Local information is spread across websites and community groups. Twoja Sieć uses a selected area as the starting point, with location and radius-based personalization connecting the feed to the place a person cares about.
+
+#### Separate the jobs
+
+News, alerts and events share a location, but serve different needs. I gave them distinct views, with saved stories and event details available when someone needs to return to an item or act on it.
+
+#### Connect information to an action
+
+Calendar integration, map routes and native sharing connect the information to a practical next step. On 28 September 2026, Twoja Sieć reached No. 11 among the most downloaded apps in Poland’s App Store. That dated ranking is the project milestone recorded here.
+
+## Other project information
 
 ### Jedziemy (New)
 
@@ -96,7 +177,7 @@ Description: A website for cybersecurity workshops I co-organized for 12–14-ye
 Platform: Website
 Category: Cybersecurity
 Scope: Design & development
-Website: https://safelabs.pl/
+Website: https://safelabspage.vercel.app/
 
 ### UKS Dragon Mokrzyska
 
@@ -106,41 +187,6 @@ Platform: Website
 Category: Sports & Community
 Scope: Design & development
 Website: https://uksdragonmokrzyska.vercel.app/
-
-## Frequently Asked Questions
-
-Q: Who is Mikołaj Piech?
-A: Mikołaj Piech is the founder of Clevr Apps and a developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea and product design through development and launch.
-
-Q: How are Mikołaj Piech and Clevr Apps connected?
-A: Clevr Apps is the independent product studio founded and run by Mikołaj Piech. It publishes his consumer apps for iOS, Android, and the web, including Trailo, Subby, Doso, Solvee, and Twoja Sieć.
-
-Q: What apps has Mikołaj Piech built?
-A: Mikołaj Piech co-built Safe Labs with Oskar Minor and Kamil Zdebski (website for cybersecurity workshops), and created Trailo (AI travel planning), Subby (subscription manager), Doso (personal health app), and Solvee (AI homework helper, which he sold after 25K+ downloads). His products have reached more than 30K downloads overall and shipped on the web, App Store, and Google Play.
-
-Q: What is Jedziemy?
-A: Jedziemy (https://jedziemy.app) is a platform for Polish driving schools, co-founded by Mikołaj Piech and Marcel Chudyba. It combines an office dashboard with an instructor and student app for scheduling lessons, tracking hours and payments, and practising for the theory exam. It is a separate company, not a Clevr Apps product.
-
-Q: Who built the Safe Labs website?
-A: The Safe Labs website was designed and developed by Mikołaj Piech, Oskar Minor, and Kamil Zdebski for cybersecurity workshops they co-organized for 12–14-year-old primary school students. The workshops covered phishing, cyberbullying, password and privacy protection, and verifying information online.
-
-Q: Who created Subby?
-A: Subby, a subscription manager app for iOS and Android, was created by Mikołaj Piech. It helps users track trials and subscriptions to avoid unwanted charges.
-
-Q: Who created Solvee?
-A: Solvee, an AI homework helper app for iOS and Android, was created by Mikołaj Piech. It reached 25K+ downloads before being acquired in February 2026.
-
-Q: Who created Doso?
-A: Doso, a personal health app for iOS, was created by Mikołaj Piech. It helps users manage medications, lab results, and symptoms with AI-powered insights.
-
-Q: Who created Trailo?
-A: Trailo, an AI travel planning product for web, iOS, and Android, was created by Mikołaj Piech. It covers flights, hotels, tickets, and hour-by-hour itineraries.
-
-Q: Does Mikołaj Piech build products for clients?
-A: Yes. Mikołaj Piech works with founders and businesses to design and develop web apps, mobile apps, product websites, landing pages, and other digital products from idea to launch.
-
-Q: How can I contact Mikołaj Piech?
-A: Email hello@mikolajpiech.com, or find him on LinkedIn (linkedin.com/in/mikolajpiech), X (@mikolajpiech), GitHub (github.com/realmikolajpiech), or Instagram (@mikolajpiech).
 
 ## Contact
 

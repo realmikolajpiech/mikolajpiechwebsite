@@ -24,7 +24,7 @@ const lightboxImageStyles: Record<NonNullable<ProjectScreenshot['variant']>, str
 };
 
 const hoverSpring = { type: 'spring' as const, stiffness: 320, damping: 28, mass: 0.75 };
-const lightboxSlideTransition = { type: 'tween' as const, duration: 0.34, ease: [0.16, 1, 0.3, 1] };
+const lightboxSlideTransition = { type: 'tween' as const, duration: 0.34, ease: [0.16, 1, 0.3, 1] as const };
 const MOBILE_QUERY = '(max-width: 767px)';
 
 function getDesktopTrackWidth(element: HTMLElement) {

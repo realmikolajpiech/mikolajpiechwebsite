@@ -53,7 +53,7 @@ const dragonSignup = imageManifest['assets/dragon/dragon-signup.jpg'].src;
 export const SHOW_OMNI = false;
 export const SHOW_PLATOIC = false;
 export const SHOW_CHARMY_BOOKS = false;
-export const FEATURED_PROJECT_IDS = ['jedziemy', 'solvee', 'subby', 'twojasiec'];
+export const FEATURED_PROJECT_IDS = ['solvee', 'jedziemy', 'twojasiec'];
 const PORTFOLIO_ONLY_PROJECT_IDS = new Set(['dragon']);
 const PROJECT_ORDER = [
   'jedziemy',
@@ -144,7 +144,7 @@ function buildAllProjects(language: Language): Project[] {
     role: tr('Co-organizer · Design & development', 'Współorganizator · Projekt i wdrożenie'),
     scope: tr('Design & development', 'Projekt i wdrożenie'),
     operatingSystem: 'Web',
-    link: 'https://safelabs.pl/',
+    link: 'https://safelabspage.vercel.app/',
     linkText: site.projects.safelabs.link_text,
     icon: safeLabsLogo,
     image: safeLabsHome,
@@ -287,7 +287,7 @@ function buildAllProjects(language: Language): Project[] {
     technologies: [
       { label: tr('Mobile stack', 'Stack mobilny'), items: 'Expo, React Native, React, TypeScript, Expo Router' },
       { label: tr('Local-first data', 'Dane local-first'), items: tr('AsyncStorage-backed multi-profile subscription data, preferences, currencies, and notification state', 'Dane subskrypcji dla wielu profili, preferencje, waluty i stan powiadomień przechowywane lokalnie w AsyncStorage') },
-      { label: tr('Bank intelligence', 'Analiza bankowa'), items: tr('Enable Banking open-banking integration, Cloudflare Workers, recurring-payment detection, and xAI Grok with web search for merchant classification', 'Integracja open banking z Enable Banking, Cloudflare Workers, wykrywanie płatności cyklicznych oraz xAI Grok z wyszukiwaniem internetowym do klasyfikacji sprzedawców') },
+      { label: tr('Bank intelligence', 'Analiza bankowa'), items: tr('Enable Banking open-banking integration, Cloudflare Workers, and xAI Grok with web search for merchant classification', 'Integracja open banking z Enable Banking, Cloudflare Workers oraz xAI Grok z wyszukiwaniem internetowym do klasyfikacji sprzedawców') },
       { label: tr('Native experience', 'Funkcje natywne'), items: tr('Renewal and trial notifications, plus app quick actions', 'Powiadomienia o odnowieniach i okresach próbnych oraz szybkie akcje aplikacji') },
       { label: tr('Commerce & support', 'Płatności i zaplecze'), items: tr('RevenueCat subscriptions and entitlements, plus Supabase authentication and PostgreSQL for feedback and legacy account migration', 'Subskrypcje i uprawnienia RevenueCat oraz Supabase Auth i PostgreSQL do obsługi opinii i migracji starszych kont') },
     ],

@@ -28,7 +28,7 @@ export const SiteNav: React.FC<SiteNavProps> = ({ showPortfolioLink = true, pers
   const homePath = getLocalizedPath('home', language);
   const portfolioPath = getLocalizedPath('portfolio', language);
   const isHome = pathname === homePath;
-  const isPortfolio = pathname === portfolioPath;
+  const isPortfolio = pathname === portfolioPath || pathname.includes('/projects/');
 
   useEffect(() => setMenuOpen(false), [pathname, hash]);
 

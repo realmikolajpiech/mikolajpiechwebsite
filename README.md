@@ -7,7 +7,7 @@ Run `npm ci`, then `npm run dev`. The predev step generates responsive WebP imag
 
 **Build and verification**
 
-Run `npm run build`, `npx tsc --noEmit`, `npm run seo:check`, and `npm run performance:check`. The performance check guards the initial JavaScript budget, bundled font preloads, responsive preview sizes, and complete static rendering. The build generates responsive images, client and server bundles, synchronized AI guides, six indexable HTML documents, and two error documents. All visible portfolio data and project structured data come from `data/projects.ts` and the localized content files.
+Run `npm run build`, `npx tsc --noEmit`, `npm run seo:check`, and `npm run performance:check`. The performance check guards the initial JavaScript budget, bundled font preloads, responsive preview sizes, and complete static rendering. The build generates responsive images, client and server bundles, synchronized AI guides, twelve primary indexable HTML documents, and two error documents. Project information comes from `data/projects.ts`; the three bilingual stories live in `data/stories.ts`. Both use the existing responsive image manifest.
 
 Run `npm run preview -- --host 127.0.0.1 --port 4174`, then `npm run seo:check -- http://127.0.0.1:4174` to also check clean URLs, legacy redirects, and HTTP 404 responses. Preview models the static routing in `vercel.json`; the contact API still requires Vercel.
 
@@ -25,6 +25,6 @@ The homepage uses the existing portrait as its social and primary image. Other p
 
 **Pending copy and external work**
 
-`SEO-CONTENT-PROPOSAL.md` records the approved homepage copy, metadata, related-site credits, and Clevr Apps relationship. Existing Clevr Apps product pages are linked from the portfolio; future personal case studies should contain unique material rather than duplicate product copy.
+`SEO-CONTENT-PROPOSAL.md` records the approved homepage copy, metadata, related-site credits, and Clevr Apps relationship. The current direction is recorded in `CONTENT.md`. `/portfolio` is a story index and compact list of other work; `/projects/solvee`, `/projects/jedziemy` and `/projects/twojasiec` (plus `/pl/projects/...`) are personal stories. Product information and download choices remain on Clevr Apps or the product’s own website. Existing `/portfolio#project` anchors remain available.
 
 After deployment, verify the homepage and `/pl` in Google Search Console, inspect Google's selected canonical and last crawl, submit `/sitemap.xml`, and request recrawling of changed pages. Save branded-query performance before comparing subsequent weeks. Check verified search-crawler requests in hosting logs. These account checks and related-site credits have not been performed by this repository change.

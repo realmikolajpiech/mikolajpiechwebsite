@@ -1,12 +1,15 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  href?: string;
+interface ButtonOptions {
   variant?: 'primary' | 'secondary' | 'outline';
   children: React.ReactNode;
   external?: boolean;
 }
+type ButtonProps = ButtonOptions & (
+  (React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: never }) |
+  (React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string })
+);
 
 export const Button: React.FC<ButtonProps> = ({ href, variant = 'primary', children, external = false, className = '', ...props }) => {
   const baseStyles = "experience-button inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-300 ease-out rounded-full group";
@@ -57,7 +60,7 @@ export const Button: React.FC<ButtonProps> = ({ href, variant = 'primary', child
   }
 
   return (
-    <button className={`${baseStyles} ${variants[variant]} ${className}`} {...props}>
+    <button className={`${baseStyles} ${variants[variant]} ${className}`} {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
       {content}
     </button>
   );

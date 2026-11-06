@@ -10,6 +10,12 @@ const pages = [
   ['/portfolio', 'portfolio.html', 'en'], ['/pl/portfolio', 'pl/portfolio.html', 'pl'],
   ['/privacy-policy', 'privacy-policy.html', 'en'], ['/pl/polityka-prywatnosci', 'pl/polityka-prywatnosci.html', 'pl'],
 ];
+for (const language of ['en', 'pl']) {
+  for (const id of ['solvee', 'jedziemy', 'twojasiec']) {
+    const prefix = language === 'pl' ? '/pl' : '';
+    pages.push([`${prefix}/projects/${id}`, `${prefix ? 'pl/' : ''}projects/${id}.html`, language]);
+  }
+}
 const read = (file) => readFile(resolve(root, 'dist', file), 'utf8');
 const schema = (html) => JSON.parse(html.match(/<script id="page-schema" type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
 
@@ -34,7 +40,7 @@ for (const [route, file, language] of pages) {
   assert.equal(clevrApps.founder['@id'], `${base}/#person`);
   assert.ok(!graph.some((item) => item['@type'] === 'FAQPage'));
   if (route.endsWith('portfolio')) {
-    const items = graph.find((item) => item['@type'] === 'ItemList').itemListElement;
+    const items = graph.find((item) => item['@id'] === `${base}${route}#projects`).itemListElement;
     assert.equal(items.length, 8);
     const jedziemy = items.find(({ item }) => item.name === 'Jedziemy').item;
     assert.ok(!jedziemy.publisher, `${route}: Jedziemy is not a Clevr Apps product`);
@@ -46,11 +52,26 @@ for (const [route, file, language] of pages) {
     const clevrProjects = items.filter(({ item }) => item.publisher?.['@id'] === 'https://clevrapps.com/#organization');
     assert.deepEqual(clevrProjects.map(({ item }) => item.name), ['Solvee', 'Trailo', 'Doso', 'Subby', 'Twoja Sieć']);
     assert.ok(clevrProjects.every(({ item }) => item.sameAs.some((url) => url.startsWith('https://clevrapps.com/'))));
-    const technologySections = [...html.matchAll(/<section\b[^>]*aria-labelledby="[^"]+-technologies"[^>]*>([\s\S]*?)<\/section>/g)];
-    assert.equal(technologySections.length, 7, `${route}: technology sections exist without JS`);
-    assert.ok(technologySections.every(([, content]) => /<dd\b[^>]*>[^<]+<\/dd>/.test(content)), `${route}: each technology section contains rendered text`);
-    assert.ok(!html.includes('<details'), `${route}: project details are visible without expanding a control`);
-    assert.ok(html.includes('Supabase PostgreSQL'));
+    const stories = graph.find((item) => item['@id'] === `${base}${route}#stories`).itemListElement;
+    const storyIds = route.endsWith('portfolio') ? ['jedziemy', 'solvee', 'subby', 'twojasiec'] : ['jedziemy', 'solvee', 'subby'];
+    assert.equal(stories.length, storyIds.length, `${route}: ${storyIds.length} selected stories`);
+    assert.ok(stories.every(({ item }) => item['@type'] === 'Article' && item.url.includes('/projects/')));
+    assert.ok(!html.includes('class="product-actions"'), `${route}: not a download directory`);
+    for (const id of storyIds) assert.ok(html.includes(`href="${language === 'pl' ? '/pl' : ''}/projects/${id}"`));
+
+  }
+  if (route.includes('/projects/')) {
+    const article = graph.find(item => item['@type'] === 'Article');
+    assert.equal(article.url, `${base}${route}`);
+    assert.equal(article.author['@id'], `${base}/#person`);
+    assert.ok(html.includes('class="story-body"'));
+    const opposite = route.startsWith('/pl/') ? route.slice(3) : `/pl${route}`;
+    assert.ok(html.includes(`href="${base}${opposite}"`), `${route}: translated story alternate`);
+    if (route.endsWith('/solvee')) {
+      assert.ok(html.includes(language === 'pl' ? 'Byłem uczniem' : 'I was a student'));
+      assert.ok(html.includes('25,000') || html.includes('25 tys.'));
+      assert.ok(!/<a[^>]*href="https:\/\/(?:apps\.apple\.com|play\.google\.com)/.test(html), `${route}: acquired app has no download offer`);
+    }
   }
   if (route === '/' || route === '/pl') {
     const preloads = html.match(/<link rel="preload" as="image"[^>]*>/g) ?? [];

@@ -3,7 +3,8 @@ import site from '../content/site.json';
 import { getFeaturedProjects, getPortfolioProjects } from '../data/projects';
 import type { Language, Project } from '../types';
 import type { PageKey } from './seo';
-import { getLocalizedPath } from './localizedRoutes';
+import { getLocalizedPath, getStoryPath, STORY_IDS, type StoryId } from './localizedRoutes';
+import { getHomeStories, getStories } from '../data/stories';
 
 const base = site.seo.site_url;
 const personId = `${base}/#person`;
@@ -30,7 +31,7 @@ function projectSchema(project: Project, language: Language) {
     name: project.name,
     description: project.description,
     url: urls[0] ?? `${portfolio}#${project.id}`,
-    mainEntityOfPage: `${portfolio}#${project.id}`,
+    mainEntityOfPage: STORY_IDS.includes(project.id as StoryId) ? `${base}${getStoryPath(project.id as StoryId, language)}` : `${portfolio}#${project.id}`,
     author: authors,
     ...(clevrProjectIds.has(project.id) ? { publisher: { '@id': clevrAppsId } } : {}),
     ...(project.image ? { image: `${base}${project.image}` } : {}),
@@ -58,7 +59,7 @@ export function buildStructuredData(page: PageKey, content: typeof site, languag
       ...(page === 'home' ? {
         mainEntity: { '@id': personId }, primaryImageOfPage: { '@id': `${base}/#portrait` },
       } : {}),
-      ...(page === 'portfolio' ? { mainEntity: { '@id': `${canonical}#projects` } } : {}),
+      ...(page === 'portfolio' ? { mainEntity: { '@id': `${canonical}#stories` } } : {}),
     },
     {
       '@type': 'Person', '@id': personId, name: content.seo.site_name, alternateName: 'Mikolaj Piech',
@@ -82,6 +83,12 @@ export function buildStructuredData(page: PageKey, content: typeof site, languag
     },
   ];
   if (page === 'home' || page === 'portfolio') {
+    graph.push({
+      '@type': 'ItemList', '@id': `${canonical}#stories`, name: language === 'pl' ? 'Historie projektów' : 'Project stories',
+      itemListElement: (page === 'home' ? getHomeStories(language) : getStories(language)).map((story, index) => ({ '@type': 'ListItem', position: index + 1,
+        item: { '@type': 'Article', headline: story.title, url: `${base}${story.path}`, author: { '@id': personId }, inLanguage: language },
+      })),
+    });
     graph.push({
       '@type': 'ItemList', '@id': `${canonical}#projects`,
       name: content.projects.title,

@@ -18,8 +18,8 @@
       "@type": "WebPage",
       "@id": "https://mikolajpiech.com/portfolio#webpage",
       "url": "https://mikolajpiech.com/portfolio",
-      "name": "Portfolio | Apps by Mikołaj Piech",
-      "description": "Selected web apps, mobile apps, websites, and digital products designed, built, and shipped by Mikołaj Piech.",
+      "name": "Projects and their stories | Mikołaj Piech",
+      "description": "Selected project stories by Mikołaj Piech: Solvee, Jedziemy and Twoja Sieć. My role, product decisions and outcomes.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://mikolajpiech.com/#website"
@@ -28,7 +28,7 @@
         "@id": "https://mikolajpiech.com/#person"
       },
       "mainEntity": {
-        "@id": "https://mikolajpiech.com/portfolio#projects"
+        "@id": "https://mikolajpiech.com/portfolio#stories"
       }
     },
     {
@@ -76,6 +76,65 @@
     },
     {
       "@type": "ItemList",
+      "@id": "https://mikolajpiech.com/portfolio#stories",
+      "name": "Project stories",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Article",
+            "headline": "One platform for the office, instructors and students.",
+            "url": "https://mikolajpiech.com/projects/jedziemy",
+            "author": {
+              "@id": "https://mikolajpiech.com/#person"
+            },
+            "inLanguage": "en"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Article",
+            "headline": "Building the homework app I needed.",
+            "url": "https://mikolajpiech.com/projects/solvee",
+            "author": {
+              "@id": "https://mikolajpiech.com/#person"
+            },
+            "inLanguage": "en"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Article",
+            "headline": "I kept forgetting to cancel free trials.",
+            "url": "https://mikolajpiech.com/projects/subby",
+            "author": {
+              "@id": "https://mikolajpiech.com/#person"
+            },
+            "inLanguage": "en"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Article",
+            "headline": "Making local information easier to find.",
+            "url": "https://mikolajpiech.com/projects/twojasiec",
+            "author": {
+              "@id": "https://mikolajpiech.com/#person"
+            },
+            "inLanguage": "en"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
       "@id": "https://mikolajpiech.com/portfolio#projects",
       "name": "Selected work",
       "itemListElement": [
@@ -88,7 +147,7 @@
             "name": "Jedziemy",
             "description": "Jedziemy brings a driving school's office dashboard and its instructor and student app together. Lessons, hours, payments, and theory practice with mock exams are in one place, so fewer things need a phone call.",
             "url": "https://jedziemy.app",
-            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#jedziemy",
+            "mainEntityOfPage": "https://mikolajpiech.com/projects/jedziemy",
             "author": [
               {
                 "@id": "https://mikolajpiech.com/#person"
@@ -115,7 +174,7 @@
             "name": "Solvee",
             "description": "Built, launched, and grew an AI homework app to 25K+ downloads before selling it. Students could photograph any problem and get a detailed, step-by-step explanation.",
             "url": "https://clevrapps.com/apps/solvee/",
-            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#solvee",
+            "mainEntityOfPage": "https://mikolajpiech.com/projects/solvee",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
@@ -190,7 +249,7 @@
             "name": "Subby",
             "description": "Never pay for an unwanted subscription again. Track trials, manage expenses, and save money effortlessly.",
             "url": "https://clevrapps.com/apps/subby/",
-            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#subby",
+            "mainEntityOfPage": "https://mikolajpiech.com/projects/subby",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
@@ -215,7 +274,7 @@
             "name": "Twoja Sieć",
             "description": "A mobile app that brings news, alerts, and events from a selected area into one organized place. Users can personalize their local feed by topic, save stories, and add events to their calendar without browsing multiple websites and scattered community groups.",
             "url": "https://clevrapps.com/twojasiec",
-            "mainEntityOfPage": "https://mikolajpiech.com/portfolio#twojasiec",
+            "mainEntityOfPage": "https://mikolajpiech.com/projects/twojasiec",
             "author": {
               "@id": "https://mikolajpiech.com/#person"
             },
@@ -237,7 +296,7 @@
             "@id": "https://mikolajpiech.com/#project-safelabs",
             "name": "Safe Labs",
             "description": "A website for cybersecurity workshops I co-organized for 12–14-year-old primary school students. The sessions covered phishing and cyberbullying, protecting passwords and privacy, and verifying information online.",
-            "url": "https://safelabs.pl/",
+            "url": "https://safelabspage.vercel.app/",
             "mainEntityOfPage": "https://mikolajpiech.com/portfolio#safelabs",
             "author": [
               {
@@ -256,7 +315,7 @@
             ],
             "image": "https://mikolajpiech.com/images/safelabs/safelabs-home-1272.webp",
             "sameAs": [
-              "https://safelabs.pl/"
+              "https://safelabspage.vercel.app/"
             ]
           }
         },

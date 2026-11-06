@@ -11,6 +11,7 @@ import { clearLanguageScroll, getLanguageScroll } from './utils/languageScroll';
 // Prerendering supplies eager components so every static document stays complete.
 const clientPages = {
   Portfolio: lazy(() => import('./pages/Portfolio')),
+  ProjectStory: lazy(() => import('./pages/ProjectStory')),
   PrivacyPolicy: lazy(() => import('./pages/PrivacyPolicy')),
   DosoPrivacy: lazy(() => import('./pages/DosoPrivacy')),
   DosoSupport: lazy(() => import('./pages/DosoSupport')),
@@ -38,8 +39,6 @@ function ScrollToTop() {
         cancelAnimationFrame(secondFrame);
       };
     }
-    // Portfolio anchors use its own offset for the project navigation.
-    if (hash && pathname.endsWith('/portfolio')) return;
     if (hash) {
       const frame = requestAnimationFrame(() => {
         document.getElementById(hash.slice(1))?.scrollIntoView({
@@ -59,7 +58,7 @@ function ScrollToTop() {
 }
 
 export function AppRoutes({ pages = clientPages }: { pages?: Pages } = {}) {
-  const { Portfolio, PrivacyPolicy, DosoPrivacy, DosoSupport, NotFound } = pages;
+  const { Portfolio, ProjectStory, PrivacyPolicy, DosoPrivacy, DosoSupport, NotFound } = pages;
   return (
     <LanguageProvider>
       <Analytics />
@@ -69,11 +68,13 @@ export function AppRoutes({ pages = clientPages }: { pages?: Pages } = {}) {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/projects/:slug" element={<ProjectStory />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/doso/privacy" element={<DosoPrivacy />} />
         <Route path="/doso/support" element={<DosoSupport />} />
         <Route path="/pl" element={<Home />} />
         <Route path="/pl/portfolio" element={<Portfolio />} />
+        <Route path="/pl/projects/:slug" element={<ProjectStory />} />
         <Route path="/pl/polityka-prywatnosci" element={<PrivacyPolicy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

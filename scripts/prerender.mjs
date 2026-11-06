@@ -15,7 +15,7 @@ const [template, siteEnRaw, sitePlRaw] = await Promise.all([
 const siteEn = JSON.parse(siteEnRaw);
 const sitePl = JSON.parse(sitePlRaw);
 const serverEntry = pathToFileURL(resolve(ROOT, 'dist-ssr/entry-server.js')).href;
-const { render, getPageMeta } = await import(serverEntry);
+const { render, getPageMeta, getStoryMeta } = await import(serverEntry);
 const portraitManifest = JSON.parse(await readFile(resolve(ROOT, 'data/image-manifest.json'), 'utf8'))['public/mikolaj-profile.jpg'];
 const portraitBytes = await readFile(resolve(DIST, `.${portraitManifest.src}`));
 const inlinePortrait = `data:image/webp;base64,${portraitBytes.toString('base64')}`;
@@ -43,6 +43,11 @@ const routes = [
   { page: 'home', language: 'pl', url: '/pl', output: 'pl.html' },
   { page: 'portfolio', language: 'pl', url: '/pl/portfolio', output: 'pl/portfolio.html' },
   { page: 'privacy', language: 'pl', url: '/pl/polityka-prywatnosci', output: 'pl/polityka-prywatnosci.html' },
+  ...['en', 'pl'].flatMap(language => ['jedziemy', 'solvee', 'subby', 'twojasiec'].map(story => ({
+    page: 'story', story, language,
+    url: `${language === 'pl' ? '/pl' : ''}/projects/${story}`,
+    output: `${language === 'pl' ? 'pl/' : ''}projects/${story}.html`,
+  }))),
 ];
 
 function escapeHtml(value) {
@@ -61,7 +66,7 @@ function replaceNamedMeta(html, attribute, key, value) {
 }
 
 function updateHead(html, route, site) {
-  const generatedMeta = getPageMeta(route.page, site, route.language);
+  const generatedMeta = route.story ? getStoryMeta(route.story, site, route.language) : getPageMeta(route.page, site, route.language);
   const meta = {
     ...generatedMeta,
     title: route.title ?? generatedMeta.title,
@@ -138,3 +143,12 @@ for (const route of routes) {
 }
 
 console.log(`Prerendered ${routes.length} localized pages.`);
+
+const indexable = routes.filter(route => route.page !== 'not_found' && !route.url.startsWith('/doso/'));
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${indexable.map(route => {
+  const site = route.language === 'pl' ? sitePl : siteEn;
+  const meta = route.story ? getStoryMeta(route.story, site, route.language) : getPageMeta(route.page, site, route.language);
+  return `  <url><loc>${SITE_URL}${route.url}</loc>${Object.entries({ ...meta.alternatePaths, 'x-default': meta.alternatePaths.en }).map(([lang, path]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${SITE_URL}${path}" />`).join('')}</url>`;
+}).join('\n')}\n</urlset>\n`;
+await writeFile(resolve(ROOT, 'public/sitemap.xml'), sitemap);
+await writeFile(resolve(DIST, 'sitemap.xml'), sitemap);

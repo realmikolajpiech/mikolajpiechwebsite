@@ -68,7 +68,7 @@
   "hero": {
     "headline_line1": "Mikołaj Piech",
     "headline_line2": "",
-    "intro": "Projektuję i tworzę aplikacje. Większość z nich znajdziesz w Clevr Apps.",
+    "intro": "Projektuję i tworzę aplikacje. Prowadzę Clevr Apps i współtworzę Jedziemy.",
     "link_descriptions": {
       "Trailo": "Planowanie podróży z pomocą AI.",
       "Subby": "Śledzenie subskrypcji i nadchodzących opłat.",
@@ -84,17 +84,17 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Mikołaj Piech projektuje i tworzy aplikacje. Większość z nich znajdziesz w Clevr Apps. Kilka jego projektów i trochę o nim.",
+    "meta_description": "Mikołaj Piech — twórca aplikacji i założyciel Clevr Apps. Autor Subby, Trailo i Doso. Poznaj historie moich projektów i stojące za nimi decyzje.",
     "person_description": "Założyciel Clevr Apps i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Współzałożyciel Jedziemy, twórca Trailo, Twoja Sieć, Subby, Doso i Solvee oraz współtwórca Safe Labs.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech",
-        "description": "Mikołaj Piech projektuje i tworzy aplikacje. Większość z nich znajdziesz w Clevr Apps. Kilka jego projektów i trochę o nim.",
-        "social_description": "Mikołaj Piech projektuje i tworzy aplikacje. Większość z nich znajdziesz w Clevr Apps. Kilka jego projektów i trochę o nim."
+        "description": "Mikołaj Piech — twórca aplikacji i założyciel Clevr Apps. Autor Subby, Trailo i Doso. Poznaj historie moich projektów i stojące za nimi decyzje.",
+        "social_description": "Mikołaj Piech — twórca aplikacji i założyciel Clevr Apps. Autor Subby, Trailo i Doso. Poznaj historie moich projektów i stojące za nimi decyzje."
       },
       "portfolio": {
-        "title": "Portfolio – projekty Mikołaja Piecha",
-        "description": "Wybrane aplikacje internetowe, mobilne, strony internetowe i produkty cyfrowe zaprojektowane, stworzone i wdrożone przez Mikołaja Piecha."
+        "title": "Projekty i ich historie | Mikołaj Piech",
+        "description": "Wybrane historie projektów Mikołaja Piecha: Solvee, Jedziemy i Twoja Sieć. Rola, decyzje produktowe i rezultaty."
       },
       "privacy": {
         "title": "Polityka prywatności – Mikołaj Piech",
@@ -107,7 +107,7 @@
     }
   },
   "portfolio": {
-    "title": "Portfolio",
+    "title": "Projekty",
     "headline": "Produkty, które stworzyłem",
     "headline_accent": "i wdrożyłem.",
     "subtitle": "Aplikacje internetowe, mobilne i strony internetowe – od pomysłu i projektu, przez development, aż po wdrożenie i dalszy rozwój.",
@@ -345,11 +345,11 @@
   },
   "personal": {
     "skip": "Przejdź do treści",
-    "work_link": "Moje projekty",
+    "work_link": "Poznaj moje projekty",
     "work_intro": "Kilka rzeczy, które stworzyłem.",
-    "more_projects": "Zobacz resztę projektów",
+    "more_projects": "Wszystkie projekty",
     "project_link": "Poznaj projekt",
-    "studio_note": "Pobieranie, wsparcie i wszystkie moje aplikacje znajdziesz na stronie",
+    "studio_note": "Aplikacje i pobieranie:",
     "about_title": "O mnie",
     "nav_about": "O mnie",
     "nav_work": "Projekty",
