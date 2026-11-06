@@ -1,6 +1,24 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "dev", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 3000 }
+    {
+      "name": "dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "port": 3000
+    },
+    {
+      "name": "clevrapps",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "/private/tmp/claude-501/-Users-mikolaj-Desktop-MobileApps-personalwebsite/f26438be-db4a-4b19-aaa9-de3f38b73891/scratchpad/static-server.mjs",
+        "/Users/mikolaj/Desktop/MobileApps/clevrapps",
+        "8000"
+      ],
+      "port": 8000
+    }
   ]
 }
