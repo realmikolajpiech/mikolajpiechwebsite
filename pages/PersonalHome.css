@@ -166,13 +166,13 @@
  .personal-mobile-menu-links a[aria-current='page'], .personal-mobile-menu-links a:hover { color: var(--personal-ink); background: rgb(120 113 108 / .09); }
  .personal-mobile-menu-links svg { color: var(--personal-muted); transition: transform 200ms; }
  .personal-mobile-menu-links a:hover svg { transform: translate(2px, -2px); }
- .personal-hero { grid-template-columns: 1fr; gap: 32px; padding: 35px 0 56px; }
+ .personal-hero { grid-template-columns: 1fr; gap: 26px; padding: 32px 0 56px; }
  .personal-intro h1 { font-size: clamp(42px, 17cqw, 96px); line-height: 1.05; letter-spacing: -2px; }
  .personal-intro h1 span { display: inline; }
  .personal-intro > p { font-size: 17px; margin-top: 22px; max-width: 32ch; }
  .personal-intro-links { margin-top: 15px; gap: 24px; }
- .personal-portrait { aspect-ratio: 5/4; border-radius: 20px; }
- .personal-portrait img { object-position: center 42%; }
+ .personal-portrait { order: -1; width: 88px; aspect-ratio: 1; border-radius: 24px; }
+ .personal-portrait img { object-position: center 30%; }
  .personal-home h2 { font-size: 36px; }
  .personal-section-heading { align-items: start; flex-direction: column; gap: 15px; margin-bottom: 24px; }
  .personal-section-heading p { font-size: 13px; }
@@ -369,7 +369,6 @@
  .story-row-title { margin-top: 12px; font-size: 17px; }
  .story-row-fact { font-size: 14px; }
  .story-row .story-read { margin-top: 8px; }
- .personal-portrait { width: min(62vw,260px); }
  .stories-index-header { padding: 30px 0 35px; }
  .other-work { margin: 80px 0 40px; }
  .other-work li a { grid-template-columns: minmax(0,1fr) auto; gap: 4px 14px; padding: 14px 16px; }

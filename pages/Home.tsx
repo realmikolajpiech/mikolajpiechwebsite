@@ -57,7 +57,7 @@ export default function Home() {
             <SocialLinks label={copy.social_label} hero />
           </div>
           <div className="personal-portrait">
-            <ResponsiveImage src={imageManifest['public/mikolaj-profile.jpg'].src} sizes="(max-width: 767px) calc(100vw - 40px), 416px" loading="eager" decoding="sync" fetchPriority="high" alt="Mikołaj Piech" />
+            <ResponsiveImage src={imageManifest['public/mikolaj-profile.jpg'].src} sizes="(max-width: 767px) 88px, 416px" loading="eager" decoding="sync" fetchPriority="high" alt="Mikołaj Piech" />
           </div>
         </section>
 
