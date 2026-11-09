@@ -48,10 +48,8 @@ function ScrollToTop() {
       });
       return () => cancelAnimationFrame(frame);
     }
-    window.scrollTo({
-      top: 0,
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-    });
+    // A new page starts at the top at once; the page transition supplies the motion.
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [pathname, hash, languageScrollY]);
 
   return null;

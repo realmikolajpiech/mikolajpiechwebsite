@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { TransitionLink } from '../components/TransitionLink';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { SiteNav } from '../components/SiteNav';
 import { PageMeta } from '../components/PageMeta';
@@ -25,6 +26,18 @@ function Evidence({ story, items, flip }: { story: Story; items: Story['evidence
   </figure>;
 }
 
+/** The next-story card becomes the following page's cover, but only during its own transition. */
+function NextStory({ next, pl, language }: { next: Story; pl: boolean; language: 'en' | 'pl' }) {
+  return <TransitionLink className="story-next" to={next.path} data-story={next.id} transitionName={`story-${next.id}`}>
+    <div className="story-next-copy">
+      <span className="story-next-label">{pl ? 'Następny projekt' : 'Next project'}: <strong>{next.project.name}</strong></span>
+      <span className="story-next-title">{next.title}</span>
+      <span className="story-read">{readLabel(next, language)}<ArrowRight size={16} aria-hidden="true" /></span>
+    </div>
+    <div className="story-next-visual" aria-hidden="true"><StoryPhones story={next} sizes="(max-width: 767px) 30vw, 140px" /></div>
+  </TransitionLink>;
+}
+
 export default function ProjectStory() {
   const { slug = '' } = useParams();
   const { language, site } = useLanguage();
@@ -39,7 +52,7 @@ export default function ProjectStory() {
     <PageMeta {...getStoryMeta(story.id, site, language)} />
     <a href="#main" className="personal-skip">{site.personal.skip}</a><SiteNav />
     <main id="main" className="personal-container">
-      <Link className="story-back" to={getLocalizedPath('portfolio', language)}><ArrowLeft size={15} aria-hidden="true" />{pl ? 'Wszystkie projekty' : 'All projects'}</Link>
+      <TransitionLink className="story-back" to={getLocalizedPath('portfolio', language)}><ArrowLeft size={15} aria-hidden="true" />{pl ? 'Wszystkie projekty' : 'All projects'}</TransitionLink>
 
       <header className="story-header">
         <h1>{story.title}</h1>
@@ -71,14 +84,7 @@ export default function ProjectStory() {
         <a className="story-action" href={story.action.href} target="_blank" rel="noopener">{story.action.label}<ArrowUpRight size={16} aria-hidden="true" /></a>
       </div>
 
-      <Link className="story-next" to={next.path} data-story={next.id}>
-        <div className="story-next-copy">
-          <span className="story-next-label">{pl ? 'Następny projekt' : 'Next project'}: <strong>{next.project.name}</strong></span>
-          <span className="story-next-title">{next.title}</span>
-          <span className="story-read">{readLabel(next, language)}<ArrowRight size={16} aria-hidden="true" /></span>
-        </div>
-        <div className="story-next-visual" aria-hidden="true"><StoryPhones story={next} sizes="(max-width: 767px) 30vw, 140px" /></div>
-      </Link>
+      <NextStory key={next.id} next={next} pl={pl} language={language} />
     </main>
     <footer className="personal-footer personal-container"><Link to={`${getLocalizedPath('home', language)}#contact`}>{pl ? 'Kontakt' : 'Say hello'}</Link><Link to={getLocalizedPath('privacy', language)}>{site.common.privacy_policy}</Link></footer>
   </div>;

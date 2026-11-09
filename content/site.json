@@ -84,13 +84,13 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Mikołaj Piech — app developer and founder of Clevr Apps. Creator of Subby, Trailo and Doso. Read the stories and decisions behind my projects.",
+    "meta_description": "Mikołaj Piech designs and builds apps. Founder of Clevr Apps, co-founder of Jedziemy, and creator of Solvee: 25,000+ downloads, acquired in 2026.",
     "person_description": "Founder of Clevr Apps and developer from Poland who designs, builds, and ships web apps, mobile apps, websites, and consumer software from idea to launch. Co-founder of Jedziemy, creator of Trailo, Twoja Sieć, Subby, Doso, and Solvee, and co-creator of Safe Labs.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech",
-        "description": "Mikołaj Piech — app developer and founder of Clevr Apps. Creator of Subby, Trailo and Doso. Read the stories and decisions behind my projects.",
-        "social_description": "Mikołaj Piech — app developer and founder of Clevr Apps. Creator of Subby, Trailo and Doso. Read the stories and decisions behind my projects."
+        "description": "Mikołaj Piech designs and builds apps. Founder of Clevr Apps, co-founder of Jedziemy, and creator of Solvee: 25,000+ downloads, acquired in 2026.",
+        "social_description": "Mikołaj Piech designs and builds apps. Founder of Clevr Apps, co-founder of Jedziemy, and creator of Solvee: 25,000+ downloads, acquired in 2026."
       },
       "portfolio": {
         "title": "Projects and their stories | Mikołaj Piech",
@@ -344,6 +344,7 @@
     "authority_label": "Polish data protection authority (UODO)"
   },
   "personal": {
+    "proof_label": "downloads · acquired in 2026",
     "skip": "Skip to content",
     "work_link": "Explore my work",
     "work_intro": "A few things I’ve made.",

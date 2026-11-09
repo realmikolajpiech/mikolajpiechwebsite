@@ -119,9 +119,17 @@ for (const route of routes) {
       : tag);
     // Native lazy loading can fetch several screens of previews during startup.
     // Defer preview sources until the small homepage client observes them nearby.
-    markup = markup.replace(/(<div\b[^>]*class="personal-project-preview[^\"]*"[^>]*>)([\s\S]*?)(<\/div>)/g, (all, start, images, end) => {
-      if (images.includes('<div')) return all;
+    markup = markup.replace(/(<span\b[^>]*class="story-field-shot[^\"]*"[^>]*>)([\s\S]*?)(<\/span>)/g, (all, start, images, end) => {
+      if (images.includes('<span')) return all;
       const deferred = images.replace(/<img\b[^>]*>/g, (tag) => tag
+        // The 1×1 placeholder would otherwise give the phone-shaped skeleton a square ratio.
+        .replace(/<img\b/, (open) => {
+          const width = tag.match(/\swidth="(\d+)"/)?.[1];
+          const height = tag.match(/\sheight="(\d+)"/)?.[1];
+          return width && height ? `${open} style="aspect-ratio:${width}/${height}"` : open;
+        })
+        .replace(/\sloading="lazy"/, '')
+        .replace(/\sfetchpriority="(?:high|low)"/i, '')
         .replace(/\ssrc="([^"]+)"/, ' data-deferred-src="$1" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"')
         .replace(/\ssrcset=/gi, ' data-deferred-srcset=')
         .replace(/\ssizes=/gi, ' data-deferred-sizes='));

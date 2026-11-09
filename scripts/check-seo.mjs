@@ -77,7 +77,7 @@ for (const [route, file, language] of pages) {
     const preloads = html.match(/<link rel="preload" as="image"[^>]*>/g) ?? [];
     assert.equal(preloads.length, 0, `${route}: inline portrait needs no image preload`);
     assert.equal((html.match(/<img\b[^>]*src="data:image\/webp;base64,/g) ?? []).length, 1, `${route}: one inline portrait`);
-    assert.ok(html.includes('property="og:image" content="https://mikolajpiech.com/mikolaj-profile.jpg"'));
+    assert.ok(html.includes('property="og:image" content="https://mikolajpiech.com/og-image.jpg"'));
     assert.ok(html.includes('href="mailto:hello@mikolajpiech.com"'), 'Email works without JS');
     assert.ok(html.includes('href="https://clevrapps.com/"'), `${route}: studio link`);
     assert.ok(html.includes(language === 'pl' ? 'Projektuję i tworzę aplikacje' : 'I design and build apps'), `${route}: clear homepage intro`);

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG image</title>
+<style>
+  @font-face { font-family: 'Instrument Serif'; src: url('/fonts/instrument-serif-normal.woff2') format('woff2'); font-style: normal; }
+  @font-face { font-family: 'Instrument Serif'; src: url('/fonts/instrument-serif-italic.woff2') format('woff2'); font-style: italic; }
+  @font-face { font-family: 'Manrope'; src: url('/fonts/manrope-latin-ext.woff2') format('woff2'); font-weight: 200 800; unicode-range: U+0100-024F; }
+  @font-face { font-family: 'Manrope'; src: url('/fonts/manrope-latin.woff2') format('woff2'); font-weight: 200 800; }
+  body { margin: 0; background: #111; color: #eee; font: 14px system-ui; }
+  canvas { display: block; max-width: 100%; height: auto; }
+  p { margin: 12px; }
+</style>
+</head>
+<body>
+<canvas id="og" width="1200" height="630"></canvas>
+<p id="status">Rendering…</p>
+<script type="module">
+// Rendered in a browser so the card uses the site's own fonts; the generator saves it as JPEG.
+const W = 1200, H = 630;
+const canvas = document.getElementById('og');
+const ctx = canvas.getContext('2d');
+const load = (src) => new Promise((resolve, reject) => { const image = new Image(); image.onload = () => resolve(image); image.onerror = reject; image.src = src; });
+
+await Promise.all([
+  document.fonts.load('400 120px "Instrument Serif"'),
+  document.fonts.load('italic 400 120px "Instrument Serif"'),
+  document.fonts.load('400 30px Manrope'),
+  document.fonts.load('600 30px Manrope'),
+]);
+const [portrait, icon] = await Promise.all([load('/portrait'), load('/solvee-icon')]);
+
+const roundRect = (x, y, w, h, r) => { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); };
+
+ctx.fillStyle = '#1c1917';
+ctx.fillRect(0, 0, W, H);
+const glow = ctx.createRadialGradient(900, 300, 40, 900, 300, 520);
+glow.addColorStop(0, 'rgba(164,155,142,0.12)');
+glow.addColorStop(1, 'rgba(28,25,23,0)');
+ctx.fillStyle = glow;
+ctx.fillRect(0, 0, W, H);
+
+// Portrait
+const size = 400, px = W - 80 - size, py = (H - size) / 2;
+ctx.save();
+roundRect(px, py, size, size, 44);
+ctx.clip();
+const crop = Math.min(portrait.width, portrait.height);
+ctx.drawImage(portrait, (portrait.width - crop) / 2, (portrait.height - crop) / 2, crop, crop, px, py, size, size);
+ctx.restore();
+
+// Name
+const x = 80;
+ctx.textBaseline = 'alphabetic';
+ctx.fillStyle = '#f5f2eb';
+ctx.font = '400 124px "Instrument Serif"';
+ctx.letterSpacing = '-3px';
+ctx.fillText('Mikołaj', x, 236);
+ctx.fillStyle = '#a49b8e';
+ctx.font = 'italic 400 124px "Instrument Serif"';
+ctx.fillText('Piech', x, 350);
+
+// Intro
+ctx.letterSpacing = '0px';
+ctx.fillStyle = '#b2ada4';
+ctx.font = '400 30px Manrope';
+ctx.fillText('I design and build apps.', x + 4, 418);
+
+// Proof pill
+const pillY = 458, pillH = 60, iconSize = 36;
+ctx.font = '600 22px Manrope';
+const name = 'Solvee';
+const nameWidth = ctx.measureText(name).width;
+ctx.font = '400 22px Manrope';
+const rest = '  ·  25,000+ downloads, acquired in 2026';
+const restWidth = ctx.measureText(rest).width;
+const pillW = 12 + iconSize + 14 + nameWidth + restWidth + 24;
+ctx.fillStyle = '#282420';
+roundRect(x, pillY, pillW, pillH, pillH / 2);
+ctx.fill();
+ctx.save();
+roundRect(x + 12, pillY + (pillH - iconSize) / 2, iconSize, iconSize, 10);
+ctx.clip();
+ctx.drawImage(icon, x + 12, pillY + (pillH - iconSize) / 2, iconSize, iconSize);
+ctx.restore();
+const textY = pillY + pillH / 2 + 8;
+ctx.fillStyle = '#f5f2eb';
+ctx.font = '600 22px Manrope';
+ctx.fillText(name, x + 12 + iconSize + 14, textY);
+ctx.fillStyle = '#b2ada4';
+ctx.font = '400 22px Manrope';
+ctx.fillText(rest, x + 12 + iconSize + 14 + nameWidth, textY);
+
+// Address
+ctx.fillStyle = '#716e68';
+ctx.font = '500 20px Manrope';
+ctx.fillText('mikolajpiech.com', x + 2, H - 56);
+
+const status = document.getElementById('status');
+const response = await fetch('/save', { method: 'POST', body: canvas.toDataURL('image/png') });
+status.textContent = response.ok ? 'Saved public/og-image.jpg. You can close this tab.' : 'Saving failed.';
+document.title = response.ok ? 'OG image saved' : 'OG image failed';
+</script>
+</body>
+</html>

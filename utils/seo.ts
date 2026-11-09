@@ -30,9 +30,9 @@ export function getPageMeta(page: PageKey, content: typeof site = site, language
       en: getLocalizedPath(localizedPage, 'en'),
       pl: getLocalizedPath(localizedPage, 'pl'),
     },
-    image: page === 'home' ? `${SITE_URL}/mikolaj-profile.jpg` : DEFAULT_OG_IMAGE,
-    imageWidth: page === 'home' ? 400 : DEFAULT_OG_IMAGE_WIDTH,
-    imageHeight: page === 'home' ? 400 : DEFAULT_OG_IMAGE_HEIGHT,
+    image: DEFAULT_OG_IMAGE,
+    imageWidth: DEFAULT_OG_IMAGE_WIDTH,
+    imageHeight: DEFAULT_OG_IMAGE_HEIGHT,
     noindex: page === 'not_found',
     structuredData: buildStructuredData(page, content, language, `${SITE_URL}${path}`),
   };

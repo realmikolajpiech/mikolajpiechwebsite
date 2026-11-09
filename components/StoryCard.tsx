@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { TransitionLink } from './TransitionLink';
 import { ArrowRight } from 'lucide-react';
 import { ResponsiveImage } from './ResponsiveImage';
 import type { ProjectStory } from '../data/stories';
@@ -19,12 +19,14 @@ export function readLabel(_story: ProjectStory, language: Language) {
 /** The story list: each story is one link with its text on the left and its screens on the right. */
 export function StoryList({ stories, language }: { stories: ProjectStory[]; language: Language }) {
   return <ol className="story-index">
-    {stories.map(story => {
+    {stories.map((story, index) => {
+      // The first story is at or near the fold, so its screens load immediately.
+      const loading = index === 0 ? 'eager' : 'lazy';
       // The middle cover screenshot leads; the other two fan out behind it.
       const [left, main, right] = story.cover.map(index => story.project.screenshots?.[index]);
       const backs = [['left', left], ['right', right]] as const;
       return <li key={story.id} id={story.id} className="story-row" data-story={story.id}>
-        <Link to={story.path} className="story-row-link">
+        <TransitionLink to={story.path} className="story-row-link">
           <div className="story-row-copy">
             <div className="story-row-name">
               {story.project.icon && <img src={story.project.icon} alt="" width={40} height={40} />}
@@ -38,11 +40,11 @@ export function StoryList({ stories, language }: { stories: ProjectStory[]; lang
           </div>
           {main && <div className="story-row-field" aria-hidden="true">
             <span className="story-field-shot">
-              {backs.map(([side, back]) => back && <ResponsiveImage key={side} className="story-field-back" data-side={side} src={back.src} alt="" sizes="(max-width: 767px) 150px, 230px" />)}
-              <ResponsiveImage className="story-field-main" src={main.src} alt="" sizes="(max-width: 767px) 150px, 230px" />
+              {backs.map(([side, back]) => back && <ResponsiveImage key={side} className="story-field-back" data-side={side} src={back.src} alt="" sizes="(max-width: 767px) 150px, 230px" loading={loading} />)}
+              <ResponsiveImage className="story-field-main" src={main.src} alt="" sizes="(max-width: 767px) 150px, 230px" loading={loading} fetchPriority={index === 0 ? 'high' : undefined} />
             </span>
           </div>}
-        </Link>
+        </TransitionLink>
       </li>;
     })}
   </ol>;

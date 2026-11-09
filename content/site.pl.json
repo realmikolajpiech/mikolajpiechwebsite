@@ -84,13 +84,13 @@
     "default_image": "/og-image.jpg",
     "default_image_width": 1200,
     "default_image_height": 630,
-    "meta_description": "Mikołaj Piech — twórca aplikacji i założyciel Clevr Apps. Autor Subby, Trailo i Doso. Poznaj historie moich projektów i stojące za nimi decyzje.",
+    "meta_description": "Mikołaj Piech projektuje i tworzy aplikacje. Założyciel Clevr Apps, współzałożyciel Jedziemy i twórca Solvee: 25 000+ pobrań, sprzedane w 2026.",
     "person_description": "Założyciel Clevr Apps i developer z Polski, który projektuje, tworzy i wdraża aplikacje internetowe, mobilne, strony internetowe oraz oprogramowanie konsumenckie. Współzałożyciel Jedziemy, twórca Trailo, Twoja Sieć, Subby, Doso i Solvee oraz współtwórca Safe Labs.",
     "pages": {
       "home": {
         "title": "Mikołaj Piech",
-        "description": "Mikołaj Piech — twórca aplikacji i założyciel Clevr Apps. Autor Subby, Trailo i Doso. Poznaj historie moich projektów i stojące za nimi decyzje.",
-        "social_description": "Mikołaj Piech — twórca aplikacji i założyciel Clevr Apps. Autor Subby, Trailo i Doso. Poznaj historie moich projektów i stojące za nimi decyzje."
+        "description": "Mikołaj Piech projektuje i tworzy aplikacje. Założyciel Clevr Apps, współzałożyciel Jedziemy i twórca Solvee: 25 000+ pobrań, sprzedane w 2026.",
+        "social_description": "Mikołaj Piech projektuje i tworzy aplikacje. Założyciel Clevr Apps, współzałożyciel Jedziemy i twórca Solvee: 25 000+ pobrań, sprzedane w 2026."
       },
       "portfolio": {
         "title": "Projekty i ich historie | Mikołaj Piech",
@@ -344,6 +344,7 @@
     "authority_label": "Urząd Ochrony Danych Osobowych (UODO)"
   },
   "personal": {
+    "proof_label": "pobrań · sprzedane w 2026",
     "skip": "Przejdź do treści",
     "work_link": "Poznaj moje projekty",
     "work_intro": "Kilka rzeczy, które stworzyłem.",

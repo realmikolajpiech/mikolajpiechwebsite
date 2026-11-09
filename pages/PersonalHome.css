@@ -411,3 +411,36 @@
 }
 @media (prefers-reduced-motion: reduce) {
 }
+
+/* While a screenshot downloads, a phone-shaped surface holds its place instead of an empty field. */
+.story-field-shot img, .story-phones img, .story-figure-shots img { background: rgb(255 255 255 / .16); }
+.story-figure-shots img { background: rgb(0 0 0 / .06); }
+.dark .story-figure-shots img { background: rgb(255 255 255 / .06); }
+
+/* Hero proof: the one recorded result, linked to its story. */
+.personal-proof { max-width: 100%; display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; padding: 8px 14px 8px 10px; border-radius: 999px; background: var(--personal-surface); font-size: 14px; line-height: 1.4; color: var(--personal-muted); transition: background-color 180ms ease, color 180ms ease; }
+.personal-proof img { width: 24px; height: 24px; flex: none; border-radius: 7px; }
+.personal-proof strong { font-weight: 600; color: var(--personal-ink); }
+.personal-proof svg { flex: none; transition: transform 200ms; }
+.personal-home a.personal-proof:hover { color: var(--personal-ink); background: var(--personal-line); }
+.personal-proof:hover svg { transform: translateX(3px); }
+@media (max-width: 767px) { .personal-proof { margin-top: 16px; font-size: 13px; } }
+
+/* Page transitions: a story's screens travel from its card into the story header and on to the next story. */
+.story-row[data-story='jedziemy'] .story-row-field, .story-page[data-story='jedziemy'] .story-cover { view-transition-name: story-jedziemy; }
+.story-row[data-story='solvee'] .story-row-field, .story-page[data-story='solvee'] .story-cover { view-transition-name: story-solvee; }
+.story-row[data-story='subby'] .story-row-field, .story-page[data-story='subby'] .story-cover { view-transition-name: story-subby; }
+.story-row[data-story='twojasiec'] .story-row-field, .story-page[data-story='twojasiec'] .story-cover { view-transition-name: story-twojasiec; }
+.personal-nav { view-transition-name: site-nav; }
+::view-transition-group(*) { animation-duration: 480ms; animation-timing-function: cubic-bezier(.22, 1, .36, 1); }
+::view-transition-old(root) { animation: 200ms ease both vt-fade-out; }
+::view-transition-new(root) { animation: 420ms cubic-bezier(.22, 1, .36, 1) 60ms both vt-rise-in; }
+/* The story field keeps its own shape while it moves; its contents cross-fade inside it. */
+::view-transition-old(*):only-child, ::view-transition-new(*):only-child { animation-duration: 300ms; }
+::view-transition-image-pair(*) { isolation: isolate; }
+::view-transition-old(site-nav), ::view-transition-new(site-nav) { animation: none; }
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-rise-in { from { opacity: 0; transform: translateY(14px); } }
+@media (prefers-reduced-motion: reduce) {
+ ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

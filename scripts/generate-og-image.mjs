@@ -1,64 +1,42 @@
+// Generates public/og-image.jpg (1200×630) with the site's own fonts.
+// SVG renderers cannot load the bundled WOFF2 fonts, so the card is drawn in a
+// browser canvas (scripts/og-image.html) and posted back here to be saved.
+// Usage: npm run og:generate, then open the printed address in any browser.
+import { createServer } from 'node:http';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import sharp from 'sharp';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const root = join(__dirname, '..');
-const publicDir = join(root, 'public');
-const outPath = join(publicDir, 'og-image.jpg');
-const profilePath = join(publicDir, 'mikolaj-profile.jpg');
+const root = resolve(import.meta.dirname, '..');
+const outPath = resolve(root, 'public/og-image.jpg');
+const port = Number(process.env.PORT ?? 4180);
 
-const WIDTH = 1200;
-const HEIGHT = 630;
-const PROFILE_SIZE = 300;
-const PROFILE_X = 810;
-const PROFILE_Y = 165;
-const PROFILE_CENTER = PROFILE_SIZE / 2;
+const files = {
+  '/': ['scripts/og-image.html', 'text/html; charset=utf-8'],
+  '/portrait': ['public/mikolaj-profile.jpg', 'image/jpeg'],
+  '/solvee-icon': ['assets/solvee-logo.png', 'image/png'],
+  '/fonts/instrument-serif-normal.woff2': ['assets/fonts/instrument-serif-normal.woff2', 'font/woff2'],
+  '/fonts/instrument-serif-italic.woff2': ['assets/fonts/instrument-serif-italic.woff2', 'font/woff2'],
+  '/fonts/manrope-latin.woff2': ['assets/fonts/manrope-latin.woff2', 'font/woff2'],
+  '/fonts/manrope-latin-ext.woff2': ['assets/fonts/manrope-latin-ext.woff2', 'font/woff2'],
+};
 
-const circleMask = Buffer.from(
-  `<svg width="${PROFILE_SIZE}" height="${PROFILE_SIZE}">
-    <circle cx="${PROFILE_CENTER}" cy="${PROFILE_CENTER}" r="${PROFILE_CENTER}" fill="white"/>
-  </svg>`,
-);
+const server = createServer(async (request, response) => {
+  if (request.method === 'POST' && request.url === '/save') {
+    const chunks = [];
+    for await (const chunk of request) chunks.push(chunk);
+    const dataUrl = Buffer.concat(chunks).toString('utf8');
+    const png = Buffer.from(dataUrl.replace(/^data:image\/png;base64,/, ''), 'base64');
+    await sharp(png).jpeg({ quality: 90, mozjpeg: true }).toFile(outPath);
+    const { width, height } = await sharp(outPath).metadata();
+    response.writeHead(200).end('ok');
+    console.log(`Generated ${outPath} (${width}×${height})`);
+    server.close();
+    return;
+  }
+  const file = files[request.url];
+  if (!file) return response.writeHead(404).end();
+  response.writeHead(200, { 'content-type': file[1] }).end(await readFile(resolve(root, file[0])));
+});
 
-const profileCircle = await sharp(profilePath)
-  .resize(PROFILE_SIZE, PROFILE_SIZE, { fit: 'cover', position: 'centre' })
-  .composite([{ input: circleMask, blend: 'dest-in' }])
-  .png()
-  .toBuffer();
-
-const layoutSvg = Buffer.from(`<svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1c1917"/>
-      <stop offset="100%" stop-color="#121212"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="82%" cy="48%" r="42%">
-      <stop offset="0%" stop-color="#292524" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#1c1917" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-
-  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#bg)"/>
-  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#glow)"/>
-
-  <text x="72" y="132" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-style="italic" fill="#fafaf9">Mikołaj Piech</text>
-  <text x="72" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="300" fill="#fafaf9">I design &amp; build</text>
-  <text x="72" y="342" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="300" font-style="italic" fill="#a8a29e">digital products.</text>
-  <text x="72" y="412" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="300" fill="#78716c">Founder &amp; Developer</text>
-
-  <rect x="72" y="456" width="292" height="64" rx="32" fill="#fafaf9"/>
-  <text x="218" y="497" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#121212" text-anchor="middle">Start a project →</text>
-
-  <circle cx="${PROFILE_X + PROFILE_CENTER}" cy="${PROFILE_Y + PROFILE_CENTER}" r="${PROFILE_CENTER + 18}" fill="none" stroke="#292524" stroke-width="2"/>
-  <circle cx="${PROFILE_X + PROFILE_CENTER}" cy="${PROFILE_Y + PROFILE_CENTER}" r="${PROFILE_CENTER + 10}" fill="none" stroke="#44403c" stroke-width="2"/>
-</svg>`);
-
-await sharp(layoutSvg)
-  .resize(WIDTH, HEIGHT)
-  .composite([{ input: profileCircle, left: PROFILE_X, top: PROFILE_Y }])
-  .jpeg({ quality: 92, mozjpeg: true })
-  .toFile(outPath);
-
-const { width, height } = await sharp(outPath).metadata();
-console.log(`Generated ${outPath} (${width}×${height})`);
+server.listen(port, '127.0.0.1', () => console.log(`Open http://127.0.0.1:${port}/ in a browser to render the OG image.`));

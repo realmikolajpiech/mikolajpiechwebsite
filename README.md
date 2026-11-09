@@ -21,7 +21,9 @@ Fonts are generated from Fontsource into committed WOFF2 files under `assets/fon
 
 Secondary React pages load in separate client chunks. The server entry supplies eager page components so prerendering produces complete HTML; Suspense preserves it while a direct visit hydrates its page chunk. Framer Motion stays with the pages that use it. Responsive image generation includes the WebP portrait, 160–320 px previews, and 48 px icons; changes to the generator invalidate cached variants.
 
-The homepage uses the existing portrait as its social and primary image. Other pages retain the existing social graphic; `npm run og:generate` remains available to regenerate that graphic. `npm run llm:generate` rebuilds the shared server module before generating the guides and external portfolio schema. `/crawl/portfolio` and `/crawl/portfolio.html` redirect to the already-prerendered portfolio.
+All pages share the 1200×630 social card `public/og-image.jpg`; the portrait remains the homepage's primary image and the Person schema image. `npm run og:generate` starts a small local server; open the printed address in a browser, which draws the card with the site's own fonts (`scripts/og-image.html`) and saves it. Favicons (`public/favicon-48.png`, `public/apple-touch-icon.png`) are crops of the portrait.
+
+Story screens morph between the story lists and story pages with the View Transitions API: cross-document transitions for the static homepage (opted in from `index.html`) and React Router's `viewTransition` links on hydrated pages. Browsers without support navigate normally. `npm run llm:generate` rebuilds the shared server module before generating the guides and external portfolio schema. `/crawl/portfolio` and `/crawl/portfolio.html` redirect to the already-prerendered portfolio.
 
 **Pending copy and external work**
 

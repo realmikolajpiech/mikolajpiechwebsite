@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowUpRight, Github, Instagram, Linkedin } from 'lucide-react';
+import { ArrowDown, ArrowRight, ArrowUpRight, Github, Instagram, Linkedin } from 'lucide-react';
 import { PageMeta } from '../components/PageMeta';
 import { SiteNav } from '../components/SiteNav';
+import { TransitionLink } from '../components/TransitionLink';
 import { ContactForm } from '../components/ContactForm';
 import { StoryList } from '../components/StoryCard';
 import { ResponsiveImage } from '../components/ResponsiveImage';
-import { getHomeStories } from '../data/stories';
+import { getHomeStories, getStory } from '../data/stories';
 import { getPageMeta } from '../utils/seo';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedPath } from '../utils/localizedRoutes';
@@ -39,6 +40,8 @@ export default function Home() {
   const [before, after] = site.hero.intro.split('Clevr Apps');
   const hasClevrAppsLink = after !== undefined;
   const stories = getHomeStories(language);
+  // The strongest recorded result leads straight to its story.
+  const proof = getStory('solvee', language);
 
   return (
     <div className="personal-home">
@@ -50,6 +53,11 @@ export default function Home() {
           <div className="personal-intro">
             <h1 id="intro-title">Mikołaj <span>Piech</span></h1>
             <p>{hasClevrAppsLink ? <>{before}<a href="https://clevrapps.com/" target="_blank" rel="noopener noreferrer">Clevr Apps</a>{after}</> : site.hero.intro}</p>
+            {proof?.stat && <TransitionLink className="personal-proof" to={proof.path}>
+              {proof.project.icon && <img src={proof.project.icon} alt="" width={24} height={24} />}
+              <span><strong>{proof.project.name}</strong> · {proof.stat.value} {copy.proof_label}</span>
+              <ArrowRight size={14} aria-hidden="true" />
+            </TransitionLink>}
             <div className="personal-intro-links">
               <a href="#work">{copy.work_link}<ArrowDown size={16} aria-hidden="true" /></a>
               <a href="#about">{copy.about_title}</a>
