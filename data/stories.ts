@@ -32,7 +32,7 @@ export function getStories(language: Language): ProjectStory[] {
     make('jedziemy', {
       kind: tr('Project notes · ongoing', 'O projekcie · w rozwoju'),
       title: tr('One platform for the office, instructors and students.', 'Jedna platforma dla biura, instruktora i kursanta.'),
-      summary: tr('I co-founded Jedziemy with Marcel Chudyba. I work on product design and engineering across the office dashboard and the instructor and student app.', 'Współtworzę Jedziemy z Marcelem Chudybą. Odpowiadam za projekt produktu i programowanie panelu biura oraz aplikacji instruktora i kursanta.'),
+      summary: tr('I co-founded Jedziemy with Marcel Chudyba. I work on product design and engineering across the office dashboard and the instructor and student app.', 'Tworzę Jedziemy z Marcelem Chudybą. Odpowiadam za projekt produktu i programowanie panelu biura oraz aplikacji instruktora i kursanta.'),
       role: tr('Co-founder · Product design & engineering', 'Współzałożyciel · Projekt i programowanie'),
       outcome: tr('An ongoing project with Marcel Chudyba', 'Projekt rozwijany z Marcelem Chudybą'),
       note: tr('Lesson scheduling, payments, and a theory course with mock exams.', 'Grafik jazd, rozliczenia oraz kurs teorii z egzaminami próbnymi.'),
