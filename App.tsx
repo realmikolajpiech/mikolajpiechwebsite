@@ -1,9 +1,9 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useLayoutEffect } from 'react';
 import { MotionExperience } from './components/MotionExperience';
 import { Analytics } from '@vercel/analytics/react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
-import { useEffect } from 'react';
+import { finishRouteTransition } from './components/TransitionLink';
 import { LanguageProvider } from './context/LanguageContext';
 import { clearLanguageScroll, getLanguageScroll } from './utils/languageScroll';
 
@@ -21,10 +21,10 @@ type Pages = Record<keyof typeof clientPages, React.ComponentType>;
 
 // ScrollToTop component to handle scrolling on route change
 function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
   const languageScrollY = getLanguageScroll(pathname);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof languageScrollY === 'number' && Number.isFinite(languageScrollY)) {
       let secondFrame = 0;
       const firstFrame = requestAnimationFrame(() => {
@@ -51,6 +51,8 @@ function ScrollToTop() {
     // A new page starts at the top at once; the page transition supplies the motion.
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [pathname, hash, languageScrollY]);
+
+  useLayoutEffect(finishRouteTransition, [key]);
 
   return null;
 }

@@ -49,9 +49,23 @@
         color: #fafaf9;
       }
 
-      /* Same-site page loads animate between documents (see PersonalHome.css). */
+      /* The browser needs these rules before the deferred stylesheet loads. */
       @media (prefers-reduced-motion: no-preference) {
         @view-transition { navigation: auto; }
+        .story-row[data-story='jedziemy'] .story-row-field, .story-page[data-story='jedziemy'] .story-cover { view-transition-name: story-jedziemy; }
+        .story-row[data-story='solvee'] .story-row-field, .story-page[data-story='solvee'] .story-cover { view-transition-name: story-solvee; }
+        .story-row[data-story='subby'] .story-row-field, .story-page[data-story='subby'] .story-cover { view-transition-name: story-subby; }
+        .story-row[data-story='twojasiec'] .story-row-field, .story-page[data-story='twojasiec'] .story-cover { view-transition-name: story-twojasiec; }
+        .personal-nav { view-transition-name: site-nav; }
+        ::view-transition-group(*) { animation-duration: 480ms; animation-timing-function: cubic-bezier(.22, 1, .36, 1); }
+        ::view-transition-old(root) { animation: 200ms ease both vt-fade-out; }
+        ::view-transition-new(root) { animation: 420ms cubic-bezier(.22, 1, .36, 1) 60ms both vt-rise-in; }
+        /* The story field keeps its own shape while it moves; its contents cross-fade inside it. */
+        ::view-transition-old(*):only-child, ::view-transition-new(*):only-child { animation-duration: 300ms; }
+        ::view-transition-image-pair(*) { isolation: isolate; }
+        ::view-transition-old(site-nav), ::view-transition-new(site-nav) { animation: none; }
+        @keyframes vt-fade-out { to { opacity: 0; } }
+        @keyframes vt-rise-in { from { opacity: 0; transform: translateY(14px); } }
       }
 
     </style>
