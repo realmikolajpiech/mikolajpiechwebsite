@@ -129,7 +129,7 @@
     "jedziemy": {
       "tagline": "Jazdy, godziny i wpłaty w szkole jazdy",
       "homepage_description": "Mój najnowszy projekt: jedno miejsce, w którym szkoła jazdy ustala jazdy i pilnuje godzin oraz wpłat, z mniejszą liczbą telefonów.",
-      "description": "Jedziemy łączy panel biura szkoły jazdy z aplikacją instruktora i kursanta. Jazdy, godziny, wpłaty oraz nauka teorii z egzaminami próbnymi są w jednym miejscu, więc mniej spraw wymaga telefonu.",
+      "description": "Jedziemy to oprogramowanie dla szkół jazdy: panel biura oraz aplikacja instruktora i kursanta. Instruktor proponuje termin, kursant potwierdza go w aplikacji, a biuro widzi odbyte godziny i wpłaty bez dopytywania. Kursanci uczą się też teorii w tej samej aplikacji.",
       "link_text": "Odwiedź stronę",
       "status": "Nowy"
     },

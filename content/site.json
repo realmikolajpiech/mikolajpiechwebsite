@@ -129,7 +129,7 @@
     "jedziemy": {
       "tagline": "Lessons, hours, and payments for driving schools",
       "homepage_description": "My newest project: one place for driving schools to schedule lessons and track hours and payments, with fewer phone calls.",
-      "description": "Jedziemy brings a driving school's office dashboard and its instructor and student app together. Lessons, hours, payments, and theory practice with mock exams are in one place, so fewer things need a phone call.",
+      "description": "Jedziemy is software for Polish driving schools: an office dashboard plus an instructor and student app. Instructors propose lessons, students confirm them in the app, and the office sees completed hours and payments without asking around. Students also prepare for the theory exam in the same app.",
       "link_text": "Visit website",
       "status": "New"
     },

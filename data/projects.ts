@@ -45,6 +45,9 @@ const jedziemyLogo = imageManifest['assets/jedziemy/app-logo.png'].src;
 const jedziemyTheoryPath = imageManifest['assets/jedziemy/teoria-path.jpg'].src;
 const jedziemyTheoryTraining = imageManifest['assets/jedziemy/teoria-training.jpg'].src;
 const jedziemyTheoryAnswer = imageManifest['assets/jedziemy/teoria-answer.jpg'].src;
+const jedziemyRideProposal = imageManifest['assets/jedziemy/jazda-propozycja.webp'].src;
+const jedziemyRideConfirm = imageManifest['assets/jedziemy/jazda-potwierdzenie.webp'].src;
+const jedziemyRideSummary = imageManifest['assets/jedziemy/jazda-podsumowanie.webp'].src;
 const dragonHome = imageManifest['assets/dragon/dragon-home.jpg'].src;
 const dragonClasses = imageManifest['assets/dragon/dragon-classes.jpg'].src;
 const dragonSignup = imageManifest['assets/dragon/dragon-signup.jpg'].src;
@@ -86,14 +89,19 @@ function buildAllProjects(language: Language): Project[] {
     scope: tr('Full product · with Marcel Chudyba', 'Kompleksowa realizacja · z Marcelem Chudybą'),
     status: site.projects.jedziemy.status,
     link: 'https://jedziemy.app',
+    appStoreLink: 'https://apps.apple.com/pl/app/jedziemy-grafik-jazd/id6825823809',
+    playStoreLink: 'https://play.google.com/store/apps/details?id=app.jedziemy',
     linkText: site.projects.jedziemy.link_text,
     icon: jedziemyLogo,
-    image: jedziemyTheoryPath,
+    image: jedziemyRideConfirm,
     layout: 'split',
     screenshots: [
+      { src: jedziemyRideProposal, alt: tr('Jedziemy instructor app: summary of a lesson proposal for Saturday, 28 November, 15:00–17:00, with a “Send proposal” button', 'Aplikacja instruktora Jedziemy: podsumowanie propozycji jazdy na sobotę 28 listopada, 15:00–17:00, z przyciskiem „Wyślij propozycję”'), variant: 'phone' },
+      { src: jedziemyRideConfirm, alt: tr('Jedziemy student app: a proposed Saturday lesson, 15:00–17:00, with a “Confirm lesson” button', 'Aplikacja kursanta Jedziemy: propozycja jazdy na sobotę 15:00–17:00 z przyciskiem „Potwierdź jazdę”'), variant: 'phone' },
+      { src: jedziemyRideSummary, alt: tr('Jedziemy instructor app after a lesson: 2 hours of driving and the skills the student should practise again', 'Aplikacja instruktora Jedziemy po jeździe: 2 godziny prowadzenia i umiejętności do powtórki'), variant: 'phone' },
       { src: jedziemyTheoryPath, alt: tr('Jedziemy theory course path for a category B student', 'Ścieżka nauki teorii kursanta kategorii B w Jedziemy'), variant: 'phone' },
-      { src: jedziemyTheoryTraining, alt: tr('Jedziemy theory training session', 'Sesja nauki teorii w Jedziemy'), variant: 'phone' },
       { src: jedziemyTheoryAnswer, alt: tr('Jedziemy theory question with answer feedback', 'Pytanie z teorii z omówieniem odpowiedzi w Jedziemy'), variant: 'phone' },
+      { src: jedziemyTheoryTraining, alt: tr('Jedziemy theory practice: mock exam, questions to fix, saved questions and recent exam results', 'Trening teorii w Jedziemy: egzamin próbny, pytania do poprawy, zapisane pytania i wyniki ostatnich egzaminów'), variant: 'phone' },
     ],
   },
   {

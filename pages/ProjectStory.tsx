@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { TransitionLink } from '../components/TransitionLink';
-import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Apple, Play } from 'lucide-react';
 import { SiteNav } from '../components/SiteNav';
 import { PageMeta } from '../components/PageMeta';
 import { ResponsiveImage } from '../components/ResponsiveImage';
@@ -57,6 +57,11 @@ export default function ProjectStory() {
       <header className="story-header">
         <h1>{story.title}</h1>
         <p className="story-intro">{story.summary}</p>
+        <div className="story-actions">
+          <a className="story-action" href={story.action.href} target="_blank" rel="noopener">{story.action.label}<ArrowUpRight size={16} aria-hidden="true" /></a>
+          {story.project.appStoreLink && <a className="story-store" href={story.project.appStoreLink} target="_blank" rel="noopener"><Apple size={16} aria-hidden="true" />App Store</a>}
+          {story.project.playStoreLink && <a className="story-store" href={story.project.playStoreLink} target="_blank" rel="noopener"><Play size={15} aria-hidden="true" />Google Play</a>}
+        </div>
       </header>
 
       <div className="story-cover" aria-hidden="true"><StoryPhones story={story} sizes="(max-width: 767px) 34vw, 240px" eager /></div>
@@ -81,7 +86,6 @@ export default function ProjectStory() {
 
         {!!story.project.technologies?.length && <details className="story-technical"><summary>{pl ? 'Szczegóły techniczne' : 'Technical details'}</summary><dl>{story.project.technologies.map(tech => <div key={tech.label}><dt>{tech.label}</dt><dd>{tech.items}</dd></div>)}</dl></details>}
 
-        <a className="story-action" href={story.action.href} target="_blank" rel="noopener">{story.action.label}<ArrowUpRight size={16} aria-hidden="true" /></a>
       </div>
 
       <NextStory key={next.id} next={next} pl={pl} language={language} />
