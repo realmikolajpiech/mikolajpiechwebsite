@@ -68,7 +68,7 @@
   "hero": {
     "headline_line1": "Mikołaj Piech",
     "headline_line2": "",
-    "intro": "I design and build apps. I run Clevr Apps and co-founded Jedziemy.",
+    "intro": "I design and build apps. I run Clevr Apps and I'm currently building Jedziemy.",
     "link_descriptions": {
       "Trailo": "AI-powered trip planning.",
       "Subby": "Subscription and upcoming payment tracking.",
@@ -357,7 +357,6 @@
     "nav_contact": "Contact",
     "about_paragraphs": [
       "I like taking an idea or a problem to something people actually use: the design, the code, the launch, and what happens after.",
-      "I’m most interested in the business side: why people choose one product over another, and what makes them come back.",
       "Away from the screen I read a lot, train, and travel whenever I can :)"
     ],
     "contact_title": "Say hello.",

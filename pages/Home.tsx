@@ -37,8 +37,13 @@ export default function Home() {
   const { language, site } = useLanguage();
   const copy = site.personal;
   const portfolioPath = getLocalizedPath('portfolio', language);
-  const [before, after] = site.hero.intro.split('Clevr Apps');
-  const hasClevrAppsLink = after !== undefined;
+  const introLinks: Record<string, string> = {
+    'Clevr Apps': 'https://clevrapps.com/',
+    Jedziemy: 'https://jedziemy.app/',
+  };
+  const intro = site.hero.intro.split(/(Clevr Apps|Jedziemy)/).map((part, index) => introLinks[part]
+    ? <a key={index} href={introLinks[part]} target="_blank" rel="noopener noreferrer">{part}</a>
+    : part);
   const stories = getHomeStories(language);
   // The strongest recorded result leads straight to its story.
   const proof = getStory('solvee', language);
@@ -52,7 +57,7 @@ export default function Home() {
         <section className="personal-hero" aria-labelledby="intro-title">
           <div className="personal-intro">
             <h1 id="intro-title">Mikołaj <span>Piech</span></h1>
-            <p>{hasClevrAppsLink ? <>{before}<a href="https://clevrapps.com/" target="_blank" rel="noopener noreferrer">Clevr Apps</a>{after}</> : site.hero.intro}</p>
+            <p>{intro}</p>
             {proof?.stat && <TransitionLink className="personal-proof" to={proof.path}>
               {proof.project.icon && <img src={proof.project.icon} alt="" width={24} height={24} />}
               <span><strong>{proof.project.name}</strong> · {proof.stat.value} {copy.proof_label}</span>
