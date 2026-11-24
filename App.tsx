@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Home from './pages/Home';
 import { finishRouteTransition } from './components/TransitionLink';
 import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { clearLanguageScroll, getLanguageScroll } from './utils/languageScroll';
 
 // Secondary pages (including the animation/gallery runtime) load on navigation.
@@ -63,21 +64,24 @@ export function AppRoutes({ pages = clientPages }: { pages?: Pages } = {}) {
     <LanguageProvider>
       <Analytics />
       <Suspense fallback={null}>
-      <ScrollToTop />
-      <MotionExperience />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/projects/:slug" element={<ProjectStory />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/doso/privacy" element={<DosoPrivacy />} />
-        <Route path="/doso/support" element={<DosoSupport />} />
-        <Route path="/pl" element={<Home />} />
-        <Route path="/pl/portfolio" element={<Portfolio />} />
-        <Route path="/pl/projects/:slug" element={<ProjectStory />} />
-        <Route path="/pl/polityka-prywatnosci" element={<PrivacyPolicy />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+        {/* Read the stored theme after the prerendered route has hydrated. */}
+        <ThemeProvider>
+          <ScrollToTop />
+          <MotionExperience />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/projects/:slug" element={<ProjectStory />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/doso/privacy" element={<DosoPrivacy />} />
+            <Route path="/doso/support" element={<DosoSupport />} />
+            <Route path="/pl" element={<Home />} />
+            <Route path="/pl/portfolio" element={<Portfolio />} />
+            <Route path="/pl/projects/:slug" element={<ProjectStory />} />
+            <Route path="/pl/polityka-prywatnosci" element={<PrivacyPolicy />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </ThemeProvider>
       </Suspense>
     </LanguageProvider>
   );

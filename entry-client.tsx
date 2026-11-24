@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { ThemeProvider } from './context/ThemeContext';
 import { applyThemeClass, getStoredTheme } from './utils/theme';
 
 const rootElement = document.getElementById('root');
@@ -13,9 +12,7 @@ applyThemeClass(getStoredTheme());
 
 const app = (
   <React.StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <App />
   </React.StrictMode>
 );
 
